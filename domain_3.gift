@@ -1,0 +1,704 @@
+::D3-Q1:: Saat merancang sistem yang harus menangani kegagalan atau "crash", seorang insinyur keamanan memilih agar sistem secara otomatis mengunci semua akses dan memutus komunikasi jaringan. Berdasarkan prinsip desain, konsep apa yang sedang diterapkan? {
+=Fail-secure. #Benar! Prinsip fail-secure memprioritaskan kerahasiaan dan integritas dengan menutup akses saat terjadi kegagalan demi mencegah akses tidak sah [1].
+~Fail-open. #Salah. Fail-open justru akan membiarkan akses tetap terbuka untuk menjaga ketersediaan.
+~Fail-soft. #Salah. Fail-soft memungkinkan sistem beroperasi dengan fungsi terbatas, bukan memutus total.
+~Security through obscurity. #Salah. Ini adalah konsep menyembunyikan kelemahan sistem, bukan mekanisme penanganan kegagalan.
+}
+
+::D3-Q2:: Dalam mengevaluasi arsitektur keamanan, manakah yang merupakan kelemahan utama dari pendekatan "Trust but Verify" dibandingkan dengan arsitektur "Zero Trust"? {
+=Trust but verify berasumsi bahwa entitas internal dapat dipercaya secara default. #Benar! Pendekatan ini rentan terhadap pergerakan lateral oleh penyerang internal, sedangkan Zero Trust tidak memberikan kepercayaan otomatis kepada siapapun [2, 3].
+~Zero Trust membutuhkan biaya lebih murah untuk diimplementasikan. #Salah. Zero Trust justru membutuhkan mikrosegmentasi yang kompleks dan mahal.
+~Trust but verify mengandalkan mikrosegmentasi yang ketat. #Salah. Mikrosegmentasi adalah karakteristik utama dari Zero Trust.
+~Zero Trust tidak memerlukan autentikasi multi-faktor. #Salah. Zero Trust sangat bergantung pada autentikasi yang kuat seperti MFA pada setiap permintaan akses.
+}
+
+::D3-Q3:: Model keamanan Bell-LaPadula dirancang untuk mencegah kebocoran informasi. Jika seorang subjek memiliki akses "Secret", aturan mana yang mencegahnya membaca dokumen "Top Secret"? {
+=Simple Security Property. #Benar! Aturan ini dikenal sebagai "No Read-Up" yang mencegah subjek membaca objek dengan klasifikasi lebih tinggi [4].
+~Star-Property. #Salah. Star-Property adalah aturan "No Write-Down" untuk mencegah penulisan ke tingkat yang lebih rendah.
+~Discretionary Security Property. #Salah. Ini mengatur akses berbasis matriks diskresioner, bukan klasifikasi.
+~Simple Integrity Property. #Salah. Ini adalah aturan Biba yang berfokus pada integritas, bukan kerahasiaan Bell-LaPadula.
+}
+
+::D3-Q4:: Anda diminta menganalisis integritas sebuah sistem perbankan. Model keamanan mana yang paling tepat digunakan karena membatasi modifikasi data hanya melalui program perantara atau "well-formed transactions"? {
+=Clark-Wilson. #Benar! Model Clark-Wilson menggunakan "access control triplet" (subjek/program/objek) untuk melindungi integritas data komersial [5].
+~Biba. #Salah. Biba menggunakan label klasifikasi seperti Bell-LaPadula untuk mencegah modifikasi oleh subjek tingkat rendah.
+~Brewer and Nash. #Salah. Model ini dirancang untuk mencegah konflik kepentingan, bukan secara khusus untuk transaksi.
+~Take-Grant. #Salah. Model ini hanya mengatur bagaimana hak akses diberikan atau diambil antar subjek.
+}
+
+::D3-Q5:: Seorang konsultan keamanan mengevaluasi konflik kepentingan pada biro iklan yang menangani klien-klien yang saling bersaing. Model apa yang membatasi akses subjek secara dinamis untuk mencegah akses ke data pesaing? {
+=Brewer and Nash. #Benar! Model ini secara dinamis mengubah hak akses berdasarkan aktivitas sebelumnya untuk menghindari konflik kepentingan [6].
+~Clark-Wilson. #Salah. Ini adalah model integritas komersial berbasis transaksi.
+~Bell-LaPadula. #Salah. Ini adalah model kerahasiaan militer statis.
+~State Machine. #Salah. Ini adalah konsep dasar model, bukan model yang khusus menangani konflik kepentingan.
+}
+
+::D3-Q6:: Menganalisis konsep Trusted Computing Base (TCB), apakah komponen abstrak yang memvalidasi setiap permintaan akses dari subjek ke objek sebelum memberikan izin? {
+=Reference monitor. #Benar! Reference monitor memvalidasi setiap akses dan diimplementasikan secara teknis sebagai security kernel [7].
+~Security domain. #Salah. Security domain adalah kumpulan subjek dan objek yang berbagi kebijakan keamanan yang sama.
+~Trusted path. #Salah. Ini adalah jalur komunikasi aman antar komponen.
+~State machine. #Salah. Ini adalah model untuk mempertahankan status sistem.
+}
+
+::D3-Q7:: Mengingat prinsip "Keep it simple and small" (KISS), apa alasan utama mengapa kompleksitas dalam kode perangkat lunak harus dihindari dari perspektif keamanan? {
+=Kompleksitas meningkatkan attack surface dan membuat pengujian menjadi lebih sulit. #Benar! Semakin kompleks sebuah sistem, semakin banyak celah potensial dan semakin sulit untuk diverifikasi keamanannya [8].
+~Kompleksitas selalu menyebabkan penurunan kinerja hardware. #Salah. Kompleksitas perangkat lunak tidak selalu berarti penurunan kinerja fisik hardware.
+~Kompleksitas bertentangan dengan prinsip open-source. #Salah. Proyek open-source bisa saja sangat kompleks.
+~Kompleksitas mewajibkan penggunaan enkripsi asimetris. #Salah. Kompleksitas tidak ada hubungannya dengan kewajiban penggunaan jenis kriptografi tertentu.
+}
+
+::D3-Q8:: Jika seorang analis keamanan ingin membatasi proses aktif hanya dapat mengakses alokasi memorinya sendiri tanpa mengganggu proses lain, konsep apa yang harus diimplementasikan? {
+=Confinement, Bounds, dan Isolation. #Benar! Confinement memastikan proses tetap di area memorinya, bounds adalah batasnya, dan isolation adalah mekanismenya [9].
+~Transitive trust. #Salah. Transitive trust berkaitan dengan warisan kepercayaan antar entitas jaringan.
+~Security through obscurity. #Salah. Ini berarti menyembunyikan cacat alih-alih mengamankannya.
+~Microservices. #Salah. Ini adalah arsitektur pengembangan web, bukan manajemen memori proses.
+}
+
+::D3-Q9:: Model Biba dirancang dengan fokus pada perlindungan integritas. Aturan mana dari Biba yang menetapkan bahwa subjek tingkat tinggi tidak boleh membaca objek dari tingkat integritas yang lebih rendah? {
+=Simple Integrity Property. #Benar! Aturan ini dikenal dengan prinsip "No Read-Down" untuk mencegah subjek terpengaruh oleh data berkualitas rendah [10].
+~Star Integrity Property. #Salah. Ini adalah prinsip "No Write-Up" yang mencegah subjek memodifikasi data tingkat tinggi.
+~Invocation Property. #Salah. Aturan ini mencegah subjek meminta akses ke subjek dengan integritas lebih tinggi.
+~Simple Security Property. #Salah. Ini adalah aturan Bell-LaPadula.
+}
+
+::D3-Q10:: Dalam metodologi Common Criteria (ISO 15408), dokumen apa yang mendefinisikan persyaratan dan tingkat keamanan yang diinginkan oleh pihak pelanggan atau pembeli? {
+=Protection Profile (PP). #Benar! PP menentukan kebutuhan pelanggan, sedangkan vendor menjawabnya dengan Security Target [11].
+~Security Target (ST). #Salah. ST adalah spesifikasi yang diklaim dan diimplementasikan oleh vendor.
+~Evaluation Assurance Level (EAL). #Salah. EAL adalah tingkatan pengujian yang diselesaikan.
+~Target of Evaluation (TOE). #Salah. TOE adalah produk yang sedang diuji itu sendiri.
+}
+
+::D3-Q11:: Berdasarkan kerangka kerja RMF (Risk Management Framework), siapa yang memiliki wewenang untuk menerbitkan Authorization to Operate (ATO) bagi sebuah sistem IT? {
+=Authorizing Official (AO). #Benar! AO adalah pihak berwenang yang mengevaluasi risiko sistem dan menerbitkan ATO [12].
+~Security Auditor. #Salah. Auditor hanya meninjau dan melaporkan temuan, bukan memberikan wewenang operasional.
+~Chief Information Officer (CIO). #Salah. Walaupun CIO punya peran eksekutif, wewenang RMF spesifik dipegang oleh AO.
+~Data Custodian. #Salah. Kustodian mengelola data sehari-hari, bukan mengesahkan sistem.
+}
+
+::D3-Q12:: Mengevaluasi konsep "Privacy by Design" (PbD), manakah pernyataan yang paling akurat mewakili prinsip fondasinya? {
+=Privasi harus diterapkan secara proaktif dan tertanam sebagai default sejak tahap awal pengembangan. #Benar! PbD mencegah pelanggaran privasi dengan menjadikannya standar sejak fase desain [13, 14].
+~Privasi hanya diterapkan melalui perjanjian hukum di tahap akhir penyebaran. #Salah. PbD menolak penambahan privasi di akhir proses (tacking it on at the end).
+~Privasi harus diimplementasikan dengan mengorbankan sebagian fungsi keamanan. #Salah. PbD berprinsip "positive-sum" (win-win), bukan mengorbankan keamanan.
+~Privasi hanya relevan untuk aplikasi yang memproses kartu kredit. #Salah. Privasi relevan untuk segala PII, bukan hanya kartu kredit.
+}
+
+::D3-Q13:: Manakah dari jenis komputasi awan (cloud) yang menempatkan tanggung jawab keamanan untuk sistem operasi, aplikasi, dan patch sepenuhnya di tangan pelanggan? {
+=Infrastructure as a Service (IaaS). #Benar! Pada IaaS, penyedia cloud hanya mengelola infrastruktur perangkat keras, sementara konsumen mengelola OS ke atas [15].
+~Platform as a Service (PaaS). #Salah. Pada PaaS, penyedia cloud mengurus OS, dan konsumen hanya mengelola aplikasi.
+~Software as a Service (SaaS). #Salah. Pada SaaS, penyedia cloud mengurus semuanya termasuk aplikasi.
+~Identity as a Service (IDaaS). #Salah. Ini adalah spesifik pada manajemen identitas, bukan keseluruhan sistem.
+}
+
+::D3-Q14:: Menghadapi arsitektur aplikasi modern, apa keunggulan utama arsitektur "Microservices" dari perspektif pengembang dan keamanan? {
+=Memungkinkan aplikasi dibagi menjadi layanan independen kecil yang dapat diskalakan dan diperbarui tanpa mengganggu keseluruhan sistem. #Benar! Microservices bersifat loosely coupled dan scalable [16].
+~Memusatkan seluruh logika bisnis dalam satu wadah monolitik untuk mempermudah audit. #Salah. Microservices memecah arsitektur monolitik.
+~Secara otomatis mengenkripsi semua data dalam database relasional. #Salah. Microservices tidak secara otomatis mengatur enkripsi database.
+~Membutuhkan lebih sedikit API dibandingkan aplikasi tradisional. #Salah. Microservices justru sangat bergantung pada komunikasi antar-API.
+}
+
+::D3-Q15:: Dalam lingkungan tervirtualisasi, apa nama kerentanan di mana penyerang dapat keluar dari batasan mesin virtual (VM) dan berinteraksi langsung dengan hypervisor atau host OS? {
+=VM Escape. #Benar! VM Escape adalah eksploitasi berbahaya di mana batasan virtualisasi ditembus, mengancam seluruh lingkungan host [17].
+~VM Sprawl. #Salah. Ini adalah manajemen buruk yang menyebabkan banyak VM tidak terpantau.
+~VDI Spoofing. #Salah. Ini bukan istilah standar untuk kerentanan hypervisor.
+~Containerization. #Salah. Ini adalah jenis teknologi virtualisasi, bukan nama serangan.
+}
+
+::D3-Q16:: Perangkat Internet of Things (IoT) sering menjadi sasaran karena satu kelemahan desain umum yang dimiliki pabrikan. Apakah kelemahan tersebut? {
+=Penggunaan kredensial dan kata sandi default yang lemah serta sulitnya melakukan patch perangkat. #Benar! IoT sering kali dirancang dengan anggaran rendah, mengabaikan patch, dan menggunakan kata sandi default [18].
+~Penggunaan enkripsi asimetris yang memakan terlalu banyak daya baterai. #Salah. Masalah utama adalah ketiadaan pengamanan dasar, bukan enkripsi asimetris.
+~Perangkat IoT selalu tidak dapat terhubung ke internet. #Salah. Jika tidak terhubung, mereka tidak akan mudah diserang oleh botnet jarak jauh.
+~Perangkat IoT menggunakan protokol militer usang. #Salah. Perangkat IoT umumnya menggunakan Wi-Fi, Bluetooth, atau Zigbee.
+}
+
+::D3-Q17:: Arsitektur Edge Computing mentransfer beban pemrosesan komputasi lebih dekat ke lokasi pengumpulan data. Apa manfaat utama dan dampak keamanan yang perlu diperhatikan? {
+=Mengurangi latensi dan bandwidth yang dibutuhkan, tetapi meningkatkan kompleksitas manajemen perangkat di lokasi terpencil. #Benar! Komputasi dilakukan secara lokal di perangkat, mengurangi latensi namun menyebar attack surface [19].
+~Meningkatkan latensi karena semua data harus dikirim ke cloud pusat sebelum diproses. #Salah. Edge computing justru mengurangi pengiriman ke pusat.
+~Mengeliminasi seluruh kebutuhan enkripsi data in-transit. #Salah. Data yang dikirim antar node edge tetap membutuhkan enkripsi.
+~Mencegah serangan Denial of Service sepenuhnya karena perangkat tidak berinteraksi. #Salah. Perangkat edge tetap dapat terkena DoS atau menjadi bagian botnet.
+}
+
+::D3-Q18:: Sebuah organisasi mengubah pendekatan arsitektur perutean (routing) untuk memisahkan "control plane" dari "data plane", sehingga mempercepat otomatisasi jaringan. Teknologi apa yang sedang digunakan? {
+=Software-Defined Networking (SDN). #Benar! SDN memisahkan control plane yang membuat keputusan perutean dari data plane yang meneruskan paket [20].
+~Content Distribution Network (CDN). #Salah. CDN digunakan untuk mengoptimalkan pengiriman konten statis melalui cache geografis.
+~Hardware-Defined Security. #Salah. Ini bukan istilah standar untuk pemisahan data plane.
+~Secure Access Service Edge (SASE). #Salah. SASE adalah konvergensi WAN dan keamanan awan, meski bisa menggunakan SDN.
+}
+
+::D3-Q19:: Manakah dari perlindungan memori OS yang mengisolasi proses satu dengan yang lain dan mencegah proses membaca area memori di luar batas kemampuannya? {
+=Process isolation. #Benar! Isolasi proses memastikan OS menyediakan ruang memori yang terpisah, dilindungi oleh bound yang jelas [21].
+~Read-Only Memory (ROM). #Salah. ROM adalah tipe penyimpanan, bukan teknik perlindungan ruang memori saat proses berjalan.
+~State machine. #Salah. Ini adalah model untuk menilai kondisi aman dari keseluruhan sistem.
+~Polyinstantiation. #Salah. Ini digunakan di database untuk menangani masalah inferensi, bukan perlindungan memori proses.
+}
+
+::D3-Q20:: Konsep SASE (Secure Access Service Edge) merupakan konvergensi dari fungsi keamanan jaringan dengan kemampuan WAN. Apa tujuan utamanya? {
+=Mendukung kebutuhan akses dinamis, cepat, dan aman dari tenaga kerja jarak jauh ke sumber daya cloud dan internet. #Benar! SASE menangani pergeseran jaringan dari on-premise ke solusi terdistribusi dan berbasis cloud [22].
+~Mengharuskan semua lalu lintas internet kembali dialihkan ke pusat data lokal perusahaan. #Salah. SASE justru berupaya mengurangi bottleneck di pusat data lokal dengan inspeksi di edge.
+~Mengubah semua perangkat jaringan nirkabel menjadi koneksi berkabel. #Salah. SASE tidak berurusan dengan perubahan lapisan fisik nirkabel.
+~Menyediakan enkripsi asimetris tanpa memerlukan Public Key Infrastructure (PKI). #Salah. SASE masih menggunakan komponen PKI seperti sertifikat untuk TLS.
+}
+
+::D3-Q21:: Saat merancang arsitektur keamanan fisik pabrik, area parkir diposisikan jauh dari pintu masuk gedung utama untuk menghindari ancaman bom mobil. Desain keamanan apa yang sedang diterapkan? {
+=Crime Prevention Through Environmental Design (CPTED). #Benar! Mengatur lanskap fisik untuk mengarahkan atau membatasi perilaku merupakan prinsip CPTED, khususnya access control dan territoriality [23].
+~Industrial camouflage. #Salah. Kamamuflase berarti menyembunyikan identitas atau tujuan asli dari gedung tersebut.
+~Zero Trust Architecture. #Salah. Ini adalah arsitektur kontrol akses digital, bukan desain lingkungan fisik.
+~Defense in Breadth. #Salah. Konsep keragaman produk vendor, bukan tata letak fisik bangunan.
+}
+
+::D3-Q22:: Sistem kontrol industri (ICS/SCADA) sangat sering menggunakan sistem operasi tertanam yang fokus pada pelaksanaan tugas dengan waktu yang sangat presisi tanpa penundaan. Sistem operasi jenis apakah ini? {
+=Real-Time Operating System (RTOS). #Benar! RTOS dirancang khusus untuk meminimalkan latensi dan melaksanakan instruksi dalam batas waktu ketat untuk operasi kritis misi [24, 25].
+~General Purpose OS. #Salah. OS umum seperti Windows atau Linux standar biasanya tidak digunakan tanpa modifikasi karena latensinya tidak bisa diprediksi.
+~Software-Defined OS. #Salah. Ini bukan jenis OS untuk kontrol hardware kritis.
+~Extensible Firmware Interface (EFI). #Salah. EFI adalah jenis firmware boot, bukan OS waktu nyata.
+}
+
+::D3-Q23:: Untuk melindungi rahasia pada perangkat keras dari serangan fisik tingkat lanjut (seperti pencurian kunci dari RAM), komponen TPM memanfaatkan penyimpanan rahasia bawaan. Apakah singkatan dari TPM? {
+=Trusted Platform Module. #Benar! TPM adalah chip kriptografi yang menempel pada motherboard untuk enkripsi, pengukuran boot, dan manajemen kunci yang aman [26].
+~Total Performance Management. #Salah. Ini bukan fitur keamanan kriptografi pada level perangkat keras.
+~Transitive Platform Monitoring. #Salah. Ini adalah istilah fiktif.
+~Threat Prevention Mechanism. #Salah. Nama yang benar adalah Trusted Platform Module.
+}
+
+::D3-Q24:: Dalam arsitektur database, kerentanan yang memungkinkan pengguna berhak rendah mengambil kesimpulan rahasia tingkat tinggi melalui kueri dari berbagai data biasa disebut apa? {
+=Inference attack. #Benar! Inferensi adalah menggunakan kemampuan deduksi pikiran manusia untuk menarik kesimpulan informasi rahasia dari beberapa data tidak rahasia [27].
+~Aggregation attack. #Salah. Walaupun mirip, agregasi menggunakan fitur fungsi matematis/database (seperti SUM, COUNT) untuk menggabungkan data rendah secara massal [28].
+~Polyinstantiation. #Salah. Ini adalah solusi pertahanan untuk mencegah inferensi, bukan nama serangan.
+~Cross-Site Scripting (XSS). #Salah. Ini adalah kerentanan aplikasi web pada sisi klien.
+}
+
+::D3-Q25:: Kebijakan perusahaan menetapkan perlindungan memori dari aplikasi yang mengeksekusi instruksi dari luar parameter alokasinya. Kerentanan apakah yang sedang dicegah oleh perlindungan memori ini? {
+=Buffer overflow. #Benar! Buffer overflow terjadi saat input yang terlalu panjang merusak data berdekatan di memori komputer [29].
+~Time of Check to Time of Use (TOCTOU). #Salah. Ini adalah kerentanan berdasarkan persaingan waktu eksekusi (race condition).
+~SQL Injection. #Salah. Ini adalah serangan manipulasi kueri basis data.
+~Parameter pollution. #Salah. Ini memanipulasi aplikasi web dengan mengirimkan variabel yang sama berulang kali.
+}
+
+
+// ==========================================
+// BATCH 2 - Kriptografi & PKI
+// ==========================================
+
+::D3-Q26:: Saat melakukan pertukaran informasi sensitif melalui internet, dua pihak yang tidak pernah bertemu harus membangun saluran yang aman. Solusi mana yang tepat untuk mentransfer kunci rahasia secara aman? {
+=Kriptografi Asimetris. #Benar! Algoritma seperti Diffie-Hellman atau RSA dirancang khusus untuk memecahkan masalah pertukaran kunci rahasia tanpa perlu pertemuan tatap muka [30].
+~Kriptografi Simetris. #Salah. Sistem ini menggunakan satu kunci yang sama (shared key) yang sangat sulit dibagikan tanpa saluran di luar pita (out-of-band).
+~Fungsi Hash (MD5). #Salah. Hash adalah fungsi satu arah untuk memverifikasi integritas, bukan algoritma pertukaran kunci.
+~Steganografi. #Salah. Ini menyembunyikan eksistensi pesan, tapi jika terdeteksi, rahasia mudah terbongkar tanpa enkripsi.
+}
+
+::D3-Q27:: Manakah dari berikut ini yang merupakan karakteristik utama dari Advanced Encryption Standard (AES) yang disetujui sebagai standar pemerintah Amerika Serikat? {
+=Ukuran blok tetap 128 bit dan ukuran kunci yang bervariasi (128, 192, atau 256 bit). #Benar! AES (Rijndael) mendukung ukuran kunci yang berbeda tetapi memproses blok data 128 bit [31].
+~Ukuran blok 64 bit dengan ukuran kunci tetap 56 bit. #Salah. Ini adalah karakteristik dari Data Encryption Standard (DES) lama.
+~Algoritma asimetris berbasis faktor bilangan prima. #Salah. AES adalah algoritma simetris (block cipher), bukan asimetris seperti RSA.
+~Fungsi Hash satu arah untuk memastikan integritas. #Salah. AES digunakan untuk enkripsi (kerahasiaan), bukan hash (integritas).
+}
+
+::D3-Q28:: Evaluasi mode operasi Block Cipher berikut. Mode manakah yang mengonversi blok cipher menjadi stream cipher dengan menggunakan nilai inisialisasi yang disandingkan secara eksklusif (XOR) tanpa menyebabkan kesalahan bertingkat pada transmisi jaringan? {
+=Counter (CTR) mode atau Output Feedback (OFB). #Benar! OFB dan CTR mengubah blok cipher menjadi beroperasi layaknya stream cipher dan tidak menyebabkan propagasi error pada dekripsi pesan jika ada bit korup [32, 33].
+~Electronic Codebook (ECB). #Salah. ECB tidak mengubah cipher blok menjadi aliran, dan merupakan mode paling tidak aman.
+~Cipher Block Chaining (CBC). #Salah. CBC rentan terhadap propagasi kesalahan (error propagation), di mana satu blok rusak akan merusak dekripsi blok selanjutnya [34].
+~Digital Signature Algorithm (DSA). #Salah. DSA adalah standar tanda tangan digital, bukan mode operasi block cipher.
+}
+
+::D3-Q29:: Alice ingin mengirim kontrak digital kepada Bob dan memastikan Bob tidak dapat menyangkal (non-repudiation) bahwa ia adalah pengirimnya. Kunci apa yang harus digunakan Alice untuk menandatangani pesan tersebut? {
+=Kunci privat milik Alice. #Benar! Untuk memberikan otentikasi dan non-repudiation, pengirim harus mengenkripsi message digest dengan kunci privat mereka sendiri [35].
+~Kunci publik milik Bob. #Salah. Ini digunakan untuk mengirimkan pesan rahasia kepada Bob (Confidentiality).
+~Kunci privat milik Bob. #Salah. Hanya Bob yang memiliki akses ke kunci privatnya.
+~Kunci publik milik Alice. #Salah. Ini digunakan oleh penerima untuk memverifikasi tanda tangan digital, bukan untuk membuatnya.
+}
+
+::D3-Q30:: Apa kelemahan utama dari algoritma Data Encryption Standard (DES) dan mengapa itu ditarik dari status standarnya? {
+=Ukuran kunci 56-bit terlalu pendek dan sangat rentan terhadap serangan brute-force. #Benar! Dengan kemajuan komputasi, kunci 56-bit DES dapat dipecahkan dalam hitungan hari atau jam menggunakan brute-force [36].
+~Panjang blok 128-bit terlalu lambat diproses oleh router modern. #Salah. DES menggunakan panjang blok 64-bit, bukan 128-bit.
+~Ada paten tersembunyi yang dituntut oleh penciptanya. #Salah. DES diciptakan oleh IBM dan diserahkan sebagai standar tanpa tuntutan paten membatasi.
+~Menggunakan kurva eliptik yang sangat rumit (ECC). #Salah. DES menggunakan jaringan Feistel, sedangkan kurva eliptik digunakan dalam kriptografi asimetris.
+}
+
+::D3-Q31:: Public Key Infrastructure (PKI) menyediakan solusi terpercaya. Apa komponen PKI yang bertugas memverifikasi identitas pengguna sebelum memberikan sertifikat digital, namun tidak benar-benar menerbitkan sertifikat tersebut? {
+=Registration Authority (RA). #Benar! RA menangani pendaftaran dan pemeriksaan identitas pemohon, kemudian mengirimkan permintaan yang sah kepada CA untuk penerbitan [37].
+~Certificate Authority (CA). #Salah. CA adalah entitas sentral yang menerbitkan, mengelola, dan mencabut sertifikat.
+~Certificate Revocation List (CRL). #Salah. CRL adalah daftar sertifikat yang telah dicabut.
+~Key Escrow Agent. #Salah. Entitas pihak ketiga yang menyimpan salinan kunci pemulihan.
+}
+
+::D3-Q32:: Ketika Certificate Authority (CA) merasa bahwa kunci privat milik seorang pengguna telah terkompromi, mekanisme apa yang digunakan untuk memastikan pengguna lain tidak lagi mempercayai sertifikat yang bocor tersebut secara real-time? {
+=Online Certificate Status Protocol (OCSP). #Benar! OCSP memberikan validasi status sertifikat (good, revoked, unknown) secara waktu nyata tanpa mengunduh daftar panjang [38].
+~Digital Rights Management (DRM). #Salah. Ini untuk mengontrol dan melindungi hak cipta konten digital.
+~Certificate Revocation List (CRL). #Salah. Meskipun CRL berisi daftar pencabutan, namun tidak beroperasi secara real-time melainkan diunduh periodik.
+~Key Escrow. #Salah. Ini adalah prosedur mencadangkan kunci kriptografi pada pihak ketiga.
+}
+
+::D3-Q33:: Serangan apa yang mengeksploitasi fenomena statistik tentang kemungkinan dua pesan acak dapat menghasilkan nilai Hash (message digest) yang sama persis? {
+=Birthday attack. #Benar! Serangan ulang tahun berusaha mencari "tabrakan" (collision) pada algoritma hash sehingga dua file berbeda memiliki hash yang sama [39].
+~Man-in-the-Middle (MitM). #Salah. MitM mencegat dan berpotensi mengubah komunikasi di tengah-tengah antar dua pihak.
+~Known Plaintext attack. #Salah. Serangan ini terjadi jika penyerang memiliki sampel pesan asli dan pesan terenkripsinya.
+~Timing attack. #Salah. Ini mengukur jeda waktu yang dibutuhkan komputer memproses kriptografi (serangan side-channel).
+}
+
+::D3-Q34:: Apa tujuan dari penggunaan "Salt" saat menyimpan nilai hash kata sandi dalam basis data autentikasi? {
+=Mencegah serangan kamus dan tabel pelangi (rainbow table) dengan menambahkan karakter acak sebelum melakukan hashing. #Benar! Salt membuat hash kata sandi yang sama menjadi sangat unik untuk setiap akun pengguna [40, 41].
+~Mengenkripsi kata sandi agar bisa didekripsi nanti oleh administrator. #Salah. Hash bersifat satu arah dan tidak dirancang untuk didekripsi.
+~Mempercepat waktu proses autentikasi server. #Salah. Menambahkan salt tidak bertujuan mempercepat kinerja, melainkan menambah keamanan.
+~Menyembunyikan informasi dalam gambar atau audio. #Salah. Ini adalah teknik steganografi.
+}
+
+::D3-Q35:: Dalam skema M of N Control, apa tujuan keamanan yang ingin dicapai melalui implementasi "Split Knowledge"? {
+=Memastikan bahwa tidak ada satu individu pun yang memiliki kendali atau wewenang penuh untuk melaksanakan operasi kriptografis tingkat tinggi sendirian. #Benar! Konsep ini mengharuskan jumlah M personel dari total N agen untuk menggabungkan potongan kunci demi menyelesaikan tugas [42].
+~Mengurangi ukuran kunci kriptografi menjadi lebih kecil agar memori tidak penuh. #Salah. Split Knowledge bukan tentang kompresi memori kunci.
+~Memungkinkan pembatalan sertifikat CA palsu tanpa intervensi manusia. #Salah. Ini tidak ada hubungannya dengan protokol OCSP atau CRL.
+~Mencegah adanya tabrakan (collision) dalam pembuatan MD5. #Salah. Collision merupakan masalah algoritma hash, bukan peruntukan M of N Control.
+}
+
+::D3-Q36:: Analis keamanan mendeteksi bahwa penyerang telah menangkap lalu lintas jaringan terenkripsi dari server ke klien dan mencoba mengirim ulang paket yang sama untuk mendapatkan akses tidak sah. Jenis serangan apakah ini? {
+=Replay attack. #Benar! Serangan replay (pemutaran ulang) menangkap komunikasi otentikasi dan mengirimkannya kembali untuk menyamar sebagai klien yang sah [43].
+~Pass the Hash. #Salah. Ini secara khusus mengekstrak NTLM hash Windows dan meneruskannya untuk otentikasi sistem tanpa memecahkan sandi [44].
+~Dictionary attack. #Salah. Ini adalah tebakan kata sandi berulang-ulang menggunakan daftar kata kamus.
+~Side-Channel attack. #Salah. Ini menyerang implementasi fisik seperti konsumsi listrik atau waktu proses CPU.
+}
+
+::D3-Q37:: Kerentanan yang mengkhawatirkan muncul ketika enkripsi WEP digunakan untuk jaringan Wi-Fi karena ia menghasilkan urutan nilai non-rahasia (nonce) yang terlalu pendek dan dipancarkan dalam teks terang. Masalah apa ini? {
+=Initialization Vector (IV) abuse. #Benar! Kelemahan algoritma RC4 pada WEP adalah panjang IV yang hanya 24-bit dan ditransmisikan secara cleartext, menyebabkan pengulangan cepat [43].
+~WPS (Wi-Fi Protected Setup) brute force. #Salah. Ini menyerang PIN 8-digit pada fitur setup router yang tidak aman.
+~Steganography injection. #Salah. Menyembunyikan rahasia dalam file gambar/suara tidak berkaitan dengan WEP.
+~Ransomware execution. #Salah. WEP bukan perantara spesifik untuk menahan akses data guna meminta tebusan.
+}
+
+::D3-Q38:: Kriptografi Kurva Eliptik (Elliptic Curve Cryptography / ECC) sangat populer untuk perangkat seluler dan komputasi edge. Apa alasan utama ECC dipilih dibandingkan RSA di lingkungan ini? {
+=ECC menawarkan tingkat keamanan yang sama dengan RSA namun dengan ukuran kunci yang jauh lebih pendek, sehingga menghemat daya pemrosesan. #Benar! Kunci ECC 256-bit kurang lebih sama kuatnya dengan RSA 3072-bit, sehingga lebih cepat dan efisien [30].
+~ECC kebal terhadap serangan dekripsi komputasi kuantum menggunakan algoritma Shor. #Salah. Baik ECC maupun RSA saat ini rentan terhadap komputer kuantum berskala besar di masa depan.
+~ECC adalah algoritma simetris yang tidak memerlukan infrastruktur kunci publik. #Salah. ECC adalah kriptografi asimetris (kunci publik).
+~ECC adalah algoritma hashing yang memproduksi digest terkecil yang aman. #Salah. ECC digunakan untuk enkripsi dan tanda tangan digital, bukan sekadar hashing.
+}
+
+::D3-Q39:: Salah satu jenis serangan memanfaatkan analisis listrik, fluktuasi voltase, dan emisi elektromagnetik dari sebuah modul kriptografi (seperti Smart Card) saat ia memproses enkripsi. Serangan ini diklasifikasikan sebagai apa? {
+=Side-channel attack. #Benar! Serangan saluran samping (side-channel) memonitor properti fisik perangkat keras seperti panas, daya, atau radiasi untuk membobol keamanan [45, 46].
+~Analytic attack. #Salah. Ini berfokus pada aljabar dan kelemahan logis matematika dari algoritma cipher itu sendiri.
+~Known-plaintext attack. #Salah. Serangan ini memerlukan sampel dari teks terang (plaintext) dan hasil enkripsinya (ciphertext).
+~Brute-force attack. #Salah. Serangan ini menebak semua variasi kunci yang mungkin ada.
+}
+
+::D3-Q40:: Quantum Cryptography, khususnya konsep Quantum Key Distribution (QKD), mendasarkan keamanannya pada prinsip-prinsip mekanika kuantum. Mengapa QKD dianggap mustahil disadap tanpa diketahui? {
+=Upaya apa pun oleh pihak ketiga untuk mengamati atau mengukur pertukaran partikel kuantum akan mengubah status partikel tersebut, sehingga langsung memperingatkan pengirim dan penerima. #Benar! Ini berdasarkan prinsip ketidakpastian Heisenberg, di mana observasi merusak keadaan asli kuantum foton [47].
+~Sistem QKD mengubah informasi menjadi partikel neutrino yang kebal terhadap router jaringan. #Salah. QKD menggunakan foton (cahaya) pada kabel serat optik atau transmisi laser udara bebas.
+~Sistem ini menggunakan panjang kunci satu terabyte sehingga tidak ada komputer yang bisa menyimpannya. #Salah. Keamanannya bukan dari ukuran kunci absolut, tapi cara transfer partikelnya.
+~Sistem kuantum otomatis membunuh penyerang menggunakan gelombang elektromagnetik. #Salah. Tidak ada konsep seperti ini dalam standar QKD.
+}
+
+::D3-Q41:: Model kriptografi asimetris memastikan satu entitas menerima kunci publik dan kunci privat. Fungsi matematis apa yang harus dipenuhi algoritma seperti RSA agar pertukaran ini dapat beroperasi tanpa membocorkan kunci privat? {
+=Fungsi satu arah yang memiliki "Trapdoor". #Benar! RSA mengandalkan One-Way Trapdoor function, yakni operasi yang mudah dihitung satu arah tetapi sangat sulit dibalik tanpa memegang kunci "trapdoor" khusus (kunci privat) [48, 49].
+~Simultaneous Authentication of Equals (SAE). #Salah. SAE (Dragonfly) adalah metode handshake pada WPA3, bukan dasar matematika RSA.
+~XOR (Exclusive OR) berkelanjutan. #Salah. XOR digunakan luas di kriptografi simetris seperti pada mode stream cipher, tapi bukan mekanisme utama jebakan asimetris.
+~Pembangkit nomor acak tak-sinkron (Asynchronous RNG). #Salah. Ini bukan inti fungsional dari komputasi public key.
+}
+
+::D3-Q42:: Apakah metode yang menyisipkan tanda tak terlihat pada gambar digital atau karya hak cipta lainnya untuk mendeteksi pelanggaran distribusi konten secara ilegal? {
+=Digital Watermarking. #Benar! Watermark digital menggunakan teknik modifikasi bit file gambar untuk menanamkan sinyal hak cipta yang menempel pada data asli [50].
+~Digital Signature. #Salah. Tanda tangan digital berfokus pada otentikasi pengirim dokumen dan integritas teks, bukan pembuktian jejak hak cipta file visual curian.
+~Tokenization. #Salah. Mengganti data primer sensitif (seperti kartu kredit) dengan alias acak sementara.
+~Steganography. #Salah. Watermarking adalah sejenis dari keluarga steganografi namun steganografi bertujuan untuk murni komunikasi rahasia antara 2 pihak. Jawaban watermarking lebih tepat untuk pelanggaran hak cipta.
+}
+
+::D3-Q43:: Sebuah bank komersial memutuskan untuk menambahkan standar enkripsi PGP (Pretty Good Privacy) kepada para eksekutifnya untuk mengamankan email. Model tingkat kepercayaan apa yang diandalkan PGP sebagai lawan dari hierarki otoritas sertifikat CA? {
+=Web of Trust. #Benar! PGP menggunakan desentralisasi di mana para pengguna saling menandatangani kunci publik rekan-rekannya, menciptakan "jaring kepercayaan" tanpa satu pusat otoritas [51].
+~Root CA Hierarchy. #Salah. PGP tidak secara inheren mengandalkan struktur Root CA-ke-Sub CA gaya X.509 tradisional.
+~Key Escrow M-of-N. #Salah. Ini adalah teknik untuk mencadangkan kunci dan perlindungan operasional.
+~Zero-Knowledge Proof. #Salah. Mekanisme logis membuktikan seseorang mengetahui rahasia tanpa membagikannya.
+}
+
+::D3-Q44:: Bobot keamanan dari sebuah sistem kriptografi bergantung sangat kuat pada panjang kunci. Berapa lama ciphertext sepanjang 2.048-bit akan dihasilkan jika Anda menggunakan algoritma ElGamal untuk mengenkripsi teks asli sepanjang 1.024-bit? {
+=2.048 bit. #Benar! Kerugian utama dari ElGamal adalah bahwa ia menggandakan panjang dari semua teks asli yang dienkripsinya, sehingga hasil akhirnya menjadi 2x panjang teks asli [52].
+~1.024 bit. #Salah. Hanya jika tidak ada ekspansi, tetapi ElGamal pasti menggandakannya.
+~4.096 bit. #Salah. Ini akan terjadi jika plaintext awal adalah 2.048 bit.
+~512 bit. #Salah. ElGamal tidak melakukan kompresi ciphertext.
+}
+
+::D3-Q45:: Protokol manakah yang merupakan standar otentikasi email yang memanfaatkan catatan DNS untuk mencegah serangan Business Email Compromise (BEC) dengan mengizinkan pemilik domain memberitahu server email lain bagaimana menangani email spoofing yang gagal verifikasi? {
+=DMARC (Domain-based Message Authentication Reporting and Conformance). #Benar! DMARC memberikan pedoman kerangka kerja apakah email palsu harus dibuang, dikarantina, atau diteruskan [53].
+~SFTP (Secure File Transfer Protocol). #Salah. Digunakan untuk file transfer jarak jauh menggunakan SSH.
+~S/MIME (Secure/Multipurpose Internet Mail Extensions). #Salah. Standar enkripsi konten dan lampiran email klien, bukan lapisan otentikasi tingkat domain server.
+~IPSec (Internet Protocol Security). #Salah. Standar tunneling komunikasi tingkat jaringan IP.
+}
+
+::D3-Q46:: Administrator mendeteksi serangkaian upaya menebak PIN pada layanan aplikasi. Alih-alih menguji satu pengguna dengan banyak PIN, penyerang menguji ribuan akun pengguna berbeda menggunakan satu atau dua tebakan PIN yang sangat umum. Serangan jenis apakah ini? {
+=Spraying attack (Password spraying). #Benar! Spraying attack mencoba melewati kontrol penguncian akun (account lockout) dengan mencoba 1 kata sandi lemah di jutaan username secara melingkar perlahan [54].
+~Credential Stuffing. #Salah. Credential stuffing memanfaatkan daftar kombinasi username+password curian dari situs lain dan mencoba semuanya secara otomatis pada situs korban.
+~Brute-force attack tradisional. #Salah. Brute force standar menyerang satu akun secara intensif dan akan menyebabkan pemblokiran akun dengan cepat.
+~Phishing. #Salah. Serangan manipulasi psikologis untuk memancing pengguna mengklik link atau menyerahkan data secara manual.
+}
+
+::D3-Q47:: Dalam ekosistem kriptografi hibrida modern, apa yang dilakukan sebuah sistem dengan "Session Key" (Kunci Sesi) yang dihasilkan secara acak saat klien ingin mengirim data besar yang aman ke server web melalui protokol TLS? {
+=Kunci sesi simetris dikirim setelah dienkripsi menggunakan kunci publik asimetris milik server web. #Benar! Sistem hibrida menggunakan kripto asimetris untuk membagikan kunci simetris rahasia, lalu kripto simetris digunakan karena lebih cepat memproses aliran data besar [55].
+~Kunci sesi asimetris disembunyikan menggunakan watermark digital lalu dikirim. #Salah. Kunci sesi selalu simetris (cepat), dan watermark bukan untuk keamanan komunikasi in-transit.
+~Kunci sesi ditandatangani dengan Sertifikat Root CA lalu dibuang. #Salah. Kunci sesi digunakan untuk algoritma enkripsi massal.
+~Kunci sesi tidak pernah dibuat; seluruh transfer dilakukan menggunakan sistem enkripsi kunci privat asimetris milik pengguna. #Salah. Enkripsi asimetris murni terlalu lambat memproses megabyte data.
+}
+
+::D3-Q48:: Apakah metode keamanan perutean terdesentralisasi khusus (dark web) yang bertumpu pada arsitektur penyembunyian alamat asal dan alamat tujuan sehingga pengirim lalu lintas tidak dapat dengan mudah ditelusuri atau dilacak? {
+=The Onion Routing (Tor) network. #Benar! Jaringan Tor membungkus enkripsi secara berlapis seperti bawang di sepanjang jalur node proxy yang tidak diketahui satu sama lain [56].
+~IPSec Tunneling mode. #Salah. Ini mengamankan paket antar dua gateway jaringan spesifik, pengirim & penerima biasanya diketahui.
+~Virtual Private Network (Split Tunnel). #Salah. Ini adalah mode konektivitas yang membagi lalu lintas kerja perusahaan dan internet pribadi.
+~Software Defined Networking (SDN). #Salah. Konsep pemisahan control plane dan data plane untuk manajemen jaringan internal.
+}
+
+::D3-Q49:: Mengingat FIPS 186-5 untuk Digital Signature Standard (DSS), algoritma asimetris manakah yang secara resmi TIDAK lagi didukung atau dianjurkan di bawah panduan terbaru karena panjang dan komputasi eksponensialnya? {
+=Merkle-Hellman Knapsack. #Benar! Bahkan ini bukan opsi di standar asli karena sudah terbukti tidak aman (broken). Standar FIPS menerima RSA, ECDSA, atau EdDSA [49, 57].
+~RSA. #Salah. FIPS masih mendukung RSA untuk Digital Signatures asalkan ukuran kuncinya mencukupi (minimal 2048).
+~Elliptic Curve DSA (ECDSA). #Salah. ECDSA adalah standar resmi dan efisien.
+~Edwards-Curve DSA (EdDSA). #Salah. EdDSA secara resmi dimasukkan dalam FIPS 186-5.
+}
+
+::D3-Q50:: Anda mendesain sertifikat TLS untuk perusahaan multinasional yang mencakup portal login utama mereka, namun sertifikat yang sama juga harus dapat mencakup "mail.domain.com" dan "sales.domain.com". Tipe sertifikat apakah yang paling ekonomis dan tepat? {
+=Wildcard certificate. #Benar! Sertifikat wildcard menggunakan tanda bintang (*.domain.com) untuk memberikan keamanan pada beberapa level subdomain tier yang setara [58].
+~Extended Validation (EV) certificate. #Salah. Ini adalah sertifikat tingkat kepastian perusahaan yang tertinggi dan biasanya tidak langsung menjadi wildcard.
+~Self-signed certificate. #Salah. Pengunjung publik akan mendapat pesan "Untrusted Connection" merah karena CA tidak diverifikasi global.
+~Domain-based Message Authentication certificate. #Salah. DMARC adalah pedoman policy DNS, bukan sertifikat TLS/SSL.
+}
+
+::D3-Q51:: Konfigurasi awan (cloud) apa yang secara implisit mengharuskan beban komputasi besar (workload) diproses di dalam wilayah hukum perbatasan suatu negara dan tunduk sepenuhnya pada peraturan lokalnya terkait pelacakan dan pembatasan hukum ekstraksi data? {
+=Data Sovereignty (Kedaulatan Data). #Benar! Data sovereignty mencakup aturan kepatuhan hukum atas data yang dikumpulkan dan ditampung dalam wilayah suatu bangsa [59, 60].
+~Data Obfuscation. #Salah. Itu teknik masking/penyembunyian data.
+~Software Defined Network (SDN). #Salah. Pendekatan perutean infrastruktur fisik.
+~Grid Computing. #Salah. Model arsitektur memecah beban tugas paralel.
+}
+
+::D3-Q52:: Ketika penyerang menyisipkan perintah SQL ilegal `11;--` dalam kotak nama pengguna portal situs web publik yang buruk divalidasinya, jenis serangan aplikasi apakah ini? {
+=SQL Injection Attack. #Benar! Ini mengelabui basis data backend menggunakan input tidak tervalidasi dengan metakarakter agar query otentikasi bernilai True tanpa peduli kata sandi sebenarnya [61, 62].
+~Cross-Site Scripting (XSS). #Salah. XSS menyuntikkan skrip HTML klien pada browser pengguna.
+~Parameter Pollution. #Salah. Memasukkan dua variabel HTTP POST yang sama persis untuk mengelabui WAF.
+~Directory Traversal. #Salah. Menggunakan perintah titik-titik garis miring (../../) untuk merayapi root server dokumen.
+}
+
+::D3-Q53:: Konsep pengontrol otomatis untuk infrastruktur kritikal seperti pabrik penyulingan minyak atau jaringan pipa gas alam sering kali mengandalkan sensor geografis yang dipantau dari ruang pusat jauh. Apakah jenis arsitektur kontrol ini? {
+=SCADA (Supervisory Control and Data Acquisition). #Benar! SCADA secara khusus cocok untuk mengelola sistem industri melalui wilayah geografis yang luas [18, 63].
+~Distributed Control System (DCS). #Salah. DCS lebih tepat mengontrol pabrik manufaktur kompleks tetapi sifatnya terbatas dalam skala area satu kampus pabrik [64].
+~Programmable Logic Controller (PLC). #Salah. PLC adalah unit komputasi khusus single-purpose untuk perakitan lokal.
+~High-Performance Computing (HPC). #Salah. Ini merupakan superkomputer cluster.
+}
+
+::D3-Q54:: Fenomena "VM Sprawl" di pusat data menyebabkan pengawasan keamanan yang minim dari sisi administrator jaringan. Bagaimana fenomena ini paling sering terjadi? {
+=Pengguna dan administrator mudah dan cepat membuat mesin virtual (VM) baru, tetapi lalai mencatat, memonitor, menambal (patch), dan mengelolanya dengan manajemen siklus hidup terpusat. #Benar! Organisasi gagal merencanakan kebutuhan dan menyebarkan VM secara acak saat diperlukan, mengabaikan keamanan operasional [65].
+~VM mendapatkan izin langsung dari sistem host tanpa perantara hypervisor, mengambil alih RAM sepenuhnya. #Salah. Ini mendeskripsikan sebagian dari bahaya potensi dari teknik Rootkit atau VM Escape.
+~Aplikasi Docker saling berhubungan dan bertukar kunci rahasia tanpa isolasi lingkungan. #Salah. Docker berkaitan dengan Containerization, VM Sprawl berkaitan dengan OS Virtual Machines yang dilupakan.
+~Trafik VM yang berlebihan membebani antarmuka sakelar sirkuit listrik server blade secara berantai. #Salah. Sprawl berpusat pada penelantaran inventaris virtual, bukan pemutusan aliran listrik.
+}
+
+::D3-Q55:: Praktik menggunakan Infrastructure as Code (IaC) memiliki mentalitas unik terkait pembaruan server; apabila ditemukan kesalahan sistem, alih-alih mencoba memperbaikinya (patch/troubleshoot), administrator langsung menghapus instans tersebut dan menyebarkan yang baru dari kode awal yang diperbaiki. Pendekatan arsitektur apa ini? {
+=Immutable Architecture. #Benar! Arsitektur immutable menghindari perbaikan di tempat. Sistem dianggap usang dan diganti melalui deployment otomatis bak fenomena burung "Phoenix" dari abunya [66, 67].
+~Microsegmentation. #Salah. Praktik pemisahan firewall internal hingga level aplikasi.
+~Cloud Access Security Broker (CASB). #Salah. Proxy pemantau trafik cloud eksternal.
+~High-Performance Compute (HPC). #Salah. Fokus kepada tugas analisis paralel tingkat superkomputer.
+}
+
+::D3-Q56:: Model perangkat seluler di tempat kerja yang mengharuskan karyawan menggunakan perangkat seluler sepenuhnya untuk tugas kantor saja tanpa dapat menginstal aplikasi hiburan dan media sosial disebut model apa? {
+=Corporate-Owned, Business-Only (COBO / COMS). #Benar! Perangkat disediakan kantor dan hanya untuk bisnis; merupakan metode penyebaran dengan kontrol keamanan tertinggi bagi organisasi [68, 69].
+~Bring Your Own Device (BYOD). #Salah. Menggunakan perangkat karyawan sendiri dengan segala risikonya.
+~Choose Your Own Device (CYOD). #Salah. Karyawan memilih perangkat pribadi namun yang sudah disetujui perusahaan.
+~Corporate-Owned, Personally Enabled (COPE). #Salah. Karyawan diberi perangkat oleh kantor namun dibebaskan memodifikasi dan menggunakannya untuk urusan domestik.
+}
+
+::D3-Q57:: Untuk menanggulangi ancaman "Zero-day exploits" pada perangkat lunak klien yang tidak dikenali anti-virus biasa, teknik mitigasi terbaik selain pembaruan rutin dan heuristik adalah {
+=Application Allow Listing (Whitelisting). #Benar! Mengonfigurasi agar sistem menolak mengeksekusi semua file EXE, terkecuali yang disetujui, adalah penangkal paling efektif dari ancaman file malware tak dikenal (implicit deny) [70, 71].
+~Implementasi sandboxing secara eksklusif pada web proxy. #Salah. Walau berguna, sandboxing tidak mencegah user menginstall malware USB secara lokal di laptopnya.
+~Menyebarkan Network Intrusion Prevention System (NIPS). #Salah. NIPS bagus namun bisa gagal membaca trafik web jika dienkripsi TLS/SSL (kecuali memakai TLS inspeksi proxy).
+~Degaussing hard drive mingguan. #Salah. Ini adalah teknik menghancurkan perangkat magnetis agar data tidak dibaca orang asing; merusak operasional.
+}
+
+::D3-Q58:: Saat melakukan evaluasi terhadap kelemahan aplikasi yang rentan dengan serangan Cross-Site Scripting (XSS), mitigasi keamanan aplikasi mana yang berfungsi paling efektif yang wajib diterapkan pengembang? {
+=Input Validation dan Escaping Metacharacters. #Benar! Validasi sisi server akan menolak karakter seperti `<script>` dan penguraian `escaping` mengubah instruksi HTML berbahaya menjadi teks datar tak berdampak [72, 73].
+~Penggunaan Parameterized Queries. #Salah. Ini merupakan senjata utama menangkal serangan SQL Injection (basis data), bukan XSS.
+~Menerapkan pembatasan waktu Cookie (Session Expiration). #Salah. Ini mencegah pembajakan sesi (Session Hijacking), tidak menyentuh akar masalah kode XSS Reflected di situs.
+~Penerapan enkripsi basis data simetris. #Salah. Ini mengamankan data at rest, tapi aplikasi web tetap memuat HTML tak wajar bila dipanggil.
+}
+
+::D3-Q59:: Sebuah perangkat sensor di pabrik yang secara mandiri memutuskan memutar kipas pendingin secara lokal setelah suhu tercapai, sebelum bahkan mengirim data ke server terpusat. Praktik komputasi yang diletakkan mendekati lokasi fisik sumber ini disebut apa? {
+=Edge Computing. #Benar! Komputasi dilakukan langsung di tepi jaringan lokal oleh sensor atau titik tersebut, guna menghindari latensi jaringan ke arah awan (cloud) [19, 74].
+~Fog Computing. #Salah. Fog meneruskan ke perangkat penghubung antara Edge dan Cloud (IoT gateway lokal) yang lebih berat processing-nya.
+~Client-Server Architecture. #Salah. Model di mana komputasi difokuskan pada backend pusat yang mengatur client lemah.
+~Peer-to-Peer (P2P). #Salah. Model distribusi berbagi berkas horizontal, sering untuk file sharing seperti BitTorrent.
+}
+
+::D3-Q60:: Perangkat portabel yang memiliki memori tertanam untuk memutar file suara dan lampu tetapi tidak dapat diakses sistem operasinya oleh pemakai. Perangkat seperti ini rentan bila komponen kodenya dikelola murah. Disebut apakah sistem komputasi kaku ini? {
+=Embedded System. #Benar! Komputer yang terintegrasi pada alat fisik atau mekanik namun tersembunyi dengan keterbatasan sumber daya besar (contoh smart TV, kulkas, hingga mesin sensor) adalah sistem tertanam [75].
+~Microservice Application. #Salah. Merupakan program pemrosesan web internet backend terpisah.
+~Grid Computer. #Salah. Ini merujuk pada distribusi pengolahan proses ke komputer tersebar melalui internet.
+~Symmetric Multiprocessing (SMP). #Salah. Metode prosesor dalam mendistribusikan beban pada perangkat keras ber-otak banyak (multi-core).
+}
+
+::D3-Q61:: Penyerang menyebarkan lalu lintas ke puluhan ribu mesin tak bersalah (botnet), yang kemudian mengirimkan paket membanjiri antarmuka server web, menyebabkannya tidak responsif secara massal dari segala arah di dunia. Apa jenis serangan ini? {
+=Distributed Denial-of-Service (DDoS) attack. #Benar! Serangan DoS terdistribusi menggabungkan banyak perangkat atau zombie menyerang 1 titik melampaui kemampuan mitigasi router perusahaan [76].
+~Salami Attack. #Salah. Serangan finansial dengan mengikis sebagian saldo dari setiap transaksi kartu kredit nasabah perlahan.
+~Man-in-the-Middle (MitM) attack. #Salah. Membajak kunci kriptografis dan berdiam mendengarkan komunikasi antar dua titik, berbeda dari pelumpuhan sumber daya DDoS.
+~Thrill attack. #Salah. Motif psikologi murni "iseng", belum menunjuk jenis serangannya apa.
+}
+
+::D3-Q62:: Manajer keamanan (CISO) mengimplementasikan "Security Orchestration, Automation, and Response" (SOAR) untuk menganalisa dan meredam false-positives secara otomatis sebelum membunyikan pager tim teknis. Buku panduan atau skrip digital SOAR yang menjalankan tindakan otomasi tersebut disebut apa? {
+=Runbook. #Benar! Runbook menerapkan daftar langkah-langkah logika (Playbook) ke dalam instrumen otomasi keamanan untuk memberikan respons secara teknis otomatis tanpa sentuhan staf [77, 78].
+~Machine Learning Module. #Salah. SOAR bisa menggunakan AI/ML, namun panduan operasional otomasi disebut Runbook.
+~Risk Matrix. #Salah. Peta penilaian kualitatif paparan risiko perusahaan, bukan skrip respons aktif.
+~Threat Feed. #Salah. Aliran informasi terkait intelijen dan indikator pelaku jahat terbaru (IOC).
+}
+
+::D3-Q63:: Kerentanan perangkat lunak di mana dua proses bersaing mengakses data yang sama pada memori namun persaingan kecepatan ini gagal disinkronisasikan sehingga penyerang berhasil menyisipkan file fiktif di interval mikrosekon jeda verifikasi dikenal dengan istilah apa? {
+=Time of Check to Time of Use (TOCTOU) atau Race Condition. #Benar! Serangan keadaan (state attacks) terjadi saat persaingan pengalokasian sumber daya merubah validitas pengecekan akses sebelum izinnya sempat dieksekusi [79].
+~Memory Pointer Dereferencing. #Salah. Panggilan memori aplikasi ke arah alamat pointer yang bernilai null hingga membuat server restart (BSoD).
+~Cross-Site Request Forgery (CSRF). #Salah. Menyuruh pengguna sah yang telah login memicu kueri web modifikasi ilegal tanpa sadar lewat browser tab mereka.
+~Code Injection. #Salah. Ini berhubungan dengan manipulasi field HTML untuk memuntahkan string berbahaya ke dalam mesin.
+}
+
+::D3-Q64:: Pemasangan "Honeypot" atau sistem perangkat lunak fiktif dengan kerentanan sistematis yang memikat di luar zona keamanan produksi ditujukan dengan motif utama untuk apa? {
+=Menjebak dan menganalisa teknik intrusi penyusup serta melindungi sistem pusat perusahaan yang riil dengan membuang-buang waktu penyerang. #Benar! Honeypot/Honeynet tidak berisi data sah, sehingga segala interaksi dengan sistem itu dipastikan ilegal [80].
+~Memindai setiap kerentanan di subnet LAN. #Salah. Itu adalah fungsi vulnerability scanner sejenis Nessus, bukan Honeypot.
+~Membantu menyeimbangkan traffic yang menuju ke web server dengan algoritma round-robin. #Salah. Itu merupakan teknik Load Balancing.
+~Memberikan zona aman bagi karyawan internal untuk mencoba perangkat keras terinfeksi tanpa resiko. #Salah. Area isolasi uji coba itu disebut sandbox, bukan honeypot yang disiapkan untuk menipu outsider.
+}
+
+::D3-Q65:: Apa kerentanan mendasar dan konsekuensi utama yang membedakan kerentanan serangan "Covert Storage Channel" dibandingkan dengan jalur biasa? {
+=Saluran komunikasi rahasia memanfaatkan ruang atau tempat yang diabaikan/tidak dialokasikan oleh sistem operasi untuk menyusupkan metadata. #Benar! Komunikasi tipe Covert (gelap) terjadi di rute yang menyalahi protokol desain dan menghindari verifikasi dari Security Policy Model [81].
+~Covert Storage memanipulasi irama timing pemrosesan CPU untuk memberi pesan biner. #Salah. Itu adalah definisi dari Covert Timing Channel, sedangkan Covert Storage memakai memori sisa/file metadata rahasia.
+~Sistemnya menggunakan enkripsi simetris sehingga antivirus tidak dapat mendeteksinya. #Salah. Covert tidak wajib menggunakan cipher, metodenya sendiri sudah menghindari log aplikasi.
+~Covert memfokuskan dirinya mengubah label klasifikasi Bell-LaPadula dari Secret ke Unclassified. #Salah. Mengubah hak istimewa secara salah merupakan privilege escalation.
+}
+
+::D3-Q66:: Anda ingin mendeteksi dan secara otomatis menjatuhkan koneksi bila ada pola lalu lintas paket internet yang anomali mencoba memasuki antarmuka basis data Anda. Alat pencegahan apa yang harus diposisikan "inline" untuk melakukannya? {
+=Network Intrusion Prevention System (NIPS). #Benar! Sebuah IPS harus berada pada jalur jaringan utama (inline) untuk memiliki kemampuan memblokir atau melakukan perubahan Access Control List (ACL) dinamis [1, 82].
+~Network Intrusion Detection System (NIDS). #Salah. IDS beroperasi pada promiscuous port SPAN mode untuk melihat tiruan salinan jaringan dan hanya mencatat/menyalakan alarm (pasif), tidak inline memblokir seketika.
+~Digital Rights Management (DRM) proxy. #Salah. Perlindungan hak cipta dan lisensi perangkat lunak konten digital.
+~Network Flow Analyzer. #Salah. Mencatat informasi lalu lintas dan meta netflow (SNMP) semata tanpa pencegahan aktif intrusi ancaman siber.
+}
+
+::D3-Q67:: Bagaimana taktik "Phishing" secara spesifik disebut ketika serangan menargetkan individu tertentu yang diteliti dengan matang (seperti CFO perusahaan), bukannya menyebar umpan email generik jutaan pelanggan bank secara acak? {
+=Spear Phishing / Whaling. #Benar! Whaling menargetkan pihak "Ikan Paus" besar dengan keistimewaan luar biasa tinggi di suatu target industri. Merupakan subset murni perburuan tombak cerdik/spear phishing [83, 84].
+~Smishing. #Salah. Manipulasi sosial penipuan lewat media SMS/Text perpesanan ponsel.
+~Spam. #Salah. Pesan pemasaran atau lampiran sampah tak diundang yang dikirim buta secara membanjir.
+~Vishing. #Salah. Telepon manusia menirukan nada interaktif mesin IVR bank meminta pengaktifan pin Anda secara vokal suara.
+}
+
+::D3-Q68:: Sebuah alat Malware memanfaatkan kriptografi hibrida agar mampu menahan paksa akses pemilik terhadap dokumen di komputernya sendiri, hingga sang korban membayar menggunakan mata uang anonim Bitcoin. Tipe kerentanan apakah yang menyerang ketersediaan pengguna (Availability) ini? {
+=Ransomware. #Benar! Perangkat lunak tebusan memeras akses perusahaan mengancam kerahasiaan dan ketersediaan data hingga gembok kriptografinya ditebus secara uang atau data akan selamanya diam atau diviralkan [85, 86].
+~Logic Bomb. #Salah. Kode tertanam mati dari eks-karyawan sakit hati menunggu tanggal trigger khusus untuk mengeksekusi script pendeletan master boot record tiba.
+~Botnet. #Salah. Program zombie pengeksekusi Distributed-DoS serangan server jauh secara ramai.
+~Adware. #Salah. Program popup iklan menyedot CPU agar pengunggah mendapatkan views web traffic komisi iklan bayar.
+}
+
+::D3-Q69:: Proses menemukan celah sistem menggunakan platform Metasploit atau Nessus dalam audit eksternal, namun si konsultan tidak memiliki wawasan apa pun, tidak diberi nama arsitektur atau denah internal organisasi. Tes ini diistilahkan metode apa? {
+=Black-Box Penetration Test. #Benar! Karena si ahli uji penetrasi tak diberi modal info sebelumnya, seakan-akan meretas dalam kotak hitam buta murni menyimulasikan peretas di dunia luar [87, 88].
+~White-Box Penetration Test. #Salah. Uji kotak putih memberikan source code dan dokumentasi infrastruktur penuh dengan keuntungan menyorot cacat terdalam di tahap dini.
+~Fagan Inspection Test. #Salah. Proses ulasan kode program rekan pengembang secara tahapan administrasi formal manual.
+~Gray-Box Penetration Test. #Salah. Keseimbangan pengetahuan, seperti kredensial akun level user terbatas, diberikan pada tester agar hemat waktu pemindaian target internal awal.
+}
+
+::D3-Q70:: MITRE ATT&CK Matrix sangat berguna dalam menjejak tahap kompromi insiden respons. Model fasa pergerakan militer lainnya menggambarkan fasa dari Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command and Control, menuju Actions. Disebut model apakah rantai mematikan ini? {
+=Cyber Kill Chain. #Benar! Lockheed Martin memodifikasi siklus serangan militer ini agar organisasi membidik pemutusan di setiap rantainya menggagalkan kampanye infiltrasi siber [89].
+~Risk Management Framework (RMF). #Salah. Proses sertifikasi 7 langkah operasional (NIST SP 800-37).
+~System Development Life Cycle (SDLC). #Salah. Proses pengembangan software produk dengan tahap konsepsi hingga pensiun kode aplikasi.
+~Capability Maturity Model (CMM). #Salah. Indikator seberapa rapi, konsisten, optimalnya birokrasi kebijakan operasi proses dari tahap acak (Ad Hoc) mencapai kematangan proaktif cegah insiden (Optimized).
+}
+
+::D3-Q71:: Ancaman Kerberos di jaringan Microsoft Directory membiarkan peretas merangkum izin layanan penuh tiket palsu menggunakan NTLM Hash yang diekstrak sebelumnya dari akun layanan biasa. Apa nama teknik peniruan eskalasi hak istimewa (privilege escalation) tingkat layanan tiket TGS ini? {
+=Silver Ticket. #Benar! Ekstraksi akun NTLM servis sistem yang dipalsukan di sebut Silver Ticket karena kemampuannya terbatas ke akses servis satu mesin itu. Jika KRBTGT akun domain utama dibajak, itu adalah Golden Ticket yang absolut tanpa batasan [44].
+~Golden Ticket. #Salah. Golden menarget akun pusat domain utama krbtgt hash.
+~Pass the Hash. #Salah. PTH mengotentikasi ke suatu perangkat jaringan tanpa perlu membuka plain password lewat penyisipan potongan respon NTLM saja di session login [44].
+~Spraying attack. #Salah. Melakukan perlahan injeksi coba password pelan-pelan ke ratusan akun beda agar threshold penguncian log in lolos [54].
+}
+
+::D3-Q72:: Konsep Software Defined Everything (SDx) telah memungkinkan otomasi penuh lingkungan Data Center dengan abstraksi dari mesin fisik. Fitur SDDC manakah yang berfungsi untuk otomatisasi analisis pemantauan rute paket internal (NTA) untuk merespons aliran dan menjatuhkan anomali logis? {
+=Software-defined visibility (SDV). #Benar! Tujuannya mengotomatisasi deteksi ancaman dan keputusan intelijen atas arus metadata deep intelligence di dalam infrastruktur komputasi [90, 91].
+~VSAN (Virtual Storage Area Network). #Salah. Partisi dan agregasi disk dari klaster cluster hypervisor menjadi volume SAN bersama memprioritaskan efisiensi akses media.
+~Virtual Mobile Infrastructure (VMI). #Salah. Antarmuka server merender layar tampilan OS Android di pusat dan men-streamnya ke tablet pribadi karyawan dari jarak jauh [92].
+~Microservices. #Salah. Itu teknik pemecahan pengembangan Web Apps API monolitik ke logika fungsi serverless parsial.
+}
+
+::D3-Q73:: Pengembang menyadari pentingnya melindungi API Gateway aplikasi pihak ketiga untuk komunikasi e-commerce-nya, lalu meminimalisir kemungkinan manipulasi input kueri yang mengarah dari formulir antarmuka pelanggan menggunakan bahasa seperti Java "PreparedStatement()". Pendekatan pengamanan basis data apa yang sedang dilakukan ini? {
+=Parameterized Queries (Stored Procedures). #Benar! Permintaan yang diparameterisasi membungkus fungsi SQL sedemikian rupa sehingga peretas tidak bisa "meloloskan" kutip tunggal metakarakter agar server tertipu mengeksekusinya [93].
+~Client-side validation restrictions. #Salah. Pengujian di atas browser klien mudah dimanipulasi dengan intercepting proxy Burp Suite sebelum input mendarat. SQL Injection perlu diamankan dari sisi peladen (Server).
+~Directory Traversal prevention. #Salah. Perutean navigasi ke folder "/../etc/passwd" Unix.
+~Time-of-Check to Time-of-Use elimination. #Salah. Pencegahan ras waktu pengoperasian sinkronisasi proses dalam aplikasi lokal atau kernel multithread.
+}
+
+::D3-Q74:: Apa bahaya dari penggunaan default konfigurasi pada solusi Cloud atau Container seperti AWS S3 Buckets, Docker, maupun database NoSQL Mongo yang baru diunduh langsung ke tahap produksi? {
+=Otorisasi aksesnya umumnya tidak aktif atau dalam status terbuka (world-readable / Fail-Open) demi memudahkan pemasaran agar mudah dirangkai programmer awal tanpa halangan kelancaran konektivitas. #Benar! Kegagalan mengganti mode bawaan publik menjadi prinsip Secure Defaults merisikokan jutaan database terindeks langsung terekspos Shodan [94, 95].
+~Defaultnya menghancurkan sistem log sehingga jejak penginstalan tersembunyi untuk efisiensi kecepatan beban processor. #Salah. Log bawaannya ada walau dangkal, jarang yang "mati otomatis".
+~Kunci simetris Enkripsi bawaan menggunakan ROT13 purba, sehingga lalu lintasnya didekripsi dalam sepersekian detik. #Salah. Sistem modern cloud umumnya tak menggunakan cipher semacam ROT13 sebagai pelindung komersial.
+~Membutuhkan validasi manual Two Person Control untuk menyalakan instans VM perdananya, memakan waktu jam kerja staf ahli yang langka. #Salah. Penyedia awan justru memberikan penyebaran skrip instans yang otomatis sekejap mata.
+}
+
+::D3-Q75:: Metode kerentanan eksekusi dinamis fuzz testing terbagi dua, "Mutation" yang menukar pola karakter masukan file dari contoh data lama, lalu pendekatan satu lagi yang mempelajari model struktur tipe data aplikasi lalu membuat masukan palsu yang valid tetapi ekstrim panjang secara otomatis (intelligent). Jenis Fuzzing kedua itu diistilahkan apa? {
+=Generational Fuzzing. #Benar! Membangkitkan kasus uji (test case input) baru sepenuhnya sejak lahir dengan pemodelan kecerdasan tipe field dan skema variabel sistem program aplikasi yang diuji fuzzer tersebut [96, 97].
+~Bit Flipping. #Salah. Manipulasi sedikit-demi-sedikit 1/0 bit acak pada Mutation (Dumb) fuzzing yang cenderung tidak mengerti struktur alurnya [98].
+~Sanitization testing. #Salah. Merupakan konsep penyehatan atau validasi escape metakarakter kotor dari parameter string web sebelum dilontarkan.
+~Coverage Analysis Loop. #Salah. Alat mengecek seberapa jauh persentase line koding di file sumber sudah kena sentuh jalur test simulasi regresi perangkat QA tersebut.
+}
+
+::D3-Q76:: Tujuan utama dari semua implementasi sistem keamanan dan prosedur perlindungan darurat dari insiden fisik maupun lingkungan pada suatu fasilitas gedung perusahaan di industri apa pun adalah prioritas tertinggi. Apa pertimbangan paling penting ini? {
+=Perlindungan dan penyelamatan nyawa serta keselamatan karyawan (Life safety). #Benar! Aset perangkat, rahasia informasi kerahasiaan, hingga redundansi jaringan semua menjadi tidak berharga atau kalah krusial di hadapan keselamatan jiwa individu di dalamnya [99-101].
+~Pemulihan Basis Data Transaksional dalam kerangka toleransi RPO (Recovery Point Objective) tanpa hilang lebih dari lima menit. #Salah. Data itu prioritas selanjutnya.
+~Mencegah hilangnya hak paten bisnis dan rahasia korporat pada fasilitas brankas (trade secret media evidence). #Salah. Sekali lagi, pencegahan akses korporat rahasia aset tidak mengalahkan keselamatan nyawa staf perusahaan.
+~Mematikan tenaga arus listrik ke server secepatnya tanpa memicu UPS pemadam (fail-secure shutdown) menanggulangi kerusakan korslet internal. #Salah. Jika fail-secure power trip itu malah mematikan kunci elektronik dan menawan orang di dalam kobaran asap, berarti salah prosedur!
+}
+
+::D3-Q77:: Ketika sebuah ruangan pusat data (Server Room / Data Center) memiliki konfigurasi sistem pemadam kebakaran pipa berisi air (water-based), sistem mana yang PALING COCOK direkomendasikan karena memiliki fitur pencegahan siraman cairan ke alat elektronik secara tak terduga hanya karena 1 alarm salah (false positive), dengan mensyaratkan dua fase deteksi sebelum mengguyur air? {
+=Preaction System. #Benar! Sistem pra-aksi mengosongkan pipa dry-pipe dan menunggu sinyal pendeteksi api awal terbuka mengisi air, namun baru benar-benar menyemburkan guyuran air saat sekering suhu di atas kepala alat panasnya pecah meleleh [102].
+~Deluge System. #Salah. Sistem membanjir ini menyiramkan berton-ton air secepatnya untuk area gudang raksasa non-listrik. Bila 1 memicu terbuka, semua mulut atap menyembur deras.
+~Wet Pipe System. #Salah. Pipa sudah selalu diisi penuh dengan tekanan cairan air di segala penjuru waktu. Mudah beku/retak dan rentan bocor menetes ke elektronik secara tidak disengaja.
+~Dry Pipe System. #Salah. Sama seperti pra-aksi namun ia bereaksi siram tunggal begitu tekanan nitrogen menurun di mulut semburannya rusak/terbakar tanpa menunggu fase logika perintah dua lapis verifikasi validasi dari panel control.
+}
+
+::D3-Q78:: Menghadapi kelembaban udara (Humidity) yang tidak terkendali pada sebuah ruang wiring closet dan rak sakelar server akan mengundang berbagai bentuk resiko fisik yang berbeda. Jika tingkat kelembaban udara terlalu RENDAH (<20%), bahaya fisik apakah yang paling sering mengancam kerusakan keping sirkuit CPU dan memori? {
+=Penumpukan Listrik Statis (Static Electricity). #Benar! Pelepasan listrik statis ESD merusak chipset di bawah 40 persen, dan jika menyentuh kurang dari 20%, sangat besar resiko percikan statis tanpa terasa memutus integritas komponen komputasi silikon sensitif [103-105].
+~Korosi (Corrosion). #Salah. Timbulnya titik karat pengembunan air pada pin tembaga terjadi ketika level udara mengandung uap air ekstrem kelembaban relatif di atas titik embun, alias lebih dari 80 persen kelengasan tinggi.
+~Penurunan kemampuan konduktivitas Fiber Optic. #Salah. Fiber optik merupakan serat kaca transmisi cahaya dan kebal terhadap paparan induksi listrik dari statis murni.
+~Peningkatan efisiensi penarikan arus Uninterruptible Power Supply (UPS) berlebihan hingga meledak kelembaban. #Salah. Kelembaban rendah tidak menyedot daya kompensasi UPS secara langsung, hanya menyebabkan rentan ESD.
+}
+
+::D3-Q79:: Urutan fungsional operasional manakah dalam perencanaan zona keamanan fisik (concentric ring of control) di mana pertahanan seharusnya disusun agar pelaku dipaksa gagal sebelum berhasil mencapai pusat target objek sensitif secara ideal? {
+=Deter, Deny, Detect, Delay, Determine, Decide. #Benar! Kontrol harus mengintimidasi pelaku dulu (Deterrence), mencegahnya (Deny lock), menyalakan peringatan sensor (Detect), mengulurnya (Delay safe), mengidentifikasi kejadian (Determine), dan bertindak merespons alarmnya (Decide) [106, 107].
+~Detect, Delay, Decide, Deny, Deter, Determine. #Salah. Mendeteksi tidak dilakukan sebelum kita membangun batasan pagar fisik (menunda dan mencegah/intimidasi).
+~Determine, Decide, Detect, Deter, Deny, Delay. #Salah. Anda tidak bisa menentukan tindakan investigasi apa yang merespon masuknya pelaku bila tidak ada perimeter fisik yang mencegah dan sensor pembunyiannya di depan.
+~Delay, Deter, Deny, Detect, Determine, Decide. #Salah. Halangi pertama adalah pencegahan intimidasi, bukan tiba-tiba sekedar mengulur langkah pelaku di tempat sepi.
+}
+
+::D3-Q80:: Apa jenis perangkat pengamanan pintu zona berlapis perimeter yang dirancang spesifik dalam bentuk lorong bilik ganda khusus mengurung dan menjebak laju lalu lintas satu individu pejalan kaki sambil menanyakan verifikasi otentikasi kuat (seperti pemindaian biometrik iris dan detektor berat/tailgating), di mana ia tak dapat melanjutkan masuk juga tak bisa segera mundur mundur ke belakang sebelum pengawal melepaskannya? {
+=Person Trap / Mantrap. #Benar! Area isolasi penahanan subjek di antara sepasang dua pintu inter-lock terpisah yang mengevaluasi kepatuhan orang tersebut terhadap syarat-izin clearance fasilitas rahasia tanpa resiko tailgating pengikut mengekor sebelum lolos melaju [108, 109].
+~Turnstile. #Salah. Palang berputar hanya mencegah masuk secara gerombolan lewat jalur masuk satu-arah, tak menjebak/mengunci pelaku tertawan dari mundur kembali.
+~Proximity Reader. #Salah. Itu hanya nama dari jenis alat identifikasi mesin pembaca badge nirkabel di tembok pintu.
+~Faraday Cage. #Salah. Sangkar jaring pelapis memblokade penyadapan pancaran transmisi frekuensi radio elektronik (Emanation Security).
+}
+
+::D3-Q81:: Indikator utama keandalan (Reliability) alat pengukuran statistik untuk perangkat perutean tulang punggung LAN gedung yang mencerminkan taksiran masa pakai atau estimasi jumlah tahun dari alat sampai fungsi penggeraknya habis/mati berpulang ke tanah disebut sebagai angka {
+=MTTF (Mean Time To Failure). #Benar! Merupakan rentang metrik lama waktu standar fungsi fungsional rata-rata bagi devais non-repairable dari kondisi baru hingga dia rusak dan gagal total tak terselamatkan untuk diganti utuh [110, 111].
+~MTTR (Mean Time To Repair). #Salah. Rata-rata jam perbaikan kembali suatu alat begitu gagal hingga sedia berfungsi live.
+~MTBF (Mean Time Between Failures). #Salah. Rentang jam beroperasinya layanan antara dari titik kegagalan terakhirnya setelah direparasi sampai ia di estimasi bakal mati putus tiba-tiba ke sekian kalinya.
+~RPO (Recovery Point Objective). #Salah. Itu toleransi kehilangan mundur data backup transaksi maksimal sebelum perusahaan bangkrut.
+}
+
+::D3-Q82:: Kebakaran akibat hubungan arus listrik kabel di ruang rak data center dan ruang generator (Electrical Fire). Berdasarkan klasifikasi kelas api kebakaran Amerika, alat pemadam jenis apa yang terlarang untuk digunakan pada skenario Kelas C itu? {
+=Pemadam api tipe Soda Acid atau media berbasis campuran air murni. #Benar! Air pada arus listrik hidup kelas C menyebabkan konduksi setruman elektrik letal pada pekerja dan memperburuk hubungan konslet pendek memercik ke seluruh server [99].
+~Pemadam gas Halocarbon/FM-200. #Salah. Sangat direkomendasikan karena bersifat non-konduktif meredam bersih listrik.
+~Pemadam bubuk kimia kering kombo / Dry Chemical Powder. #Salah. Diperbolehkan mematikan komponen api tanpa menghantarkan listrik.
+~Pemadam gas penarik oksigen (CO2). #Salah. Karbondioksida menghilangkan sisi Oksigen dalam The Fire Triangle Kelas C tanpa sisa korosi konduktif cair.
+}
+
+::D3-Q83:: Sebagai kontrol penunda fisik untuk gedung pusat yang dipagari kawasan terlarang luar halaman kantor pemerintahan, instalasi jenis pagar setinggi lebih dari 8 kaki (minimal 2.4 meter) ditambah untaian kawat berduri tiga helai (barbed wire) ditujukan untuk mencapai tingkat keamanan {
+=Mencegah penentu / Menahan laju penyusup teguh dengan usaha ekstra yang sangat mengintimidasi, mengganggu, dan menunda pelanggar masuk semaksimal mungkin (Mencegah peretas / penyusup nekad yang nekat kuat). #Benar! Standar tinggi minimum pagar yang melebihi batas rata-rata pejalan kaki dengan instrumen berduri memblokir dengan efektif kemajuan penyusupan luar selain tank [112].
+~Mencegah pengunjung biasa berkeliaran kasual (Deter casual trespassers). #Salah. Pagar sekadar tinggi 3-4 kaki saja cukup menghentikan anak main-main/casual intruder, bukan 8+ berduri lapis.
+~Mendeteksi lompatan pagar saat gelap malam. #Salah. Untuk alarm deteksi di pagar dibutuhkan kabel getar sensor elektronik (PIDAS) ekstra, sekedar kawat besi tidak bisa mendeteksi / memberi notifikasi sekuriti otomatis.
+~Menjamin perlindungan menyeluruh serangan proyektil perusak. #Salah. Pagar kawat bolong tidak menghentikan rudal cuaca, proyektil panah api, pesawat intai, namun pagar batu/dinding blok kokoh lah yang melindunginya.
+}
+
+::D3-Q84:: Kabel UTP (Unshielded Twisted Pair) Horizontal Distribution rawan terhadap ancaman Penyadapan Fisik Ekstraksi Gelombang Elektromagnetik dan serangan Cross-Talk antar jejak kawat silang. Untuk melindungi lalu lintas tingkat transmisi jaringan yang meluncur rahasia di gedung kampus agar MUSTAHIL ditembus induksinya tanpa memecahkan konduktor kaca dan dapat meluncur bermil mil-mil jarak jauh tanpa sinyal meredup parah (Attenuation). Media tulang punggung mana yang paling tahan sabotase? {
+=Fiber-Optic Cable. #Benar! Serat optik memancarkan untaian sinyal paket cahaya foton, tidak melepas radiasi EMI elektromagnetik listrik ke udara yang dapat direkam alat penangkap induksi sadap; kebal terhadap interferensi crosstalk radio dari trafo atau motor dan sulit disadap fisik tanpa potong memutus koneksi nyata/kehilangan kilau pancaran sinyal aslinya [113-115].
+~Coaxial Cable. #Salah. Kabel koaksial berlapis logam memang lebih baik dari kawat telepon polos terhadap distorsi interferensi, tapi tetap konduktor listrik dan rentan induksi serta atenuasi cepat di jarak menengah.
+~Shielded Twisted Pair (STP). #Salah. Jaket selubung besi penangkal ekstra radiasi ini kuat menahan noise EMF masuk, tapi sinyal sinyal elektrik transmisi di dalamnya masih dapat ditambang disadap dan atenuasinya sama pendeknya dengan UTP kategori jarak meternya.
+~Tethered Radio Satellite Microwave. #Salah. Pemancaran sinyal RF satelit membanjiri spektrum yang justru dapat ditangkap oleh instrumen piringan penerima gelap yang dimanipulasi posisinya oleh pelaku spionase dengan cakupan luas kerentanan intersepsi satelit yang luar biasa memancar besar ke dataran kota-kota.
+}
+
+::D3-Q85:: Mengingat desain keamanan area tapak data, apa sebutan lorong di pusat data server di mana deretan kabinet perangkat diposisikan saling membelakangi muka menghisap embusan AC di depan secara sejajar lalu menyemburkan udara knalpot mesin pembuangan hangat dari bokong CPU yang sama-sama menuju gang udara sisi sirkulasi baliknya yang berkumpul menumpuk menuju atas ekstraktor (extractor exhaust) pendingin kipas sentral? {
+=Hot Aisle / Cold Aisle. #Benar! Konfigurasi suhu desain ruangan tata lorong panas (punggung pembuangan disedot exhaust atap langit plafon) dan lorong dingin (AC menyembur dari bawah ubin lantai naik disedot ke muka muka rak CPU baris depannya) dapat menghindari sirkulasi pendek perputaran kembali termal hawa pemanas peralatan yang menurunkan biaya konsumsi kelistrikan HVAC hingga aman ekstrem komputasi tinggi terhindar overhead kerusakan gosong alat overheat motherboard efisien optimal [102, 104].
+~Faraday Caging Row. #Salah. Bukan fitur pendinginan manajemen kalor hawa udara lingkungan melainkan untuk emisi penyebaran RF Radio Elektromagnet.
+~Raised Sub-Floor Plenum. #Salah. Itu sekedar istilah lantai tingkat panel panggung penutup kabel perkawatan listrik di bawah ruangan, yang mana lorong pendingin Cold Aisle tersebut cuma memanfaatkannya sebagian fungsi sebagai selang terowongan sirkulasi tekanan tinggi penyaluran udara hembusan dari CRAC saja; namun orientasi layout susunan formasi punggung-muka rak saling tempel menolak silangnya istilah fungsional spesifik hot/cold aisles penataan berhadap-hadapan.
+~MDF Distribution Room. #Salah. Titik utama distribusi demarkasi titik pusat penghubung tulang punggung WAN ke lokal LAN di lantai utama, biasanya ruang kabel rute telko perantara yang bukan prioritas dominan pendinginan massif HVAC lorong server super.
+}
+
+::D3-Q86:: Salah satu alasan penggunaan pelabelan RFID Tracking pada media penyimpanan arsip pita (Backup Media storage label tapes) dan keping kaset sensitif perbankan selain memperlancar tata buku kepatuhan manajemen logistik, paling krusial dirancang demi mendukung deteksi peringatan insiden operasional fisik terhadap ancaman jenis apa? {
+=Pencurian / Data Theft Asset. #Benar! Pita media offline off-site rentan diselundupkan di saku celana karena bentuk kompaknya memuat miliaran gigabyte transaksi berisiko. RFID gawang portal mendeteksi otomatis jika ada tape dikantongi melewat keluar pintu luar ruang kaset yang dilarang [116-118].
+~Korosi kelembaban magnetis bit remanence. #Salah. Barcode atau pelabelan gelombang RF tidak menyelamatkan pita seluloid dari kerusakan karat uap oksidasi penuaan masa degradasi umur media simpan.
+~Over-written declassification / Degaussing keliru. #Salah. Sensor RFID tak mampu melindungi isian gelombang fluks sel pita magnet di dalamnya ditumpa / di magnet mati tak disengaja kelalaian penghapusan operator secara software teknis.
+~Hardware RAID array failure. #Salah. Tanda tracking tag media eksternal portabel sama sekali bukan mitigasi ketahanan toleransi kesalahan operasional disk lokal mesin Redundant Array of Independent Disks internal di server nyala.
+}
+
+::D3-Q87:: Terdapat sensor deteksi perimeter fisik yang merespon fluktuasi perubahan pergeseran dalam medan medan magnetik kapasitor dan sinyal elektrik ketika manusia (yang bermuatan dan menyimpan sedikit konduktivitas alami) menyusup mendatangi perabotan brankas aman jarak dekat tanpa harus menyentuh / menyandarkan bobot sentuh kulit badannya pada gerbang alarm tersebut. Disebut jenis detektor sensor gerak tipe apakah teknologi itu? {
+=Capacitance motion detector. #Benar! Sensor gerak mekanis berbasis kapasitansi menghasilkan sebuah zona magnet medan frekuensi elektro tak tampak di sekitar tiang pelacak. Tubuh manusia dewasa yang memotong area induksinya langsung menimbulkan disrupsi statis mengubah reaktansi tuning nilai tegangan sinyal radio pemancar yang merangsang notifikasi bel relai penjaga meledak [119].
+~Photoelectric motion detector. #Salah. Itu balok sinar linear lurus optik (laser tak nampak/Inframerah potong), yang mana perlu subyek pelaku tersandung mengaburkan jalur tembakan cahaya point-A ke B garis sinar pantul silang dari pengirim ke penerimanya, putus baru menyala.
+~Wave pattern motion detector (Microwave / Ultrasonic). #Salah. Mengirim tembakan radiasi sonar gelombang ultrasonik suara/mikro radar yang memantul di sudut ruangan membalikan gema, jika ada pergerakan tubuh subjek maka frekuensi gemanya bergeser beda efek Doppler merangsang alat membaca gangguan bunyi memantul. Mirip tapi metodenya sonar memantul membanjir seluruh ruangan bukan induksi pasif benda spesifik magnet dekat brankas sempit presisi.
+~Infrared Heat (Passive IR). #Salah. Mendeteksi lonjakan perbedaan radiasi pola bayang titik suhu suhu hawa temperatur panas dari pancaran aura daging termal manusia dibandingkan dinding tembok udara sekitar yang stabil dingin membeku saat pejalan diam pindah jalan lewat koridornya. Tidak melihat induksi listrik konduktivitas tubuh dekat besi, dia hanya membaca radiasi hawa kalori panas selisih ambient derajat derajat di sel lensa Fresnel nya.
+}
+
+::D3-Q88:: Perangkat komputer dan telekomunikasi pabrik secara signifikan menghisap tegangan pasokan energi kota lokal. Kualitas listrik dari operator utilitas tak selalu halus lurus, banyak lonjakan tiba-tiba sesaat (Surge) listrik tinggi menyetrum papan PSU komputer meledak, ada juga keredupan (Sag/Brownout) menyala lemah pelan merestart memori RAM sistem hingga merusak cache database. Apa alat intervensi gardu tingkat pertama termudah pencegah riak kasar sebelum harus membeli dinamo Baterai Generator raksasa mahal, demi membentengi dan menyetabilkan merapihkan menghaluskan kualitas daya output arus gelombang masuknya agar pas mulus 220V bersih tanpa naik turun murni halus stabil menyuplai ke PSU Server? {
+=Power-line Conditioner / Line Conditioner. #Benar! Komponen yang didedikasikan untuk melakukan "Condition monitoring", men-filter EMI/RFI, kompensasi harmonik distorsi meratakan lonjakan "Spike/Surge" tajam sesaat namun meredam pergeseran voltase frekuensi naik/turun regulasi halus dengan trafo induktor besar tanpa fitur menahan aki kelistrikan baterai baterai tahan mati (Power Smoothing murni memutihkan membersihkan gelombang listrik ke PC) disebut Line Conditioner Regulator men-suppress kerusakan noise listrik kotor perusak kapasitor server sensitif rumit [120, 121].
+~Surge Protector semata. #Salah. Colokan kabel steker ekstensi stopkontak ini hanya berisi fuse/sekering sekali pakai pemutus sirkuit pelindung darurat mati putus mendadak jika tersengat petir "spike" keras kelebihan beban agar pc tidak gosong. Tidak menaikkan tegangan "Sag" redup ke normal juga tidak memperbaiki menghaluskan sinyal daya regulasi "Noise" kotor kasar, ketika ia jeglek trip off daya diputus keras mati tanpa kompromi ketersediaan sama sekali membiarkan server kehilangan aliran operasional detik itu juga tewas kelaparan listrik tanpa save data (Lack of smooth availability power output compensation level regulation line-conditioning traits).
+~UPS (Uninterruptible Power Supply). #Salah. Ini untuk mengatasi kejatuhan listrik padam sepenuhnya "Blackout/Fault", bukan semata "Kondisioner perata pembersih" utama karena fungsi UPS sentral ya memuat aki baterai besar backup sekunder menahan durasi sementara transisi nyala mesin diesel (Beberapa UPS mahal punya filter Line Conditioner tapi fitur aslinya adalah Backup aki penyokong bukan murni pembersih regulator kondisioner penghalus awal yang kita bahas spesifik pada skenario yang bilang "Tanpa harus membeli dinamo baterai").
+~Generator Genset Diesel. #Salah. Dinamo motor bensin bermesin justru penghasil listrik utama darurat yang tak beraturan berisik kasarnya, perlu line kondisioner lagi saat diputar nyala menggerung mengisi bangunan pasca badai memutuskan trafo tiang gardu jalanan PLN tiang utama putus berjam-jam lamanya.
+}
+
+::D3-Q89:: Menempatkan "Industrial Camouflage" pada tampak depan desain pusat data rahasia intelijen NSA bertujuan untuk menerapkan taktik CPTED fasa keberapa/bidang yang mana, seputar menyembunyikan memudarkan ketertarikan kasual eksistensi bernilai vital aset korporasi dengan mengecat memulas markas menjadi tampak seperti toko rongsokan kardus atau pergudangan perakitan kaleng sarden usang yang tak menarik bagi perampok elit mata-mata dari pinggir jalan umum luar yang tidak peduli lewat melintas? {
+=Menutupi / menyembunyikan identitas fasilitas aktual dan mengurangi ketertarikan sasaran (Target Hardening by Obscurity Image mitigation). #Benar! Kamuflase industri berusaha menyamarkan fungsi, tujuan, atau operasi aktual dari sebuah fasilitas dengan menghadirkan fasad arsitektur penyamaran palsu untuk menjauhkan atensi memancing pengintai [84, 122].
+~Natural Surveillance CPTED principle. #Salah. Surveilans alamiah justru memaksimalkan penerangan, jendela jernih kaca memantau, halaman semak belukar yang rapi bersih dan bangku-bangku tempat karyawan makan siang santai di taman memandangi jalanan agar para perampok was-was diawasi ratusan bola mata alamiah wajar yang melihat pergerakan terang mencurigakan; Berbanding terbalik dari menyembunyikan mengaburkan eksistensi gedung beton jendela buntu rongsok mematikan.
+~Territorial Control marking domain boundaries. #Salah. Kontrol domain teritorial itu memberi identitas marka kepemilikan sangat kebanggaan kuat jelas perbatasan rumput rapi asri gerbang tanda masuk "Awas Ini Wilayah Pusat Intelijen NSA" yang dirawat elegan membanggakan status privasi tegas agar preman tak masuk batas pagar sombong, BUKAN disembunyikan cat kelabu lusuh memudar.
+~Data Localization & Sovereign Compliance. #Salah. Konsep menyimpan beban koding awan cloud data hanya di pusat tapak batas hukum border geografi negara undang undang kedaulatan data warga regulasinya sendiri, tidak bicara pasal perancangan dinding rupa beton cat luar penyamaran mata memata mata agen rusia dari balik ilalang tanaman gedung di pinggiran ibu kota sepi.
+}
+
+::D3-Q90:: Celah keamanan "Piggybacking" membiarkan pihak ketiga menyelusup menumpang kepatuhan akses dari identitas kartu pemegang akses pintu aslinya, dan pihak ketiga ini dibantu atau disetujui / dibiarkan secara sukarela toleransi sosial oleh karyawan asli pembawa kartu yang ramah tersebut untuk masuk gerbang. Apa penanggulangan sosial dan fisik paling ampuh melenyapkan etiket menolong fatal pada pintu perbatasan berlapis kunci keamanan Biometrik ini? {
+=Security Awareness Training anti-Tailing & Pemasangan lorong putar penjepit satu-satu (Turnstiles / Mantrap). #Benar! Mengajar kan bahwa membukakan/menahan pintu agar tamu kasual bisa masuk dari belakang karena "ramah" itu melanggar berat SOP, beserta memasang sekat mesin fisik palang putar keras (turnstile) yang mutlak secara keras hanya melewatkan poros rotasi satu volume daging tubuh sekali per 1x pembacaan biometrik tuntas [23, 108, 123].
+~Penggunaan RFID Proximity Access Cards ekstra kuat (Smartcards Tipe-2). #Salah. Kartu mau dicanggihkan kripto AES 256bit sekalipun tak mempan karena sang pemegang kartu yang baik hati itu sendiri yang menge-Tap kan untuk membuka engsel besi kunci elektromagnetik pintunya lama, agar orang jahat dibelakangnya yang memelas "Ketinggalan kartu Pak" dapat jalan masuk menumpang sela pintu lebar itu (Tailgating). Mesin pembacanya sukses memverifikasi, ia tak tahu brapa orang yang lalu lalang lewat seketika menyebrang, cuma tahu gerendel sudah bunyi Klik melepas 3 detik lamanya (Need Anti-Passback sensor counting Turnstile to defeat this logic bypass abuse).
+~Menugaskan seorang Robot Sentry Patroli Koridor Dalam / Anjing Penjaga Guard Dogs berlarian di pelataran halaman rerumputan parkir gelap. #Salah. Robot/anjing luar ini tak memfilter antrean karyawan menekan mesin ketat pagi hari di dalam lobi masuk depan recepsionis elevator, anjing tak punya kompetensi mengenali karyawan lupa bawa name tag dibukakan jalan teman baiknya.
+~Memasang Sistem Pendeteksi Kebakaran Asap Tabung Preaction Halon Gas Pemadam Kimia.
+}
+
+::D3-Q91:: Seorang analis keamanan ditugaskan untuk mengimplementasikan model keamanan yang secara ketat menjaga kerahasiaan data militer. Analis tersebut harus memastikan bahwa pengguna dengan tingkat izin "Secret" tidak dapat menulis atau menyalin informasi ke tingkat "Unclassified". Properti apa dari model Bell-LaPadula yang mencegah tindakan ini? {
+=*-Property (Star-Property). #Benar! *-Property (Star-Property) dalam model Bell-LaPadula menyatakan "No Write Down" yang mencegah subjek menulis ke tingkat klasifikasi yang lebih rendah guna mencegah kebocoran informasi rahasia.
+~Simple Security Property. #Salah. Simple Security Property menyatakan "No Read Up" yang mencegah pengguna membaca data dengan klasifikasi di atas izin mereka.
+~Simple Integrity Property. #Salah. Ini adalah properti dari model Biba untuk menjaga integritas dengan aturan "No Read Down", bukan model Bell-LaPadula.
+~Invocation Property. #Salah. Ini adalah properti tambahan pada model Biba yang mencegah subjek memanggil atau meminta akses ke objek atau subjek pada tingkat integritas yang lebih tinggi.
+}
+
+::D3-Q92:: Sebuah rumah sakit ingin memastikan bahwa data medis pasien tidak dapat dimodifikasi oleh staf administrasi yang memiliki tingkat kepercayaan lebih rendah dibandingkan dokter, guna menjaga keandalan dan keakuratan rekam medis. Model keamanan manakah yang paling tepat diimplementasikan oleh rumah sakit ini beserta aturan utamanya? {
+=Model Biba dengan aturan * (Star) Integrity Property. #Benar! Model Biba dirancang khusus untuk melindungi integritas data. Aturan * (Star) Integrity Property menyatakan "No Write Up", sehingga staf tingkat rendah tidak dapat memodifikasi data tingkat tinggi.
+~Model Bell-LaPadula dengan aturan Simple Security Property. #Salah. Bell-LaPadula fokus pada kerahasiaan data, sedangkan rumah sakit di skenario ini fokus pada menjaga keandalan atau integritas data.
+~Model Clark-Wilson dengan aturan Unconstrained Data Item. #Salah. Clark-Wilson memang fokus pada integritas, tetapi Unconstrained Data Item (UDI) adalah data yang tidak dilindungi oleh model tersebut, bukan nama aturannya.
+~Model Brewer and Nash dengan aturan Chinese Wall. #Salah. Model Brewer and Nash dirancang untuk mencegah konflik kepentingan (conflict of interest), bukan untuk hierarki integritas.
+}
+
+::D3-Q93:: Saat merancang arsitektur keamanan untuk perangkat laptop perusahaan, Anda memutuskan untuk menggunakan mikrokontroler khusus pada motherboard yang berfungsi menyimpan kunci kriptografi, kata sandi, dan sertifikat digital guna mendukung proses Secure Boot. Komponen arsitektur keamanan apa yang Anda manfaatkan? {
+=Trusted Platform Module (TPM). #Benar! TPM adalah mikrokontroler perangkat keras yang ditanamkan pada motherboard untuk menyimpan kunci kriptografi dan memastikan integritas sistem dari proses boot awal.
+~Hardware Security Module (HSM). #Salah. HSM adalah perangkat kriptografi eksternal atau server plug-in tingkat tinggi yang biasanya digunakan untuk melindungi dan mengelola kunci dalam jumlah besar pada infrastruktur server, bukan chip bawaan di laptop pengguna.
+~EEPROM (Electronically Erasable Programmable Read-Only Memory). #Salah. Meskipun EEPROM adalah jenis memori pada perangkat, ini bukan mikrokontroler kriptografi khusus untuk penyimpanan kunci terenkripsi layaknya TPM.
+~System on a Chip (SoC). #Salah. SoC adalah penggabungan beberapa komponen komputasi dalam satu chip, tetapi bukan secara spesifik merujuk pada modul pemrosesan dan penyimpanan kriptografis yang aman.
+}
+
+::D3-Q94:: Perusahaan utilitas pembangkit listrik mengalami peningkatan serangan siber yang menargetkan sistem distribusi mereka. Setelah diaudit, ditemukan bahwa sistem operasional terhubung langsung dengan jaringan korporat dan internet. Untuk mengamankan Industrial Control Systems (ICS) ini, langkah arsitektur keamanan terbaik apa yang harus dilakukan? {
+=Mengisolasi ICS dari jaringan korporat dan menerapkan air gap atau demilitarized zone (DMZ) yang ketat. #Benar! Pemisahan jaringan (segmentasi) atau penerapan air gap dan DMZ yang ketat antara ICS (seperti SCADA) dan jaringan TI korporat atau internet adalah arsitektur terbaik untuk mengurangi permukaan serangan pada infrastruktur kritis.
+~Memasang antivirus tradisional dan HIDS pada setiap komponen Programmable Logic Controller (PLC). #Salah. Menginstal agen pihak ketiga pada PLC sering kali tidak memungkinkan karena arsitekturnya yang spesifik (real-time OS) dan dapat mengganggu fungsi operasional yang kritis.
+~Mengenkripsi seluruh data yang mengalir menggunakan IPsec antara ICS dan internet. #Salah. ICS tidak seharusnya terhubung langsung ke internet, meskipun jalurnya dienkripsi, karena tetap mengeksposnya terhadap serangan DoS atau zero-day eksploit.
+~Mengganti sistem SCADA lama dengan perangkat Internet of Things (IoT) yang lebih modern. #Salah. Mengganti SCADA dengan IoT tanpa memisahkannya dari jaringan internet justru akan menambah permukaan serangan (attack surface).
+}
+
+::D3-Q95:: Dalam arsitektur keamanan tradisional, organisasi umumnya menggunakan pendekatan "trust but verify" untuk perangkat yang berada di dalam perimeter jaringan. Namun, mengingat ancaman dari dalam (insider threats) yang semakin tinggi, manajemen ingin mengubah paradigma desain keamanannya. Prinsip desain apa yang mengasumsikan bahwa tidak ada perangkat atau pengguna yang dapat dipercaya secara otomatis, meskipun berada di dalam jaringan lokal? {
+=Zero Trust. #Benar! Zero Trust adalah konsep keamanan di mana tidak ada apa pun di dalam organisasi yang secara otomatis dipercaya. Konsep ini didasarkan pada paradigma "never trust, always verify" dan sering dipasangkan dengan mikrosegmentasi.
+~Defense in Depth. #Salah. Defense in depth adalah prinsip pelapisan keamanan ganda, namun tidak serta-merta mengasumsikan penghapusan kepercayaan pada lingkungan internal.
+~Fail Securely. #Salah. Fail securely adalah prinsip desain perangkat lunak di mana jika suatu aplikasi gagal, ia harus kembali ke kondisi tertutup atau aman, bukan prinsip jaringan untuk menghapus kepercayaan internal.
+~Privacy by Design. #Salah. Privacy by design adalah panduan untuk mengintegrasikan perlindungan privasi data ke dalam siklus pengembangan produk sejak awal, bukan model perimeter jaringan.
+}
+
+::D3-Q96:: Sebagai bagian dari perancangan keamanan fisik di Domain 3, Anda bertugas memilih sistem pencegah kebakaran untuk pusat data (server room) utama. Untuk meminimalkan risiko kerusakan perangkat keras elektronik bernilai tinggi akibat pelepasan air yang tidak disengaja (false alarm), jenis sistem berbasis air apa yang paling direkomendasikan? {
+=Preaction system. #Benar! Sistem preaction (pra-aksi) adalah sistem berbasis air yang paling tepat untuk lingkungan dengan komputer dan manusia karena sistem ini memberikan kesempatan untuk mencegah pelepasan air jika terjadi alarm palsu sebelum air benar-benar terisi di pipa pemancar.
+~Wet pipe system. #Salah. Pipa pada wet pipe system selalu berisi air dan akan langsung menyemprotkan air ketika suhu memecahkan kaca penahan di kepala sprinkler, sehingga sangat berisiko untuk ruang server.
+~Dry pipe system. #Salah. Dry pipe tidak memiliki air di pipa sebelum terbuka, tetapi tidak memiliki tahap intervensi ganda seperti preaction system untuk mencegah kebocoran tak terduga ke ruang komputer.
+~Deluge system. #Salah. Deluge system melepaskan air bervolume sangat besar secara serentak ke semua kepala sprinkler sekaligus, yang dapat langsung menghancurkan seluruh fasilitas elektronik seketika.
+}
+
+::D3-Q97:: Tim pengembang Anda memutuskan untuk beralih dari arsitektur aplikasi monolitik ke arsitektur modern yang memecah fungsionalitas aplikasi menjadi layanan-layanan kecil dan independen. Masing-masing layanan ini dapat dikembangkan, diterapkan, dan diskalakan sendiri-sendiri, serta berkomunikasi satu sama lain menggunakan Application Programming Interface (API). Arsitektur desain apa yang sedang diterapkan oleh tim Anda? {
+=Microservices. #Benar! Microservices adalah arsitektur di mana aplikasi monolitik dipecah menjadi fungsi-fungsi kecil yang independen dan berinteraksi secara mulus satu sama lain menggunakan API.
+~Software-Defined Networking (SDN). #Salah. SDN adalah pemisahan control plane dan data plane pada jaringan untuk mempermudah manajemen perangkat jaringan keras secara terpusat.
+~Virtual Desktop Infrastructure (VDI). #Salah. VDI adalah hosting mesin virtual desktop sistem operasi di server pusat yang diakses secara jarak jauh oleh pengguna, bukan teknik pemecahan aplikasi.
+~Fog Computing. #Salah. Fog computing melibatkan pemrosesan data sensor atau IoT lebih dekat ke sumber data daripada mengirim semuanya ke cloud pusat.
+}
+
+::D3-Q98:: Saat mengevaluasi produk keamanan jaringan baru menggunakan standar Common Criteria (ISO/IEC 15408), Anda perlu meninjau spesifikasi dan jaminan klaim perlindungan yang secara khusus disusun oleh pihak vendor pembuat produk tersebut. Dokumen apa yang berisi klaim atau janji vendor tersebut? {
+=Security Target (ST). #Benar! Security Target (ST) menetapkan klaim keamanan dari vendor pembuat produk. Ini dianggap sebagai "I will provide" dari sisi vendor terhadap Target of Evaluation (TOE).
+~Protection Profile (PP). #Salah. Protection Profile (PP) menentukan spesifikasi dan persyaratan keamanan abstrak dari sisi pelanggan (customer) atas suatu produk "I want".
+~Evaluation Assurance Level (EAL). #Salah. EAL adalah peringkat numerik (1-7) yang diberikan oleh evaluator sebagai hasil dari seberapa mendalam produk tersebut telah diuji secara formal, bukan klaim dokumen yang dibuat vendor.
+~Target of Evaluation (TOE). #Salah. TOE adalah sistem atau produk aktual yang sedang dievaluasi, bukan dokumen yang menguraikan klaim keamanan.
+}
+
+::D3-Q99:: Perusahaan Anda ingin mengemas aplikasi agar dapat berjalan dengan dependensinya di lingkungan yang ringan dan mudah dipindahkan. Anda menyadari arsitektur ini membagikan (sharing) kernel sistem operasi host kepada seluruh mesin virtual kecil di dalamnya. Arsitektur apa yang dimaksud, dan apa risiko keamanan struktural utamanya? {
+=Containerization, risiko utamanya adalah jika kernel OS host diretas maka semua kontainer dapat dieksploitasi. #Benar! Containerization membungkus kode dan pustaka aplikasi secara ringan namun berbagi Host OS yang sama. Jika attacker berhasil menembus kernel sistem operasi utama, seluruh kontainer di atasnya turut terancam (container breakout).
+~Type 1 Hypervisor, risiko utamanya adalah kerentanan API pada virtual machine dapat melarikan diri ke guest OS. #Salah. Type 1 Hypervisor berjalan langsung di atas bare-metal perangkat keras, tidak membagikan OS host layaknya kontainer (container).
+~Software-Defined Storage (SDS), risiko utamanya adalah kegagalan SAN terpusat menghilangkan akses komputasi. #Salah. SDS adalah manajemen penyimpanan (storage), bukan arsitektur komputasi untuk membungkus aplikasi.
+~Virtual Mobile Infrastructure (VMI), risiko utamanya adalah perangkat seluler mencuri data aplikasi terpusat. #Salah. VMI adalah virtualisasi sistem operasi perangkat seluler di server pusat, bukan pengemasan aplikasi dengan berbagi kernel server.
+}
+
+::D3-Q100:: Sebuah lembaga perbankan merancang mekanisme pemulihan kunci kriptografi (key escrow) darurat. Mereka menerapkan kebijakan arsitektur yang mengharuskan minimal 3 dari total 5 administrator keamanan untuk menggunakan fragmen kunci mereka secara bersama-sama guna mengaktifkan akses pemulihan tersebut. Tidak ada individu yang dapat memulihkan kunci tersebut sendirian. Konsep kontrol keamanan apa yang diterapkan? {
+=Split knowledge dengan konsep M of N Control. #Benar! Konsep ini menggabungkan "split knowledge" (pemisahan bagian pengetahuan rahasia) dan memerlukan jumlah minimum elemen (M, yaitu 3) dari total agen yang ada (N, yaitu 5) untuk melakukan tugas dengan sensitivitas tinggi.
+~Mandatory Access Control dengan model Clark-Wilson. #Salah. Model Clark-Wilson memang dapat mengamankan integritas transaksi dengan pemisahan tugas, namun teknik spesifik membagi bagian kunci untuk disatukan adalah M of N Control.
+~Privileged Access Management dengan metode Job Rotation. #Salah. Job rotation adalah memutar tugas secara berkala untuk deteksi kecurangan, bukan penggabungan wewenang bersama secara simultan.
+~Symmetric Multiprocessing dengan konsep Least Privilege. #Salah. Symmetric multiprocessing (SMP) adalah arsitektur pemrosesan CPU di mana banyak prosesor setara berbagi memori, tidak ada hubungannya dengan pemulihan kunci kriptografi.
+}

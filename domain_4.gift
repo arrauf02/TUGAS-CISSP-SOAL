@@ -1,0 +1,699 @@
+::D4-Q01:: Dalam model OSI, lapisan manakah yang bertanggung jawab untuk pengalamatan logis dan perutean paket data melintasi jaringan yang berbeda? {
+=Lapisan Network. #Benar! Lapisan Network (Layer 3) bertanggung jawab atas pengalamatan logis (seperti IP) dan perutean paket melintasi berbagai jaringan [1, 2].
+~Lapisan Data Link. #Salah. Lapisan Data Link beroperasi dengan alamat fisik atau MAC dan berfokus pada pengiriman frame di jaringan lokal [1].
+~Lapisan Transport. #Salah. Lapisan Transport bertanggung jawab atas pengiriman ujung-ke-ujung yang andal, seperti TCP dan UDP [1].
+~Lapisan Session. #Salah. Lapisan Session bertanggung jawab membuat, mengelola, dan menghentikan sesi komunikasi antar aplikasi [1].
+}
+
+::D4-Q02:: Model TCP/IP menyederhanakan arsitektur OSI. Lapisan manakah pada TCP/IP yang setara dengan gabungan lapisan Application, Presentation, dan Session pada OSI? {
+=Lapisan Application. #Benar! Lapisan Application pada TCP/IP mencakup fungsi dari lapisan Application, Presentation, dan Session pada model OSI [3].
+~Lapisan Transport. #Salah. Lapisan Transport TCP/IP sejajar langsung dengan lapisan Transport OSI [3].
+~Lapisan Internet. #Salah. Lapisan Internet setara dengan lapisan Network pada model OSI [3].
+~Lapisan Link. #Salah. Lapisan Link setara dengan gabungan lapisan Data Link dan Physical pada OSI [3].
+}
+
+::D4-Q03:: Saat mengimplementasikan VPN gateway-to-gateway, Anda memutuskan untuk mengenkripsi seluruh paket IP termasuk header aslinya. Mode IPSec apakah yang Anda konfigurasikan? {
+=Mode Tunnel. #Benar! Mode Tunnel mengenkripsi seluruh paket IP termasuk header aslinya lalu menambahkan header IP baru yang sangat cocok untuk koneksi gateway-to-gateway [4, 5].
+~Mode Transport. #Salah. Mode Transport hanya mengenkripsi payload atau data saja sementara header asli tetap tidak dienkripsi [4].
+~Authentication Header. #Salah. Authentication Header memberikan integritas dan autentikasi tetapi tidak mengenkripsi data [4, 5].
+~Encapsulating Security Payload. #Salah. ESP memang mengenkripsi data, namun pertanyaannya spesifik menanyakan mode pembungkusan header asli [4, 5].
+}
+
+::D4-Q04:: Anda perlu menerapkan firewall yang mampu mengingat paket sebelumnya dalam sebuah koneksi untuk mendeteksi anomali. Jenis firewall apa yang tepat untuk diimplementasikan? {
+=Stateful inspection firewall. #Benar! Stateful inspection firewall dapat mempertahankan status percakapan dan mengingat paket sebelumnya untuk melakukan analisis kontekstual [6].
+~Static packet filtering firewall. #Salah. Packet filtering statis hanya memeriksa paket secara individual berdasarkan aturan ACL tanpa mengingat status koneksi [7].
+~Circuit-level gateway. #Salah. Circuit-level gateway mengelola koneksi di tingkat sirkuit tetapi tidak menganalisis konteks percakapan secara mendalam [8].
+~Application-level gateway. #Salah. Application-level gateway atau proxy beroperasi pada lapisan aplikasi sebagai perantara bukan difokuskan pada memori percakapan paket stateful [9].
+}
+
+::D4-Q05:: Pendekatan arsitektur mana yang memisahkan lapisan infrastruktur jaringan dari lapisan kontrol jaringan untuk mengurangi kompleksitas manajemen administrator? {
+=Software-Defined Networking. #Benar! Software-Defined Networking atau SDN memisahkan control plane dari data plane untuk memusatkan dan menyederhanakan manajemen jaringan [10, 11].
+~Virtual Private Cloud. #Salah. VPC adalah infrastruktur jaringan tervirtualisasi yang disediakan oleh penyedia layanan komputasi awan [12].
+~Content Distribution Network. #Salah. CDN adalah jaringan host yang didistribusikan secara geografis untuk mengirimkan konten web dengan latensi rendah [13, 14].
+~Micro-segmentation. #Salah. Mikrosegmentasi membagi jaringan internal menjadi zona-zona sangat kecil untuk keamanan bukan tentang memisahkan control plane [15, 16].
+}
+
+::D4-Q06:: Untuk memastikan streaming media resolusi tinggi milik perusahaan Anda disajikan kepada pelanggan global dengan latensi rendah, solusi jaringan apa yang harus dirancang? {
+=Content Distribution Network. #Benar! Content Distribution Network menempatkan data di berbagai pusat data dunia agar konten disajikan dari server terdekat dengan pengguna akhir [13, 17].
+~Software-Defined Wide-Area Network. #Salah. SD-WAN mengoptimalkan rute lalu lintas WAN tetapi tidak mendistribusikan caching konten geografis secara langsung [18].
+~Virtual Private Cloud. #Salah. VPC menyediakan lingkungan awan terisolasi secara logis dan bukan jaringan yang dirancang khusus untuk distribusi konten [12].
+~Converged Protocols. #Salah. Protokol konvergen seperti FCoE digunakan menggabungkan lalu lintas storage dan jaringan data [18].
+}
+
+::D4-Q07:: Jika seorang penyerang memalsukan tabel perutean alamat domain dengan menyusupkan catatan palsu sehingga korban yang mengetikkan alamat bank diarahkan ke server peretas, serangan apa ini? {
+=DNS Poisoning. #Benar! DNS cache poisoning terjadi ketika informasi DNS dipalsukan sehingga klien diarahkan ke alamat IP milik penyerang [19, 20].
+~ARP Poisoning. #Salah. ARP poisoning memalsukan pemetaan antara alamat IP dan alamat MAC di jaringan lokal dan tidak terkait langsung dengan nama domain [21, 22].
+~Typosquatting. #Salah. Typosquatting mengandalkan kesalahan ketik pengguna saat memasukkan URL dan tidak melibatkan peracunan cache DNS [8, 23].
+~Domain Hijacking. #Salah. Domain hijacking adalah pencurian kepemilikan registrasi domain langsung dari registrar resmi [24].
+}
+
+::D4-Q08:: Anda mewajibkan standar Wi-Fi yang tidak lagi mengirimkan kata sandi secara langsung saat handshake, melainkan menggunakan mekanisme zero-knowledge proof yang dikenal sebagai Simultaneous Authentication of Equals. Standar apa yang Anda terapkan? {
+=WPA3. #Benar! WPA3 menggunakan mekanisme SAE yang menggantikan metode PSK lama untuk melindungi koneksi nirkabel dari serangan kamus offline [25, 26].
+~Wired Equivalent Privacy. #Salah. WEP adalah protokol lama yang rentan karena menggunakan kunci statis RC4 yang mudah dibongkar [27].
+~Extensible Authentication Protocol. #Salah. EAP adalah kerangka kerja autentikasi untuk otentikasi enterprise, bukan metode enkripsi pengganti PSK [28].
+~Wi-Fi Protected Setup. #Salah. WPS adalah metode pengaturan mudah menggunakan PIN yang terbukti sangat rentan terhadap serangan brute-force [29].
+}
+
+::D4-Q09:: Anda mengonfigurasi jaringan untuk membagi satu jaringan lokal fisik menjadi beberapa domain siaran yang terisolasi secara logis menggunakan switch. Teknologi apa yang digunakan? {
+=VLAN. #Benar! Virtual Local Area Network atau VLAN secara logis membagi switch menjadi beberapa domain siaran terisolasi untuk meningkatkan keamanan dan performa [30, 31].
+~VPN. #Salah. Virtual Private Network membuat terowongan terenkripsi di atas jaringan publik, bukan memecah domain siaran di switch lokal [32, 33].
+~NAT. #Salah. Network Address Translation mengubah alamat IP privat menjadi alamat publik pada firewall atau router [34].
+~Micro-segmentation. #Salah. Mikrosegmentasi lebih jauh dari VLAN dan menerapkan kebijakan keamanan ketat antar beban kerja (workloads) individual menggunakan firewall perangkat lunak [15].
+}
+
+::D4-Q10:: Sistem Anda tidak dapat mencapai server DHCP dan akhirnya menetapkan dirinya sendiri alamat 169.254.20.15. Apakah jenis alamat IP tersebut? {
+=Automatic Private IP Addressing. #Benar! Alamat dalam blok 169.254.x.x adalah APIPA yang ditetapkan secara otomatis ketika klien gagal menghubungi server DHCP [35].
+~RFC 1918 Private Address. #Salah. Alamat privat standar RFC 1918 mencakup rentang 10.x.x.x, 172.16.x.x, dan 192.168.x.x [36].
+~Loopback Address. #Salah. Alamat loopback berada pada rentang subnet 127.x.x.x yang digunakan untuk pengujian internal host [37].
+~Multicast Address. #Salah. Alamat multicast berada di rentang IP Kelas D, yaitu dari 224.x.x.x hingga 239.x.x.x [37].
+}
+
+::D4-Q11:: Kerangka kerja apa yang awalnya dibuat untuk koneksi dial-up namun sekarang memberikan landasan fleksibel yang mengizinkan penggunaan smartcard dan biometrik pada jaringan nirkabel enterprise? {
+=Extensible Authentication Protocol. #Benar! EAP adalah kerangka kerja autentikasi bukan protokol spesifik, yang memungkinkan plug-in berbagai metode autentikasi canggih seperti token dan biometrik [38].
+~Password Authentication Protocol. #Salah. PAP mengirimkan kredensial sandi dalam teks biasa dan sangat rentan disadap [39].
+~Challenge Handshake Authentication Protocol. #Salah. CHAP menantang klien untuk membuktikan identitas dengan hash namun tidak memiliki ekstensi sefleksibel EAP [39].
+~Remote Authentication Dial-In User Service. #Salah. RADIUS adalah protokol AAA klien-server yang bertugas di jaringan inti, bukan kerangka pertukaran kredensial di lapisan link [26].
+}
+
+::D4-Q12:: Perusahaan ingin menjalankan lalu lintas Storage Area Network (SAN) melalui infrastruktur kabel Ethernet yang sama dengan jaringan data mereka untuk mengurangi biaya. Protokol apakah yang memfasilitasi hal ini? {
+=Fibre Channel over Ethernet. #Benar! FCoE adalah protokol konvergen yang memungkinkan transfer lalu lintas Fibre Channel murni secara langsung melintasi jaringan Ethernet [18, 40].
+~Voice over Internet Protocol. #Salah. VoIP mentransmisikan data suara melalui IP, tidak terkait dengan lalu lintas penyimpanan jaringan [18].
+~Software-Defined Wide-Area Network. #Salah. SD-WAN digunakan untuk mengoptimalkan lalu lintas jarak jauh antar cabang perusahaan [18].
+~Internet Control Message Protocol. #Salah. ICMP digunakan untuk diagnostik jaringan seperti ping, bukan penyimpanan data [21].
+}
+
+::D4-Q13:: Protokol berlapis (multilayer protocols) seperti TCP/IP memberikan banyak fleksibilitas dan skalabilitas. Namun apa risiko keamanan paling signifikan yang diakibatkannya? {
+=Memungkinkan pembentukan saluran rahasia melalui enkapsulasi berlebih. #Benar! Enkapsulasi pada protokol multi-lapisan dapat dimanfaatkan oleh penyerang untuk menyembunyikan muatan berbahaya atau melakukan bypass filter firewall (covert channels) [41].
+~Mewajibkan penggunaan alamat IPv4 secara statis. #Salah. Protokol TCP/IP mendukung manajemen alamat yang dinamis seperti DHCP [42].
+~Meniadakan kebutuhan perutean jaringan secara keseluruhan. #Salah. Lapisan network dalam TCP/IP justru berfungsi utamanya untuk perutean paket [43].
+~Menjamin enkripsi end-to-end tanpa alat tambahan. #Salah. Secara bawaan TCP/IP mengirimkan data dalam teks biasa tanpa jaminan enkripsi default [2].
+}
+
+::D4-Q14:: Seorang penyusup menangkap paket komunikasi yang berisi hash autentikasi klien ke server dan mengirimkannya kembali satu jam kemudian untuk mencoba masuk. Teknik apakah ini? {
+=Replay attack. #Benar! Replay attack terjadi ketika penyerang merekam komunikasi yang valid dan mentransmisikan ulang paket tersebut untuk menipu sistem autentikasi [44].
+~Initialization Vector abuse. #Salah. IV abuse terjadi ketika peretas mengeksploitasi algoritma enkripsi karena IV terlalu pendek atau berulang [44].
+~Evil Twin attack. #Salah. Serangan ini melibatkan pembuatan Access Point palsu dengan nama SSID yang sama persis untuk menjebak pengguna [29].
+~Disassociation attack. #Salah. Serangan ini memutuskan klien secara paksa dari Access Point sah untuk meluncurkan Denial of Service [29].
+}
+
+::D4-Q15:: Karyawan yang bepergian menggunakan koneksi seluler 5G. Mengapa Anda tetap mewajibkan mereka menggunakan VPN untuk mengakses aplikasi internal perusahaan? {
+=Enkripsi seluler hanya melindungi data dari perangkat hingga menara BTS, setelah itu data terekspos. #Benar! Meskipun transmisi nirkabel ke menara seluler dienkripsi, lalu lintas jaringan di belakang penyedia layanan seluler berpotensi ditransmisikan dalam teks biasa, sehingga VPN end-to-end mutlak diperlukan [13].
+~Jaringan 5G tidak memiliki perlindungan enkripsi sama sekali secara inheren. #Salah. Standar 5G memiliki protokol enkripsi yang kuat antara handset dan base station [13].
+~VPN dapat secara instan melipatgandakan bandwidth di jaringan 5G. #Salah. VPN menambahkan overhead enkripsi dan biasanya menurunkan sedikit kinerja throughput transmisi [33].
+~Protokol 5G tidak mendukung paket TCP/IP. #Salah. Protokol 5G dirancang sepenuhnya untuk meneruskan paket IP secara efisien [13].
+}
+
+::D4-Q16:: Anda ditugaskan untuk menjamin kelancaran konferensi video direksi dengan memberikan prioritas lalu lintas, mengelola bandwidth, serta membatasi jitter. Apa sebutan fungsi manajemen jaringan ini? {
+=Quality of Service. #Benar! Quality of Service (QoS) memungkinkan administrator untuk memprioritaskan paket tertentu demi menjaga kinerja aplikasi real-time dan mencegah putusnya koneksi akibat congestion [45, 46].
+~Virtual Private Network. #Salah. VPN berfokus pada kerahasiaan dan integritas melalui pembungkusan, bukan pada penjaminan ketersediaan pita lebar untuk lalu lintas video [33].
+~Content Distribution Network. #Salah. CDN melakukan cache konten statis di lokasi terdistribusi untuk pengiriman cepat, tidak mengatur penandaan paket video live internal [13].
+~Load balancing. #Salah. Load balancing menyebar lalu lintas di banyak server untuk mengurangi beban tunggal, namun bukan bertugas mengatur batas jitter jaringan per paket [47].
+}
+
+::D4-Q17:: Untuk menangani lalu lintas web yang padat, perusahaan Anda menggunakan Load Balancer yang membagi koneksi klien ke beberapa server backend. Alamat IP jenis apa yang dihubungi oleh klien luar secara langsung? {
+=Virtual IP (VIP). #Benar! Klien akan berkomunikasi dengan alamat Virtual IP yang dipetakan oleh load balancer ke dalam klaster atau kelompok server fisik secara dinamis [47].
+~Private IP. #Salah. Alamat privat RFC 1918 ada di belakang Load Balancer dan tidak dapat dijangkau klien internet secara langsung tanpa translasi [47].
+~Automatic Private IP. #Salah. APIPA adalah alamat darurat ketika DHCP gagal dan tidak bisa di-routing ke jaringan luar [35].
+~Loopback IP. #Salah. Loopback IP digunakan oleh sistem lokal untuk berkomunikasi dengan dirinya sendiri, contohnya 127.0.0.1 [37].
+}
+
+::D4-Q18:: Organisasi Anda bermigrasi dari perangkat lunak anti-virus biasa menuju sistem yang terus-menerus memantau, mendeteksi anomali pada tingkat host, dan melakukan respons otomatis bila ada ancaman siber yang rumit. Sistem apakah yang Anda pilih? {
+=Endpoint Detection and Response. #Benar! EDR (Endpoint Detection and Response) memonitor dan merekam perilaku pada host secara terus menerus untuk menganalisis, memprediksi, dan merespons ancaman tingkat lanjut [48, 49].
+~Web Application Firewall. #Salah. WAF melindungi server web dari serangan tingkat aplikasi (seperti injeksi SQL), bukan perlindungan untuk perangkat klien ujung [50].
+~Network Intrusion Detection System. #Salah. NIDS memantau seluruh segmen jaringan secara pasif, tidak terpasang sebagai perangkat lunak pelindung pada setiap perangkat pengguna akhir [51].
+~Network Access Control. #Salah. NAC memverifikasi kepatuhan kebijakan sebelum perangkat diizinkan masuk ke jaringan, bukan sistem deteksi perilaku anomali pasca-infeksi yang mendalam [52].
+}
+
+::D4-Q19:: Dalam membedah tangkapan paket jaringan, Anda menemukan seorang penyerang membanjiri komputer korban dengan pesan Address Resolution Protocol yang tidak diundang, memetakan IP gateway ke MAC milik penyerang. Serangan apa ini? {
+=ARP Poisoning. #Benar! ARP Poisoning atau MAC spoofing melibatkan pengiriman balasan ARP palsu (gratuitous) sehingga mesin peretas dianggap sebagai router atau sistem tujuan lain oleh korban [21, 22].
+~DNS Spoofing. #Salah. DNS spoofing menyasar pemetaan antara nama domain dengan alamat IP, tidak berhubungan langsung dengan keracunan alamat MAC lokal [19, 21].
+~DHCP Starvation. #Salah. Serangan ini menguras persediaan IP dari server DHCP, bukan memanipulasi resolusi alamat MAC per paket secara langsung [53].
+~MAC Flooding. #Salah. MAC flooding menyerang memori (CAM table) pada switch agar turun menjadi perilaku hub biasa, bukan mengubah resolusi ARP korban ke router [54].
+}
+
+::D4-Q20:: Untuk menempatkan server email yang harus menerima koneksi dari internet publik sekaligus melindunginya agar tidak mengekspos jaringan internal perusahaan, arsitektur keamanan apa yang harus Anda terapkan? {
+=Screened subnet. #Benar! Screened subnet (dahulu disebut DMZ) merupakan area terisolasi di antara internet dan jaringan internal yang difilter oleh firewall untuk meng-hosting layanan publik [55, 56].
+~Intranet. #Salah. Intranet adalah jaringan yang khusus untuk pengguna internal perusahaan, sama sekali tidak dirancang untuk akses langsung dari dunia luar [55].
+~Virtual Private Network. #Salah. VPN adalah terowongan yang mengamankan lalu lintas dari jarak jauh, bukan sebuah segmen jaringan fisik pemisah untuk hosting publik [33].
+~Air-gapped network. #Salah. Jaringan air-gapped tidak terkoneksi dengan apapun secara fisik; tidak mungkin menempatkan server email untuk internet di dalamnya [57].
+}
+
+::D4-Q21:: Salah satu keuntungan keamanan utama menggunakan Network Address Translation pada edge router jaringan IPv4 Anda adalah? {
+=Menyembunyikan skema alamat IP privat jaringan internal dari pengamatan luar. #Benar! NAT mengubah IP privat menjadi satu atau beberapa IP publik saat melintasi batas jaringan, sehingga topologi internal tidak terlihat oleh dunia luar [52].
+~Mengaktifkan enkripsi tingkat paket (Layer 3) ke semua tujuan. #Salah. NAT hanya menerjemahkan alamat; enkripsi IP dilakukan oleh mekanisme seperti IPSec [58].
+~Mencegah malware masuk dengan memindai konten payload dari paket jaringan. #Salah. Proses ini dilakukan oleh sistem pencegahan intrusi atau firewall generasi berikutnya, bukan NAT [58].
+~Mengganti fungsi autentikasi identitas bagi pegawai remote. #Salah. NAT tidak menyediakan mekanisme identifikasi dan autentikasi pengguna [58].
+}
+
+::D4-Q22:: Alamat fisik perangkat jaringan yang biasanya terdiri dari 48-bit dan tertanam dari pabrik ke dalam NIC bekerja pada lapisan OSI yang mana? {
+=Lapisan Data Link. #Benar! Lapisan Data Link (Layer 2) menggunakan alamat MAC untuk pengiriman frame antar perangkat dalam satu segmen fisik yang sama [43, 59].
+~Lapisan Physical. #Salah. Lapisan fisik menangani bit mentah dalam bentuk sinyal elektrik atau gelombang cahaya [60].
+~Lapisan Network. #Salah. Lapisan jaringan menangani alamat logis (contoh IP Address) dan tugas routing secara hierarkis [43, 61].
+~Lapisan Transport. #Salah. Lapisan transport menangani port aplikasi dan memastikan paket dirangkai kembali secara benar [61].
+}
+
+::D4-Q23:: Sebagai admin firewall, Anda menerapkan filosofi deny-by-default. Bagaimana Anda mendeskripsikan aturan (rule) terakhir yang dipasang di dalam Access Control List firewall tersebut? {
+=Implicit deny. #Benar! Aturan deny-all atau implicit deny ditempatkan paling akhir untuk memastikan bahwa lalu lintas apapun yang tidak diizinkan secara eksplisit oleh aturan di atasnya akan dibuang [7].
+~Permit any. #Salah. Aturan permit any di akhir akan mengizinkan semua lalu lintas tembus, bertentangan total dengan pendekatan deny-by-default [7].
+~Default allow. #Salah. Ini adalah kebalikan dari model keamanan whitelist dan sangat rentan terhadap penyusup [62].
+~Static routing. #Salah. Perutean statis berfungsi pada tabel router untuk mengarahkan paket dan bukan sebuah aturan penolakan firewall [7].
+}
+
+::D4-Q24:: Dalam merancang arsitektur jaringan yang mengutamakan fault tolerance mutlak, Anda memutuskan bahwa setiap perangkat harus terhubung secara langsung satu sama lain. Topologi fisik apa ini? {
+=Mesh topology. #Benar! Topologi full mesh menghubungkan setiap node ke setiap node yang lain sehingga jika satu kabel putus, lalu lintas masih bisa merutekan diri dengan rute lainnya secara seketika [63].
+~Star topology. #Salah. Pada topologi star, semuanya berpusat di satu switch. Jika switch mati, seluruh konektivitas putus [64].
+~Ring topology. #Salah. Pada topologi cincin, lalu lintas mengalir searah. Meskipun dual-ring menambah daya tahan, ia tidak menghubungkan setiap perangkat ke setiap perangkat lainnya [65].
+~Bus topology. #Salah. Topologi bus menggunakan satu tulang punggung tunggal; kerusakan di kabel utama mematikan seluruh segmen [64].
+}
+
+::D4-Q25:: Dua perusahaan memutuskan untuk menghubungkan jaringan mereka untuk berbagi data proyek. Dokumen apa yang mengikat secara teknis dan memaparkan risiko, persyaratan keamanan, serta parameter operasi penghubungan jaringan tersebut? {
+=Interconnection Security Agreement. #Benar! ISA (Interconnection Security Agreement) adalah deklarasi formal mengenai standar keamanan dan detail teknis persis dari sebuah hubungan langsung antardua jaringan perusahaan [66].
+~Memorandum of Understanding. #Salah. MOU mendefinisikan niat dua organisasi untuk saling bekerja sama, biasanya belum memuat detail ikatan teknis secara mendalam [67].
+~Non-Disclosure Agreement. #Salah. NDA melindungi kerahasiaan informasi di tingkat karyawan atau bisnis, bukan kerangka tata kelola penghubung sirkuit antar organisasi [66, 68].
+~Service-Level Agreement. #Salah. SLA menjabarkan standar batas toleransi waktu henti atau kualitas dari pihak vendor layanan ke pengguna, tidak secara khusus merumuskan ISA terkait tautan B2B pihak ketiga [66, 69].
+}
+
+::D4-Q26:: Dalam jaringan Ethernet konvensional, protokol arbitrase apa yang menugaskan setiap stasiun (host) untuk mendengarkan media kabel sebelum mentransmisikan data untuk mencegah tabrakan data? {
+=Carrier-Sense Multiple Access. #Benar! Teknologi CSMA mengharuskan host memeriksa apakah ada sinyal pada media sebelum mengirim data untuk meminimalisasi tabrakan (collison) [49].
+~Token Passing. #Salah. Pada token passing, perangkat hanya boleh mengirim data saat ia memegang token digital khusus [70].
+~Polling. #Salah. Polling adalah teknik di mana master sentral akan menanyakan (poll) ke setiap slave kapan mereka boleh mentransmisikan data [51].
+~Orthogonal Frequency-Division Multiplexing. #Salah. OFDM adalah metode modulasi pemisahan sinyal di ranah nirkabel untuk menghindari derau [71].
+}
+
+::D4-Q27:: Pada teknologi Wi-Fi (802.11), metode apa yang digunakan untuk menghindari tabrakan mengingat perangkat radio tidak dapat mendengarkan transmisi sambil berbicara secara bersamaan? {
+=CSMA/CA. #Benar! Wi-Fi menggunakan Carrier-Sense Multiple Access with Collision Avoidance (CSMA/CA) untuk mencoba menghindari tabrakan secara proaktif menggunakan permohonan sinyal izin transmisi [70, 72].
+~CSMA/CD. #Salah. Collision Detection (CD) digunakan di media kabel Ethernet kuno yang bisa mendeteksi perubahan tegangan secara fisik [72].
+~Time Division Multiple Access. #Salah. TDMA digunakan di jaringan seluler awal untuk membagi frekuensi ke dalam slot waktu, bukan protokol bawaan pencegah tabrakan LAN Wi-Fi 802.11 [73].
+~Token Ring. #Salah. Token ring adalah arsitektur fisik yang sama sekali tidak digunakan pada arsitektur Wi-Fi modern [70].
+}
+
+::D4-Q28:: Tiga byte (24 bit) pertama dari sebuah alamat Media Access Control (MAC) berfungsi untuk memberikan informasi terkait entitas apa? {
+=Organizationally Unique Identifier (OUI) atau produsen pabrik. #Benar! Bagian awal dari alamat MAC mengidentifikasi ID khusus produsen (OUI) pembuat Network Interface Card tersebut [59, 74].
+~Network bit masking untuk identifikasi subnet. #Salah. Identifikasi subnet dilakukan oleh subnet mask pada konfigurasi IP Layer 3, bukan alamat MAC Layer 2 [75].
+~Indikator port protokol lapisan aplikasi yang berjalan. #Salah. Port beroperasi di Layer 4 (Transport) dan tidak direpresentasikan pada MAC address [76].
+~Pengenalan metode enkripsi nirkabel. #Salah. Enkripsi nirkabel seperti WPA2 beroperasi pada level negosiasi koneksi nirkabel dan tidak terpatri di alamat MAC [27].
+}
+
+::D4-Q29:: Serangan apa yang mengeksploitasi konfigurasi protokol switch sehingga paket yang seharusnya berada di satu segmen jaringan virtual bisa disusupkan melompat ke segmen terpisah lainnya? {
+=VLAN hopping. #Benar! VLAN hopping memanfaatkan manipulasi tag Layer 2 sehingga penyerang di satu VLAN bisa menjangkau dan berkomunikasi dengan VLAN lain tanpa melalui rute resmi (router) [42].
+~MAC flooding. #Salah. MAC flooding mengebom tabel CAM pada switch hingga penuh sehingga switch bertindak layaknya hub, mem-broadcast seluruh traffic jaringan [54].
+~ARP poisoning. #Salah. ARP poisoning meracuni resolusi pemetaan IP-to-MAC di jaringan lokal, bukan secara khusus melompat batas segmentasi trunk VLAN [21].
+~Session hijacking. #Salah. Session hijacking mengambil alih sesi web layer atas yang sudah diautentikasi dengan mencuri cookie atau token [77].
+}
+
+::D4-Q30:: Sebuah link kabel khusus (trunk) pada switch dirancang untuk membawa lalu lintas dari berbagai VLAN secara bersamaan di antara beberapa switch fisik. Protokol enkapsulasi manakah yang paling sering digunakan untuk ini secara modern? {
+=IEEE 802.1Q. #Benar! Standar 802.1Q menyisipkan tag header khusus ke dalam frame Ethernet guna mengidentifikasi frame tersebut milik VLAN mana saat melewati kabel trunk [25, 31].
+~IEEE 802.11. #Salah. IEEE 802.11 adalah kumpulan standar untuk teknologi Wireless LAN (Wi-Fi), bukan untuk tag VLAN [78].
+~Internet Protocol Security. #Salah. IPSec beroperasi di Layer 3 untuk menyediakan saluran aman/VPN dan tidak berkaitan dengan tagging VLAN Layer 2 [79].
+~Address Resolution Protocol. #Salah. ARP bertugas mencari dan memetakan alamat MAC dari IP yang telah diketahui [80].
+}
+
+::D4-Q31:: Mekanisme konfigurasi otomatis manakah pada IPv6 yang memungkinkan host membangun alamatnya sendiri tanpa memerlukan server penetapan alamat pusat (seperti DHCP)? {
+=Stateless Address Autoconfiguration. #Benar! SLAAC memungkinkan perangkat yang terhubung secara otomatis meminta rute router lokal dan menyusun alamat IPv6 miliknya sendiri [81].
+~Automatic Private IP Addressing. #Salah. APIPA adalah fitur fallback IPv4 sistem operasi Windows jika gagal menemukan DHCP [82].
+~Network Address Translation. #Salah. NAT menukar alamat IP yang masuk atau keluar, tapi bukan metode auto-konfigurasi ujung (endpoint configuration) [34].
+~Dual stack. #Salah. Dual stack adalah skema di mana sistem berjalan dengan kedua protokol IPv4 dan IPv6 bersamaan [83].
+}
+
+::D4-Q32:: Mengingat alamat IP publik IPv4 telah habis, sebuah perusahan ingin jaringan privatnya terhubung ke infrastruktur publik IPv6 yang baru, menggunakan router yang memetakan lalu lintas dari IPv4 ke dalam header IPv6. Konsep apakah ini? {
+=NAT-PT. #Benar! Network Address Translation-Protocol Translation (NAT-PT) digunakan untuk menghubungkan jaringan yang beroperasi dengan skema protokol IP yang berbeda dengan melakukan translasi secara real-time [83].
+~Tunneling. #Salah. Tunneling hanya membungkus protokol satu ke dalam paket protokol yang lain tanpa menerjemahkannya secara fungsional seperti yang dilakukan NAT-PT [83].
+~Micro-segmentation. #Salah. Mikrosegmentasi digunakan membagi lingkungan tepercaya ke dalam kelompok kecil terpisah menggunakan firewall generasi berikutnya [15].
+~Subnetting. #Salah. Subnetting adalah pembagian rentang ruang alamat IPv4 secara hierarkis, bukan untuk berkomunikasi silang dengan IPv6 [84].
+}
+
+::D4-Q33:: Sebuah perusahaan menyatukan jaringan mereka menggunakan metode Classless Inter-Domain Routing (CIDR). Apa keuntungan signifikan CIDR dibandingkan kelas jaringan IPv4 tradisional (Class A, B, C)? {
+=CIDR memungkinkan penggabungan berbagai subnet kecil menjadi sebuah perutean tunggal yang efisien dan menghindari pemborosan alokasi IP. #Benar! CIDR menggunakan masking variabel (/24, /16, dsb.) alih-alih blok kelas statis, sehingga rute bisa di-aggregate (route summarization) dan alamat dialokasikan lebih spesifik tanpa terbuang [75].
+~CIDR menyediakan sistem resolusi nama yang otomatis menggantikan Domain Name System. #Salah. CIDR sama sekali tidak terkait dengan sistem resolusi nama, melainkan teknik subnet mask pada pengalamatan IP [75].
+~CIDR memastikan integritas pesan terenkripsi seperti IPSec namun beroperasi pada Layer 2. #Salah. CIDR adalah format matematika alokasi penomoran IP (Layer 3), bukan metode enkripsi [75].
+~CIDR mengaktifkan transmisi tanpa kabel antara satelit dan pusat data secara asinkron. #Salah. CIDR tidak mengatur spesifikasi transmisi nirkabel [75].
+}
+
+::D4-Q34:: Protokol perutean mana yang menentukan rute terbaik ke sebuah alamat jaringan tujuan dengan cara menghitung jarak lompatan (hop count) terpendek dan mengandalkan informasi yang terus dibroadcast oleh router terdekat? {
+=Distance vector routing protocol. #Benar! Protokol distance vector (seperti RIP) menghitung jalur termudah dengan metrik berupa arah dan jarak/jumlah hop antar router tetangga [85].
+~Link state routing protocol. #Salah. Protokol link state (seperti OSPF) setiap router membangun topologi peta seluruh jaringan dan membedah rute tercepat yang tersedia saat itu secara komprehensif, bukan sekadar jumlah hop [85].
+~Border Gateway Protocol. #Salah. BGP adalah protokol path vector yang digunakan di tulang punggung internet untuk perutean antar Autonomous System raksasa, bukan sekadar distance vector internal [85].
+~Secure Shell. #Salah. SSH adalah protokol transportasi administrasi jarak jauh yang aman, bukan protokol routing [86].
+}
+
+::D4-Q35:: Untuk melindungi pengguna dari kerentanan manipulasi nama sistem, DNS Security Extensions (DNSSEC) mengimplementasikan fitur autentikasi apa pada data DNS? {
+=Sistem autentikasi asal data berbasis kriptografi kunci publik. #Benar! DNSSEC menggunakan tanda tangan digital (digital signatures) yang ditautkan ke record DNS guna menjamin bahwa catatan tersebut belum dirusak/dipalsukan (data integrity and origin authentication) [19].
+~Mekanisme terowongan enkripsi L2TP. #Salah. L2TP digunakan pada VPN jaringan, bukan sebuah ekstensi kerangka kerja pengamanan balasan resolusi nama DNSSEC [87].
+~Enkripsi simetris AES-256 murni pada semua transmisi. #Salah. DNSSEC berfokus pada autentikasi integritas menggunakan asimetris/public key, ia tidak mengenkripsi paket query DNS itu sendiri menjadi tidak dapat dibaca [19].
+~Pemindaian deep packet inspection. #Salah. Pemindaian DPI adalah fungsi firewall tingkat lanjut, bukan kerangka kerja autentikasi terdistribusi dalam DNSSEC [88].
+}
+
+::D4-Q36:: Saat karyawan bekerja di fasilitas umum (seperti kedai kopi), administrator menerapkan solusi DNS over HTTPS (DoH) pada browser mereka. Apa fungsi utama pendekatan DoH ini? {
+=Mencegah pihak yang menguping mengetahui domain situs mana yang sedang direquest pengguna. #Benar! DNS over HTTPS membungkus permohonan DNS ke dalam protokol web yang terenkripsi (TLS) sehingga pengelola kedai kopi atau ISP tidak dapat mengendus riwayat jelajah domain pengguna [19].
+~Mendeteksi jika situs web target menyuntikkan injeksi SQL berbahaya. #Salah. DoH hanya mengamankan pertanyaan/jawaban resolusi nama, perlindungan web/SQL dikerjakan oleh Web Application Firewall [19].
+~Mengubah alamat MAC pengguna secara otomatis untuk membingungkan router publik. #Salah. Ini adalah teknik perputaran MAC anti-tracking (MAC randomization), tidak ada kaitannya dengan DoH [34].
+~Mengizinkan karyawan masuk ke jaringan VPN korporat tanpa menggunakan otentikasi kata sandi. #Salah. DoH tidak mencampuri fungsi kredensial koneksi remote VPN [19].
+}
+
+::D4-Q37:: Seorang penjahat menemukan celah di dalam infrastruktur telepon kantor (PBX) sehingga ia dapat menelepon jarak jauh secara gratis dan mengalihkan panggilan internal perusahaan ke nomor luar negeri. Praktik serangan telekomunikasi semacam ini sering disebut sebagai? {
+=Phreaking. #Benar! Phreaking adalah tindakan khusus peretasan terhadap sistem pertukaran telepon lokal, perangkat komunikasi sirkuit PBX, maupun infrastruktur penyedia jaringan telepon [89-91].
+~Smishing. #Salah. Smishing adalah penyalahgunaan social engineering spesifik melalui SMS ponsel [92, 93].
+~War driving. #Salah. War driving melibatkan pencarian sinyal dan peretasan access point nirkabel lokal secara berkeliling, bukan meretas PBX sentral [29].
+~Typosquatting. #Salah. Typosquatting mendaftarkan nama domain salah ketik dari merek populer untuk menjebak korban yang lalai di browser web, bukan meretas perangkat PBX telepon [23].
+}
+
+::D4-Q38:: Sebuah toko daring menghadapi serangan yang mencoba menyisipkan perintah berbahaya ke formulir pencarian produk mereka. Aplikasi apa yang perlu diimplementasikan tim keamanan untuk secara spesifik memfilter dan menolak kode jahat ini sebelum mencapai web server? {
+=Web Application Firewall. #Benar! Web Application Firewall (WAF) dipasang di depan server web dan meneliti dengan saksama payload tingkat aplikasi dari koneksi klien untuk memblokir lalu lintas spesifik web attack seperti SQL injection [94-96].
+~Static Packet Filter. #Salah. Paket filter statis di layer 3 hanya memblokir berdasarkan alamat IP dan Port, buta terhadap serangan penyusupan karakter di dalam protokol web [97].
+~Data Loss Prevention. #Salah. DLP difokuskan untuk mencegah transfer (keluarnya) data rahasia atau dokumen PII keluar organisasi secara tak diizinkan, bukan memblokir web request masuk [98, 99].
+~Intrusion Detection System. #Salah. IDS pasif hanya akan memberikan alarm notifikasi peringatan dan tidak secara langsung memiliki kapabilitas untuk memblokir lalu lintas (drop traffic) secepat WAF aktif [100].
+}
+
+::D4-Q39:: Anda mengonfigurasi Network Access Control (NAC) pada perusahaan Anda dengan mode pre-admission. Apa kriteria mutlak yang harus dipenuhi host sebelum NAC mengizinkan mereka masuk ke segmen jaringan operasional? {
+=Host harus dalam kondisi aman dan mematuhi kebijakan, seperti sistem operasi yang ditambal penuh serta antimalware terbaru. #Benar! Preadmission menempatkan perangkat di area karantina untuk memvalidasi pembaruan keamanan dan kondisi sehat (health check) sebelum diizinkan mengakses jaringan utama [101].
+~Host wajib memberikan sertifikat digital yang diterbitkan langsung oleh CISO. #Salah. Walau sertifikat PKI mungkin menjadi salah satu opsi, kriteria mutlak sebuah NAC preadmission memprioritaskan pematuhan "kesehatan dan kebijakan keamanan" [101].
+~Pengguna host harus menunjukkan bukti perilaku akses selama tujuh hari. #Salah. Mode pemeriksaan tindakan setelah pengguna masuk disebut post-admission, bukan pre-admission [101].
+~Host hanya diizinkan untuk terhubung ke infrastruktur berbasis SD-WAN terenkripsi. #Salah. Preadmission digunakan dalam beragam arsitektur (wired, wireless lokal, dsb) tanpa harus merujuk mutlak ke arsitektur SD-WAN [101].
+}
+
+::D4-Q40:: Jaringan Anda menggunakan transmisi pita dasar (baseband). Apa karakteristik utama dari pensinyalan ini dibandingkan dengan broadband? {
+=Satu saluran kabel seluruhnya hanya mentransmisikan satu aliran sinyal digital pada waktu yang sama. #Benar! Teknologi transmisi Baseband hanya menggunakan satu saluran frekuensi tunggal (dan biasanya dalam bentuk gelombang kotak/digital) secara eksklusif untuk setiap sesi yang aktif [102].
+~Sinyal dibagi-bagi ke berbagai frekuensi gelombang analog untuk komunikasi ganda sekaligus. #Salah. Membagi-bagi frekuensi analog pada satu medium disebut dengan Broadband, bukan baseband [102].
+~Dapat mengisolasi setiap pesan dengan kriptografi asimetris di level fisik jaringan. #Salah. Aspek tersebut lebih berkaitan dengan kerangka protokol keamanan lapisan lebih tinggi, bukan mekanisme gelombang fisik [102].
+~Mengubah frekuensi yang dipantulkan antar menara nirkabel untuk menghindari serangan interferensi. #Salah. Itu adalah Frequency Hopping Spread Spectrum pada nirkabel militer atau Bluetooth, tidak disebut baseband [71].
+}
+
+::D4-Q41:: Untuk mengarahkan paket data secara efisien menuju node tujuan yang "paling terdekat" secara geografis atau metrik perutean di antara sekumpulan server dengan layanan identik, teknologi apa yang digunakan? {
+=Anycast. #Benar! Pengalamatan Anycast memetakan paket ke salah satu tujuan (yang paling optimal/dekat) dari sekumpulan penerima rute potensial, sangat sering digunakan untuk DNS Root servers dan perutean Content Distribution Network [102, 103].
+~Multicast. #Salah. Multicast mentransmisikan data ke sekumpulan (banyak) penerima spesifik dalam satu siaran, bukan satu penerima terbaik [102].
+~Broadcast. #Salah. Broadcast berteriak mengirimkan data ke semua perangkat secara umum di dalam satu subnet atau domain siaran [102].
+~Unicast. #Salah. Unicast mengirimkan data dari sumber spesifik satu ke target satu yang presisi tanpa ada pilihan grup penyedia terdekat [102].
+}
+
+::D4-Q42:: Domain-based Message Authentication Reporting and Conformance (DMARC) diadopsi oleh korporasi Anda untuk melindungi nama domain dari serangan email spoofing. DMARC dibangun bergantung di atas dua kerangka keamanan apa? {
+=Sender Policy Framework (SPF) dan DomainKeys Identified Mail (DKIM). #Benar! DMARC memberikan arahan kebijakan penanganan kegagalan di sisi penerima dengan mengacu pada hasil verifikasi standar SPF dan DKIM secara bersamaan [104].
+~Pretty Good Privacy (PGP) dan S/MIME. #Salah. PGP dan S/MIME digunakan untuk melindungi kerahasiaan payload dan penandatanganan konten email oleh pengguna secara kriptografi asimetris, bukan validasi sumber server via rekaman DNS [105].
+~IPSec dan Internet Control Message Protocol (ICMP). #Salah. IPSec digunakan memproteksi VPN Layer 3 dan ICMP digunakan diagnostik ping, sama sekali terlepas dari autentikasi server SMTP [104].
+~Simple Network Management Protocol (SNMP) dan Trivial File Transfer Protocol (TFTP). #Salah. SNMP digunakan memonitor kesehatan jaringan dan TFTP dipakai mengunduh boot image firmware, tidak ada kaitannya dengan standar anti-spoofing domain email [53, 76].
+}
+
+::D4-Q43:: Untuk mengelola server Linux jarak jauh tanpa membiarkan kredensial admin dan perintah Anda terlihat sebagai teks terbuka di jaringan, utilitas port 22 manakah yang Anda pilih? {
+=Secure Shell. #Benar! Secure Shell (SSH) beroperasi di Port 22 dan menyediakan saluran terenkripsi ujung ke ujung, ideal untuk menggantikan protokol telnet kuno (port 23) yang tidak aman [86, 106].
+~File Transfer Protocol. #Salah. FTP menggunakan port 20/21 dan secara default mentransmisikan kredensial serta aliran data di dalam teks yang jelas [106].
+~Secure Real-Time Transport Protocol. #Salah. SRTP digunakan untuk memberikan lapisan enkripsi ke protokol layanan streaming VoIP dan multimedia, bukan terminal perintah (command line) server [107].
+~Lightweight Directory Access Protocol. #Salah. LDAP berfungsi untuk permintaan direktori pusat kontrol (sering di port 389), bukan shell administrasi server langsung [108].
+}
+
+::D4-Q44:: Anda merancang kebijakan Remote Access di perusahaan. Apa ancaman terbesar bagi intranet lokal saat menggunakan model "Split Tunnel" dibandingkan "Full Tunnel" pada sambungan VPN karyawan di rumah? {
+=Karyawan dapat diinfeksi malware dari internet publik langsung dan menjalar melalui koneksi VPN tepercaya menuju server kantor. #Benar! Split tunnel berarti koneksi ke intranet dienkripsi ke kantor, sementara akses internet biasa melewati koneksi ISP rumahan pengguna tanpa pemfilteran keamanan korporat (berbeda dengan full tunnel yang mewajibkan seluruh traffic lewat firewall kantor) [33].
+~Enkripsi komunikasi akan dinonaktifkan secara paksa di paruh perjalanan menuju gateway perusahaan. #Salah. Protokol enkripsi VPN tetap beroperasi pada terowongan yang mengarah ke intranet [33].
+~Sistem tidak akan dapat mengakses IP RFC 1918 apapun dari jarak jauh. #Salah. VPN yang dikonfigurasi dengan baik didesain untuk mengakses alamat privat justru secara langsung [33].
+~Bandwidth intranet akan tersumbat secara keseluruhan oleh traffic YouTube dan Spotify sang karyawan. #Salah. Sebaliknya, split tunnel justru memindahkan traffic santai internet agar tidak memberatkan pipa internet VPN kantor (full tunnel lah yang justru menyedot performa bandwidth utama) [33].
+}
+
+::D4-Q45:: Switch canggih mendukung mode pemeriksaan lalu lintas (learning mode). Di mana switch menyimpan pemetaan yang baru ia pelajari mengenai port fisik RJ-45 yang diasosiasikan dengan alamat MAC tertentu? {
+=Content Addressable Memory (CAM) table. #Benar! Ketika sebuah switch memeriksa lalu lintas dan belajar lokasi suatu alamat mesin, switch merekam dan menyimpannya secara cepat ke dalam tabel memori CAM [109].
+~File direktori Hosts.txt sistem operasi lokal. #Salah. Hosts file ada di komputer end-user dan digunakan untuk menyelesaikan nama domain lokal sebagai penganti DNS [20].
+~Border Gateway Protocol update list. #Salah. BGP adalah protokol path routing untuk skala internet antar Autonomous System dan beroperasi jauh di luar switch internal sederhana di Layer 2 [85].
+~Access Control Matrix lokal. #Salah. Matriks ini merujuk ke tabel izin objek subjek sistem operasi seperti DAC atau MAC yang lebih abstrak, bukan fungsionalitas pemetaan perangkat keras di dalam switch layer 2 [110].
+}
+
+::D4-Q46:: Apa fungsi Address Resolution Protocol (ARP) di dalam infrastruktur komunikasi model jaringan TCP/IP? {
+=Memetakan atau menemukan alamat MAC fisik perangkat lokal apabila sistem hanya mengetahui alamat IP logis tujuan. #Benar! ARP menerjemahkan dan menjawab permintaan pertanyaan dari sebuah IP logis (Layer 3) dan menukarnya dengan penemuan alamat perangkat keras fisik/MAC (Layer 2) agar paket bisa dikemas dalam sebuah frame [21, 80].
+~Mengonversi secara otomatis URL nama domain menjadi representasi IP logis yang dapat dirutekan. #Salah. Proses konversi nama-ke-IP merupakan ranah hierarkis Domain Name System (DNS), bukan ARP lokal [80].
+~Menyediakan fitur keandalan, penomoran urut, dan mekanisme konfirmasi kedatangan di transport layer. #Salah. Menangani penomoran dan konfirmasi pesanan merupakan peruntukan Transport Control Protocol (TCP), sedangkan ARP hanya bertugas resolusi alamat di lapis 2/3 [111].
+~Menyembunyikan topologi IP asli perusahaan dengan membungkus port agar alamat seakan berasal dari satu node ISP. #Salah. Hal tersebut adalah fungsi penyamaran NAT atau PAT, bukan Address Resolution Protocol [58].
+}
+
+::D4-Q47:: Dalam standar Wi-Fi (802.11), saluran mana pada spektrum 2.4 GHz yang diklasifikasikan saling independen dan tidak akan tumpang tindih (non-overlapping) di wilayah Amerika Utara? {
+=Saluran 1, 6, dan 11. #Benar! Untuk menghindari gangguan frekuensi di pita 2.4 GHz yang padat dan bersinggungan erat, desainer jaringan menempatkan Wireless Access Points secara bergantian di saluran yang benar-benar tidak bertabrakan, yakni 1, 6, dan 11 [112].
+~Saluran 2, 4, dan 8. #Salah. Rentang gelombang ini pada bandwidth 20-22 MHz akan saling mengintervensi dengan sangat drastis satu sama lain [112].
+~Saluran 10, 11, dan 12. #Salah. Saluran-saluran yang saling berdampingan ini mengalami interference kuat karena berjejalan tepat di tepi spektrum yang sama [112].
+~Saluran 36, 40, dan 44. #Salah. Ini adalah ruang penomoran saluran spektrum frekuensi tinggi pita 5 GHz, bukan bagian band sempit 2.4 GHz [113].
+}
+
+::D4-Q48:: Anda diminta memasangkan konektivitas hemat daya berbasis protokol terbuka IEEE 802.15.4 pada perangkat sensor penerangan pabrik cerdas (IoT). Alternatif yang merupakan evolusi dari standar tersebut dan sering digunakan untuk otomatisasi adalah? {
+=Zigbee. #Benar! Teknologi nirkabel IoT Zigbee memanfaatkan standar IEEE 802.15.4 dengan tuntutan penggunaan daya sangat rendah, latensi tinggi yang stabil, serta mampu bekerja berantai dalam metode mesh network ringan [114].
+~Bluetooth Low Energy. #Salah. Bluetooth beroperasi sangat serupa pada band 2.4 GHz namun lebih dititikberatkan untuk Personal Area Network langsung ke mobile device, berbeda dengan standar spesifik IoT-heavy IEEE 802.15.4 yang diwarisi Zigbee [115].
+~Near-Field Communication. #Salah. NFC beroperasi pada gelombang tinggi dengan transmisi magnet induktif dalam kisaran sangat dekat (sentuhan) biasa untuk kartu pembayaran dan tidak ditujukan sebagai jaringan hub lampu [116].
+~InfiniBand. #Salah. InfiniBand digunakan untuk jaringan transfer penyimpanan server performa sangat tinggi di data center dalam bentuk sambungan fisik/kabel [40].
+}
+
+::D4-Q49:: Berbeda dengan IDS biasa, Intrusion Prevention System (IPS) dirancang untuk mengambil tindakan otomatis setelah mendeteksi lalu lintas berbahaya, seperti memperbarui daftar tolak (ACL) pada saat yang bersamaan. Di mana IPS harus ditempatkan agar fitur ini bekerja optimal? {
+=Inline (ditempatkan tepat di jalur aliran paket utama, seperti sebelum atau sesudah firewall pusat). #Benar! IPS wajib dilewati (inline) aliran paket data aslinya sehingga sistem dapat merespons pencegahan aktif seperti memberhentikan (drop) potongan transmisi jahat yang datang secara cepat [117].
+~Di zona port terpisah yang bersifat menyalin ulang arus data aslinya (Mirror/SPAN port pada switch). #Salah. Menempelkan koneksi pemonitor di Mirror/SPAN hanya akan melihat "salinan (copy)" data, sistem akan tertinggal saat bereaksi dan tak bisa menghentikan perjalanan paket aslinya. Mode ini cocok untuk IDS pasif [101].
+~Secara eksklusif di dalam memori kernel RAM setiap komputer pribadi klien. #Salah. Walau proteksi host EDR mungkin digunakan, IPS spesifik jaringan harus diletakkan strategis secara terpusat untuk memblokir hantaman yang menuju infrastruktur intranet [117].
+~Di router pihak ketiga penyedia Cloud Content Distribution. #Salah. Administrator tidak bisa menanamkan blokade mesin inspeksi penuh sesukanya di infrastruktur milik perusahaan Cloud pengantar caching [13].
+}
+
+::D4-Q50:: Teknologi apakah yang menggabungkan fitur firewall jaringan tradisional dengan fitur tambahan seperti pencegahan intrusi, antivirus jaringan, web content filtering, inspeksi mendalam (DPI), dan VPN dalam satu perangkat pusat? {
+=Next-Generation Firewall. #Benar! Next-Generation Firewall (NGFW) atau kadang disinonimkan secara longgar dengan perangkat Unified Threat Management (UTM) merupakan mesin all-in-one yang merangkap berbagai layanan keamanan batas luar lanjutan selain filter rute port statis [94, 95, 118].
+~Switch Lapis 3 (Layer 3 Switch). #Salah. Switch Layer 3 berguna merutekan frame data secara gesit melalui perutean internal antarfisik, namun bukan pelaksana fungsi inspeksi mendalam atau antivirus [119].
+~Intrusion Detection System khusus pasif. #Salah. IDS pasif hanya mendeteksi serta melaporkan, tanpa berfungsi membendung langsung atau bertindak selaku gerbang pemfilteran seperti firewall utama [100].
+~Kerangka Zero-Trust Network Access saja. #Salah. ZTNA merupakan filosofi dan pendekatan pemisahan otentikasi identitas yang luas (tidak menganggap satu titik periferi aman), sementara NGFW adalah solusi perlengkapan perangkat keamanan spesifik [120].
+}
+
+::D4-Q51:: Saat memeriksa topologi logis, seorang desainer jaringan menetapkan pembagian subnet yang efisien dengan Prefix /24 (atau 255.255.255.0). Pada klasifikasi historis, blok netmask standar apakah yang setara dengan penulisan CIDR ini? {
+=Kelas C. #Benar! Format /24 sejajar persis dengan subnet mask bawaan IPv4 Kelas C [37].
+~Kelas A. #Salah. IPv4 Kelas A secara historis mengusung subnet default /8 atau 255.0.0.0 yang sangat luas kapasitasnya [37].
+~Kelas B. #Salah. Subnet bawaan dari IPv4 Kelas B adalah format /16 atau 255.255.0.0 [37].
+~Kelas D. #Salah. Kelas D dirancang dan dicadangkan murni khusus layanan Multicast dan tak memakai metode subnet routing konvensional dari host-ke-host biasa [37].
+}
+
+::D4-Q52:: Ketika sebuah perangkat Bluetooth menjalin ikatan pertama kalinya dengan perangkat Bluetooth lain, kedua piranti membuat sebuah hubungan tetap (pairing). Apa kerentanan mendasar jika PIN yang dipakai sebagai kredensial ikatan (pairing) terlalu lemah? {
+=Seseorang yang menguping pembentukan koneksi awal secara nirkabel dapat merekam transaksi dan menemukan algoritma penyandi PIN lalu masuk menyusupkan koneksinya. #Benar! Proses otentikasi awal (pairing) menggunakan metode yang mudah ditebak pada versi awal Bluetooth; bila PIN lemah, seluruh sistem enkripsi pertukaran berikutnya dapat terkompromi (Bluebugging atau serangan eksploitasi lainnya) [115].
+~Gelombang radio Bluetooth akan secara seketika melompat membanjiri frekuensi jaringan Wi-Fi 5 GHz terdekat dan mematikan operasionalnya secara paksa. #Salah. Bluetooth yang memiliki PIN lemah tidak lantas menjadi pemblokir (jammer) sinyal jaringan berbeda secara paksa [115].
+~Sistem kontrol mesin industri raksasa SCADA akan secara otomatis hancur berkeping-keping. #Salah. Ini sangat ekstrem; SCADA jarang bergantung pada komunikasi jarak sangat dekat dari PIN Bluetooth ponsel yang lemah [115, 121].
+~Pengguna akan selamanya kehilangan akses sinkronisasi akun Cloud Identity karena autentikasi ganda yang menolak Bluetooth lama. #Salah. Otorisasi cloud umumnya tidak berkaitan erat hanya karena PIN bluetooth perangkat lokal yang sederhana [122].
+}
+
+::D4-Q53:: Jika penyerang memanfaatkan kelemahan dalam protokol untuk memaksa sistem nirkabel mencabut klien yang terhubung sah (membuat koneksi putus tiba-tiba), dan kemudian mencatat urutan kunci sambungan ulang klien, apa nama serangan gangguan pertama tersebut? {
+=Disassociation attack. #Benar! Pada disassociation attack, peretas memalsukan manajemen frame palsu untuk mencabut koneksi klien, yang seringkali dilakukan demi memanen ulang "handshake" penangkapan kata sandi Wi-Fi [29].
+~Evil Twin. #Salah. Evil Twin memosisikan access point fisik baru secara paralel namun menipu dengan SSID yang sama untuk mengecoh pengguna agar menghubungkan sinyal padanya [29].
+~WPS Brute-Force. #Salah. Hal ini merupakan pembongkaran PIN delapan digit dari fitur sambungan otomatis perlengkapan router secara buta berulang kali [29].
+~Frequency Jamming. #Salah. Serangan jamming menyebarkan suara statis (noise gelombang listrik) besar-besaran yang menenggelamkan pita radio sehingga frekuensi tidak bisa digunakan, bukan injeksi manajemen frame pemutusan terstruktur [29].
+}
+
+::D4-Q54:: Pada perangkat telekomunikasi (seperti smartphone), jika seorang pencuri berhasil mengambil kartu sirkuit fisik di dalamnya dan menyalin semua data autentikasi operator ke perangkat lain demi menguras biaya percakapan, apa nama eksploitasi keras ini? {
+=SIM cloning. #Benar! Subscriber Identity Module (SIM) cloning mengkloning kunci kriptografi yang menghubungkan layanan paket data dari penyedia telekomunikasi untuk digunakan gratis secara curang [123, 124].
+~MMS interception. #Salah. Ini adalah penyadapan isi pesan multimedia di perjalanan nirkabel, bukan menggandakan fisik otorisasi langganan telekomunikasi dari SIM card [125].
+~War Driving. #Salah. Ini adalah aktivitas mengemudi keliling kota demi memindai pemetaan lokasi sinyal router titik Wi-Fi rumahan yang rentan, tak ada sangkut pautnya dengan duplikasi sirkuit fisik telco [29].
+~Network Address Translation (NAT) masquerading. #Salah. NAT adalah penyembunyian perutean pada firewall; istilah "masquerading" di NAT adalah konversi port yang dikelola sah, tidak berkaitan dengan kecurangan fisik sirkuit ponsel seluler [58].
+}
+
+::D4-Q55:: Sistem email tradisional merutekan pesan berdasarkan DNS. Manakah protokol keamanan ekstensi yang dapat menyertakan tanda tangan digital (hash) khusus ke setiap header email perusahaan keluar sehingga server si penerima bisa memverifikasi email tersebut benar-benar dari perusahaan asal, bukannya spoofing? {
+=DomainKeys Identified Mail (DKIM). #Benar! DKIM mengandalkan tanda tangan hash enkripsi publik (yang kuncinya diterbitkan pada DNS perusahaan) agar pihak lain memverifikasi bahwa pengirim pesan tersebut sah dan pesannya tidak diubah [104].
+~Secure Shell (SSH). #Salah. SSH adalah pembungkus terminal terenkripsi administrasi perintah server secara jarak jauh [106].
+~Transport Layer Security (TLS). #Salah. TLS memberikan pipa transpor sesi pengantaran rahasia dari server ke server; tetapi tidak memastikan validitas identitas pembuat (pengirim) pesannya untuk anti-spoofing layaknya mekanisme kripto tingkat email DKIM/SPF [2].
+~Internet Small Computer Systems Interface (iSCSI). #Salah. Ini adalah protokol lapisan IP konvergen bagi perluasan media disk storage hard drive, tak berkaitan dengan filter email korporat anti spam [40].
+}
+
+::D4-Q56:: Dalam arsitektur perangkat pusat data yang modern, istilah "Software-Defined Storage" sering mengemuka. Apa arti dari tren teknologi yang sering disebut dengan "SDx" (Software-Defined Everything) di dalam infrastruktur keamanan IT? {
+=Penggantian keterikatan kaku akan perangkat keras vendor khusus dengan penerapan virtualisasi di mana kapabilitas fisik jaringan atau storage ditransformasikan menjadi program layanan dinamis dalam perangkat keras komoditas generik. #Benar! SDx atau Software-Defined Everything memisahkan manajemen (control logic) dari hardware yang bertugas dan menampilkannya sebagai virtualisasi perangkat lunak, termasuk pada penyimpanan (SDS), jaringan (SDN), dan data center (SDDC) [126, 127].
+~Pengumpulan paksa seluruh basis data perusahaan lokal pindah sepenuhnya menuju cloud publik yang disediakan Amazon dan Microsoft. #Salah. SDx dapat dibangun dalam jaringan privat on-premise sendiri dengan efisien dan tidak mengindikasikan hijrah seratus persen ke layanan pihak penyedia luar [128].
+~Menyatukan komunikasi panggilan suara telepon PSTN kabel tembaga analog secara statis dan solid. #Salah. Perangkat lunak SDx menggantikan dan me-virtualisasikan operasional fisik; sedangkan deskripsi ini mencerminkan instalasi jaringan telepon analog terbelakang [129].
+~Instalasi wajib perangkat lunak pelindung aplikasi web tambahan sebagai filter Layer 7. #Salah. Hal ini mendeskripsikan implementasi Web Application Firewall (WAF), bukan landasan pergeseran komputasi awan SDx [50].
+}
+
+::D4-Q57:: Anda baru saja membangun server e-commerce di perusahaan yang secara logis diletakkan pada segmen jaringan yang menengahi internet luar bebas namun sebelum menyentuh server database sensitif Anda yang berada di jaringan internal tepercaya yang lebih dalam. Apakah fungsi dan status server e-commerce Anda itu disebut? {
+=Layanan publik beroperasi di dalam zona penyangga Screened Subnet. #Benar! Di masa lalu zona transisi ini juga sering disebut Demilitarized Zone (DMZ), tempat di mana lalu lintas lalu-lalang yang mencurigakan diwajibkan dikelola namun tetap terlindungi firewall sebelum sampai intranet utama yang sangat dalam [55].
+~Sistem Intrusion Detection and Prevention (IDPS) yang memindai segala hal pasif secara buta. #Salah. Server e-commerce ini melayani permintaan pembelanjaan dari publik; itu tak beroperasi pasif untuk analisis keamanan murni layaknya perangkat IDPS [130].
+~Node komputasi tepi (Edge Computing) sensor suhu termal pabrik. #Salah. Edge computing sering dikerjakan di lapisan paling bawah pemrosesan dekat sensor perakitan agar latensi cepat [131].
+~Pusat sinkronisasi Virtual Mobile Infrastructure (VMI) pegawai remote. #Salah. VMI ditugaskan mengeksekusi komputasi ruang pribadi mesin seluler pekerja aman di pusat data jarak jauh, bukan merupakan hosting website dagang di luar perbatasan zona aman [132].
+}
+
+::D4-Q58:: Seseorang secara sengaja menggunakan kabel fisik memancarkan aliran frekuensi tegangan yang salah pada kabel UTP kategori 5 di lantai bawah, yang ditujukan agar gelombang berantakan dan membocorkan data ke kabel koneksi Ethernet sebelah tanpa adanya kerusakan mekanis langsung pada konduktor aslinya. Gangguan gangguan penyusupan seperti apa ini? {
+=Crosstalk dan Interferensi. #Benar! Kabel yang saling berdampingan secara sangat rapat dalam sistem Unshielded Twisted-Pair dapat mendistribusikan derau energi liar secara bersilangan ke jalur lain yang disebut dengan crosstalk atau EMI (Electro-Magnetic Interference) [133, 134].
+~Attenuation dari pelemahan cahaya seiring jarak tempuh memanjang. #Salah. Pelemahan daya (attenuation) terjadi akibat jarak ujung terlalu jauh; pelemahan cahaya lebih diasosiasikan dengan hambatan kabel fiber optic bukan masalah listrik lintas arus [133].
+~Broadcast Storm dari looping frame sakelar L2. #Salah. Broadcast storm timbul ketika pesan jaringan tumpang tindih berulang di perutean logis akibat salah desain topologi, bukannya akibat interaksi gelombang listrik berdekatan kabel ethernet fisik [135].
+~Serangan Amplifikasi Smurf berbasis ICMP. #Salah. Serangan Smurf mempermainkan ping di lapisan alamat jaringan dan mengeksploitasi fungsi broadcast dengan manipulasi IP, bukanlah eksploitasi interferensi energi fisikal gelombang tembaga [136].
+}
+
+::D4-Q59:: Sebuah mesin pintar dengan performa rendah terintegrasi (SoC) pada perangkat pengendali pengatur suhu jarak jauh sering dirancang dengan ukuran yang sangat portabel. Mengapa perangkat "Embedded System" seperti halnya sensor otomatis suhu pabrik atau CCTV rumah menimbulkan celah keamanan siber arsitektur yang menonjol dibandingkan PC standar? {
+=Mereka sering memiliki keterbatasan pembaruan firmware (tidak ada jalur patching langsung), desain sangat fokus pada pengurangan biaya material komponen, dan tidak dapat ditambahkan perlindungan aplikasi seperti anti-virus modern. #Benar! Perangkat tersemat (Embedded Systems dan IoT) sering kekurangan kekuatan komputasi dan manajemen siklus pembaruan yang wajar sehingga menjadi sasaran empuk peretas diam-diam (Contoh Mirai Botnet) [137-139].
+~Karena kode binernya diproses ke pusat data satelit jarak tempuh jauh terlebih dahulu. #Salah. Tidak semua kamera dan alat pabrik bergantung pada koneksi satelit. Kebanyakan menyambung internet fiber optik biasa melalui router lokal [140].
+~Kerusakan pada alat sensor suhu niscaya menyebabkan Denial of Service raksasa (DDoS) mandiri seketika di internet secara global. #Salah. Matinya satu termostat pabrik tidak langsung mampu membuat seluruh penyedia layanan perutean dunia padam karena dampak alat ini relatif terbatas di fasilitas pabrik [141].
+~Mereka memerlukan sistem kriptografi yang selalu harus didedikasikan dalam mode Transport Layer Security 3.0 eksklusif rahasia. #Salah. Standar keamanan pada perangkat IoT sayangnya justru jauh dari canggih dan sangat sering bahkan tidak menerapkan TLS dasar manapun untuk melindungi transmisi HTTP telanjang [2].
+}
+
+::D4-Q60:: Pada analisis topologi manajemen jaringan, Jitter merupakan metrik dari sebuah anomali performa. Apakah arti dari Jitter? {
+=Variasi dari kelambatan atau jeda ketidakstabilan pengiriman kedatangan paket-paket secara berurutan. #Benar! Jitter menggambarkan volatilitas latency dari lalu lintas jaringan, yang berpotensi merusak aliran komunikasi konstan real-time semacam transmisi video streaming maupun panggilan VoIP suara [45, 134].
+~Total kapasitas data bersih keseluruhan yang sukses bisa masuk ditampung ke dalam medium tanpa masalah tabrakan dalam satu satuan waktu (Bandwidth Throughput sesungguhnya). #Salah. Hal ini mendeskripsikan pengukuran Bandwidth atau lebih tepatnya Network Throughput maksimum, bukan Jitter [134].
+~Presentasi dari perbandingan volume kekuatan sinyal elektromagnetik asli yang diidamkan terhadap besarnya derau atau noise kacau yang masuk di jalur (Signal-to-Noise Ratio). #Salah. SNR lebih terfokus pada daya sinyal frekuensi bukan pengukuran latensi jeda transmisi pengiriman paket IP yang melonjak-lompat (Jitter) [134].
+~Sebuah ukuran dari seberapa cepat sebuah alat perutean mampu mengenkapsulasi ulang paket setelah membedah lapisan IP di perbatasan keamanan internet (Processing Delay). #Salah. Waktu yang diperlukan router tersebut merupakan sebagian kontribusi pada perambat latency secara keseluruhan, bukan arti fluktuasi ketidak-konsistensi ping-nya yang kita namakan Jitter [134].
+}
+
+::D4-Q61:: Saat ini banyak pengembang web menyematkan antarmuka pemrograman mandiri yang dipublikasikan bagi aplikasi lain (misal fungsi Google Maps yang dipasang dalam sebuah halaman pemesanan makanan). Mekanisme seperti apakah ini? {
+=Penggunaan Application Programming Interface (API) dan kemungkinan penyebaran layanan terdistribusi arsitektur Microservices. #Benar! API membuka fungsi modular perangkat lunak (Microservices) agar pengembang luar yang diotorisasi dapat mengaitkannya demi kemudahan fleksibilitas arsitektur komputasi tanpa perlu menulis ulang fungsionalitas dari awal [142, 143].
+~Pengikatan paksa database hierarkis ke dalam platform penyimpanan pita (Tape Storage). #Salah. Manajemen basis data menggunakan susunan hierarkis model data lampau di tape tidak menggambarkan tren pengaitan fungsionalitas visual web service API [144].
+~Penumpukan lalu lintas email spam secara disengaja (Directory Traversal). #Salah. Directory traversal adalah celah meretas struktur jalur path URL file administrator, bukan bentuk metode perancangan antar-layanan [145].
+~Bypass perlindungan akses dengan pintu belakang buatan pabrikan (Backdoor rootkit). #Salah. Walau API yang tidak aman mungkin mengundang eksploitasi peretasan, pengertian fungsional utamanya bukanlah membuat backdoor sistem rahasia untuk kejahatan [146].
+}
+
+::D4-Q62:: Pada model OSI, layer manakah yang bertanggung jawab untuk melakukan format data, kompresi, dan enkripsi data sebelum dikirimkan ke layer berikutnya? {
+=Presentation Layer. #Benar! Presentation Layer (Layer 6) bertanggung jawab untuk mentransformasi data menjadi format yang dipahami oleh sistem lain, termasuk kompresi dan enkripsi.
+~Application Layer. #Salah. Application layer menyediakan antarmuka bagi aplikasi ke jaringan.
+~Transport Layer. #Salah. Transport layer menangani pengiriman data end-to-end dan kendali aliran.
+~Session Layer. #Salah. Session layer bertugas membangun, menjaga, dan memutus sesi komunikasi.
+}
+
+::D4-Q63:: Saat mengimplementasikan Software-Defined Networking (SDN) di kampus, administrator memisahkan fungsi pengambilan keputusan rute dari proses penerusan paket. Manakah komponen yang mengontrol aturan dan pembuatan keputusan dalam arsitektur SDN ini? {
+=Control Plane. #Benar! Control plane pada SDN bertanggung jawab untuk manajemen dan konfigurasi atau penentuan rute.
+~Data Plane. #Salah. Data plane bertanggung jawab meneruskan paket berdasarkan aturan dari control plane.
+~Management Plane. #Salah. Ini adalah antarmuka untuk admin, bukan pengambil keputusan routing inti.
+~Infrastructure Layer. #Salah. Ini adalah lapisan fisik hardware yang dikelola oleh control plane.
+}
+
+::D4-Q64:: Organisasi Anda mengganti keamanan nirkabel dari WPA2 ke WPA3 untuk mencegah serangan brute-force pada password. Mekanisme autentikasi baru apa yang diperkenalkan pada WPA3 untuk menggantikan Preshared Key (PSK)? {
+=Simultaneous Authentication of Equals (SAE). #Benar! SAE adalah mekanisme autentikasi pada WPA3 yang mencegah serangan offline dictionary dan brute-force.
+~Extensible Authentication Protocol (EAP). #Salah. EAP sudah digunakan sejak WPA Enterprise dan bukan hal baru yang menggantikan PSK.
+~Counter Mode with Cipher Block Chaining Message Authentication Code Protocol (CCMP). #Salah. CCMP adalah protokol enkripsi yang diperkenalkan bersama WPA2.
+~Temporal Key Integrity Protocol (TKIP). #Salah. TKIP adalah protokol enkripsi lama yang digunakan pada WPA asli dan sudah usang.
+}
+
+::D4-Q65:: Jika Anda mengatur VPN site-to-site antara dua gedung kampus menggunakan IPSec dan ingin memastikan bahwa header IP asli dienkripsi untuk menyembunyikan identitas host internal, mode apa yang harus Anda gunakan? {
+=Tunnel Mode. #Benar! Dalam Tunnel mode, seluruh paket IP asli (termasuk header) dienkripsi dan dibungkus dalam paket IP baru.
+~Transport Mode. #Salah. Transport mode hanya mengenkripsi payload data, sedangkan header IP asli tetap tidak terenkripsi.
+~Authentication Header (AH). #Salah. AH memberikan integritas dan autentikasi, tetapi tidak mengenkripsi data.
+~Encapsulating Security Payload (ESP). #Salah. ESP dapat mengenkripsi data, namun pertanyaannya merujuk pada mode operasional.
+}
+
+::D4-Q66:: Pendekatan keamanan jaringan modern sering menggunakan segmentasi yang sangat granular untuk membatasi pergerakan lateral (lateral movement) dari penyerang. Apakah sebutan untuk teknik membagi jaringan ke dalam zona-zona yang sangat kecil, bahkan hingga ke tingkat satu perangkat atau workload? {
+=Micro-segmentation. #Benar! Micro-segmentation membagi jaringan menjadi zona subnet sangat kecil (kadang hanya satu mesin) dengan kontrol keamanan ketat untuk mencegah pergerakan lateral.
+~Virtual Local Area Network (VLAN). #Salah. VLAN adalah segmentasi logis standar di layer 2, tetapi tidak seluas dan se-granular micro-segmentation modern.
+~Air-gapped network. #Salah. Air-gapped berarti pemisahan fisik secara total tanpa koneksi sama sekali.
+~Content Distribution Network (CDN). #Salah. CDN digunakan untuk mengirimkan konten web dengan latensi rendah, bukan untuk segmentasi.
+}
+
+::D4-Q67:: Seorang penyerang berhasil memasukkan data palsu ke dalam cache server DNS lokal perusahaan, sehingga saat karyawan mencoba mengakses portal bank, mereka diarahkan ke situs tiruan. Jenis serangan apakah ini? {
+=DNS Poisoning. #Benar! DNS Poisoning (atau DNS Cache Poisoning) mengubah entri cache DNS untuk mengalihkan lalu lintas yang sah ke alamat IP penyerang.
+~ARP Poisoning. #Salah. ARP poisoning memetakan MAC address penyerang dengan IP address korban di jaringan lokal.
+~Domain Hijacking. #Salah. Domain hijacking mengubah pendaftaran domain di tingkat registrar, bukan cache DNS lokal.
+~Typosquatting. #Salah. Typosquatting bergantung pada kesalahan ketik yang dilakukan pengguna (misal goggle dot com), bukan meretas cache DNS.
+}
+
+::D4-Q68:: Anda sedang melakukan pemecahan masalah pada workstation Windows yang tidak bisa mengakses internet. Saat memeriksa konfigurasi IP, Anda melihat alamat 169.254.10.20. Kesimpulan logis apa yang bisa Anda tarik dari situasi ini? {
+=Server DHCP gagal merespons sehingga sistem menggunakan APIPA. #Benar! Alamat IP dalam rentang 169.254.x.x adalah Automatic Private IP Addressing (APIPA), yang ditetapkan sendiri oleh Windows ketika tidak ada server DHCP yang merespons.
+~Host menggunakan IP loopback untuk melakukan pengujian internal. #Salah. Alamat loopback adalah 127.x.x.x.
+~Jaringan sedang mengalami serangan ARP Spoofing yang menguras alamat IP. #Salah. ARP spoofing tidak secara langsung mengubah alamat IP menjadi rentang 169.254.x.x.
+~Sistem menggunakan alamat private RFC 1918 yang valid untuk akses LAN. #Salah. APIPA bukan bagian dari RFC 1918 (10.x, 172.16.x, 192.168.x).
+}
+
+::D4-Q69:: Protokol manakah yang memungkinkan lalu lintas jaringan penyimpanan (storage) ditransmisikan di atas infrastruktur jaringan Ethernet tradisional, sehingga menggabungkan (converge) jaringan data dan storage? {
+=Fibre Channel over Ethernet (FCoE). #Benar! FCoE adalah protokol jaringan yang mengenkapsulasi frame Fibre Channel di atas jaringan Ethernet.
+~Transmission Control Protocol (TCP). #Salah. TCP adalah protokol transport umum, bukan spesifik untuk konvergensi storage dan data.
+~Voice over IP (VoIP). #Salah. VoIP mengkonvergensikan lalu lintas suara dengan data, bukan storage.
+~Point-to-Point Protocol (PPP). #Salah. PPP adalah protokol data link untuk membangun koneksi langsung antara dua node.
+}
+
+::D4-Q70:: Sebagai dosen keamanan, Anda meninjau arsitektur web universitas. Tim IT mengklaim situs aman karena menggunakan SSL 3.0. Mengapa Anda harus mengarahkan mereka untuk segera beralih ke protokol lain? {
+=SSL 3.0 sudah usang, memiliki kerentanan yang diketahui, dan harus diganti dengan TLS. #Benar! SSL sudah didepresiasi (usang) karena kerentanan seperti POODLE. TLS adalah standar keamanan transportasi modern.
+~SSL 3.0 hanya mendukung enkripsi asimetris dan sangat lambat. #Salah. SSL menggunakan enkripsi simetris dan asimetris, namun alasannya adalah karena usang dan tidak aman.
+~SSL 3.0 tidak bisa beroperasi di atas port 443. #Salah. SSL dan TLS beroperasi secara default di port TCP 443.
+~SSL 3.0 mengharuskan penggunaan sertifikat dari internal CA. #Salah. SSL dapat menggunakan sertifikat dari publik atau internal CA.
+}
+
+::D4-Q71:: Sebuah perusahaan menginginkan arsitektur jaringan dengan redundansi tertinggi. Mereka ingin setiap node terhubung langsung dengan setiap node lainnya sehingga tidak ada single point of failure. Topologi apakah yang mereka cari? {
+=Full Mesh. #Benar! Dalam topologi Full Mesh, setiap perangkat terhubung langsung dengan semua perangkat lain, memberikan redundansi maksimal namun dengan biaya dan kompleksitas kabel yang tinggi.
+~Star. #Salah. Pada topologi star, semua node terhubung ke satu titik pusat (seperti switch), yang dapat menjadi single point of failure.
+~Ring. #Salah. Topologi ring menghubungkan node dalam bentuk cincin tertutup.
+~Bus. #Salah. Topologi bus menggunakan kabel backbone tunggal yang menghubungkan semua node.
+}
+
+::D4-Q72:: Anda membandingkan berbagai jenis firewall. Sebuah firewall mampu melacak status sesi komunikasi dari paket awal hingga koneksi ditutup, serta membuat aturan dinamis untuk mengizinkan paket balasan masuk. Jenis firewall apakah ini? {
+=Stateful inspection firewall. #Benar! Stateful inspection firewall melacak status dari suatu percakapan jaringan (state table) dan secara otomatis mengizinkan paket balasan yang sesuai.
+~Static packet filtering firewall. #Salah. Packet filtering murni hanya melihat header paket secara individu tanpa memahami konteks sesi komunikasi.
+~Web Application Firewall (WAF). #Salah. WAF fokus memfilter ancaman spesifik terhadap aplikasi web.
+~Circuit-level gateway. #Salah. Circuit-level gateway bekerja pada layer sesi tetapi biasanya tidak memeriksa isi paket mendalam seperti halnya stateful yang lebih modern.
+}
+
+::D4-Q73:: Untuk mengatasi masalah spoofing email dan serangan Business Email Compromise (BEC), administrator mengimplementasikan protokol DNS yang menginstruksikan server penerima bagaimana menangani email jika gagal autentikasi SPF atau DKIM. Protokol apa yang dimaksud? {
+=DMARC. #Benar! Domain-based Message Authentication Reporting and Conformance (DMARC) memanfaatkan SPF dan DKIM untuk memberikan instruksi apakah email yang gagal uji harus ditolak, dikarantina, atau diteruskan.
+~SMTP. #Salah. Simple Mail Transfer Protocol adalah protokol pengiriman email standar tanpa mekanisme anti-spoofing bawaan yang kuat.
+~IMAP. #Salah. IMAP digunakan oleh klien untuk mengambil email dari server.
+~S/MIME. #Salah. S/MIME mengenkripsi dan menandatangani isi pesan email secara end-to-end, tetapi DMARC-lah yang bekerja dengan DNS, SPF, dan DKIM.
+}
+
+::D4-Q74:: Solusi Network Access Control (NAC) mengevaluasi kesehatan perangkat pengguna (seperti pembaruan antivirus dan patch sistem) sebelum mengizinkannya terhubung penuh ke jaringan produksi. Apabila perangkat gagal memenuhi syarat, ke manakah NAC biasanya mengarahkan perangkat tersebut? {
+=Quarantine network atau Remediation subnet. #Benar! Perangkat yang tidak sesuai kebijakan akan dialihkan ke jaringan karantina di mana pengguna hanya dapat mengakses server untuk memperbarui patch dan antivirus.
+~Screened Subnet atau DMZ. #Salah. Screened subnet digunakan untuk layanan publik (seperti web server), bukan untuk karantina perangkat internal.
+~VPC (Virtual Private Cloud). #Salah. VPC adalah jaringan virtual khusus dalam lingkungan komputasi awan.
+~Extranet. #Salah. Extranet adalah bagian intranet yang dapat diakses oleh mitra atau pemasok dari luar.
+}
+
+::D4-Q75:: Perusahaan Anda bekerja sama dengan vendor logistik. Anda perlu memberikan mereka akses khusus ke sistem inventaris melalui portal web, namun tanpa memberikan akses ke sisa jaringan internal perusahaan. Jenis arsitektur jaringan apa yang paling sesuai? {
+=Extranet. #Benar! Extranet adalah jaringan privat yang memperluas sebagian akses intranet perusahaan kepada mitra kerja, vendor, atau klien yang memiliki otorisasi.
+~Intranet. #Salah. Intranet hanya dapat diakses oleh karyawan internal di dalam organisasi.
+~Screened Subnet. #Salah. Screened subnet biasanya menampung server publik yang bisa diakses oleh siapa saja (Internet).
+~Guest Wi-Fi. #Salah. Guest Wi-Fi hanya memberikan akses internet dasar kepada tamu, bukan koneksi ke sistem inventaris inti.
+}
+
+::D4-Q76:: Sistem telepon Voice over IP (VoIP) memerlukan transmisi data suara dengan latensi seminimal mungkin. Apabila beberapa paket hilang di jalan, suara cukup bergeser sedikit tanpa harus mengirim ulang paket yang hilang karena akan menyebabkan jeda. Protokol Transport layer manakah yang paling ideal untuk VoIP ini? {
+=UDP. #Benar! User Datagram Protocol (UDP) adalah protokol connectionless yang cepat dan tidak meminta pengiriman ulang jika paket hilang, sehingga ideal untuk streaming waktu nyata.
+~TCP. #Salah. Transmission Control Protocol (TCP) bersifat connection-oriented dan menjamin pengiriman paket, namun proses pengiriman ulang dapat menyebabkan jeda pada streaming suara.
+~IP. #Salah. Internet Protocol beroperasi di Network layer, bukan Transport layer.
+~ICMP. #Salah. Internet Control Message Protocol digunakan untuk pesan kesalahan dan diagnostik jaringan (seperti ping).
+}
+
+::D4-Q77:: Seorang mahasiswa mencoba menyadap koneksi antara komputer dosen dan gateway default jaringan dengan mengirimkan pesan palsu (gratuitous) ke switch dan komputer korban, sehingga tabel perangkat tersebut terbarui dengan MAC address penyerang. Teknik serangan apa yang dieksekusi? {
+=ARP Poisoning. #Benar! Serangan ini mengirimkan paket Address Resolution Protocol (ARP) palsu untuk memetakan IP address pihak lain ke MAC address milik penyerang.
+~MAC Flooding. #Salah. MAC flooding membanjiri switch dengan ribuan MAC palsu agar switch bertindak seperti hub dan meneruskan semua paket ke semua port.
+~DNS Spoofing. #Salah. DNS spoofing memanipulasi resolusi nama domain ke alamat IP.
+~Typosquatting. #Salah. Typosquatting memanfaatkan kesalahan ejaan pengetikan URL situs.
+}
+
+::D4-Q78:: Dalam arsitektur jaringan modern, Quality of Service (QoS) sangat penting untuk menjaga pengalaman pengguna. Istilah manakah yang merujuk pada fluktuasi atau variasi keterlambatan waktu (latency) antara paket-paket data yang dikirimkan? {
+=Jitter. #Benar! Jitter adalah inkonsistensi atau fluktuasi dalam waktu penundaan (latency) penerimaan paket data.
+~Bandwidth. #Salah. Bandwidth merujuk pada kapasitas maksimum jaringan untuk mengirimkan data.
+~Throughput. #Salah. Throughput adalah jumlah data nyata yang berhasil dikirimkan dalam waktu tertentu.
+~Attenuation. #Salah. Attenuation adalah pelemahan sinyal jaringan saat merambat melalui media.
+}
+
+::D4-Q79:: Seorang karyawan bekerja dari rumah dan terhubung ke VPN perusahaan. Saat terhubung, ia masih dapat mengakses YouTube langsung melalui koneksi internet rumahnya tanpa rute trafiknya memutar ke server perusahaan, sementara akses ke aplikasi internal kantor dirutekan melalui VPN. Konfigurasi apakah ini? {
+=Split tunneling. #Benar! Split tunnel memungkinkan sebagian trafik dirutekan melalui VPN untuk sumber daya kantor, sedangkan trafik internet publik dirutekan langsung melalui ISP lokal.
+~Full tunneling. #Salah. Pada full tunneling, seluruh trafik dipaksa melewati VPN.
+~Micro-segmentation. #Salah. Ini adalah teknik untuk membagi jaringan internal ke dalam zona-zona logis.
+~VLAN hopping. #Salah. VLAN hopping adalah teknik serangan untuk melompat dari satu VLAN ke VLAN lain yang tidak memiliki hak akses.
+}
+
+::D4-Q80:: Universitas Anda memiliki mahasiswa dari berbagai benua dan menggunakan banyak video materi pembelajaran beresolusi tinggi. Untuk mengurangi latensi dan memastikan akses cepat tanpa membebani server utama, solusi apa yang paling efektif? {
+=Content Distribution Network (CDN). #Benar! CDN menggunakan jaringan server yang tersebar secara geografis untuk melakukan cache dan mendistribusikan konten (seperti video) dari lokasi yang paling dekat dengan pengguna.
+~Software-Defined Wide-Area Network (SD-WAN). #Salah. SD-WAN berguna untuk manajemen koneksi WAN kantor cabang, namun tidak secara khusus caching konten untuk pengguna di seluruh dunia.
+~Virtual Private Network (VPN). #Salah. VPN memberikan koneksi aman, tetapi justru dapat menambah latensi overhead dan tidak menyebarkan cache video.
+~Intrusion Prevention System (IPS). #Salah. IPS adalah fitur keamanan, bukan alat distribusi performa konten.
+}
+
+::D4-Q81:: Serangan yang memalsukan atau meniru sinyal pemancar jaringan seluler 4G atau 5G resmi, memaksa perangkat seluler (smartphone) di dekatnya untuk terhubung ke perangkat penyerang demi menyadap komunikasi, dikenal sebagai serangan apa? {
+=Rogue tower atau IMSI catcher. #Benar! Serangan ini (sering dikenal dengan IMSI catcher atau Stingray) membuat menara seluler palsu sehingga dapat mencegat komunikasi data dan seluler.
+~Bluejacking. #Salah. Bluejacking mengirimkan pesan anonim yang tidak diminta ke perangkat via Bluetooth.
+~War driving. #Salah. War driving adalah tindakan berkeliling untuk mencari jaringan Wi-Fi yang tidak aman.
+~Evil Twin. #Salah. Evil Twin berlaku untuk Wi-Fi di mana access point palsu dibuat mirip dengan jaringan Wi-Fi asli, bukan menara seluler.
+}
+
+::D4-Q82:: Dalam merancang keamanan arsitektur kabel untuk kampus, Anda harus memilih kabel yang kebal terhadap interferensi elektromagnetik (EMI), crosstalk, dan sangat sulit untuk disadap secara fisik tanpa merusaknya. Jenis kabel apakah yang memenuhi semua syarat ini? {
+=Fiber-optic. #Benar! Kabel fiber optik menggunakan cahaya (bukan listrik), sehingga sepenuhnya kebal terhadap EMI, crosstalk, dan paling sulit untuk disadap.
+~Unshielded Twisted-Pair (UTP). #Salah. UTP sangat rentan terhadap EMI dan mudah disadap.
+~Shielded Twisted-Pair (STP). #Salah. STP memiliki pelindung, tetapi masih menggunakan tembaga sehingga bisa terpengaruh EMI kuat dan lebih mudah disadap dibandingkan fiber.
+~Coaxial. #Salah. Coaxial menggunakan kawat tembaga dan masih rentan terhadap gangguan elektronik dan penyadapan fisik.
+}
+
+::D4-Q83:: Organisasi Anda ingin meningkatkan kapabilitas deteksi ancaman. Alih-alih hanya menggunakan antivirus biasa yang memblokir malware berdasarkan signature, Anda membutuhkan solusi yang mengumpulkan data secara kontinu dari setiap workstation (endpoint) dan melakukan analisis perilaku tingkat lanjut. Solusi apakah ini? {
+=Endpoint Detection and Response (EDR). #Benar! EDR memberikan pemantauan dan analisis ancaman pada level host (endpoint) secara terus-menerus dan lebih canggih daripada sekadar antivirus tradisional.
+~Network Intrusion Detection System (NIDS). #Salah. NIDS memantau jaringan, bukan mengumpulkan data spesifik dari setiap endpoint internal secara detail.
+~Mobile Device Management (MDM). #Salah. MDM untuk mengatur profil ponsel, aplikasi, dan keamanan dasar, bukan analitik deteksi malware tingkat lanjut.
+~Virtual Desktop Infrastructure (VDI). #Salah. VDI digunakan untuk komputasi terpusat berbasis server, bukan kategori alat pendeteksi malware.
+}
+
+::D4-Q84:: Server aplikasi ujian online kampus baru-baru ini menjadi target serangan injeksi SQL. Untuk memberikan perlindungan instan sebelum tim pengembang menambal kode, perangkat keamanan apa yang paling tepat dipasang di depan aplikasi web tersebut? {
+=Web Application Firewall (WAF). #Benar! WAF dirancang secara spesifik untuk memfilter dan memonitor lalu lintas HTTP/HTTPS ke aplikasi web, memblokir serangan seperti SQL Injection dan Cross-Site Scripting (XSS).
+~Circuit-level Gateway. #Salah. Firewall ini tidak memeriksa isi (payload) paket HTTP tempat perintah SQL disembunyikan.
+~Antimalware. #Salah. Antimalware bagus untuk virus dan Trojan, tetapi tidak dibuat untuk menganalisis payload protokol web yang sedang berjalan.
+~Virtual Private Network (VPN). #Salah. VPN hanya mengenkripsi lalu lintas, dan tidak memeriksa atau memblokir serangan aplikasi web.
+}
+
+::D4-Q85:: Kampus Anda menggunakan WPA3 Enterprise untuk Wi-Fi. Saat mahasiswa memasukkan kredensial untuk terhubung, Access Point (AP) tidak melakukan verifikasi secara lokal, melainkan mengirimkannya ke server autentikasi terpusat. Protokol dan arsitektur apakah ini? {
+=IEEE 802.1X dengan server RADIUS. #Benar! Mode Enterprise menggunakan kerangka kerja 802.1X untuk kontrol akses port dan meneruskan permintaan autentikasi ke server AAA terpusat seperti RADIUS.
+~Simultaneous Authentication of Equals (SAE). #Salah. SAE digunakan pada WPA3-Personal, di mana password bersama diverifikasi tanpa server RADIUS.
+~Terminal Access Controller Access-Control System Plus (TACACS+). #Salah. TACACS+ lebih umum untuk administrasi log-in perangkat jaringan, bukan autentikasi nirkabel massal.
+~IPSec VPN. #Salah. IPSec adalah protokol tunneling layer 3, bukan untuk pertukaran autentikasi layer 2 di jaringan Wi-Fi lokal.
+}
+
+::D4-Q86:: Dalam rancangan high-availability (HA), Anda memiliki dua firewall yang identik. Firewall pertama memproses seratus persen lalu lintas jaringan harian, sementara firewall kedua dalam keadaan idle. Jika firewall pertama gagal, barulah firewall kedua aktif mengambil alih. Apa istilah untuk rancangan ini? {
+=Active-passive. #Benar! Active-passive (juga disebut failover cluster) menyimpan satu perangkat cadangan yang hanya akan beroperasi ketika perangkat utama (active) rusak atau offline.
+~Active-active. #Salah. Dalam active-active, kedua firewall bekerja secara simultan untuk melayani lalu lintas dan membagi beban.
+~Round-robin load balancing. #Salah. Ini adalah teknik algoritma load balancing, di mana beban dibagi merata ke beberapa node.
+~Spanning Tree Protocol (STP). #Salah. STP digunakan pada switch layer 2 untuk mencegah routing loop.
+}
+
+::D4-Q87:: Perangkat telekonferensi IP mengirimkan paket video ke beberapa klien secara bersamaan. Alih-alih mengirim salinan paket unik ke setiap klien, sistem ini mengirim satu paket ke alamat IP khusus kelas D, lalu router menyalinnya hanya ke port yang terhubung ke anggota grup. Mekanisme IP apakah ini? {
+=Multicast. #Benar! Multicast adalah metode pengiriman one-to-many, mengirim satu aliran data ke sebuah grup khusus (IP Kelas D), yang akan disalin otomatis oleh router ke penerima yang terdaftar.
+~Unicast. #Salah. Unicast mengirim data hanya dari satu pengirim ke tepat satu penerima yang spesifik (one-to-one).
+~Broadcast. #Salah. Broadcast mengirim paket ke semua node di dalam subnet lokal tanpa terkecuali.
+~Anycast. #Salah. Anycast mengirim paket ke rute perangkat terdekat yang tersedia di antara banyak node dengan IP yang sama.
+}
+
+::D4-Q88:: Banyak orang asing masuk ke lobi kampus dan mencolokkan laptop mereka langsung ke port Ethernet di dinding untuk mendapatkan akses intranet. Metode mitigasi mana yang paling tepat dan aman yang bisa langsung Anda terapkan di switch kampus? {
+=Menerapkan port security dan IEEE 802.1X. #Benar! Port security dapat membatasi MAC address, dan 802.1X mewajibkan autentikasi bagi perangkat apa pun sebelum port diaktifkan secara logis.
+~Mengenkripsi semua file di server dengan AES-256. #Salah. Enkripsi server itu penting, tetapi tidak mencegah pihak asing terhubung dan menjelajahi intranet Anda secara fisik.
+~Memasang kamera CCTV yang memantau setiap port dinding. #Salah. CCTV bisa sebagai bukti deteksi fisik, tetapi tidak secara teknis memblokir akses data di switch.
+~Menggunakan sandboxing untuk email pegawai. #Salah. Sandboxing email berguna menahan malware, bukan mencegah laptop asing terkoneksi via dinding.
+}
+
+::D4-Q89:: Anda harus membangun segmentasi jaringan internal untuk departemen riset. Sesuai RFC 1918, Anda memilih alamat IPv4 private. Anda butuh subnet yang mampu menampung sekitar 500 host aktif. Pengalamatan dan subnet mask mana yang paling tepat dan efisien? {
+=172.16.0.0 /23. #Benar! Slash 23 memberikan 9 bit untuk host, yakni 510 host usable. Ini adalah pilihan paling efisien untuk menampung sekitar 500 host dari IP private kelas B.
+~192.168.1.0 /24. #Salah. Subnet slash 24 hanya memberikan 254 IP usable, tidak cukup untuk 500 host.
+~10.0.0.0 /8. #Salah. Ini sangat tidak efisien dan akan menghamburkan ketersediaan jutaan host dalam satu broadcast domain.
+~11.0.0.0 /23. #Salah. Rentang 11.x.x.x adalah alamat IP publik, bukan IP private sesuai RFC 1918.
+}
+
+::D4-Q90:: Meskipun VLAN memisahkan siaran broadcast dan mengisolasi lalu lintas, jika administrator lalai mengonfigurasi port trunk antar switch, penyerang dapat mengeksploitasinya menggunakan teknik apa untuk mengirim data ke VLAN yang berbeda? {
+=VLAN Hopping. #Benar! Dalam VLAN Hopping (seperti double tagging), penyerang memanfaatkan kelalaian pada port trunk (802.1Q) untuk mengirimkan frame ke VLAN lain secara tidak sah.
+~Spanning Tree Protocol (STP) attack. #Salah. Serangan STP lebih bertujuan merusak arsitektur redundansi switch layer 2 sehingga terjadi loop jaringan, bukan untuk melompat VLAN.
+~Network Address Translation (NAT) spoofing. #Salah. NAT beroperasi di layer 3 untuk mengubah IP address, bukan layer 2 tempat VLAN beroperasi.
+~Session Hijacking. #Salah. Session hijacking terjadi di layer aplikasi dan transport dengan mencuri cookie autentikasi.
+}
+
+::D4-Q91:: Anda menginstal perangkat keamanan yang menganalisis seluruh lalu lintas. Jika alat tersebut hanya berfungsi mengirimkan log dan tidak memiliki kemampuan membuang atau memblokir paket berbahaya secara real-time, maka Anda telah memasang arsitektur apa? {
+=Network Intrusion Detection System (NIDS) secara out-of-band atau passive. #Benar! IDS (Detection) hanya mendeteksi dan memberi alert, sering di-deploy secara pasif dan tidak berada langsung di tengah jalur aliran lalu lintas.
+~Network Intrusion Prevention System (NIPS) secara in-band. #Salah. NIPS yang berada in-band akan mampu mencegah dan memblokir lalu lintas berbahaya seketika.
+~Web Application Firewall (WAF) secara reverse proxy. #Salah. WAF bertindak aktif memfilter dan memblokir serangan aplikasi web.
+~Unified Threat Management (UTM). #Salah. UTM adalah kombinasi banyak fungsi termasuk firewall dan IPS yang secara aktif memblokir lalu lintas.
+}
+
+::D4-Q92:: Konsep arsitektur yang memungkinkan sebuah instansi mengelola dan merutekan koneksi ke banyak kantor cabangnya melalui antarmuka terpusat, memisahkan control plane dari data plane untuk meningkatkan efisiensi penggunaan jaringan broadband dan MPLS, dikenal sebagai? {
+=Software-Defined Wide Area Network (SD-WAN). #Benar! SD-WAN memperluas prinsip SDN ke skala WAN, sehingga merutekan lalu lintas data antar cabang dan komputasi awan menjadi lebih fleksibel dan otomatis.
+~Local Area Network (LAN). #Salah. LAN bersifat lokal untuk satu gedung atau satu lantai.
+~Storage Area Network (SAN). #Salah. SAN adalah jaringan khusus untuk transmisi perangkat penyimpanan berkecepatan tinggi.
+~Wireless Personal Area Network (WPAN). #Salah. WPAN dikhususkan untuk koneksi nirkabel jarak sangat dekat antar perangkat pribadi.
+}
+
+::D4-Q93:: Kampus melakukan kemitraan jaringan secara permanen dengan rumah sakit setempat. Sebelum menarik kabel serat optik antar fasilitas, direktur keamanan dari kedua belah pihak harus menandatangani dokumen yang merinci konfigurasi keamanan, persetujuan risiko, dan syarat teknis komunikasi. Dokumen apa ini? {
+=Interconnection Security Agreement (ISA). #Benar! ISA adalah dokumen formal yang mendeklarasikan sikap keamanan, risiko, dan persyaratan teknis untuk jalur komunikasi (interkoneksi) antara dua entitas yang berbeda.
+~Service-Level Agreement (SLA). #Salah. SLA menentukan garansi kinerja dan uptime layanan antara vendor dan klien, bukan rincian keamanan interkoneksi.
+~Memorandum of Understanding (MOU). #Salah. MOU adalah persetujuan niat awal secara umum, tetapi tidak merinci kontrol teknis sedetail ISA.
+~Nondisclosure Agreement (NDA). #Salah. NDA hanya mengatur kerahasiaan informasi, bukan pedoman parameter teknis jaringan interkoneksi.
+}
+
+::D4-Q94:: Seseorang berhasil meretas Private Branch Exchange (PBX) perusahaan dan memanfaatkannya untuk membuat ratusan panggilan jarak jauh internasional secara gratis menggunakan tagihan perusahaan. Tindakan peretasan sistem telepon tradisional ini populer dengan sebutan apa? {
+=Phreaking. #Benar! Phreaking adalah tindakan meretas sistem telepon (seperti PBX atau jaringan publik) untuk membuat panggilan gratis atau membajak infrastruktur telco.
+~Wardriving. #Salah. Wardriving adalah aktivitas mencari jaringan Wi-Fi terbuka sambil berkendara.
+~Vishing. #Salah. Vishing adalah phishing lewat suara (voice phishing) untuk menipu korban secara sosial.
+~Skimming. #Salah. Skimming adalah pencurian data fisik pada pita magnetik mesin kartu kredit atau ATM.
+}
+
+::D4-Q95:: Anda ditugaskan membuat solusi remote access untuk pegawai. Kebijakan melarang instalasi aplikasi klien VPN di perangkat pegawai secara manual; koneksi harus dapat diakses semata-mata dengan membuka peramban (browser) web yang aman. Solusi mana yang paling cocok? {
+=TLS VPN. #Benar! Transport Layer Security (TLS) VPN memungkinkan klien untuk mengakses sumber daya jaringan melalui browser web standar tanpa menginstal perangkat lunak klien khusus.
+~IPSec VPN (Transport Mode). #Salah. Biasanya membutuhkan perangkat lunak klien IPSec yang diinstal dan dikonfigurasi secara khusus di perangkat klien.
+~Secure Shell (SSH) Tunneling. #Salah. Membutuhkan klien aplikasi SSH terminal, bukan melalui browser standar.
+~Point-to-Point Tunneling Protocol (PPTP). #Salah. Ini adalah protokol usang yang membutuhkan pengaturan antarmuka VPN pada sistem operasi pengguna.
+}
+
+::D4-Q96:: Laboratorium teknik mesin memiliki sistem yang mengendalikan aliran air di bendungan uji coba jarak jauh dari layar monitor komputer pusat, sering kali mencakup area kontrol yang luas. Jenis teknologi jaringan operasi apakah ini? {
+=Supervisory Control and Data Acquisition (SCADA). #Benar! SCADA merupakan tipe sistem kontrol industri (ICS) yang dirancang khusus untuk mengawasi dan mengontrol infrastruktur fisik secara terpusat dari lokasi yang luas.
+~Distributed Computing Environment (DCE). #Salah. Lingkungan komputasi terdistribusi tidak spesifik pada kontrol aliran air atau infrastruktur fisik seperti SCADA.
+~Storage Area Network (SAN). #Salah. Jaringan storage dirancang untuk menyatukan perangkat penyimpanan data, bukan untuk mengawasi infrastruktur.
+~Content Distribution Network (CDN). #Salah. Digunakan untuk caching konten web agar mempercepat akses pengguna internet.
+}
+
+::D4-Q97:: Anda melakukan analisis paket yang ditangkap oleh Wireshark. Setiap frame Ethernet Layer 2 memuat alamat MAC (Media Access Control) sepanjang 48 bit. Setengah bagian pertama (24 bit pertama) dari alamat MAC tersebut diidentifikasi untuk tujuan apa? {
+=Organizationally Unique Identifier (OUI) untuk menunjukkan vendor manufaktur perangkat. #Benar! Tiga byte pertama MAC dialokasikan oleh IEEE untuk mengidentifikasi siapa pabrikan atau pembuat Network Interface Card (NIC) tersebut.
+~Tanda tangan enkripsi dari perangkat pengirim untuk mencegah MAC Spoofing. #Salah. Alamat MAC asli dipancarkan dalam bentuk teks biasa (plaintext) tanpa enkripsi di layer 2.
+~Alamat host dinamis yang ditentukan oleh router secara berurutan. #Salah. Tiga byte pertama ditetapkan secara permanen (hardcoded) oleh pabrikan, sedangkan IP dikonfigurasi secara dinamis.
+~Label VLAN untuk menentukan ke zona mana paket diteruskan. #Salah. Label VLAN berada di bagian header ekstensi 802.1Q tersendiri, bukan bagian dari nilai alamat MAC.
+}
+
+::D4-Q98:: Kampus Anda memiliki banyak komputer di laboratorium mahasiswa yang membutuhkan akses Internet. Namun, ISP hanya memberi kampus satu blok kecil alamat IP Publik (IPv4). Teknologi apa di router batas yang menerjemahkan paket internal sehingga seluruh lab dapat menggunakan internet secara simultan menggunakan IP publik yang sama? {
+=Network Address Translation (NAT) atau Port Address Translation (PAT). #Benar! NAT (terutama bentuk PAT-nya) memungkinkan ribuan alamat IP private berbagi satu alamat IP publik dengan menggunakan pemetaan port sumber (port mapping).
+~Border Gateway Protocol (BGP). #Salah. BGP adalah protokol routing eksterior antar sistem otonom ISP besar, bukan penerjemah alamat lokal.
+~VLAN Trunking. #Salah. Ini digunakan untuk meneruskan beberapa VLAN melewati satu kabel antar switch, bukan mengonversi alamat IP private ke publik.
+~Spanning Tree Protocol (STP). #Salah. STP mencegah putaran berulang (looping) pada arsitektur switch layer 2.
+}
+
+::D4-Q99:: Departemen IT memutuskan untuk segera melakukan migrasi ke infrastruktur IPv6 dari IPv4 yang kehabisan ruang alamat. IPv6 secara signifikan mengubah fitur Layer 3. Di antara pilihan berikut, manakah yang merupakan salah satu keunggulan desain inheren pada IPv6? {
+=Mendukung integrasi IPSec secara native ke dalam struktur protokolnya untuk mengamankan komunikasi jaringan. #Benar! Saat dirancang, IPv6 membuat IPSec menjadi bagian fundamental (native) dari rancangan protokol dasarnya.
+~Menghapus kebutuhan pengalamatan logis karena beralih total ke MAC address. #Salah. IPv6 masih menggunakan pengalamatan logis dan justru meningkatkannya menjadi 128 bit.
+~Secara eksklusif menggunakan komunikasi broadcast untuk menggantikan multicast. #Salah. Sebaliknya, IPv6 justru menghapus fitur broadcast secara total dan menggantinya dengan multicast dan anycast.
+~Menyediakan fitur keamanan sandboxing bawaan router untuk melindungi dari malware. #Salah. Sandboxing adalah fitur isolasi aplikasi atau keamanan endpoint, bukan fitur protokol routing.
+}
+
+::D4-Q100:: Mahasiswa sering membawa smartwatch yang menggunakan teknologi radio jarak pendek untuk sinkronisasi pesan dengan ponsel. Jika ada penyerang iseng di kantin yang mengirim pesan-pesan teks palsu yang tidak diinginkan ke smartwatch mahasiswa tersebut via Bluetooth, serangan ini termasuk jenis apa? {
+=Bluejacking. #Benar! Bluejacking adalah serangan pengiriman pesan teks atau kontak fiktif yang tidak diminta kepada pengguna Bluetooth lain di radius yang dekat.
+~Bluesnarfing. #Salah. Bluesnarfing adalah pencurian atau pembacaan data rahasia (kontak, kalender, pesan) dari perangkat Bluetooth korban tanpa sepengetahuan mereka, bukan mengirim pesan iseng.
+~Session hijacking. #Salah. Session hijacking (pembajakan sesi) biasa melibatkan pencurian token web untuk mengambil alih sesi login jaringan aplikasi, bukan Bluetooth iseng.
+~WPS PIN attack. #Salah. Serangan brute force pada PIN WPS ditujukan untuk meretas kata sandi router Wi-Fi lokal, bukan untuk eksploitasi Bluetooth.
+}

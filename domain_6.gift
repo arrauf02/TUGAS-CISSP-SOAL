@@ -1,0 +1,699 @@
+::D6-Q01:: Laporan audit System and Organization Controls (SOC) mana yang ditujukan untuk rilis publik dan memberikan jaminan atas kontrol keamanan, ketersediaan, atau kerahasiaan sebuah organisasi? {
+=SOC 3. #Benar! Laporan SOC 3 ditujukan untuk rilis publik karena hanya memberikan ringkasan jaminan tanpa menyertakan detail teknis yang sensitif.
+~SOC 1. #Salah. SOC 1 berfokus secara eksklusif pada kontrol internal atas pelaporan keuangan.
+~SOC 2. #Salah. SOC 2 mencakup kontrol keamanan dan privasi namun laporannya berisi detail teknis sensitif sehingga distribusinya sangat dibatasi (tidak untuk publik).
+~Type I. #Salah. Type I adalah variasi tipe laporan (bisa diterapkan pada SOC 1 atau 2) yang hanya menilai desain kontrol pada titik waktu tertentu, bukan jenis laporan untuk rilis publik.
+}
+
+::D6-Q02:: Saat mengevaluasi cakupan pengujian (test coverage) pada sebuah perangkat lunak, metrik apa yang digunakan untuk memastikan bahwa setiap baris kode telah dieksekusi setidaknya satu kali selama pengujian? {
+=Statement coverage. #Benar! Statement coverage adalah ukuran analisis cakupan yang melacak apakah setiap baris kode yang ditulis telah dijalankan selama pengujian.
+~Misuse case testing. #Salah. Misuse case testing adalah teknik pengujian untuk melihat apakah aplikasi rentan terhadap penyalahgunaan, bukan metrik cakupan baris kode.
+~Branch coverage. #Salah. Branch coverage mengukur apakah setiap jalur percabangan logika (seperti pernyataan IF/THEN) telah diuji, bukan setiap baris kode secara individu.
+~Dynamic Application Security Testing (DAST). #Salah. DAST adalah pengujian aplikasi pada saat runtime dan tidak menganalisis baris kode sumber secara langsung.
+}
+
+::D6-Q03:: Tim developer Anda sedang menguji aplikasi dengan cara memanipulasi nilai input acak dari format yang valid sebelumnya (seperti membalikkan bit atau bit-flipping) untuk melihat bagaimana aplikasi bereaksi. Jenis pengujian apa yang sedang mereka lakukan? {
+=Mutation fuzzing. #Benar! Mutation fuzzing (atau dumb fuzzing) mengambil nilai input sebelumnya yang valid lalu memanipulasinya untuk melihat respons program terhadap input yang tidak terduga.
+~Generational fuzzing. #Salah. Generational (atau intelligent) fuzzing mengembangkan model data baru dari awal berdasarkan pemahaman tentang format input, bukan memutasi input yang ada.
+~Static application security testing (SAST). #Salah. SAST menguji kerentanan dengan menganalisis kode sumber secara langsung tanpa menjalankan aplikasinya.
+~Code review. #Salah. Code review adalah proses peninjauan logika program secara manual oleh manusia, bukan pengujian otomatis dengan memanipulasi input.
+}
+
+::D6-Q04:: Saat memindai port menggunakan Nmap, status apa yang diberikan oleh Nmap jika port dapat diakses oleh probe tetapi Nmap tidak memiliki bukti pasti untuk menentukan apakah port tersebut dalam kondisi terbuka atau tertutup? {
+=Unfiltered. #Benar! Status Unfiltered berarti paket Nmap berhasil mencapai port tersebut tetapi tidak dapat memastikan dengan pasti apakah port tersebut terbuka atau tertutup.
+~Filtered. #Salah. Filtered berarti ada firewall atau aturan filter lain yang secara aktif memblokir probe sehingga Nmap tidak tahu status port.
+~Open. #Salah. Open berarti port merespons secara aktif dan aplikasi siap menerima koneksi.
+~Open | Filtered. #Salah. Status ini diberikan jika port tidak merespons sama sekali, dan Nmap tidak dapat menentukan apakah port itu terbuka (tetapi mengabaikan probe) atau difilter secara diam-diam.
+}
+
+::D6-Q05:: Sebagai seorang penguji penetrasi, Anda menggunakan teknik yang hanya mengirimkan satu paket SYN untuk melihat apakah port terbuka, tanpa menyelesaikan TCP three-way handshake sepenuhnya agar tidak mudah tercatat di log. Apa nama teknik pemindaian ini? {
+=TCP SYN Scan. #Benar! TCP SYN Scan atau pemindaian "half-open" mengirimkan paket SYN dan menunggu balasan SYN/ACK tetapi tidak pernah mengirimkan paket ACK terakhir.
+~TCP Connect Scan. #Salah. Pemindaian koneksi TCP menyelesaikan seluruh proses three-way handshake dan umumnya sangat mudah terdeteksi.
+~Xmas Scanning. #Salah. Pemindaian Xmas mengirimkan paket dengan flag FIN, PSH, dan URG yang dinyalakan secara bersamaan, bukan hanya paket SYN.
+~UDP Scanning. #Salah. Pemindaian UDP dilakukan pada protokol tanpa koneksi (connectionless) dan tidak menggunakan mekanisme TCP three-way handshake.
+}
+
+::D6-Q06:: Siapa yang paling tepat ditugaskan untuk melakukan audit keamanan apabila perusahaan Anda menginginkan tingkat objektivitas dan jaminan (assurance) tertinggi untuk diserahkan kepada pihak regulator? {
+=Auditor pihak ketiga (Third-party auditor). #Benar! Auditor independen dari luar organisasi memberikan evaluasi yang paling objektif dan bebas dari konflik kepentingan internal, yang sangat dihargai oleh regulator.
+~Tim red team internal. #Salah. Red team internal sangat kompeten untuk pengujian penetrasi, tetapi mereka tetap memiliki kedekatan dengan organisasi sehingga objektivitasnya tidak sekuat pihak ketiga independen.
+~Manajer keamanan informasi (CISO). #Salah. CISO bertanggung jawab atas penerapan keamanan dan tidak dapat mengaudit sistem yang ia kelola sendiri secara objektif untuk regulator.
+~Administrator basis data. #Salah. Administrator hanya menguji keamanan dan operasi di tingkat operasional, bukan melakukan audit tingkat organisasi untuk regulator.
+}
+
+::D6-Q07:: Dalam kerangka Security Content Automation Protocol (SCAP), komponen manakah yang secara khusus menyediakan sistem penamaan standar untuk mendeskripsikan dan memberikan referensi terhadap kerentanan keamanan yang telah diketahui? {
+=Common Vulnerabilities and Exposures (CVE). #Benar! CVE menyediakan kamus standar dari berbagai kerentanan keamanan sehingga berbagai vendor dan alat pengujian menggunakan penamaan yang sama.
+~Common Vulnerability Scoring System (CVSS). #Salah. CVSS digunakan untuk memberikan skor atau nilai tingkat keparahan suatu kerentanan, bukan nama standar kerentanannya.
+~Common Configuration Enumeration (CCE). #Salah. CCE adalah daftar penamaan standar untuk masalah konfigurasi sistem, bukan kerentanan (vulnerability) perangkat lunak.
+~Common Platform Enumeration (CPE). #Salah. CPE memberikan format penamaan standar untuk sistem operasi, aplikasi, dan perangkat keras, bukan untuk nama kerentanannya.
+}
+
+::D6-Q08:: Anda ingin memantau kinerja situs web dan mendeteksi masalah lebih awal sebelum pelanggan sungguhan mengalaminya. Anda menggunakan skrip otomatis yang berpura-pura menjadi pelanggan dan melakukan transaksi buatan secara berkala. Teknik apa yang sedang Anda gunakan? {
+=Synthetic monitoring. #Benar! Synthetic monitoring (atau active monitoring) menggunakan transaksi buatan (synthetic transactions) untuk menilai kinerja dan fungsi situs web secara proaktif.
+~Passive monitoring. #Salah. Pemantauan pasif mengumpulkan lalu lintas yang dihasilkan oleh pengguna sungguhan secara real-time, bukan membuat lalu lintas buatan.
+~Real User Monitoring (RUM). #Salah. RUM adalah bentuk pemantauan pasif yang merakit aktivitas pengguna sungguhan untuk memantau situs, bukan menggunakan skrip buatan.
+~Egress monitoring. #Salah. Egress monitoring digunakan untuk melacak dan mencegah eksfiltrasi data keluar dari jaringan internal ke internet.
+}
+
+::D6-Q09:: Dalam metodologi pengujian penetrasi (penetration testing), pada fase apa penguji aktif memindai port, layanan, dan menggunakan alat untuk menganalisis kerentanan target sebelum melakukan serangan nyata? {
+=Fase Discovery. #Benar! Pada fase penemuan (discovery), penguji melakukan pemindaian jaringan dan analisis kerentanan untuk mengumpulkan informasi teknis sebanyak mungkin mengenai target.
+~Fase Planning. #Salah. Perencanaan (planning) menentukan cakupan, jadwal, dan izin sebelum pengujian teknis benar-benar dimulai.
+~Fase Attack. #Salah. Fase serangan (attack) adalah tahap di mana penguji benar-benar mengeksploitasi kerentanan yang ditemukan pada fase discovery.
+~Fase Reporting. #Salah. Fase pelaporan (reporting) dilakukan di akhir untuk menyajikan temuan kepada manajemen.
+}
+
+::D6-Q10:: Apa perbedaan utama antara pengujian keamanan aplikasi statis (SAST) dan pengujian keamanan aplikasi dinamis (DAST)? {
+=SAST menganalisis kode sumber tanpa menjalankannya, sedangkan DAST mengevaluasi aplikasi dalam lingkungan eksekusi atau runtime. #Benar! SAST menguji aplikasi dari sisi dalam (white-box) melihat ke struktur kode secara statis. DAST menguji dari sisi luar ke dalam (black-box) saat aplikasi sedang hidup (berjalan).
+~SAST mengevaluasi aplikasi saat dijalankan, sedangkan DAST membaca setiap baris kode sumber secara manual. #Salah. Pernyataan ini adalah kebalikan dari definisi SAST dan DAST yang sebenarnya.
+~SAST digunakan secara eksklusif untuk aplikasi web, sedangkan DAST hanya digunakan untuk perangkat lunak sistem operasi. #Salah. Kedua metode tersebut sangat umum digunakan untuk menguji aplikasi web modern.
+~SAST dijalankan oleh pengguna akhir (UAT), sedangkan DAST dijalankan secara eksklusif oleh regulator pemerintah. #Salah. Keduanya merupakan alat yang dijalankan oleh para developer dan profesional keamanan siber.
+}
+
+::D6-Q11:: Mengapa tinjauan manajemen akun (account management review) biasanya lebih sering atau sangat difokuskan pada akun dengan hak istimewa tinggi (privileged accounts)? {
+=Karena akun ini memiliki akses luas sehingga penyalahgunaannya dapat menimbulkan dampak kerusakan paling masif pada sistem. #Benar! Akun administratif atau privileged accounts memiliki akses sistem yang sangat dalam, oleh karena itu tinjauan ketat dilakukan untuk mencegah atau mendeteksi penyalahgunaan.
+~Karena akun ini biasanya dibagikan oleh seluruh karyawan di satu departemen. #Salah. Berbagi akun administratif sangat melanggar praktik keamanan yang baik dan merupakan kontrol akses yang buruk.
+~Karena kata sandi untuk akun ini dikonfigurasi untuk tidak pernah kedaluwarsa. #Salah. Akun administratif justru harus memiliki kebijakan kata sandi yang lebih ketat, termasuk rotasi kata sandi rutin.
+~Karena pemindai kerentanan tidak dapat memindai akun dengan hak istimewa tinggi. #Salah. Pemindai kerentanan dapat mengautentikasi dan memindai dari konteks hak istimewa tinggi jika kredensial diberikan (authenticated scans).
+}
+
+::D6-Q12:: Tim Quality Assurance (QA) Anda memikirkan skenario-skenario di mana peretas atau orang jahat akan mencoba mengeksploitasi fitur dengan sengaja (seperti input karakter negatif pada jumlah transfer dana). Pengujian apa yang secara eksplisit memeriksa kemungkinan penyimpangan dari operasi normal ini? {
+=Misuse case testing. #Benar! Misuse case testing secara spesifik mengidentifikasi cara penyerang dapat menyalahgunakan sistem lalu mengujinya untuk melihat apakah aplikasi kebal terhadap penyalahgunaan tersebut.
+~Statement coverage. #Salah. Ini adalah metrik persentase pengujian seberapa banyak baris kode sumber yang dieksekusi.
+~Passive monitoring. #Salah. Ini adalah mendengarkan jaringan atau aplikasi secara pasif, bukan secara aktif menguji kasus penyalahgunaan perangkat lunak.
+~Blue team exercise. #Salah. Ini adalah tim yang bertugas mempertahankan infrastruktur langsung terhadap serangan, bukan prosedur QA pengujian perangkat lunak.
+}
+
+::D6-Q13:: Saat menjalankan latihan simulasi serangan siber interaktif berskala penuh, ada sekelompok orang yang bertindak sebagai juri, wasit, dan pengawas yang memastikan bahwa simulasi berjalan sesuai aturan dan tidak merusak lingkungan produksi. Tim apakah ini? {
+=White team. #Benar! Tim putih (White team) bertindak sebagai wasit netral yang mengawasi latihan, menyelesaikan sengketa, dan memastikan tidak ada insiden nyata yang membahayakan sistem operasi.
+~Red team. #Salah. Red team bertindak sebagai pihak penyerang atau musuh yang mencoba menembus keamanan.
+~Blue team. #Salah. Blue team adalah staf keamanan internal organisasi yang bertindak sebagai pihak yang bertahan dan memonitor deteksi.
+~Purple team. #Salah. Purple team adalah kolaborasi langsung antara Red dan Blue team di mana mereka bekerja sama untuk langsung berbagi wawasan teknik eksploitasi dan pertahanan.
+}
+
+::D6-Q14:: Platform Breach and Attack Simulation (BAS) menjadi sangat populer di lingkungan Enterprise. Apa fungsi dan tujuan utama dari BAS dalam manajemen operasi keamanan? {
+=Mengotomatiskan simulasi metode serangan untuk memicu dan memvalidasi keefektifan kontrol keamanan pencegahan dan deteksi di jaringan. #Benar! Platform BAS terus-menerus dan secara otomatis menyuntikkan indikator ancaman (seperti beaconing malware) agar organisasi tahu apakah IDS/IPS dan firewall mereka benar-benar bekerja mendeteksi ancaman secara efektif.
+~Menghancurkan sistem lama untuk memastikan prosedur failover berjalan dengan benar setiap harinya. #Salah. Platform BAS menghindari kerusakan nyata pada produksi dan memfokuskan dirinya hanya untuk mensimulasikan indikator perilaku serangan saja.
+~Membaca dan meninjau setiap log akses yang dibuat oleh server otentikasi. #Salah. Ini adalah peran produk SIEM atau sistem manajemen log.
+~Memindai setiap baris kode yang dibuat pengembang menggunakan metode statis. #Salah. Ini adalah fungsi dari alat Static Application Security Testing (SAST).
+}
+
+::D6-Q15:: Anda baru saja mengeksekusi kerentanan komersial pada produk keamanan komersial yang digunakan luas. Sesuai dengan pengungkapan etis (ethical disclosure), apa langkah pertama yang paling bertanggung jawab untuk Anda lakukan? {
+=Melaporkan temuan tersebut kepada vendor pembuat perangkat lunak dan memberi mereka waktu yang wajar untuk membuat dan merilis patch sebelum Anda mempublikasikannya ke komunitas. #Benar! Pengungkapan etis yang bertanggung jawab (responsible disclosure) berarti Anda memberi tahu vendor terlebih dahulu sehingga mereka dapat melindungi pengguna sebelum penyerang mengeksploitasi cacat tersebut.
+~Mempublikasikan detail kerentanan langkah-demi-langkah pada blog keamanan Anda agar pengguna bisa berhati-hati. #Salah. Pengungkapan publik langsung (full disclosure) tanpa patch akan memberi peretas alat instan untuk meretas korban yang belum bersiap.
+~Meminta tebusan ke vendor agar kerentanan tersebut tidak dibocorkan ke peretas kriminal. #Salah. Ini adalah tindakan pemerasan (extortion) dan dapat berujung pada pelanggaran hukum pidana.
+~Mengeksploitasi kerentanan tersebut pada perusahaan saingan agar perusahaan Anda mendapatkan keuntungan kompetitif. #Salah. Ini adalah kejahatan siber yang sangat melanggar kode etik dan hukum.
+}
+
+::D6-Q16:: Perusahaan Anda menguji rencana kelangsungan bisnis dengan memindahkan personel kunci ke lokasi pemulihan alternatif di mana mereka menghidupkan sistem dan menjalankan proses bisnis buatan untuk menguji keandalan lokasi. Operasi bisnis sesungguhnya tetap berjalan di kantor pusat. Jenis pengujian apa ini? {
+=Parallel test. #Benar! Pengujian paralel menjalankan sistem pemulihan cadangan untuk memproses transaksi yang sama secara bersamaan dengan situs operasi utama yang tetap hidup tanpa adanya gangguan bisnis yang sesungguhnya.
+~Full-interruption test. #Salah. Pada pengujian gangguan penuh, operasi pusat diputus (di-shutdown) dan bisnis sungguhan dipaksa beralih memproses ke situs cadangan.
+~Tabletop exercise. #Salah. Latihan ini (atau read-through) bersifat konseptual dan dilakukan di ruang rapat tanpa memindahkan orang atau mem-boot sistem IT di lokasi pemulihan.
+~Walk-through. #Salah. Ini mirip dengan tabletop namun tim menyimulasikan pergerakan respons tanpa harus benar-benar menghidupkan fasilitas pemrosesan cadangan secara penuh.
+}
+
+::D6-Q17:: Dalam tahap analisis dan pelaporan setelah pengujian keamanan, jika sebuah kontrol tidak dapat diterapkan karena biaya yang melebihi manfaat, dan manajemen memutuskan untuk menerima risiko tersebut dengan aturan khusus, dokumentasi apa yang dibuat? {
+=Exception handling. #Benar! Penanganan pengecualian (Exception handling) mendokumentasikan saat manajemen memberikan persetujuan resmi bahwa mereka memahami kelemahan tersebut tetapi secara sadar mengizinkan pengecualian terhadap kebijakan standar.
+~Remediation plan. #Salah. Remediasi adalah proses untuk memperbaiki atau menambal kelemahan keamanan.
+~Root cause analysis. #Salah. Ini adalah upaya forensik investigasi untuk mencari tahu masalah dasar mengapa insiden terjadi.
+~Breach attack simulation. #Salah. Ini adalah nama teknologi pengujian keamanan otomatis, bukan langkah dokumentasi dari risiko yang diterima.
+}
+
+::D6-Q18:: Organisasi mana yang harus mengeluarkan sertifikat Type II SOC 2 (System and Organization Controls) atas nama sebuah penyedia layanan awan (Cloud Service Provider)? {
+=Kantor akuntan publik independen (CPA). #Benar! American Institute of Certified Public Accountants (AICPA) mengatur standar SOC dan audit SOC harus dijalankan serta ditandatangani oleh auditor profesional bersertifikat pihak ketiga yang berwenang.
+~NIST (National Institute of Standards and Technology). #Salah. NIST merilis standar seperti SP 800-53, tetapi tidak mengaudit atau menerbitkan laporan SOC komersial.
+~ISO (International Organization for Standardization). #Salah. ISO mengatur kerangka standar tetapi entitas harus disertifikasi oleh badan penilai yang terakreditasi independen untuk standar ISO 27001, bukan SOC.
+~Bagian internal audit cloud provider tersebut. #Salah. SOC harus mencerminkan pandangan independen (third-party), sehingga audit internal tidak diakui sebagai sertifikat SOC 2 untuk klien eksternal.
+}
+
+::D6-Q19:: Setelah alat pemindai kerentanan (vulnerability scanner) memproduksi laporan yang berisi ratusan titik masalah, langkah metodologis selanjutnya di pihak administrator yang menangani workflow kerentanan adalah? {
+=Validation. #Benar! Langkah pertama dari workflow setelah temuan muncul (Detection) adalah Validasi (Validation) untuk menyingkirkan hasil false-positive dan memastikan kerentanan itu benar-benar relevan dan ada di sistem.
+~Remediation. #Salah. Remediasi adalah perbaikan yang baru bisa dilakukan setelah validator mengonfirmasi bahwa masalah itu nyata dan perlu diperbaiki.
+~Ethical disclosure. #Salah. Prosedur ini adalah untuk kerentanan zero-day yang Anda temukan pada perangkat pihak ketiga, bukan untuk kerentanan standar yang harus Anda kelola secara internal.
+~Coverage analysis. #Salah. Ini adalah metrik cakupan tes seberapa banyak baris perangkat lunak yang diperiksa, bukan langkah dari manajemen kerentanan infrastruktur.
+}
+
+::D6-Q20:: Mengapa tinjauan kode secara formal (seperti Fagan inspection) dipandang lebih unggul untuk menemukan bug tersembunyi dibandingkan tinjauan sejawat biasa (peer review)? {
+=Karena Fagan inspection sangat kaku dan mengikuti proses yang sangat diformalkan dengan kriteria dan tahapan masuk/keluar yang didefinisikan secara tegas. #Benar! Fagan inspection adalah proses formal yang melibatkan peran-peran khusus, dokumentasi, dan pengecekan ketat untuk menjamin tinjauan paling dalam atas kode sumber.
+~Karena Fagan inspection dilakukan secara otomatis menggunakan perangkat keras komputer tanpa melibatkan faktor manusia. #Salah. Fagan inspection murni adalah intervensi manual terstruktur yang sangat kolaboratif di antara manusia.
+~Karena Fagan inspection selalu menjamin keamanan melalui penambahan fungsi hash ke seluruh program. #Salah. Inspeksi ini hanya menemukan cacat, bukan menyuntikkan operasi kriptografi khusus ke kode.
+~Karena Fagan inspection tidak mengharuskan penguji melihat kode secara aktual melainkan memanipulasi port pada jaringan. #Salah. Metode memanipulasi port adalah pemindaian jaringan, bukan tinjauan kode (code review) statis.
+}
+
+::D6-Q21:: Saat seorang penguji penetrasi mencoba mensimulasikan pendekatan musuh dari internet yang benar-benar buta akan informasi perusahaan klien, tidak memiliki denah jaringan atau kode sumber, pendekatan apa yang sedang dipraktikkan? {
+=Black-box testing. #Benar! Pengujian black-box dilakukan tanpa pengetahuan awal (no internal knowledge), sehingga pendekatan ini menyimulasikan secara realistis apa yang dilihat penyerang eksternal secara buta.
+~White-box testing. #Salah. White-box (atau crystal-box) berarti penguji memiliki akses lengkap ke arsitektur jaringan, pengaturan server, dan kode sumber program.
+~Gray-box testing. #Salah. Gray-box mengindikasikan penguji diberikan sebagian kecil akses, semisal akun pengguna dengan level standar, untuk menilai serangan internal.
+~Misuse case testing. #Salah. Ini adalah istilah QA pengembangan untuk menilai input negatif pada fungsi, bukan klasifikasi akses tim penetrasi.
+}
+
+::D6-Q22:: CISO menggunakan alat NetFlow dan penganalisis log jaringan saat menyelidiki aktivitas pergerakan lateral internal. Komponen data atau wawasan apa yang paling kuat dapat diekstraksi secara khusus dari NetFlow (network flow logs) dalam konteks investigasi keamanan? {
+=Log flow dapat menunjukkan komunikasi yang terjadi antar-sistem beserta ukuran pasti volume data yang ditransfer selama koneksi. #Benar! NetFlow sangat berguna untuk melihat apakah data dalam jumlah sangat besar (misal eksfiltrasi data atau transfer gigabyte yang ganjil) telah mengalir dari satu IP ke IP lainnya di dalam jaringan.
+~Log flow memperlihatkan secara jelas kata sandi pengguna atau hash yang digunakan dalam serangan pass-the-hash. #Salah. NetFlow berfokus pada statistik koneksi (port, IP, volume, durasi), bukan pada isi kriptografis atau payload paket secara mendalam (deep packet inspection).
+~Log flow otomatis menganalisis dan mendeteksi apakah email yang dikirim adalah phishing. #Salah. Analisis email dan identifikasi phishing ada pada perangkat filter email atau antispam, bukan pada router flow log.
+~Log flow memastikan integritas kode sumber di server melalui perbandingan metrik hash statis. #Salah. Itu adalah fungsi File Integrity Monitoring (FIM).
+}
+
+::D6-Q23:: Sebagai bagian dari proses collect security process data untuk Domain 6, program kesadaran keamanan perusahaan dievaluasi secara berkelanjutan. Praktik umum mana yang sering diterapkan oleh keamanan internal untuk mengevaluasi secara kuantitatif apakah kesadaran phishing membaik di antara pegawai? {
+=Menjalankan simulasi serangan phishing menggunakan email palsu yang aman untuk melihat seberapa banyak pengguna yang merespons atau mengklik tautannya. #Benar! Uji kesadaran dengan simulasi (phishing simulations) adalah metrik kunci yang digunakan untuk mengetahui persentase staf yang rentan serta membimbing mereka ke pelatihan remedial jika tertipu.
+~Menyewa auditor untuk memecahkan kata sandi Active Directory (AD) menggunakan serangan brute force offline. #Salah. Itu adalah tes terhadap kekuatan teknis dari kata sandi, bukan metrik efektivitas kesadaran phishing pekerja pada email.
+~Melakukan tinjauan log (log reviews) secara harian pada firewall border. #Salah. Ini baik untuk mendeteksi intrusi jaringan, tetapi tidak dapat mengukur keefektifan kesadaran pelatihan sosial rekayasa staf.
+~Mewajibkan pekerja membaca kebijakan keamanan sekali pada saat penerimaan staf baru (onboarding). #Salah. Membaca kebijakan adalah hal dasar tetapi ini tidak dapat mengevaluasi/mengukur efektivitas mereka merespons ancaman di dunia nyata secara proaktif.
+}
+
+::D6-Q24:: Apa itu KRI (Key Risk Indicators) dan KPI (Key Performance Indicators) dalam manajemen operasi pengujian keamanan? {
+=Metrik tingkat tinggi yang disusun untuk dipantau secara berkelanjutan yang memberikan visualisasi status kesehatan keamanan kepada staf manajerial (seperti Waktu Untuk Memperbaiki Kerentanan). #Benar! KRI dan KPI adalah agregat data proses keamanan (seperti persentase mesin yang dipatch tepat waktu atau jumlah temuan audit) yang sangat diperlukan manajemen untuk menentukan kinerja organisasi.
+~Sebuah alat pemindai kerentanan komersial yang digunakan untuk mengekstraksi log aplikasi. #Salah. Pemindai kerentanan adalah teknologi perangkat lunak aktif, bukan metrik bisnis tingkat tinggi.
+~Format sertifikasi otorisasi dari pemerintah seperti FedRAMP untuk produk keamanan. #Salah. KRI dan KPI bukan laporan sertifikasi; mereka adalah indikator pengukur metrik internal.
+~Skor kerentanan generik yang dikelola dan di hosting oleh situs MITRE. #Salah. Itu adalah CVSS (Common Vulnerability Scoring System), yang mengevaluasi masing-masing kelemahan, bukan metrik program manajerial (KPI).
+}
+
+::D6-Q25:: Dalam memastikan perlindungan yang memadai, administrator harus memastikan bahwa kontrol backup dan disaster recovery berfungsi sesuai kebijakan. Salah satu elemen terpenting dari verifikasi cadangan (backup verification data) adalah? {
+=Meminta pengembalian (restore) data aktual atau pemeriksaan nilai hash pada data pemulihan untuk membuktikan bahwa data dapat dihidupkan dan digunakan kembali secara efektif jika krisis terjadi. #Benar! Verifikasi backup yang solid tidak hanya memastikan log backup menunjukkan angka 100 persen, tetapi juga sesekali harus mencoba operasi pemulihan/restore untuk memastikan file tidak korup dan proses berjalan efisien.
+~Menuliskan rencana kesinambungan (BCP) sejelas mungkin ke dalam bentuk fisik di brankas. #Salah. Itu adalah dokumentasi perencanaan, tetapi verifikasi cadangan harus selalu berfokus pada validasi kemampuan operasional dan integritas dari data di media backup.
+~Mengirimkan lalu lintas buatan (synthetic transaction) ke server web untuk memeriksa ping respon lambat dari layanan. #Salah. Transaksi buatan sangat baik untuk memantau kinerja waktu nyata dan ketersediaan layanan web (synthetic monitoring), bukan memverifikasi file backup arsip.
+~Memutus daya server dengan sengaja di hari kerja biasa untuk menguji pasokan UPS. #Salah. Itu adalah pengujian perangkat keras toleransi kesalahan/ketersediaan, bukan operasi teknis untuk memverifikasi data backup administratif.
+}
+
+::D6-Q26:: Apa tujuan utama dari penggunaan alat pemindai kerentanan (vulnerability scanner) secara rutin jika dibandingkan dengan pengujian penetrasi (penetration testing) manual? {
+=Otomatisasi untuk mendeteksi kerentanan yang sudah diketahui secara cepat dan konsisten pada seluruh sistem. #Benar! Pemindai kerentanan sangat ideal untuk otomatisasi dan mendeteksi titik lemah yang sudah diketahui secara luas dan berkala, sedangkan pengujian penetrasi manual lebih fokus pada eksploitasi mendalam.
+~Mengeksploitasi sistem secara mendalam untuk mendapatkan akses *root* atau administratif. #Salah. Mengeksploitasi kerentanan secara aktif hingga mendapatkan akses administratif adalah fungsi dari pengujian penetrasi, bukan pemindaian kerentanan otomatis.
+~Menguji logika bisnis aplikasi kustom yang sangat kompleks. #Salah. Pemindai kerentanan otomatis umumnya buruk dalam memahami cacat logika bisnis kustom; hal ini membutuhkan peninjauan manual atau pengujian penetrasi tingkat lanjut.
+~Memberikan jaminan independen tertinggi kepada regulator eksternal. #Salah. Jaminan eksternal tingkat tinggi biasanya diperoleh melalui audit pihak ketiga, bukan sekadar menjalankan alat pemindai otomatis.
+}
+
+::D6-Q27:: Tim pengembang Anda memutuskan untuk menggunakan metode inspeksi Fagan dalam peninjauan kode perangkat lunak. Karakteristik apa yang paling membedakan inspeksi Fagan dari tinjauan sejawat (peer review) biasa? {
+=Ini adalah proses formal yang sangat terstruktur dengan enam tahapan khusus dan kriteria masuk serta keluar yang kaku. #Benar! Inspeksi Fagan adalah proses peninjauan kode paling formal dan kaku, terdiri dari tahapan seperti Perencanaan, Tinjauan, Persiapan, Inspeksi, Pengerjaan Ulang (Rework), dan Tindak Lanjut.
+~Ini sepenuhnya menggunakan alat pemindaian statis otomatis tanpa campur tangan manusia. #Salah. Inspeksi Fagan murni merupakan proses manual kolaboratif antar manusia yang sangat terstruktur, bukan alat perangkat lunak otomatis.
+~Ini berfokus pada pengujian aplikasi pada saat dijalankan (runtime) dalam lingkungan produksi. #Salah. Pengujian pada saat runtime adalah pengujian dinamis (DAST), sedangkan inspeksi Fagan adalah tinjauan kode statis manual.
+~Ini mengharuskan pengujian penetrasi secara langsung terhadap antarmuka jaringan aplikasi. #Salah. Inspeksi Fagan dilakukan pada kode sumber secara tekstual, bukan serangan jaringan ke aplikasi yang sedang berjalan.
+}
+
+::D6-Q28:: Saat melakukan pengujian keamanan perangkat lunak, tim QA Anda menggunakan alat yang secara otomatis memasukkan karakter acak dan tidak valid yang sangat panjang ke form input web untuk melihat apakah aplikasi tersebut akan mengalami crash atau *buffer overflow*. Apa nama teknik ini, dan apa kelemahan utamanya? {
+=Fuzz testing (fuzzing), kelemahannya adalah tidak dapat memberikan jaminan cakupan kode yang menyeluruh (code coverage). #Benar! Fuzzing sangat bagus untuk menemukan kelemahan batas atau *buffer overflow*, tetapi karena bersifat acak, ia tidak menjamin bahwa setiap baris logika bisnis pada kode akan dieksekusi atau diuji.
+~Dynamic Application Security Testing (DAST), kelemahannya adalah hanya bisa menganalisis kode sumber. #Salah. DAST justru beroperasi pada aplikasi yang sedang berjalan (runtime) dan tidak menganalisis kode sumber.
+~Statement coverage, kelemahannya adalah menghasilkan terlalu banyak paket *false positive* di jaringan. #Salah. Statement coverage adalah metrik persentase pengujian kode, bukan teknik penyuntikan input acak.
+~Synthetic transactions, kelemahannya adalah menghapus basis data produksi secara permanen. #Salah. Transaksi sintetis adalah skrip untuk memantau kinerja (uptime), dan biasanya dirancang agar aman tanpa merusak basis data.
+}
+
+::D6-Q29:: Anda memutuskan untuk mengimplementasikan Security Information and Event Management (SIEM) untuk mengotomatisasi log di pusat data. Apa manfaat paling signifikan dari SIEM jika dibandingkan dengan administrator yang membaca log secara terpisah dari berbagai server? {
+=Menyediakan korelasi kejadian secara otomatis dari berbagai sumber untuk mendeteksi anomali ancaman tingkat lanjut. #Benar! SIEM mengumpulkan dan mengkorelasikan log dari berbagai komponen keamanan dan jaringan secara *real-time*, sehingga dapat menemukan pola serangan kompleks yang akan terlewatkan jika log dibaca secara terpisah.
+~Menjamin bahwa tidak ada lagi kerentanan zero-day di jaringan produksi. #Salah. SIEM adalah alat pemantauan dan log deteksi, tidak dapat mencegah kerentanan perangkat lunak bawaan (zero-day).
+~Mampu memulihkan dan mendekripsi kata sandi pengguna secara otomatis setelah serangan. #Salah. SIEM digunakan untuk visibilitas dan peringatan log, bukan sebagai pengelola kriptografi atau pemulihan kata sandi.
+~Menggantikan seluruh fungsi firewall jaringan secara komprehensif. #Salah. SIEM bukan pengganti firewall; SIEM justru sering menerima log peringatan dari firewall untuk dianalisis.
+}
+
+::D6-Q30:: Dalam fase analisis cakupan perangkat lunak (test coverage analysis), manajer Anda meminta agar setiap keputusan logika "if / else" dieksekusi pada kondisi True maupun False setidaknya satu kali selama skenario tes. Metrik cakupan spesifik apa yang diminta oleh manajer Anda? {
+=Branch coverage. #Benar! Branch coverage (cakupan cabang) memastikan bahwa seluruh jalur percabangan (seperti True dan False pada if/else) telah dilalui dan dieksekusi dalam pengujian.
+~Statement coverage. #Salah. Statement coverage hanya memastikan bahwa setiap baris kode dieksekusi, tetapi tidak selalu menjamin kedua cabang logika True dan False diuji semua.
+~Loop coverage. #Salah. Loop coverage mengukur apakah setiap iterasi (perulangan) dieksekusi secara tepat, bukan fokus khusus pada evaluasi kondisi dua arah.
+~Fuzzing coverage. #Salah. Ini bukan istilah standar. Fuzzing adalah teknik memberikan input acak dan umumnya justru tidak bisa menjamin tingkat cakupan logika tertentu.
+}
+
+::D6-Q31:: Sebuah penyedia layanan cloud menyerahkan laporan audit pihak ketiga kepada perusahaan Anda. Laporan tersebut merinci kontrol keamanan layanan mereka dan memberikan opini auditor bahwa kontrol tersebut telah "beroperasi secara efektif" berdasarkan pengujian aktual selama periode enam bulan berturut-turut. Jenis laporan apa ini? {
+=SOC 2 Type II. #Benar! Laporan SOC 2 Type II mencakup opini tentang desain dan efektivitas operasi kontrol keamanan, ketersediaan, atau kerahasiaan berdasarkan evaluasi sepanjang periode waktu tertentu (biasanya 6 bulan).
+~SOC 1 Type I. #Salah. Laporan Type I hanya menilai desain kontrol pada titik waktu tertentu (point in time), bukan menguji efektivitas operasi selama periode waktu tertentu.
+~Laporan Audit Internal Eksekutif. #Salah. Laporan ini merupakan audit independen pihak ketiga yang dirancang untuk klien (seperti perusahaan Anda), bukan audit internal perusahaan layanan tersebut.
+~ISO 31000 KRI Report. #Salah. ISO 31000 adalah panduan manajemen risiko, bukan format laporan hasil pengujian dan jaminan kontrol spesifik seperti SOC.
+}
+
+::D6-Q32:: Untuk memantau kinerja aplikasi *e-commerce*, administrator membuat sebuah skrip yang bertindak seperti pelanggan biasa yang memasukkan barang ke keranjang dan mencoba melakukan *checkout* setiap lima menit. Jika proses gagal, skrip memberikan peringatan. Metode pemantauan proaktif apa yang sedang digunakan? {
+=Synthetic transactions. #Benar! Transaksi sintetis (synthetic transactions) adalah skrip otomatis yang mensimulasikan perilaku pengguna nyata secara berkelanjutan untuk memantau kinerja, waktu respons, dan ketersediaan layanan.
+~Real User Monitoring (RUM). #Salah. RUM memantau aktivitas pengguna nyata yang sedang masuk ke sistem secara pasif, bukan menggunakan simulasi skrip otomatis.
+~Misuse case testing. #Salah. Pengujian penyalahgunaan (misuse case) mencari cara untuk sengaja merusak sistem dengan fungsi negatif, bukan pemantauan kinerja transaksi positif secara berulang.
+~Egress filtering. #Salah. Egress filtering menyaring lalu lintas jaringan yang keluar untuk mencegah pencurian data, tidak terkait dengan pengujian kinerja transaksi web.
+}
+
+::D6-Q33:: Tahun ini, CISO menginstruksikan Red Team dan Blue Team untuk tidak bekerja secara terisolasi. Mereka ditugaskan duduk bersama dalam satu ruangan, bertukar pikiran secara langsung, dan Red Team mendemonstrasikan serangan sementara Blue Team menyesuaikan kontrol deteksi mereka di saat yang sama. Apa nama pendekatan latihan gabungan ini? {
+=Purple teaming. #Benar! Tim ungu (Purple Team) bukanlah tim terpisah secara fungsi, melainkan sinergi dan latihan gabungan kolaboratif *real-time* antara pihak penyerang (Red) dan pihak yang bertahan (Blue).
+~Black-box testing. #Salah. Pengujian kotak hitam berarti tim penyerang tidak memiliki informasi apa pun dari dalam, sangat berkebalikan dengan transparansi kolaboratif latihan ini.
+~Exception handling. #Salah. Ini adalah istilah manajemen risiko administratif di mana manajemen secara resmi menerima kelemahan kontrol dan mengizinkan penyimpangan, bukan metode latihan taktis.
+~Fagan inspection. #Salah. Inspeksi Fagan adalah tinjauan kode statis secara manual, bukan latihan penyerangan infrastruktur operasional.
+}
+
+::D6-Q34:: Pemindaian kerentanan menemukan server Windows lama yang tidak bisa dipatch karena akan merusak perangkat lunak HR kritis yang hanya berjalan di OS lama tersebut. Manajemen tingkat atas meninjau situasi dan secara resmi menerima risiko tersebut dengan syarat memperketat firewall di sekitarnya. Dokumentasi spesifik apa yang harus dihasilkan dari keputusan administratif ini? {
+=Exception handling (Penanganan Pengecualian). #Benar! Saat sebuah kontrol tidak dapat diterapkan atau tidak praktis, dan manajemen menerima risikonya, persetujuan tersebut harus dicatat secara formal dalam proses Penanganan Pengecualian.
+~Synthetic benchmark. #Salah. Benchmark sintetis adalah tolok ukur kinerja sistem, tidak ada hubungannya dengan mendokumentasikan kelemahan keamanan yang disetujui.
+~Ethical disclosure. #Salah. Pengungkapan etis berlaku ketika peneliti memberi tahu vendor perangkat lunak tentang celah zero-day baru, bukan untuk kelemahan jaringan internal Anda sendiri.
+~Remediation plan. #Salah. Remediasi berarti masalah itu benar-benar diperbaiki (seperti dipatch atau diupgrade). Di sini manajemen menolak untuk melakukan perbaikan dan malah menerima risikonya.
+}
+
+::D6-Q35:: Dalam pedoman eksekusi Pengujian Penetrasi (Penetration Testing) standar, langkah mana yang menjadi fase terpenting pertama untuk meresmikan ruang lingkup, menetapkan batasan hukum, dan menyetujui *Rules of Engagement* (RoE)? {
+=Fase Planning (Perencanaan). #Benar! Perencanaan (Planning) adalah langkah pertama di mana tujuan, ruang lingkup, waktu, dan aturan persetujuan hukum secara eksplisit didefinisikan agar pengujian sah dan tidak menimbulkan kerusakan yang melanggar hukum.
+~Fase Discovery (Penemuan). #Salah. Fase ini melibatkan *scanning* dan pemetaan target secara teknis, yang baru boleh dilakukan setelah semua izin di fase Perencanaan ditandatangani.
+~Fase Attack (Serangan). #Salah. Fase eksploitasi nyata baru terjadi setelah pengintai mengumpulkan data; tidak digunakan untuk meresmikan izin kontrak.
+~Fase Reporting (Pelaporan). #Salah. Pelaporan adalah fase paling akhir untuk memberikan hasil teknis kepada manajemen.
+}
+
+::D6-Q36:: Sebagai Direktur Keamanan TI, Anda melihat dasbor eksekutif setiap pagi. Salah satu grafik menunjukkan "Persentase Patch Kritis yang Diterapkan dalam Waktu 48 Jam". Metrik tingkat tinggi yang menggambarkan kinerja operasional keamanan organisasi ini dikenal sebagai apa? {
+=Key Performance Indicator (KPI). #Benar! Key Performance Indicator (KPI) digunakan manajemen tingkat tinggi untuk menilai seberapa baik proses keamanan organisasi berfungsi secara kuantitatif (seperti persentase *patching* yang tepat waktu).
+~Service Level Agreement (SLA). #Salah. SLA adalah kontrak jaminan pelayanan dari penyedia eksternal, bukan sekadar pelaporan metrik kinerja internal ke dasbor.
+~Target of Evaluation (TOE). #Salah. TOE adalah sistem atau entitas spesifik yang sedang dievaluasi dalam standar formal (seperti Common Criteria), bukan nama metrik pemantauan operasional.
+~Common Vulnerability Scoring System (CVSS). #Salah. CVSS menghasilkan skor 1 hingga 10 untuk satu jenis kelemahan perangkat lunak, bukan merupakan persentase ukuran kinerja departemen.
+}
+
+::D6-Q37:: Pengembang Anda ingin mengevaluasi perilaku aplikasi web kustom mereka saat menerima *input* serangan *cross-site scripting* (XSS) secara *real-time*. Mereka menggunakan alat yang berinteraksi langsung dengan antarmuka web yang sedang menyala dan mencoba menyuntikkan manipulasi. Kategori alat apakah ini? {
+=Dynamic Application Security Testing (DAST). #Benar! DAST menguji aplikasi pada saat program sedang berjalan (runtime) dalam mode dinamis, mencoba mengeksploitasi fitur seolah-olah menjadi peretas dari luar.
+~Static Application Security Testing (SAST). #Salah. SAST menganalisis kode sumber atau struktur aplikasi saat program dalam keadaan mati atau diam (statis), tidak menganalisisnya secara *real-time* saat menyala.
+~Static Software Composition Analysis (SCA). #Salah. Alat SCA secara statis menelusuri pustaka atau modul pihak ketiga yang ada di perangkat lunak untuk melihat versi dan lisensi yang usang, bukan menguji perilaku *input* dinamis.
+~Code Review Walkthrough. #Salah. Ini adalah teknik administratif manusia yang membacakan kode pemrograman secara bersama di ruang rapat, bukan alat pengujian serangan otomatis.
+}
+
+::D6-Q38:: Saat menggunakan Nmap, Anda menjalankan pemindaian tipe "TCP SYN Scan". Mengapa jenis pemindaian ini juga sering disebut sebagai "half-open scan" dan sangat disukai oleh para peneliti keamanan? {
+=Karena penguji mengirim paket SYN dan mendapat balasan, tetapi secara proaktif menggugurkan koneksi sebelum *handshake* tiga arah TCP selesai, sehingga menghindari pencatatan koneksi penuh pada beberapa sistem target. #Benar! TCP SYN Scan atau pemindaian "setengah terbuka" mengirim SYN, menunggu SYN/ACK, lalu mengirim RST (Reset) tanpa pernah mengirim ACK terakhir, yang menghemat waktu dan sedikit lebih tersamar.
+~Karena teknik ini membagi muatan enkripsi menjadi dua paket yang terpisah untuk membingungkan detektor aplikasi *firewall*. #Salah. Teknik membagi muatan paket (packet fragmentation) berbeda dengan mekanisme pemutusan dasar TCP SYN.
+~Karena pemindaian ini hanya dapat memindai setengah dari port UDP yang ada di direktori server. #Salah. Pemindaian TCP SYN dikhususkan untuk koneksi komunikasi protokol TCP, bukan protokol tanpa koneksi seperti UDP.
+~Karena ini hanya mengirim paket ping ICMP tanpa menyentuh port TCP yang sebenarnya. #Salah. Pemindaian *Ping* menggunakan protokol ICMP untuk menemukan host yang hidup, ini berbeda mekanismenya dari pemindaian TCP pada port tertentu.
+}
+
+::D6-Q39:: Dalam rangka efisiensi saat mengevaluasi Tinjauan Akses Akun (Account Access Review), manajemen meminta auditor internal untuk meninjau status *privilege* menggunakan metode sampel (sampling). Persyaratan statistik apa yang paling kritis agar sampel audit ini dianggap andal? {
+=Sampel harus dipilih secara benar-benar acak (random) sehingga representatif terhadap kondisi populasi keseluruhan. #Benar! Pengambilan sampel statistik harus dilakukan secara acak (randomized) agar mewakili populasi, tanpa campur tangan pilihan administrator sistem.
+~Sampel hanya boleh mencakup pengguna sementara (guest) karena berisiko tinggi. #Salah. Jika sampel hanya fokus pada akun spesifik dengan sengaja, itu bukan sampel populasi statistik yang representatif, dan dapat melewatkan cacat pada akun reguler.
+~Sampel harus sepenuhnya dienkripsi menggunakan asimetrik kriptografi. #Salah. Meskipun data harus dijaga, inti dari metodologi kualitas "pengambilan sampel" adalah tentang cara distribusinya yang acak, bukan kriptografinya.
+~Sampel tidak perlu acak asalkan mencakup setidaknya lima pengguna dari setiap departemen. #Salah. Pemilihan kuota non-acak seperti ini justru sangat membiaskan hasil statistik dan merupakan contoh *discretionary sampling* yang kurang bisa dipertanggungjawabkan matematis.
+}
+
+::D6-Q40:: Teknologi baru bernama Breach and Attack Simulation (BAS) sangat direkomendasikan pada konferensi keamanan. Alasan utama platform BAS diterapkan oleh organisasiEnterprise modern adalah? {
+=Menjalankan simulasi injeksi ancaman tingkat lanjut secara otomatis dan terus-menerus guna memvalidasi bahwa sistem pertahanan jaringan Anda (seperti IPS) benar-benar dapat mendeteksinya secara efektif. #Benar! BAS mengotomatiskan vektor serangan untuk menantang sensor dan alat keamanan di jaringan secara persisten, memvalidasi postur deteksi yang sebenarnya.
+~Melakukan pemblokiran aktif secara langsung terhadap peretas Tiongkok (APT) yang terdeteksi secara otomatis di perimeter batas. #Salah. BAS digunakan untuk mensimulasikan ancaman dan mengevaluasi kesehatan sensor, bukan secara langsung berfungsi sebagai Next-Gen Firewall untuk memblokir aktor asing secara spesifik.
+~Menyediakan sertifikat X.509 kepada lalu lintas pengguna internal untuk memastikan integritas. #Salah. Menyediakan sertifikat untuk mengamankan jaringan adalah fungsi dari otoritas sertifikasi (PKI CA), bukan platform BAS.
+~Melakukan *fuzzing* kode sumber sebelum rilis ke tahap produksi oleh tim *developer*. #Salah. Fuzzing dilakukan oleh perangkat lunak DAST atau Fuzzer khusus aplikasi, bukan platform simulasi pelanggaran infrastruktur.
+}
+
+::D6-Q41:: Untuk mematuhi ISO 27001, departemen TI setiap bulan harus membuktikan data verifikasi pencadangan (backup verification data). Aktivitas manakah yang paling kuat memberikan bukti bahwa cadangan benar-benar efektif apabila terjadi bencana? {
+=Secara berkala melakukan uji pemulihan (restore test) untuk mencoba mengembalikan data aktual dan memastikan tidak ada *file* yang rusak. #Benar! Log keberhasilan pencadangan tidak cukup. Anda harus sesekali melakukan "uji pemulihan" untuk memastikan data tidak korup dan proses benar-benar berjalan dalam waktu nyata.
+~Menghitung total uang yang dihemat dengan memindahkan semua data fisik ke penyedia awan. #Salah. Analisis moneter migrasi awan tidak membuktikan bahwa arsip *file* dapat dihidupkan (dipulihkan) dari kerusakan *database*.
+~Meninjau dokumen tabel jadwal perputaran rotasi *tape* GFS (Grandfather-Father-Son). #Salah. Tabel perputaran GFS murni hanya kertas kerja penjadwalan administrasi, bukan verifikasi teknis bahwa data arsip tersebut benar-benar dapat digunakan lagi.
+~Membaca log dari perangkat catu daya UPS server utama. #Salah. UPS mencatat data ketersediaan daya di server produksi, tidak berhubungan dengan jaminan keberhasilan operasional pengembalian data historis.
+}
+
+::D6-Q42:: Dalam alur kerja pemindaian kerentanan (vulnerability scanner workflow), perangkat Anda melaporkan bahwa 20 *server* Windows memiliki kelemahan di layanan IIS. Namun, *server-server* tersebut sebenarnya hanya menjalankan Apache Linux. Tahapan manajemen kerentanan mana yang akan menyingkirkan *false positive* ini sebelum *patching* yang tidak perlu dilakukan? {
+=Validasi (Validation). #Benar! Validasi dilakukan setelah deteksi laporan muncul guna memverifikasi apakah laporan tersebut benar dan secara lingkungan dapat diterapkan atau jika laporan tersebut adalah positif palsu (false-positive).
+~Deteksi (Detection). #Salah. Laporan awal adalah fase deteksi; fase ini menghasilkan peringatan palsu tersebut sehingga bukan ini yang membersihkannya.
+~Remediasi (Remediation). #Salah. Remediasi adalah perbaikan aktif, yang tidak masuk akal dilakukan terhadap OS yang salah yang diidentifikasi dari *false positive*.
+~Tinjauan Penyesuaian (Compliance Review). #Salah. Meskipun kepatuhan penting, langkah alur spesifik untuk memverifikasi kebenaran teknis *output* pemindai disebut fase validasi laporan.
+}
+
+::D6-Q43:: Anda merupakan periset independen dan menemukan celah kritis (zero-day) di aplikasi perpustakaan perbankan komersial yang digunakan luas. Aturan *ethical disclosure* yang paling bertanggung jawab dalam komunitas keamanan siber mendikte agar Anda melakukan apa? {
+=Memberitahu vendor secara rahasia dan memberikan mereka kerangka waktu yang wajar untuk memperbaiki masalah tersebut sebelum Anda mempublikasikannya. #Benar! Pengungkapan yang bertanggung jawab (responsible disclosure) memberi vendor waktu untuk mengeluarkan *patch* sebelum informasi kerentanan berbahaya ini dipublikasikan kepada audiens kriminal.
+~Segera mempublikasikan *source code* eksploitasi tersebut ke media sosial untuk memaksa vendor merespons lebih cepat. #Salah. Ini dikenal sebagai *Full Disclosure* prematur dan sangat tidak etis karena membuat ribuan bank menjadi target instan bagi penyerang kriminal secara bersamaan tanpa perisai pertahanan.
+~Meminta kompensasi yang sangat mahal kepada vendor secara pribadi sebagai tebusan kerahasiaan. #Salah. Ini melintasi garis menuju skema pemerasan dan secara fundamental melanggar etika penelitian keamanan legal.
+~Menggunakannya sekali saja untuk membuktikan kepada klien Anda bahwa mereka memiliki masalah keamanan di lingkungan perbankan mereka tanpa pemberitahuan. #Salah. Meluncurkan serangan nol-hari tanpa kewenangan terhadap lembaga aktif dapat melanggar undang-undang kejahatan siber (CFAA).
+}
+
+::D6-Q44:: Pemindaian jaringan Nmap mendeteksi sebuah port dengan status *Filtered*. Apa interpretasi yang paling akurat secara teknis mengenai respons Nmap terhadap port ini? {
+=Nmap tidak dapat menentukan apakah port terbuka atau tertutup karena probe jaringannya diblokir di tengah jalan (misalnya, oleh firewall tanpa respons). #Benar! Status "Filtered" terjadi karena *packet filtering* atau pembatasan *firewall* menghentikan paket pemindaian dari Nmap untuk mencapai target dan mencegah balasan *error* ICMP dari jaringan.
+~Aplikasi merespons secara eksplisit bahwa ia sedang bersiap untuk menutup port. #Salah. Status tersebut tidak ada dalam pemindaian Nmap.
+~Ini menunjukkan bahwa lalu lintas pasti menggunakan terowongan VPN terenkripsi IPSec. #Salah. "Filtered" berarti penghalang akses jaringan (firewall drop), bukan deteksi jenis protokol lapisan enkripsi yang digunakan di atas port.
+~Nmap mengetahui port tersebut pasti terbuka, tetapi isinya sangat aman. #Salah. Jika benar terbuka, Nmap akan secara eksplisit menyatakan statusnya "Open", bukan "Filtered".
+}
+
+::D6-Q45:: Selama tahap evaluasi produk aplikasi web, tim penguji berpikir kreatif untuk mengeksploitasi fungsi yang beroperasi secara berbeda dari niat perancang (misalnya, memasukkan simbol minus pada nilai keranjang belanja untuk mencoba mengurangi total harga *checkout*). Jenis pengujian berbasis QA perangkat lunak apa yang memodelkan perilaku negatif ini? {
+=Misuse case testing. #Benar! Misuse case testing secara sengaja menguji cara aktor berbahaya berupaya untuk menyalahgunakan fungsionalitas logika yang sah untuk tujuan kriminal atau negatif.
+~Static analysis (SAST). #Salah. SAST adalah alat membaca struktur kode pemrograman di tingkat *backend*, bukan manipulasi antarmuka penggunaan logika antarmuka dinamis tingkat tinggi pengguna.
+~Statement coverage. #Salah. Cakupan pernyataan mengukur persentase eksekusi baris kode otomatis, tidak berhubungan dengan kreativitas memodelkan aktor berbahaya menyalahgunakan keranjang belanja.
+~A/B testing. #Salah. Pengujian A/B adalah teknik desain pemasaran pengguna komersial untuk melihat apakah warna tombol merah atau hijau memberikan klik terbanyak, tidak terkait QA fungsi keamanan negatif.
+}
+
+::D6-Q46:: Sebagai bagian dari fungsi pengumpulan *security process data* di perusahaan, departemen TI meluncurkan kampanye *phishing simulation* internal secara kuartalan. Alasan utama keamanan perusahaan sering menjalankan simulasi memancing ini adalah untuk? {
+=Mengukur persentase kerentanan kerelaan karyawan berinteraksi dengan pesan berbahaya dan memfokuskan pelatihan remedial. #Benar! Hasil simulasi menunjukkan "rasio klik" pengguna yang rentan. Metrik ini membuktikan nilai atau kekurangan program *Training and Awareness* organisasi tersebut.
+~Mendeteksi apakah server *mail proxy* utama terinfeksi oleh kode *botnet* tersembunyi. #Salah. Pengujian *phishing* dikirim ke perilaku *email* manusia, alat *proxy* anti-malware akan diuji dengan cara injeksi EICAR otomatis yang berbeda, bukan tes pengguna *phishing*.
+~Meningkatkan ukuran kuota penyimpanan pesan keluar untuk mengurangi *server failover*. #Salah. Tes email pengguna sama sekali tidak berkaitan dengan peningkatan batas beban kapasitas penyimpanan perangkat keras disk.
+~Memenuhi standar pelaporan *log uptime* untuk perjanjian SLA dengan vendor luar. #Salah. Pengujian umpan manusia bukan tentang *uptime server availability* yang mendasari kesepakatan jaringan *vendor*.
+}
+
+::D6-Q47:: Organisasi perbankan Anda diharuskan oleh dewan regulasi federal untuk membuktikan bahwa perlindungan kerahasiaan kustomer Anda bebas dari konflik kepentingan dan bias internal secara objektif. Kelompok manakah yang secara yurisdiksi dan profesional paling tepat mengeluarkan dokumen audit keamanan akhir tersebut? {
+=Pihak ketiga atau auditor eksternal (Third-party / External auditor). #Benar! Auditor eksternal yang diakreditasi beroperasi secara independen; mereka bebas dari ikatan politik atau keuntungan perusahaan Anda sehingga laporan yang dihasilkan memberikan jaminan kredibilitas tertinggi (objektif) kepada publik/regulator.
+~Tim Red Team internal. #Salah. Meskipun mereka menguji keamanan, mereka adalah bagian dari struktur penggajian perusahaan (internal), sehingga bagi regulator, laporan mereka akan tetap memuat konflik objektivitas yang inheren.
+~Chief Information Security Officer (CISO). #Salah. CISO membangun infrastruktur kontrol; seseorang tidak dapat memberikan audit independen objektif mengenai keandalan atas pekerjaannya sendiri kepada regulator federal.
+~Manajer Kualitas Jaminan Perangkat Lunak. #Salah. Ini adalah peran operasional untuk menguji cacat fitur aplikasi kustom, bukan pihak independen dari luar yang menilai kesehatan keamanan entitas untuk kepatuhan regulator perbankan.
+}
+
+::D6-Q48:: Ekosistem arsitektur mikroservis (microservices) mengandalkan berbagai sistem berbeda untuk berbicara satu sama lain dengan andal secara otomatis (seperti aplikasi toko yang memeriksa gerbang bank). Fase pengujian apa yang difokuskan pada pengamanan komunikasi *backend-to-backend* antara konektor fungsional jaringan ini? {
+=Interface testing, secara spesifik API (Application Programming Interface) testing. #Benar! Pengujian antarmuka sangat diperlukan di era layanan terdistribusi (seperti mikroservis) guna menguji keamanan penanganan parameter API, mencegah celah autentikasi, serta jaminan format struktur interaksi pertukaran data yang benar.
+~Fagan inspections. #Salah. Inspeksi ini hanya melibatkan intervensi manual terstruktur para peninjau kode atas *source code* secara *offline*, tidak menguji interaksi titik komunikasi data dinamis seperti API antar layanan.
+~Backup verification data. #Salah. Metrik ini menguji media pemulihan fasilitas, bukan memastikan bahwa layanan aplikasi saling berbicara dengan format parameter masukan jaringan yang aman.
+~Disaster recovery full-interruption test. #Salah. Latihan ini berfokus pada merelokasi pengguna setelah bangunan fisik utama dimatikan dan dihancurkan dayanya, bukan sekadar tes fungsional QA perangkat lunak *developer*.
+}
+
+::D6-Q49:: Berdasarkan kerangka panduan NIST Security Content Automation Protocol (SCAP), daftar kamus identifikasi spesifik mana yang menormalisasi skema penamaan dan rujukan format khusus untuk mengidentifikasi produk "Sistem Operasi, Aplikasi, dan Perangkat Keras"? {
+=Common Platform Enumeration (CPE). #Benar! Standar CPE menggunakan pengkodean seragam khusus untuk membuat referensi mesin-ke-mesin terkait penamaan perangkat OS dan peranti keras yang sedang dipindai agar diidentifikasi secara identik di setiap perangkat yang sesuai.
+~Common Vulnerability Scoring System (CVSS). #Salah. Ini menentukan angka matematika tentang seberapa mematikan kerentanan teknis perangkat, tidak membuat skema kamus nama *platform* perangkat lunak spesifik.
+~Common Vulnerabilities and Exposures (CVE). #Salah. Katalog nama standar CVE diperuntukkan bagi pendeskripsian daftar jenis kode *kerentanan/bug* perangkat lunak, bukan merupakan katalog penamaan identitas *platform* operasi komputer.
+~Extensible Configuration Checklist Description Format (XCCDF). #Salah. XCCDF adalah standar untuk menentukan format bahasa aturan kebijakan dasar verifikasi *checklist*, bukan identitas skema *platform/vendor* aplikasi.
+}
+
+::D6-Q50:: CISO Anda ingin memastikan semua manajer bisnis non-teknis memahami proses protokol tanggap darurat yang baru. Ia mengundang semua orang ke ruang rapat eksekutif dan membacakan sebuah skenario teoretis terjadinya serangan DDOS secara lisan, sementara tiap peserta merespons apa tugas mereka satu per satu tanpa menghidupkan *server* pemulihan. Latihan jenis apa ini? {
+=Read-through / Tabletop exercise. #Benar! Latihan diskusi berbasis meja konferensi (Tabletop) bersifat murni teoritis konseptual. Ini adalah langkah validasi komunikasi termurah tanpa benar-benar merelokasi peralatan TI secara langsung di dunia produksi.
+~Parallel testing. #Salah. Tes paralel mengharuskan anggota TI di lokasi cadangan alternatif secara harfiah menghidupkan basis data cermin operasional yang berjalan berdampingan bersamaan dengan lokasi primer operasional, jauh di luar sekadar latihan baca di atas meja.
+~Full-interruption testing. #Salah. Ini adalah uji latihan *shutdown* paling merusak di mana sistem pusat utama dimatikan secara paksa untuk melihat apakah failover mengambil alih; ini bukan tes verbal di ruang konferensi manajemen.
+~Walkthrough. #Salah. *Walkthrough* setingkat di atas ini dengan mulai mengoordinasi gerakan simulasi evakuasi staf secara fisik dari bangunan meskipun *server* tidak dialihkan; namun skenario di atas secara harfiah merupakan format bacaan di meja (tabletop) semata.
+}
+
+::D6-Q51:: Laporan audit manakah yang secara khusus memberikan opini auditor tentang desain dan efektivitas operasi dari kontrol keamanan suatu organisasi yang dievaluasi selama periode waktu tertentu (biasanya minimal enam bulan)? {
+=SOC 2 Type II. #Benar! Laporan Type II mencakup opini tentang desain dan menguji efektivitas operasi kontrol keamanan berdasarkan pengujian aktual selama periode waktu tertentu.
+~SOC 2 Type I. #Salah. Laporan Type I hanya menilai desain kontrol pada satu titik waktu (point in time) dan tidak memverifikasi efektivitas operasinya dari waktu ke waktu.
+~SOC 1 Type II. #Salah. Laporan SOC 1 difokuskan khusus pada kontrol internal atas pelaporan keuangan manajemen (meskipun ia mengukur efektivitas), bukan keamanan teknis.
+~SOC 3. #Salah. Laporan SOC 3 ditujukan untuk rilis publik dan hanya memberikan ringkasan jaminan tanpa menyertakan detail efektivitas kontrol secara mendalam.
+}
+
+::D6-Q52:: Saat mengevaluasi kelengkapan pengujian perangkat lunak (test coverage), manajer QA ingin memastikan bahwa setiap tes operasional logika telah dieksekusi secara menyeluruh di bawah semua set input yang memungkinkan. Metrik analisis cakupan apa yang paling sesuai untuk tujuan ini? {
+=Condition coverage. #Benar! Condition coverage (cakupan kondisi) memeriksa dan memastikan bahwa setiap tes logis dalam kode telah dieksekusi di bawah semua kemungkinan himpunan nilai input.
+~Branch coverage. #Salah. Branch coverage memastikan setiap pernyataan (seperti if/else) dieksekusi pada kondisi True maupun False minimal sekali, namun tidak sedetail condition coverage untuk semua himpunan input logika.
+~Loop coverage. #Salah. Loop coverage mengukur apakah setiap iterasi perulangan dalam kode telah dieksekusi secara tepat, bukan berfokus pada semua kondisi logis.
+~Statement coverage. #Salah. Statement coverage hanya melacak persentase baris kode yang dieksekusi selama pengujian tanpa menjamin berbagai skenario variasi logika diuji.
+}
+
+::D6-Q53:: Tim pengembangan perangkat lunak Anda tidak memiliki data input aktual sebelumnya, sehingga mereka membangun model data baru untuk membuat format fuzzed input khusus berdasarkan pemahaman kerangka data yang diharapkan oleh aplikasi. Jenis pengujian apa yang sedang dilakukan? {
+=Generational fuzzing. #Benar! Generational fuzzing (atau intelligent fuzzing) mengembangkan model data baru dari awal untuk menciptakan input fuzzed berdasarkan format data aplikasi yang sah.
+~Mutation fuzzing. #Salah. Mutation fuzzing mengambil input aplikasi yang sudah ada sebelumnya dan valid lalu memutasi atau memanipulasinya untuk melihat reaksi program.
+~Static application security testing (SAST). #Salah. SAST menguji kerentanan dengan memeriksa langsung struktur kode sumber tanpa mengeksekusi program atau memasukkan input dinamis.
+~Misuse case testing. #Salah. Pengujian ini bertujuan untuk mengevaluasi kerentanan terhadap penyalahgunaan logika oleh aktor jahat dan bukan metodologi penyuntikan input acak secara spesifik.
+}
+
+::D6-Q54:: Dalam kerangka kerja pengujian penetrasi standar menurut panduan NIST, pada fase manakah penguji benar-benar meluncurkan eksploitasi dan secara aktif menggunakan alat otomatis (seperti Metasploit) untuk menembus pertahanan sistem klien? {
+=Fase Attack. #Benar! Pada fase serangan (attack phase), penguji benar-benar mencoba menembus keamanan sistem dengan mengeksploitasi kerentanan yang teridentifikasi untuk mendapatkan akses.
+~Fase Discovery. #Salah. Fase ini adalah tahap pengintaian dan pemindaian kerentanan untuk mengumpulkan informasi, yang dilakukan sebelum eksploitasi aktual dijalankan.
+~Fase Planning. #Salah. Perencanaan adalah fase penetapan ruang lingkup dan aturan keterlibatan (Rules of Engagement) sebelum kegiatan teknis apa pun dimulai.
+~Fase Reporting. #Salah. Fase pelaporan dilakukan setelah semua eksploitasi selesai untuk mendokumentasikan temuan dan memberikan rekomendasi perbaikan.
+}
+
+::D6-Q55:: Proses inspeksi Fagan adalah salah satu bentuk tinjauan kode sejawat yang sangat kaku dan sangat formal. Di antara pilihan berikut, tahapan manakah yang merupakan tahapan paling akhir dalam metodologi Fagan inspection? {
+=Follow-up. #Benar! Urutan proses Fagan inspection adalah Planning lalu Overview lalu Preparation lalu Inspection lalu Rework dan terakhir Follow-up untuk memastikan perbaikan dilakukan secara benar.
+~Rework. #Salah. Rework (pengerjaan ulang) adalah tahap perbaikan yang dilakukan sebelum tahap akhir Follow-up.
+~Inspection. #Salah. Inspeksi adalah tahapan evaluasi aktual yang berada di tengah proses, tepat setelah persiapan dan sebelum pengerjaan ulang.
+~Preparation. #Salah. Persiapan adalah langkah ketiga sebelum inspeksi aktual dijalankan oleh tim peninjau.
+}
+
+::D6-Q56:: Dalam respons terhadap insiden, administrator Anda curiga ada transfer data sensitif yang tidak sah secara besar-besaran dari server lokal ke cloud publik. Jenis log apa yang paling efektif dan secara khusus dirancang untuk memverifikasi alamat tujuan dan jumlah volume data yang berpindah tersebut? {
+=Network flow logs. #Benar! NetFlow atau log aliran jaringan sangat berharga dalam investigasi karena memberikan rekaman koneksi komunikasi beserta volume atau ukuran pasti dari data yang ditransfer.
+~Security logs. #Salah. Security logs lokal umumnya mencatat akses pengguna (login sukses/gagal) pada sistem tetapi tidak melacak statistik bandwidth atau koneksi jaringan keluar secara mendalam.
+~Change logs. #Salah. Change logs digunakan dalam manajemen konfigurasi untuk mencatat perubahan yang disetujui pada lingkungan operasional perangkat lunak atau perangkat keras.
+~Antivirus logs. #Salah. Log antivirus akan mencatat deteksi malware dan tindakan karantina, namun tidak merekam ukuran aliran data jaringan (eksfiltrasi) yang keluar.
+}
+
+::D6-Q57:: Sebelum kode baru diunggah ke lingkungan produksi, ketua pengembang perangkat lunak mengadakan rapat. Dalam rapat ini, seluruh tim menelusuri logika baris demi baris kode secara visual untuk mencari potensi cacat keamanan tanpa menggunakan aplikasi pengujian apa pun. Praktik apa yang sedang mereka jalankan? {
+=Code review walk-through. #Benar! Walk-through tinjauan kode melibatkan pertemuan teknis di mana pengembang secara manual menelusuri logika kode (peer review) untuk mengidentifikasi kesalahan dan kekurangan desain.
+~Dynamic application security testing (DAST). #Salah. DAST adalah pengujian dinamis menggunakan alat peretas otomatis saat aplikasi web sudah berjalan (runtime), bukan metode tinjauan baca manual.
+~Fuzz testing. #Salah. Fuzz testing adalah menyuntikkan muatan karakter tidak terduga ke dalam program yang berjalan untuk melihat apakah aplikasi tersebut crash, bukan rapat tinjauan manual.
+~Synthetic transactions. #Salah. Transaksi buatan digunakan untuk memantau performa dan ketersediaan aplikasi web dalam operasi produksi dengan menggunakan skrip perilaku klien, bukan tinjauan kode.
+}
+
+::D6-Q58:: Jika CISO sebuah organisasi ingin mengadopsi kerangka kerja standar untuk audit sistem informasi dan mengelola keamanan yang menghubungkan dan menyelaraskan tujuan keamanan TI dengan tujuan bisnis secara keseluruhan, pedoman standar mana yang paling tepat untuk diterapkan? {
+=Control Objectives for Information and Related Technologies (COBIT). #Benar! COBIT yang dikelola oleh ISACA adalah kerangka kerja yang sangat diakui untuk tata kelola TI yang mendorong penyelarasan keamanan dengan sasaran bisnis secara langsung.
+~Security Content Automation Protocol (SCAP). #Salah. SCAP adalah kumpulan spesifikasi otomatisasi manajemen kerentanan, bukan kerangka kerja tata kelola TI untuk tujuan bisnis eksekutif.
+~Common Vulnerabilities and Exposures (CVE). #Salah. CVE adalah daftar kamus nama standar untuk kerentanan keamanan yang teridentifikasi, tidak ada hubungannya dengan tata kelola audit.
+~Open Vulnerability and Assessment Language (OVAL). #Salah. OVAL adalah bahasa standar yang digunakan dalam penilaian kerentanan teknis perangkat, bukan kerangka kerja manajemen bisnis tinggi.
+}
+
+::D6-Q59:: Saat mengoperasikan alat pemindai kerentanan, alat tersebut mengkategorikan setiap kelemahan sistem menggunakan ID unik sehingga dapat dibandingkan dengan mulus melalui standar lintas platform perangkat lunak pihak ketiga lainnya. Dalam kerangka kerja SCAP, format penamaan referensi apakah ini? {
+=Common Vulnerabilities and Exposures (CVE). #Benar! Sistem CVE memberikan nama referensi berupa nomor identifikasi yang diterima secara universal dan terstandarisasi untuk kerentanan atau cacat keamanan yang sudah diketahui.
+~Common Vulnerability Scoring System (CVSS). #Salah. CVSS memberikan skor tingkat keparahan (seperti nilai 1 hingga 10) untuk menilai dampak kerusakan suatu kerentanan, bukan kamus penamaan referensi.
+~Common Platform Enumeration (CPE). #Salah. CPE menyediakan konvensi penamaan seragam untuk aplikasi perangkat lunak dan perangkat keras serta sistem operasi, bukan untuk kelemahan/vulnerabilitas.
+~Common Configuration Enumeration (CCE). #Salah. CCE adalah daftar pengidentifikasi standar terkait dengan masalah cacat konfigurasi sistem operasi (salah setting), berbeda dari cacat perangkat lunak atau bug aplikasi (CVE).
+}
+
+::D6-Q60:: Anda baru saja mengembangkan aplikasi antarmuka web khusus yang terhubung ke database inventaris internal. Untuk memastikan program aman dari serangan injeksi SQL sebelum rilis akhir, jenis pendekatan pemindaian otomatis apa yang paling tepat untuk digunakan? {
+=Web application vulnerability scanner. #Benar! Pemindai kerentanan aplikasi web dirancang secara spesifik dan mendalam untuk memeriksa kelemahan logika interaksi front-end ke database seperti Injeksi SQL dan serangan Cross-Site Scripting (XSS).
+~Network discovery scanner. #Salah. Pemindai penemuan jaringan (seperti port scanner Nmap) hanya mengidentifikasi host aktif dan port yang terbuka, tidak dapat mendeteksi celah kerentanan aplikasi di layer 7.
+~Network vulnerability scanner. #Salah. Pemindai kerentanan jaringan umum memeriksa pembaruan sistem operasi dan port terbuka tetapi biasanya tidak dapat memeriksa lalu lintas SQL dinamis dan cacat aplikasi web kustom yang kompleks.
+~Protocol analyzer. #Salah. Penganalisis protokol (packet sniffer) menangkap dan menampilkan lalu lintas mentah yang melintasi jaringan dan tidak secara otomatis menguji kerentanan injeksi basis data.
+}
+
+::D6-Q61:: Sebagai langkah dalam pengumpulan data keamanan, seorang auditor meninjau apakah sistem pencadangan berfungsi. Apa prosedur administratif teknis yang paling kuat untuk membuktikan kepada auditor bahwa proses perlindungan cadangan (backup) ini benar-benar efektif? {
+=Meminta demonstrasi pemulihan (restore) yang sebenarnya dari data sampel ke sistem non-produksi untuk membuktikan file arsip tidak rusak. #Benar! Bukti terbaik bahwa cadangan dapat diandalkan bukanlah melihat log sukses pencadangan saja, tetapi secara nyata melakukan dan memverifikasi proses "Restore" data.
+~Meninjau log cadangan harian untuk melihat apakah laporan menunjukkan nilai transfer seratus persen (success log). #Salah. Sebuah log cadangan yang berhasil tidak memvalidasi integritas media penyimpanan tape yang bisa saja korup saat ingin dihidupkan ulang di kemudian hari.
+~Menjalankan pemindaian kerentanan (vulnerability scan) pada server basis data aktif. #Salah. Pemindaian kerentanan memeriksa kelemahan patch keamanan sistem yang beroperasi, bukan memverifikasi data yang tersimpan offline dalam arsitektur cadangan.
+~Mengaudit daftar jadwal rotasi kebijakan media cadangan (seperti GFS) di fasilitas. #Salah. Jadwal rotasi administratif tidak membuktikan bahwa secara mekanis data di pita kaset benar-benar dapat dibaca kembali (restorable).
+}
+
+::D6-Q62:: Dewan eksekutif Anda memiliki dasbor layar yang menampilkan matriks berjudul "Waktu Rata-Rata untuk Menerapkan Patch Kritis setelah Dirilis." Jika angka ini terlalu tinggi, manajer departemen TI akan dipanggil untuk menjelaskan masalah operasionalnya. Metrik ini paling tepat diklasifikasikan sebagai apa? {
+=Key Performance Indicator (KPI). #Benar! Waktu resolusi patch ini digunakan oleh manajemen strategis sebagai Indikator Kinerja Utama (KPI) atau Indikator Risiko Utama (KRI) guna menilai efektivitas departemen dalam melaksanakan kebijakan.
+~Service Level Agreement (SLA). #Salah. SLA adalah jaminan tertulis tentang waktu operasional (uptime) dan sanksi kinerja layanan antara klien dengan pemasok pihak ketiga (vendor luar).
+~Recovery Time Objective (RTO). #Salah. RTO adalah kerangka waktu dalam kelangsungan bisnis (BCP) seberapa cepat proses bisnis yang mati pasca bencana harus dihidupkan kembali, bukan waktu menambal patch.
+~Evaluation Assurance Level (EAL). #Salah. EAL adalah peringkat dalam standar Common Criteria untuk menilai seberapa cermat suatu sistem operasi vendor diuji keamanannya sebelum dijual, bukan metrik operasi internal organisasi.
+}
+
+::D6-Q63:: Seorang analis keamanan sedang bertugas di komputer publik di sebuah hotel dan tidak memiliki hak akses administrator sama sekali pada mesin tersebut. Saat menggunakan Nmap untuk memindai port server perusahaannya dari kejauhan, Nmap terpaksa mengubah perilakunya. Pemindaian apa yang akan diselesaikan secara penuh (full three-way handshake) oleh Nmap karena batasan hak akses klien ini? {
+=TCP Connect Scan. #Benar! TCP Connect Scan menyelesaikan keseluruhan pertukaran jabat tangan tiga arah (SYN, SYN/ACK, ACK) menggunakan panggilan API jaringan bawaan OS dan ini adalah satu-satunya metode pemindaian andal jika pengguna tidak memiliki hak root atau administratif.
+~TCP SYN Scan. #Salah. TCP SYN scan atau half-open scan menggugurkan koneksi di tengah jalan menggunakan paket RST, yang memanipulasi protokol TCP level rendah dan mutlak mengharuskan hak istimewa administrator.
+~UDP Scan. #Salah. Pemindaian UDP berfokus pada layanan tanpa koneksi dan tidak memakai jabat tangan tiga arah.
+~Stealth Scan. #Salah. Ini adalah istilah lain untuk pemindaian diam-diam seperti TCP SYN atau Null scan, dan semuanya memerlukan izin root (administrator) pada OS host agar bisa berjalan.
+}
+
+::D6-Q64:: Alat pemindai kerentanan komersial Anda memperingatkan bahwa server web Anda menggunakan versi Apache Linux yang lama dan sangat rawan. Namun, setelah insinyur keamanan meninjaunya, ternyata server Anda itu menjalankan perangkat lunak IIS pada mesin Windows. Kesalahan pelaporan otomatis dari alat penguji ini disebut sebagai apa? {
+=False positive. #Benar! Positif palsu (False Positive) terjadi ketika alat atau perangkat pelaporan mendeteksi sesuatu yang terlihat seperti masalah (kerentanan), tetapi setelah dianalisis secara manual oleh administrator, sebenarnya itu aman atau salah identifikasi.
+~False negative. #Salah. Negatif palsu (False Negative) terjadi jika ada kerentanan sangat berbahaya yang nyata di dalam sistem operasi Anda, namun alat penguji gagal mendeteksi dan gagal melapor.
+~True positive. #Salah. Positif benar (True Positive) adalah kejadian ideal di mana pemindai mendeteksi kerentanan yang setelah diperiksa memang benar-benar ada dan berbahaya.
+~True negative. #Salah. Negatif benar (True Negative) adalah operasi normal di mana perangkat tidak rentan dan pemindai juga dengan tepat diam saja karena tidak mendeteksi bahaya.
+}
+
+::D6-Q65:: CISO menyarankan pergeseran dari sekadar pemindaian kerentanan pasif bulanan dengan menggunakan suatu perangkat lunak yang terus-menerus dan secara aman menyuntikkan muatan peniruan serangan siber melintasi jaringan. Tujuannya adalah memvalidasi dan memicu tanggapan sensor IPS (Intrusion Prevention System) setiap harinya. Alat arsitektur operasi keamanan canggih apakah ini? {
+=Breach and Attack Simulation (BAS). #Benar! Platform BAS mengotomatiskan injeksi vektor serangan tingkat lanjut secara berkelanjutan untuk menantang serta memvalidasi keefektifan perangkat pertahanan sensor IPS secara langsung tanpa merusak lingkungan operasi.
+~Security Information and Event Management (SIEM). #Salah. SIEM adalah pengumpul dan penganalisis log korelasi pusat, dan ia secara pasif menerima dan melaporkan masalah jaringan, bukan secara aktif menyuntikkan indikator serangan buatan.
+~Static Application Security Testing (SAST). #Salah. SAST digunakan dalam QA pengembang untuk membaca baris kode pemrograman sumber secara offline, bukan simulasi ancaman operasional jaringan produksi.
+~Network Access Control (NAC). #Salah. NAC memindai klien dan mengarantina endpoint yang patch antivirusnya belum diupdate sebelum diberi akses ke jaringan internal, tidak berkaitan dengan penyuntikan serangan BAS persisten.
+}
+
+::D6-Q66:: Auditor TI sedang meninjau prosedur identitas untuk memastikan bahwa prinsip "Least Privilege" dipatuhi pada aplikasi akuntansi yang sensitif. Saat melakukan evaluasi Tinjauan Akses Akun (Account Access Review), langkah administratif apa yang paling krusial bagi manajemen? {
+=Membandingkan dan merekonsiliasi daftar izin akses pengguna aktual di server saat ini dengan matriks otoritas persetujuan yang awalnya diberikan oleh manajemen. #Benar! Tinjauan ini pada prinsipnya adalah audit rekonsiliasi yang wajib memeriksa persetujuan akses dan membandingkannya pada sistem nyata guna menemukan akun fiktif atau hak istimewa (privilege creep) yang berkembang tak terkendali.
+~Mengirim tim peretas untuk melakukan eksploitasi perolehan hak istimewa (privilege escalation) ke server akun. #Salah. Itu adalah pengujian penetrasi aktif, sedangkan Account Review adalah tugas administratif keamanan audit tata kelola.
+~Memastikan bahwa semua log sandi pengguna disimpan dan dienkripsi menggunakan protokol hashing mutakhir seperti SHA-2. #Salah. Meskipun proteksi kata sandi penting, ini tidak memvalidasi atau menilai tingkat kewenangan "hak cipta akses" pengguna yang ditinjau.
+~Mengunci akun yang secara otomatis tidak mengakses sistem lebih dari 30 hari. #Salah. Penonaktifan akun kedaluwarsa merupakan perlindungan manajemen identitas yang baik namun tidak dapat memeriksa apakah pekerja yang aktif di hari ini memiliki hak izin yang terlalu tinggi melebihi kebutuhan tugasnya.
+}
+
+::D6-Q67:: Untuk membuktikan keefektifan pemulihan bencana (DRP), perusahaan Anda memindahkan seratus karyawan inti ke lokasi situs alternatif (seperti warm site) yang telah disewa, kemudian menghidupkan sistem cadangan dan memproses operasi bisnis duplikat. Namun, pusat data kantor utama tidak pernah dihentikan dayanya dan tetap melayani pelanggan sungguhan dari publik. Latihan jenis apakah ini? {
+=Parallel test. #Benar! Tes paralel menghidupkan pemrosesan fasilitas situs alternatif untuk menjalankan transaksi secara bersamaan tanpa menginterupsi aktivitas di lokasi utama sehingga proses perbankan harian di mata masyarakat umum tidak terpengaruh.
+~Full-interruption test. #Salah. Gangguan penuh (Full-interruption) memaksa tim Anda memutus saluran listrik dengan paksa di markas utama guna melihat apakah staf di lokasi cadangan sungguh-sungguh bisa menanggung semua beban.
+~Tabletop exercise. #Salah. Latihan diskusi di atas meja merupakan tahap teoritis murni di dalam ruang rapat bagi dewan pimpinan tanpa memindahkan manusia atau memicu menghidupkan server komputasi.
+~Simulation test. #Salah. Latihan simulasi mengembangkan respons evakuasi personel darurat namun tidak benar-benar mencoba merelokasi fasilitas operasional komputasi TI utama dan menjalankannya secara duplikat nyata.
+}
+
+::D6-Q68:: Sebulan setelah pengujian keamanan komprehensif, departemen TI mengadakan debriefing kolaboratif. Para konsultan (yang menyerang infrastruktur) menceritakan teknik penyusupan mereka langkah demi langkah, sementara teknisi jaringan (yang mempertahankan) menunjukkan di mana sensor mereka gagal melihat eksploitasi tersebut, kemudian mereka bersama-sama menyesuaikan sensor pertahanan dan menambal lubang tersebut. Kolaborasi fungsional ini dinamakan apa? {
+=Purple teaming. #Benar! Kolaborasi taktis aktif di mana Tim Merah (Red Team, atau sang penyerang) saling bekerja sama secara terbuka dengan Tim Biru (Blue Team, atau pembela internal) guna memaksimalkan hasil pembelajaran mitigasi disebut kolaborasi tim Ungu (Purple Team).
+~White teaming. #Salah. Tim Putih (White Team) adalah juri netral independen yang mendesain skenario serangan dan memastikan batas keamanan simulasi fisik yang ditaati namun tidak terlibat dalam eksekusi pertahanan atau penyerangan.
+~Fagan inspection. #Salah. Inspeksi Fagan adalah tinjauan prosedur yang sangat formal dan digunakan murni secara internal oleh desainer perangkat lunak saat meninjau skrip kode baris per baris, bukan tim respons eksploitasi red/blue jaringan.
+~Ethical disclosure. #Salah. Pengungkapan etis adalah tata cara pelaporan legalitas dari periset zero-day pihak independen di Internet kepada vendor utama tentang kecacatan produk umum sebelum mempublikasikan masalahnya ke forum publik.
+}
+
+::D6-Q69:: Seorang ahli penetrasi menggunakan alat pemindai aplikasi yang secara brutal berinteraksi secara otomatis dengan aplikasi web yang sedang live di server produksi. Pemindai tersebut menyuntikkan muatan kode berbahaya secara langsung ke bidang URL situs web tanpa mengetahui apa pun tentang struktur kode bahasa pemrograman di belakangnya untuk mendeteksi injeksi SQL. Kategori pengujian apakah ini? {
+=Dynamic application security testing (DAST). #Benar! DAST berinteraksi dari antarmuka luar dan bertindak seperti seorang penyerang kotak hitam yang menyuntikkan ancaman ketika aplikasi perangkat lunak web tersebut sudah hidup (runtime dinamis).
+~Static application security testing (SAST). #Salah. Alat SAST bertindak dari titik pandang pengembang kotak putih dari dalam, membaca dan memindai logika kode tekstual statis tanpa menjalankan program sama sekali.
+~Software composition analysis (SCA). #Salah. Komposisi perangkat lunak memindai paket pustaka yang mengontrol program pihak ketiga di dalam build aplikasi untuk mencari apakah komponen pihak ketiga tersebut kadaluwarsa (outdated license) secara otomatis.
+~Misuse case testing. #Salah. Meskipun mengevaluasi penyimpangan negatif, terminologi uji spesifik yang berinteraksi dalam lingkungan web runtime produksi hidup berbasis payload peretasan kotak hitam eksternal merujuk langsung ke platform DAST komersial.
+}
+
+::D6-Q70:: Lisa adalah anggota keamanan dan menemukan celah serangan kritikal (Zero-Day exploit) di perangkat lunak dompet mata uang kripto yang dibuat oleh pihak korporasi independen. Merujuk pada panduan prinsip industri standar, apa langkah pelaporan paling bertanggung jawab yang perlu dilakukannya? {
+=Beri tahu vendor aplikasi tersebut segera secara privat dan berikan waktu yang rasional bagi mereka untuk menyiapkan dan mempublikasikan perbaikan patch sebelum Anda menyiarkan cacat tersebut di forum publik. #Benar! Ini mendefinisikan Ethical atau Responsible Disclosure; hal ini etis karena mencegah peretas jahat menyalahgunakan pengguna publik sementara vendor sedang berusaha memperbaikinya.
+~Jual rincian celah keamanan berbayar tinggi kepada geng ancaman yang canggih (APT) karena perangkat lunaknya bersifat publik dan bukan milik Lisa. #Salah. Ini adalah model bisnis peretasan gelap (kejahatan siber) dan jelas merupakan pelanggaran total terhadap standar pelaporan dan undang-undang etika keamanan resmi.
+~Simpan rahasia celah secara permanen dan minta imbalan sejumlah uang tebusan tahunan eksklusif dari korporasi untuk tidak merilis eksploitasinya. #Salah. Menahan cacat zero-day dengan niat finansial disebut pemerasan keamanan (extortion) dan melanggar batas etika peretasan topi putih yang legal.
+~Secara publik terbitkan seluruh panduan rinci langkah demi langkah celah zero-day di media sosial sesegera mungkin sebagai Full Disclosure demi menyelamatkan publik dengan cepat. #Salah. Publikasi langsung (Full Disclosure) pada kerentanan yang belum memiliki tambalan merugikan komunitas karena pengguna publik tidak punya sarana pembelaan sementara penyerang segera mempersenjatai teknik peretasannya.
+}
+
+::D6-Q71:: Sebagai penyedia layanan Cloud-Hosting, organisasi Anda menjalani audit kepatuhan oleh kantor penilai akuntan. Klien Anda yang lain membutuhkan ringkasan jaminan jaminan kepatuhan terhadap standar keamanan yang dapat Anda pasang bebas secara publik di beranda situs pemasaran web cloud Anda sebagai bukti reputasi pemasaran. Laporan dokumen apa yang Anda perlukan? {
+=Laporan SOC 3. #Benar! SOC 3 adalah laporan yang khusus dirancang oleh akuntan AICPA yang bebas untuk didistribusikan secara umum kepada audiens dan investor publik karena tingkat informasi operasional teknis sensitif internal perusahaan dilindungi atau dihilangkan.
+~Laporan SOC 2 Type II. #Salah. Laporan SOC 2 (bahkan tipe 2) mencakup prosedur sangat rinci terhadap pengendalian keamanan infrastruktur kerahasiaan Anda, sehingga ini sangat sensitif dan dilarang keras untuk dirilis sembarangan secara publik (hanya untuk manajemen klien dengan NDA ketat).
+~Laporan SOC 1 Type I. #Salah. SOC 1 sangat membatasi dirinya hanya pada pengendalian internal atas pengawasan pelaporan pencatatan stabilitas akun keuangan (Financial controls), bukan dirancang sebagai laporan infrastruktur jaminan keamanan pemasaran web rilis publik.
+~ISO 27001 Security Target. #Salah. Dokumen klaim produk ini (dalam Common Criteria, bukan ISO 27001) menjelaskan profil keamanan evaluasi peranti lunak teknis yang diaudit (Target of Evaluation) oleh vendor perangkat, bukan ringkasan laporan SOC dari penyedia cloud hosting organisasi entitas bisnis.
+}
+
+::D6-Q72:: Alat penguji jaringan keamanan Nmap mencoba mengirimkan serangkaian probe koneksi jabat tangan dan menerima respon status paket untuk suatu antarmuka jaringan host jarak jauh yang spesifik. Status Nmap apa yang dilaporkan jika probe tersebut mencapai jaringan tersebut namun diabaikan karena host perantara memutuskan bahwa port jaringan diblokir oleh alat pertahanan firewall yang mencegah sinyal paket ICMP terkirim kembali? {
+=Filtered. #Benar! Nmap merespons status Filtered jika probe alat pemindaian jaringannya dihentikan di tengah jalan oleh mekanisme paket kontrol akses atau alat filter router Firewall perantara sehingga tidak dapat memastikan kerentanan tujuan akhir terbuka atau tertutup.
+~Closed. #Salah. Status Closed (Tertutup) dikirim ke perangkat Nmap jika lalu lintas mencapai server namun ada indikasi dari mesin bahwa tidak ada program layanan fungsional port apa pun yang sedang mendengarkan port koneksi tersebut.
+~Open. #Salah. Jika port tersebut berstatus Open (Terbuka), maka koneksi paket direspons secara eksplisit dengan izin, bukan ditelan oleh filter pencegah pertahanan firewall jaringan yang hening.
+~Unfiltered. #Salah. Status Unfiltered merujuk pada situasi ping probe alat yang mana Nmap dengan pasti telah berhasil mencapai target yang diinginkan dan ia tahu tidak ada firewall, namun hanya spesifik tidak dapat mengkonfirmasi apakah port spesifik di sana ditutup atau terbuka.
+}
+
+::D6-Q73:: Metodologi evaluasi kerentanan pengembang perangkat lunak menuntut pemenuhan matriks uji QA (Jaminan Kualitas). Manajer teknis TI mewajibkan parameter khusus bahwa dalam evaluasi kualitas rilis aplikasi terbarunya, seluruh himpunan teks skrip instruksi per baris dalam kode sumber operasional harus disimulasikan setidaknya satu kali lipat selama latihan program. Syarat ukuran parameter teknik tersebut secara eksplisit bernama? {
+=Statement coverage. #Benar! Terminologi pelaporan Test Coverage untuk memeriksa apakah "Setiap baris pernyataan tunggal kode perangkat lunak" (statement) yang ditulis oleh teknisi telah dijalankan secara sukses selama evaluasi pengujian dinamakan statement coverage.
+~Branch coverage. #Salah. Branch coverage menguji persentase eksekusi setiap arah cabang alur percabangan (kondisi "if/then/else") berjalan sempurna (jalur True dan jalur False minimal satu), tidak serta merta memastikan setiap instruksi baris secara eksplisit.
+~Function coverage. #Salah. Metrik uji fungsi (function coverage) memprioritaskan kalkulasi persentase pada apakah setiap struktur panggilan fungsi pemrograman utama di seluruh sistem komputasi berhasil dipanggil dari aplikasi yang sedang dibangun secara total.
+~Misuse case testing. #Salah. Pengujian Penyalahgunaan Kasus merepresentasikan jenis metode pengujian di mana aktor menggunakan kreativitas fungsi ancaman model skenario negatif (penyalahgunaan fitur aplikasi) dan bukan metrik parameter pelaporan otomatis atas jaminan kualitas cakupan baris skrip sumber (coverage).
+}
+
+::D6-Q74:: Saat menjalankan bisnis toko online bervolume tinggi, CISO sangat peduli agar sistem front-end tidak pernah offline dan waktu respons transaksi harian tidak melambat bagi pembeli ritel di ujung klien. Beliau membangun sebuah program skrip tiruan proaktif yang terus menerus menyuntikkan dan memutar "penambahan barang ke keranjang otomatis dan keluar" secara siklus konstan dari bot tiruan. Taktik validasi operasi ketersediaan yang sedang bekerja itu dinamakan? {
+=Synthetic transactions. #Benar! Pemantauan aktif di dunia komputasi bisnis produksi dengan meluncurkan bot program tiruan yang menjalankan rute perjalanan operasi "Synthetic transaction" (Transaksi Buatan) berulang demi menaksir jaminan kecepatan layanan ketersediaan kinerja infrastruktur.
+~Real User Monitoring (RUM). #Salah. RUM merupakan pengamatan pasif murni yang murni menyusun analisis tanggapan waktu lalu lintas sesungguhnya dari akses pengguna manusia ritel alami di sistem, bukan robot peninjauan interaksi yang menjalankan injeksi keranjang transaksi komputasi secara proaktif buatan.
+~Egress monitoring. #Salah. Pemantauan jalan keluar (Egress) mengecek muatan pergerakan batas firewall jaringan data keluar yang meninggalkan perusahaan untuk melindungi sistem dari infeksi malware eksfiltrasi, tanpa kaitannya dengan uji skrip bot kinerja e-commerce internal.
+~Fagan inspection. #Salah. Proses Inspeksi kualitas manual formal sangat kaku terhadap sepotong dokumentasi perangkat lunak kertas offline per tahapan manusia sebelum pengkodean operasional aktif, sangat jauh berbeda dengan injeksi transaksi uji bot kelangsungan hidup otomatis 24 jam beroperasi online.
+}
+
+::D6-Q75:: CISO merancang kampanye internal yang akan menyiarkan pesan elektronik berisi permintaan pembaruan sandi tipuan yang terlihat seolah-olah datang dari departemen kepegawaian HR untuk diklik dan memandu setiap personel perusahaan ke sebuah form jebakan internal, dengan memantau perbandingan statistik jumlah pengklik sebelum pelatihan siber dan sebulan paska lokakarya pelatihan wajib perusahaan. Fokus pengumpulan metrik kontrol operasi program tersebut menguji ukuran keefektifan apakah? {
+=Program pelatihan keamanan (Security training and awareness program effectiveness). #Benar! Tujuan utama meluncurkan simulasi serangan pemancingan tipuan buatan (phishing simulation) yang diam-diam dan aman adalah mengekstraksi metrik efektivitas kuantitatif murni seberapa sukses atau gagalnya program kepedulian pelatihan edukasi keamanan pengguna staf perusahaannya bereaksi secara sosial di dunia sesungguhnya.
+~Daya tahan filter keamanan perangkat keras server (Antispam gateway resilience). #Salah. Sasaran email internal dirancang langsung meloloskan dirinya dari mesin filter spam TI kantor karena tujuan pengujian murninya bukan mencoba kehebatan mesin keamanan pertahanan gateway email TI, namun fokus khusus reaksi pengguna organik kelemahannya (Human firewall).
+~Latihan evakuasi kelangsungan bencana alam (Business Continuity tabletop exercise). #Salah. Latihan ini dirancang memancing klik phishing pada stasiun ujung klien pengguna individu, dan tidak mengukur skenario keefektifan koordinasi manajemen tanggap pemulihan meja bencana komputasi alam raya sama sekali.
+~Jaminan kerentanan injeksi basis data sisi layanan eksternal jaringan (Web application injection testing). #Salah. Penipuan tautan pesan tipuan tidak secara langsung memeriksa ketahanan kelemahan arsitektur keamanan parameter kode injeksi basis data web secara teknis.
+}
+
+::D6-Q76:: Sebagai bagian dari proses pengujian penetrasi (penetration testing), tim Anda dan manajemen klien harus menyepakati ruang lingkup, jadwal, dan "Rules of Engagement" (Aturan Keterlibatan). Berdasarkan pedoman kerangka kerja standar, pada fase manakah aktivitas administratif ini wajib diselesaikan? {
+=Fase Planning (Perencanaan). #Benar! Fase perencanaan adalah tahap di mana tujuan pengujian, ruang lingkup, dan aturan persetujuan hukum secara eksplisit didefinisikan agar pengujian sah sebelum pengujian teknis apa pun dimulai.
+~Fase Discovery (Penemuan). #Salah. Fase penemuan melibatkan pemindaian kerentanan untuk mengumpulkan informasi teknis, dan ini baru boleh dilakukan setelah aturan keterlibatan disepakati di fase perencanaan.
+~Fase Attack (Serangan). #Salah. Fase serangan adalah tahapan saat penguji benar-benar mencoba menembus pertahanan sistem dengan mengeksploitasi kerentanan, bukan tahap penandatanganan dokumen aturan main.
+~Fase Reporting (Pelaporan). #Salah. Fase pelaporan dilakukan paling akhir untuk merangkum hasil pengujian dan menyajikan temuan kerentanan kepada pihak manajemen klien.
+}
+
+::D6-Q77:: Saat Anda melakukan pemindaian jaringan menggunakan Nmap, Anda mendapati sebuah port memiliki status "Open | Filtered". Apa interpretasi analitis yang paling tepat dari perangkat tentang status yang diberikan ini? {
+=Nmap tidak dapat memastikan apakah port tersebut terbuka atau disaring karena tidak ada respons sama sekali terhadap probe yang dikirimkan. #Benar! Status "Open | Filtered" muncul ketika Nmap tidak menerima balasan apa pun, sehingga alat tersebut tidak dapat membedakan apakah port tersebut terbuka tetapi mengabaikan probe, atau disaring secara diam-diam oleh firewall.
+~Nmap berhasil mencapai port tersebut tetapi tidak memiliki bukti pasti apakah port tersebut terbuka atau tertutup. #Salah. Pernyataan ini adalah definisi mendasar untuk status "Unfiltered" pada Nmap.
+~Nmap mendeteksi bahwa aplikasi merespons secara aktif dan layanan sudah siap menerima koneksi data. #Salah. Jika aplikasi merespons secara aktif dan siap, maka status Nmap akan dinyatakan secara tegas sebagai "Open".
+~Nmap secara eksplisit dihalangi oleh firewall yang langsung merespons dengan pesan penolakan ICMP. #Salah. Jika sebuah firewall aktif secara nyata merespons dengan pesan penolakan yang membuktikan akses tidak diizinkan, status yang dicetak oleh Nmap adalah "Filtered".
+}
+
+::D6-Q78:: Dalam meninjau kualitas rekayasa perangkat lunak, manajer Anda meminta agar Anda memastikan bahwa seluruh pengujian logis di dalam kode sumber telah dieksekusi menggunakan seluruh kemungkinan himpunan nilai masukan. Metrik evaluasi cakupan pengujian (test coverage) apa yang secara spesifik diminta oleh manajer Anda? {
+=Condition coverage. #Benar! Cakupan kondisi (Condition coverage) mengukur dan memastikan bahwa setiap pengujian logis dalam kode telah dieksekusi di bawah semua set nilai masukan yang memungkinkan selama proses pengujian perangkat lunak.
+~Statement coverage. #Salah. Cakupan pernyataan (Statement coverage) hanya memastikan bahwa setiap baris kode dieksekusi setidaknya sekali, tetapi ia tidak repot mengevaluasi keseluruhan kombinasi himpunan nilai masukan logis.
+~Branch coverage. #Salah. Cakupan cabang (Branch coverage) mengukur apakah setiap jalur percabangan logika (seperti blok if dan else) telah dieksekusi minimal satu kali untuk status benar dan salah, namun tidak sedalam pengujian semua masukan kondisi.
+~Loop coverage. #Salah. Cakupan perulangan (Loop coverage) merupakan metrik untuk mengukur apakah setiap iterasi perulangan dalam kode telah dieksekusi dengan tepat.
+}
+
+::D6-Q79:: Tim Anda ingin mengevaluasi keamanan sebuah aplikasi web yang di-hosting dan dibeli dari pihak ketiga tanpa memiliki hak akses ke kode sumber (source code) aplikasi tersebut. Pendekatan pengujian keamanan mana yang menjadi satu-satunya pilihan rasional yang layak digunakan dalam skenario ini? {
+=Dynamic Application Security Testing (DAST). #Benar! DAST mengevaluasi keamanan perangkat lunak dari antarmuka luar pada saat aplikasi sedang berjalan secara dinamis (runtime) dan menjadi pilihan utama saat akses ke kode sumber tidak tersedia bagi penguji.
+~Static Application Security Testing (SAST). #Salah. SAST menganalisis struktur kode sumber atau aplikasi yang dikompilasi saat program dalam kondisi diam, sehingga sangat membutuhkan akses membaca ke struktur kode.
+~Fagan inspection. #Salah. Inspeksi Fagan adalah proses tinjauan kode (peer review) manual antar manusia yang sangat terstruktur dan mutlak membutuhkan pembacaan kode sumber aplikasi secara langsung.
+~Software Composition Analysis (SCA). #Salah. Analisis SCA memindai pustaka dan komponen pihak ketiga dalam pohon direktori kode sumber yang dibangun pengembang untuk mencari komponen yang kadaluwarsa, yang tetap memerlukan interogasi pada tingkat build aplikasi.
+}
+
+::D6-Q80:: Klien Anda meminta laporan audit SOC (System and Organization Controls) untuk mengevaluasi kualitas layanan cloud Anda. Mereka ingin jaminan bahwa desain kontrol keamanan Anda baik, dan kontrol tersebut telah beroperasi secara efektif selama periode waktu minimal enam bulan terakhir. Laporan spesifik apa yang harus Anda terbitkan untuk klien ini? {
+=SOC 2 Type II. #Benar! Laporan SOC 2 Type II berfokus pada sistem keamanan teknis dan mencakup opini auditor secara mendalam mengenai efektivitas operasional kontrol berdasarkan pengujian berkelanjutan dalam rentang periode waktu tertentu.
+~SOC 2 Type I. #Salah. Laporan Type I memang menilai desain kontrol keamanan teknis namun hanya dievaluasi pada satu titik waktu tertentu (snapshot point in time) tanpa memverifikasi bukti efektivitas operasinya dari waktu ke waktu.
+~SOC 1 Type II. #Salah. Laporan SOC 1 berfokus secara eksklusif pada pengujian kontrol internal yang relevan dengan pelaporan transaksi keuangan manajerial klien, bukan diperuntukkan bagi penilaian arsitektur keamanan teknologi informasi secara luas.
+~SOC 3. #Salah. Laporan SOC 3 ditujukan khusus untuk rilis publik sebagai bukti ringkas kepatuhan keamanan pemasaran web, tetapi klien korporat yang membutuhkan rincian pengujian efektivitas mendalam mutlak memerlukan pembagian SOC 2 Type II dengan perjanjian kerahasiaan.
+}
+
+::D6-Q81:: Setelah menjalankan perangkat otomatis pemindaian kerentanan (vulnerability scanner) bulanan, Anda menerima hasil pelaporan yang mengandung ratusan peringatan kelemahan. Sesuai metodologi alur kerja manajemen kerentanan, apa langkah administratif operasional yang harus segera Anda lakukan sebelum memerintahkan perbaikan? {
+=Validation. #Benar! Langkah validasi (Validation) selalu dilakukan setelah deteksi guna mengonfirmasi bahwa peringatan kerentanan tersebut nyata relevan serta berupaya menyingkirkan hasil peringatan positif palsu (false-positive) dari laporan otomatis.
+~Remediation. #Salah. Proses remediasi (seperti menerapkan file patch ke peladen) hanya boleh dilakukan sesudah administrator mevalidasi bahwa masalah dari laporan tersebut valid dan nyata.
+~Exception handling. #Salah. Proses penanganan pengecualian baru dibuat apabila manajemen sepakat bahwa kelemahan itu valid namun mereka secara bisnis lebih memilih menerima risikonya ketimbang mengizinkan administrator melakukan remediasi.
+~Disclosure. #Salah. Pengungkapan (disclosure) merujuk pada tata krama etika profesional pelaporan temuan kerentanan baru (zero-day) kepada vendor publik, bukan bagian alur penanganan laporan pemindaian infrastruktur rutin organisasi internal.
+}
+
+::D6-Q82:: Dalam pengujian daya tahan perangkat lunak, tim QA (Quality Assurance) Anda menggunakan alat yang menyuntikkan data input acak yang dimodifikasi (seperti membalikkan bit atau mengubah sebagian kecil string) dari data yang sebelumnya berformat valid, guna melihat apakah aplikasi akan mogok (crash). Metode khusus apakah ini? {
+=Mutation fuzzing. #Benar! Teknik Mutation fuzzing (atau dumb fuzzing) beroperasi dengan memodifikasi input yang sudah valid sebelumnya lalu sedikit memutasi struktur datanya untuk menciptakan muatan tak terduga dalam menguji daya tahan aplikasi.
+~Generational fuzzing. #Salah. Generational fuzzing (atau intelligent fuzzing) mengembangkan model input tak terduga sepenuhnya dari awal secara sintesis berdasarkan pemahaman format data program yang ditargetkan tanpa memutasi data lama.
+~Dynamic Application Security Testing (DAST). #Salah. DAST memang alat dinamis berbasis web tetapi istilah pengujian yang secara spesifik menjebol batas buffer melalui injeksi bit acak yang rusak disebut perangkat fuzzing (fuzz testing).
+~Misuse case testing. #Salah. Uji Misuse case mengevaluasi keamanan melalui model skenario ancaman penyalahgunaan fungsi logika bisnis secara sadar oleh penyerang dan bukan intervensi otomatis acak pembengkokan bit data.
+}
+
+::D6-Q83:: Sebagai CISO, Anda ingin berinvestasi dalam sistem otomatis baru yang secara terus-menerus menyuntikkan muatan indikator ancaman serangan (seperti beacon malware tiruan) ke seluruh jaringan untuk membuktikan kepada Anda apakah sensor IDS dan IPS Anda sungguh-sungguh mendeteksi penjahat siber. Konsep alat apakah ini? {
+=Breach and Attack Simulation (BAS). #Benar! Platform BAS mengotomatisasi injeksi berbagai vektor serangan tiruan canggih untuk menguji, memvalidasi, serta menantang efektivitas sensor dan kendali pertahanan keamanan infrastruktur secara persisten tanpa memecahkan sistem.
+~Security Information and Event Management (SIEM). #Salah. SIEM adalah perangkat agregasi dan korelasi penerima data laporan sensor log peringatan yang bersifat pasif bereaksi dan sama sekali bukan mesin simulasi otomatis pembuat serangan simulasi siber nyata.
+~Synthetic transactions. #Salah. Pemantauan transaksi sintetis mengirimkan bot pengguna tiruan untuk menguji fungsionalitas dan ketersediaan waktu respons aplikasi e-commerce dari sisi klien, bukan menyimulasikan taktik peretasan IDS.
+~Vulnerability Scanner. #Salah. Pemindai kerentanan hanya memindai patch peladen secara pasif untuk mencari port yang berlubang, ia tidak secara dinamis menembakkan perilaku kill-chain eksploitasi serangan siber pada perangkat IPS internal.
+}
+
+::D6-Q84:: CISO Anda ingin memastikan kinerja situs web toko daring perusahaan tidak pernah lambat dan fungsi keranjang belanjanya bebas hambatan. Ia menerapkan sebuah skrip otomatis berulang yang bertindak seolah ia adalah pelanggan yang selalu berbelanja dan melakukan pembayaran. Pemantauan proaktif apa yang sedang diterapkan? {
+=Synthetic transactions. #Benar! Transaksi buatan (Synthetic monitoring atau transactions) menggunakan program skrip otomatis menyerupai klien untuk berulang kali menguji fungsionalitas logika serta memantau kinerja keandalan aplikasi web bagi pengguna secara proaktif.
+~Real User Monitoring (RUM). #Salah. Pemantauan pengguna nyata (RUM) merupakan pengawasan pasif secara murni yang hanya merakit aktivitas lalu lintas koneksi konsumen manusia sesungguhnya yang sedang berinteraksi di situs, bukan skrip simulasi rekayasa mesin penguji performa keranjang secara buatan.
+~Exception handling. #Salah. Penanganan pengecualian berkaitan dengan penerimaan risiko formal pada rapat manajemen saat kontrol pengaman dianggap tidak layak secara biaya (cost-benefit) untuk diluncurkan ke operasi, sama sekali tidak terkait kinerja uptime keranjang web.
+~Coverage analysis. #Salah. Analisis cakupan adalah evaluasi statistik jaminan mutu pengembangan aplikasi seberapa persentase baris kode sumber pengembang yang berhasil diaktifkan selama pengujian QA.
+}
+
+::D6-Q85:: Saat Anda menyelidiki dugaan terjadinya eksfiltrasi (pencurian) data massal perusahaan ke cloud asing publik, Anda perlu memverifikasi log koneksi untuk melihat seberapa besar metrik jumlah volume transfer byte aktual yang terjadi pada tautan tersebut. Komponen arsip log spesifik apa yang diformat untuk investigasi informasi ini? {
+=Network flow logs. #Benar! Data log aliran jaringan (NetFlow logs) melacak rekaman alamat IP asal dan tujuan port komunikasi beserta indikator spesifik terkait volume atau ukuran pasti dari gigabyte lalu lintas data yang telah ditransfer antara dua titik, sehingga paling handal menelusuri ukuran insiden eksfiltrasi informasi yang meledak.
+~Security event logs. #Salah. Log peristiwa keamanan di sistem operasi ujung sangat berharga untuk merekam otentikasi login, perubahan hak, maupun akses hapus pada sistem lokal tetapi ia gagal melacak agregasi ukuran transfer kecepatan bandwidth lintas antarmuka border jaringan keluaran.
+~Proxy server logs. #Salah. Log peladen proxy menelusuri penelusuran sejarah pengguna mengenai nama domain apa saja (URL situs web) yang secara visual mereka navigasikan namun NetFlow adalah instrumen rekayasa router yang secara komprehensif memetakan seberapa tebal muatan eksfiltrasi data tingkat protokol mesin.
+~Database application logs. #Salah. Log aplikasi basis data menunjukkan aktivitas eksekusi perintah baris pemanggilan bahasa kueri (seperti injeksi modifikasi tabel relasional SQL) dan tidak secara otomatis mengkuantifikasi jumlah transfer data Layer 3 antar wilayah WAN geografis untuk tujuan melacak exfiltrasi masif keluar gedung.
+}
+
+::D6-Q86:: Anda seorang peneliti keamanan independen yang baru saja mendeteksi kelemahan eksploitasi tipe zero-day pada pustaka komponen aplikasi e-commerce yang digunakan sangat luas di seluruh industri. Berdasarkan panduan standar pengungkapan etis terbaik, tindakan metodologis pertama apa yang wajib Anda jalankan secara profesional? {
+=Memberi tahu vendor pengelola aplikasi tersebut secara rahasia dan memberi mereka kerangka waktu wajar untuk merilis penambal (patch) perangkat lunak sebelum Anda mempublikasikannya ke khalayak global. #Benar! Panduan pengungkapan etis yang bertanggung jawab (responsible ethical disclosure) mewajibkan pelapor memberikan pembuat atau penyedia layanan kesempatan memperbaikinya agar peretas jahat tidak mendapat akses menghancurkan masyarakat konsumen secara seketika sebelum sistem siap diamankan.
+~Segera mempublikasikan langkah eksploitasi peretasan zero-day pada umpan intelijen media sosial daring untuk memperingatkan basis pelanggan masyarakat (Full disclosure) tanpa penundaan. #Salah. Mempublikasikan cacat nol hari secara langsung (Full Disclosure) tanpa jeda pengembangan tambalan pengaman adalah tindakan sangat berbahaya dan sangat tidak disarankan karena alat persenjataan instan disodorkan kepada sindikat dunia bawah sebelum pemilik web mampu bertahan.
+~Menguji kode nol hari tersebut langsung di portal daring bisnis institusi kompetitor perusahaan Anda untuk memastikan ia memang berfungsi. #Salah. Mengeksploitasi dan menerobos properti infrastruktur digital organisasi pihak luar tanpa izin otoritas hukum eksplisit sangat mengabaikan sumpah profesional kode etik (CFAA) dan dikategorikan peretasan tidak sah secara pidana.
+~Abaikan saja karena pustaka pihak ketiga tidak memengaruhi pendapatan produk finansial tempat Anda bekerja dan bukan wewenang kontrak keamanan Anda. #Salah. Meskipun pemelihara pustaka peranti tersebut berasal dari sumber luar bebas, menyembunyikan penemuan ancaman tanpa kepedulian adalah melawan komitmen kanon etika pengamanan kesejahteraan masyarakat internet luas.
+}
+
+::D6-Q87:: Di akhir tahun perusahaan Anda menyewa para pakar peretasan untuk bermain peran uji penetrasi. Pada simulasi tersebut terdapat satu kelompok staf pengamat yang berdiri di tengah bertindak sebagai juri netral untuk mengatur kepatuhan hukum, menilai hasil pembelajaran, dan memastikan keamanan fasilitas operasional tak rusak. Anggota kelompok apakah ini? {
+=White team. #Benar! Pengawas latihan tim putih (White team) berdiri mengelola latihan sebagai komite netral dengan wewenang menjurikan permainan dan menjamin tidak ada insiden yang berpotensi menghancurkan lalu lintas layanan bisnis yang sesungguhnya karena keagresifan simulasi penyerang.
+~Red team. #Salah. Anggota tim merah (Red team) disewa dan memerankan agresor atau pihak musuh sejati (attacker) yang berupaya merobohkan dan menyusup ke benteng tanpa terlihat.
+~Blue team. #Salah. Anggota tim biru (Blue team) murni bertindak sebagai pekerja pengamanan operasional IT internal (defender) di sisi penyedia yang tugas fungsinya mencegah insiden, melakukan respon taktis terhadap deteksi tim musuh, serta mempertahankan benteng.
+~Purple team. #Salah. Anggota tim ungu (Purple team) bukan merupakan juri permainan melainkan sesi fusi interaktif dari Red Team yang terbuka menceritakan strateginya langsung ke Blue team untuk menyesuaikan pengaturan kalibrasi deteksi pertahanan secara real-time guna transfer pengetahuan.
+}
+
+::D6-Q88:: Sebagai analis perangkat lunak Anda sangat bergantung pada arsitektur microservices terdistribusi yang sangat bergantung satu sama lain untuk bertukar muatan otorisasi identitas lintas komponen layanan server tanpa perantara layar manusia grafis pengguna (GUI). Aktivitas pengujian kualitas rekayasa jaringan spesifik mana yang harus ditingkatkan dalam mengaudit titik komunikasi antar entitas lunak terdistribusi ini? {
+=Application Programming Interface (API) testing. #Benar! Pengujian keamanan antarmuka yang sangat spesifik dan esensial dalam mikroservis perangkat lunak backend adalah validasi API testing (pengujian API jaringan) untuk melacak parameter injeksi keamanan penanganan sinkronisasi antar server layanan agar mereka berkomunikasi secara sempurna terlindung dari akses yang ditiru atau tidak sah.
+~User interface (UI) testing. #Salah. Uji peranti visual UI menguji klik fungsionalitas estetika antarmuka representasi layar konsumen interaksi ujung manusia. Pengujian ini gagal melacak cacat koneksi bahasa tingkat struktur data backend (API) perakitan komunikasi program fungsional mikro.
+~Physical interface testing. #Salah. Uji parameter antarmuka fisik memeriksa fungsi kelistrikan perangkat keras pengkabelan (seperti saklar konektor ethernet atau USB), ini sangat tidak nyambung dengan metodologi pengecekan kelemahan bahasa mikroservis web program.
+~Statement coverage validation. #Salah. Analisis cakupan perintah skrip pemrograman perangkat lunak secara statistik mempresentasikan presentase verifikasi dari berapakah angka total baris skrip sumber logika telah diuji pada sistem komputasi namun bukan sebuah sebutan teknik validasi jaringan titik sambungan komponen antar peladen web mikro.
+}
+
+::D6-Q89:: Administrator akses identitas mengawasi tinjauan hak sistem (account review). Ia melihat data riwayat seorang pekerja kepala divisi yang mulanya berprofesi sebagai teknisi helpdesk bertahun lalu ternyata pada sistem peladennya ia hari ini secara kumulatif memiliki akses reset kata sandi dan persetujuan pengadaan kas pembelian manajemen, karena pembaruan wewenang lamanya belum pernah diamputasi pihak HR dari sistem jaringan. Terminologi pelanggaran kelemahan kontrol audit sistem hak cipta pengguna yang paling sesuai adalah? {
+=Privilege creep. #Benar! Indikator eskalasi penumpukan hak perizinan keamanan administrator yang berkembang pesat (dan terlupakan pengakhirannya) di sepanjang perpindahan siklus mobilitas perjalanan sejarah rekam jejak pekerjaan karyawan berpotensi mengekspos penyalahgunaan wewenang perusahaan yang dikategorikan insiden pelaporan kelebihan izin administratif (privilege creep).
+~Spear phishing incident. #Salah. Spear phishing (pishing tertarget) tidak masuk akal dalam audit karena ia adalah tindakan invasi pemancingan surel kriminal siber (email eksploitasi serangan buatan), bukan kegagalan manajerial dari kelebihan akumulasi riwayat hak wewenang akses jaringan operasional.
+~Separation of duties (SoD). #Salah. Segregasi batasan tugas merupakan doktrin fundamental administrasi untuk secara paksa membongkar hak kontrol besar pengguna sehingga mereka tidak bisa merampok dan menutupi korupsinya secara rahasia sendirian, namun dalam soal ini praktik SoD justru digagalkan akibat fenomena tersebut.
+~Mandatory access control (MAC). #Salah. Manajemen perizinan ini merupakan kontrol izin akses yang ditata berdasarkan kaku label kliring kerahasiaan keamanan negara pemerintahan terpusat murni yang membatasi hak pengguna melalui klasifikasi subjek dan obyek dan tidak cocok mendeskripsikan tren pelaporan anomali audit penumpukan evolusi hak administrator seiring evolusi masa bertugas pekerja korporat di atas.
+}
+
+::D6-Q90:: Manajemen direktur IT ingin memastikan kinerja keseluruhan operasi deteksi pertahanan (SecOps) dievaluasi dalam rapat tahunan pemegang saham dengan memberikan metrik laporan dasbor. Laporan ringkas menyajikan laporan "Persentase waktu rata-rata staf menyelesaikan perbaikan kelemahan patch server utama". Klasifikasi agregat sistem presentasi tingkat tinggi untuk mengukur tolok ukur kesuksesan departemen dalam mengelola sasaran organisasi disebut dengan? {
+=Key Performance Indicator (KPI). #Benar! Manajemen eksekutif menyusun matriks indikator pengukuran tingkat tinggi efisiensi departemen fungsional dalam melakukan sasaran target keamanan TI perusahaan secara kuantitatif yang dikenal sebagai Indikator Kinerja Utama (Key Performance Indicator).
+~Key Risk Indicator (KRI). #Salah. Metrik indikator pelaporan dewan atas potensi resiko tingkat dewan manajerial merujuk pada pemantauan visual grafik ancaman masa yang akan datang dan seberapa parah serangan dunia maya atau insiden merugikan secara harian di ekosistem perusahaannya, di sisi lain laporan di soal menilai sukses waktu penanganan tambalan secara kuantitas produktivitas (Kinerja atau KPI).
+~Service Level Agreement (SLA). #Salah. Kontrak Service Level Agreement menjamin secara hukum antara penyedia host pihak ketiga eksternal untuk tidak boleh gagal membiarkan pelanggan turun dari prosentase layanan sistem koneksi atau sanksi dibayar dan tidak berkaitan mengukur persentase manajemen operasi keamanan dari karyawan departemen TI miliknya sendiri secara dasbor evaluasi.
+~Evaluation Assurance Level (EAL). #Salah. Ini mendeskripsikan peringkat kelas sistem angka yang disematkan ke produk sertifikasi spesifikasi keamanan Common Criteria (level perangkat keras lunak pemerintah 1 hingga 7) namun tidak berguna menjadi alat pantau metrik operasi manajerial direktur dasbor pembaruan patch server sehari-hari milik organisasi.
+}
+
+::D6-Q91:: Dalam prosedur audit Pengujian Pemulihan Bencana (Disaster Recovery Plan Testing) dewan manajemen diundang untuk berdiskusi dengan eksekutif operasi di lokasi darurat cadangan (hot site) guna meninjau skenario evakuasi yang parah dan benar-benar menekan staf untuk memutus pasokan listrik ke peladen pengolahan pusat data (data center utama) dan secara fungsional memaksa situs cadangan merelay pelayanan beban komunikasi komputasi eksternal harian pelanggannya secara penuh. Simulasi apa yang diinstruksikan dalam rencana evaluasi ketahanan eksekutif perbankan ini? {
+=Full-interruption test. #Benar! Tes berisiko sangat ekstrem yang mensimulasikan pemadaman nyata mematikan mesin lokasi operasi pelayanan pertama organisasi dengan sengaja ke situs layanan restorasi sekunder, disebut pemutusan menyeluruh gangguan penuh (full-interruption test).
+~Parallel test. #Salah. Tes beban operasi paralel (Parallel test) tidak memiliki efek pemadaman sistem lokasi pusat utama karena data produksi nyata digandakan ke lokasi alternatif cadangan darurat sebatas penjaminan saja untuk dikerjakan secara simulasi tiruan di sisi situs ganda serentak memastikan ia tidak memutus fungsional aliran operasional konsumen utama.
+~Tabletop exercise. #Salah. Diskusi read-through (Tabletop exercise) bersifat perumusan evaluasi diskusi tim meja ruang konferensi murni di atas secarik kertas belaka tidak melakukan relokasi personil perbankan apalagi pemadaman server operasi data perangkat pemrosesan secara komputasi teknikal.
+~Walk-through. #Salah. Pemeriksaan walk-through lebih banyak memandu pengecekan relokasi perpindahan simulasi komponen personil langkah demi langkah, namun ini tidak hingga mengambil tingkat langkah destruktif di hari berjalan memutus aliran sumber daya pemrosesan nyata transaksi mesin jaringan sentral utama bisnis perusahaan.
+}
+
+::D6-Q92:: Ahli penjamin mutu peranti lunak sedang mengembangkan kasus ancaman saat ia mulai secara sadar memasukkan angka "minus sepuluh rupiah (-10)" dalam form pengisian portal deposit saldo dengan skenario asumsi sengaja mengecoh validasi filter sehingga berpotensi mengeksploitasi celah perhitungan operasi matematika pada basis data backend komputasi kas untuk membengkakkan angka total rekening kepercayaannya. Latihan merancang pendekatan penanganan manipulasi masukan kreatif musuh yang tak terduga dalam peranti aplikasi ini dijuluki skenario pengujian apakah? {
+=Misuse case testing. #Benar! Uji Kasus Penggunaan yang salah (Misuse atau abuse case testing) dimodelkan untuk secara sistematis memeriksa ketangguhan aplikasi dalam menangkis alur skenario logika manipulatif penyerang di saat perilaku aktor dengan tujuan kriminal secara sengaja mengoperasikan eksploitasi antarmuka untuk mencuri fungsi produk berlawanan arah norma harapan fitur aslinya.
+~Mutation fuzzing. #Salah. Proses manipulasi serangan bit (fuzz testing) ditargetkan dalam mencari memori error eksploitasi perbatasan batas (crash overflow) akibat modifikasi parameter data masukan teknis otomatis secara buta acak dan ini belum tentu memeriksa kemampuan keamanan arsitektur uji ancaman konseptual penyalahgunaan kerentanan kasus logika minus seperti fungsionalitas saldo akun bank.
+~Code review. #Salah. Metrik tinjauan kode manual program per baris merupakan evaluasi pemantauan statis inspeksi visual tim internal di mana peranti sedang dalam kondisi offline (diam), di mana ini tidak cukup sebanding secara realistis meluncurkan uji dinamis memanipulasi celah perilaku penyalahgunaan input saldo pada fungsional skenario logika produk aktif di soal.
+~Static Application Security Testing (SAST). #Salah. Metode pengujian SAST hanya melihat kelemahan celah struktur skrip secara statik dan sangat jarang ditujukan untuk mengevaluasi fungsional eksploitasi model perilaku logika perancang penggunaan bisnis aktor kreatif manipulasi ancaman pada fungsional transaksi secara aktual interaktif seperti penjelasan saldo di atas.
+}
+
+::D6-Q93:: Di sebuah institusi keuangan di mana sedikit kecacatan kode akan merugikan bisnis miliaran rupiah, seluruh produk skrip arsitektur baru wajib melalui tinjauan pengembang pakar lainnya (peer validation) yang mewajibkan standar pengkategorian pertemuan teramat sangat spesifik dengan kriteria evaluasi ketat yang memuat alur langkah Planning, kemudian Overview, kemudian Preparation, disusul Inspection, diikuti oleh tindakan perbaikan Rework, dan ditutup di tahap komitmen Follow-up akhir untuk jaminan evaluasi keamanan produk lunak tersebut. Apakah label metode validasi ini? {
+=Fagan inspection. #Benar! Teknik Inspeksi Fagan (Fagan inspection) merupakan proses yang paling mengikat dan paling diformalkan ketat dari semua klasifikasi metode struktur uji tinjauan kode sesama pengembang manual (peer review manual code testing) ke dalam urutan langkah enam prosedur masuk keluar persis penjelasan pertanyaan.
+~Dynamic Application Security Testing (DAST). #Salah. Kerangka kerja DAST mengeksekusi uji pemindaian penargetan interaksi penyerangan waktu program peladen saat bekerja menyala aktif bukan metodologi inspeksi baca baris kode diam (statis) offline pada lingkungan pertemuan perbaikan rekan teknisi manusia tatap muka seperti uji metodologis inspeksi kaku fagan di soal.
+~Capability Maturity Model (CMM). #Salah. Skala CMM (berisi model tingkat kesadaran fase dari Initial ke Optimizing) dikerahkan mengevaluasi kematangan tingkat perbaikan organisasi keamanan di semua tahapan komprehensif, bukan model peninjauan uji peranti skrip spesifik siklus perbaikan kaku baris instruksi fagan inspection program sesama kolega secara manual.
+~Agile methodology. #Salah. Pendekatan lincah manajemen Scrum atau metodologi Agile merupakan falsafah metode koordinasi irama kerja pembuatan fitur pengembangan skrip berorientasi kecepatan putaran perulangan iteratif harian pengembang secara adaptif terhadap bisnis pelanggan dan jelas sekali metodologi ini tidak kaku seperti enam metodologi inspeksi fagan statis baca manual untuk audit kelemahan skrip aplikasi kuno.
+}
+
+::D6-Q94:: Departemen Anda baru berupaya menggunakan kamus otomatisasi penamaan dari protokol rujukan manajemen kerentanan keamanan infrastruktur kerangka spesifikasi referensi SCAP (Security Content Automation Protocol). Administrator butuh daftar id referensi rujukan standarisasi umum secara unik memberi stempel pengenalan identifikasi setiap deskripsi kelemahan penyerangan aplikasi keamanan di internet dengan pengenal sistem ID seperti "2023-45678" dari pengumuman pakar riset buletin MITRE dan digunakan secara sinkron universal berbagai vendor sistem kelemahan peladen perusahaan pemindai. Format akronim rujukan data nama tersebut adalah sistem? {
+=Common Vulnerabilities and Exposures (CVE). #Benar! Format standar kerangka kerentanan dari kamus penamaan kelemahan ancaman CVE menyelaraskan sistem ID nomenklatur terdistribusi referensi buletin kelemahan bug pada perangkat perangkat lunak peretas keamanan global dari banyak vendor secara standar seragam sehingga komunitas dunia memakai referensi nomor unik seragam dan sama yang memudahkan para praktisi dan produsen berkoordinasi menanggapi manajemen rujukan ancaman otomatis.
+~Common Vulnerability Scoring System (CVSS). #Salah. Mekanisme CVSS memberi kerangka parameter penaksiran ukuran penilaian derajat level intensitas kualitatif skor keparahan celah serangan matematika nilai metrik numerik hingga 10 untuk kelemahan eksploitasi bahaya perangkat otomatis, sehingga ini bukan format tabel referensi untuk membuat buku direktori penyatuan nama pelaporan standar perwakilan id sistem bahasa kerentanan CVE pada referensi di atas.
+~Common Platform Enumeration (CPE). #Salah. Metodologi sistem nomenklatur indeks direktori rujukan kamus label dari nama spesifikasi peralatan platform komponen sistem produk peladen sistem operasi rujukan mesin versi jaringan identitas aplikasi TI di internet secara konsisten, ia tidak mengumpulkan atau merujuk pangkalan direktori referensi nama indeks pada kerentanan/vulnerability (seperti halnya diatur kamus rujukan stempel standar rilis buletin pelacakan kerentanan format bug perangkat di penjelasan masalah pertanyaan sistem SCAP).
+~Extensible Configuration Checklist Description Format (XCCDF). #Salah. Komponen referensi pelaporan XCCDF memfasilitasi aturan struktur pembuatan bahasa pedoman instruksi skrip evaluasi keamanan perbandingan pemindaian standar kebijakan mesin daftar centang XML verifikasi kerentanan format aturan konfigurasi otomatis dasar. Elemen ini jelas secara mutlak berbeda ranahnya dengan sistem penomoran rujukan indeks kelemahan rilis publik pengidentifikasian eksploitasi peretasan kamus pengamanan kerentanan (yakni nomenklatur format nama bug perbaikan universal dunia standar CVE).
+}
+
+::D6-Q95:: Saat infrastruktur server perbankan yang Anda pertahankan secara korporat kewalahan melacak indikasi intrusi penyerangan dan penanganan masalah deteksi sistem ancaman lanjutan pergerakan insiden siber canggih, staf manajemen SOC mendeploy komponen platform server aplikasi berpusat yang berperan sangat komprehensif mengotomatisasikan korelasikan pengumpulan, peringatan sentral mesin analitik pengamatan penyaringan perincian dari pengidentifikasian ancaman mesin, penerimaan log laporan rekaman log dan peristiwa lalu lintas keamanan puluhan sistem IDS dan firewall berbeda log gabungan mesin peranti sekompleks sistem di seluruh dunia yang diterjemahkan langsung terpadu dengan pelaporan dasbor layar peretasan secara bersamaan otomatis ke konsol analitik cerdas peringatan notifikasi staf di waktu respons deteksi instan bagi peringatan investigasi deteksi penyimpangan dan deteksi pelanggaran di seluruh domain entitas log perangkat manajemen. Peranti deteksi apa yang mengagregasikan mesin fusi analisis pemantauan manajemen log canggih raksasa korelasi pelaporan di pusat konsol ruang pemantau kejadian operasional intelijen waktu jaringan nyata Anda untuk deteksi insiden sistem ini? {
+=Security Information and Event Management (SIEM). #Benar! Instrumen sentral mesin SIEM menjadi otak peladen manajemen informasi pemantauan agregator deteksi perangkat analitik sentralisasi pelaporan fusi acara korelasional otomatis pengumpul raksasa catatan pengintaian alarm log deteksi sensor pertahanan IDS dan log peralatan peringatan peladen peretas untuk manajemen intelijen laporan investigasi jaringan penyimpangan pergerakan analitik deteksi SOC waktu insiden di waktu nyata perihal deteksi jaringan peringatan pengamanan organisasi sentral gabungan peringatan administrator peringatan korelasi untuk analisis canggih peringatan seluruh jaringan log peristiwa keamanan secara masif instan dan pelaporan penanganan pemusatan layar tunggal terpusat.
+~Intrusion Prevention System (IPS). #Salah. Peralatan NIPS pencegah inline penanggulangan aktif inspeksi ancaman memblokir memutus lalu lintas muatan infeksi eksploitasi peringatan jaringan aktif berbahaya serangan penangkal proaktif yang secara langsung tidak murni secara khusus menjadi kolektor repositori raksasa agregasi mesin korelasi konsol gabungan fusi pangkalan penganalisis penyelarasan intelijen audit log pelaporan seluruh jaringan dari database server direktori otentikasi sentral seperti yang menjadi porsi peranti manajerial informasi korelasi acara terpusat manajemen agregat log canggih pusat analitik perangkat keamanan acara manajemen informasi SIEM.
+~Data Loss Prevention (DLP). #Salah. Sistem peranti lunak teknologi gateway filter kontrol transmisi kebijakan egress lalu lintas DLP ditujukan melacak serta proaktif menghalang transmisi deteksi ekspor pengiriman eksfiltrasi transfer pembagian lalu lintas paket email kata kunci muatan berformat data muatan PII kerahasiaan nomor sensitif hak kekayaan keluar meninggalkan gedung internal manajemen menuju penyerang eksternal secara pasif peringatan ke internet. Meski demikian aplikasi DLP di perimeter batas tidak berfokus bertindak sentral memonitor pengkorelasian platform besar pusat pengelola pelaporan gabungan analisis pemrosesan pangkalan log kejadian keamanan intelijen ancaman gabungan alarm ratusan sistem masuk deteksi pusat analitik peladen manajemen SIEM dasbor agregasi pemantauan korelasi gabungan data log komputasi arsitektur pertahanan keamanan informasi di seluruh sistem operasi keamanan operasional perusahaan sentral SIEM pemantauan acara sentral peringatan organisasi log.
+~Syslog daemon. #Salah. Protokol utilitas pesan daemon antarmuka jaringan Unix syslogs merupakan format spesifikasi standar transport untuk log komunikasi saluran aliran sederhana dan penyalur dasar pengumpulan peringatan mesin pelaporan pencatatan dasar teks file data pemeliharaan tanpa memfasilitasi integrasi antarmuka peranti otak kecerdasan penganalisa sentral peranti dasbor gabungan penganalisis pemantauan alat pemrosesan korelasi alarm platform besar analisis peringatan peristiwa informasi intelijen peringatan analitis peladen agregat pusat arsitektur operasional mesin pengamanan korelasi peringatan dasbor kejadian SIEM analitik peretasan peringatan dasbor sentral peringatan otomatis manajemen sistem keamanan terpusat untuk peringatan operasi pemantauan intelijen SOC agregator keamanan log kejadian log deteksi terpusat informasi ancaman insiden fusi keamanan jaringan komprehensif analisis penyimpangan canggih untuk peringatan organisasi pusat log korelasi canggih sentral.
+}
+
+::D6-Q96:: Tim pengembang perangkat lunak di organisasi Anda menggunakan proses peninjauan kode yang sangat ketat dan formal dengan enam tahapan yang memiliki kriteria masuk dan keluar yang jelas (Inspeksi Fagan). Setelah tim memperbaiki kode berdasarkan temuan cacat di tahap "Rework", apa tahap akhir yang harus mereka laksanakan dalam metodologi inspeksi ini? {
+=Follow-up. #Benar! Dalam inspeksi Fagan yang merupakan peninjauan kode paling formal, tahapan terakhir setelah Rework adalah Follow-up untuk memastikan perbaikan benar-benar telah dilakukan secara tepat tanpa menimbulkan masalah baru.
+~Preparation. #Salah. Persiapan (Preparation) dilakukan sebelum inspeksi aktual dimulai, bukan setelah pengerjaan ulang.
+~Planning. #Salah. Perencanaan (Planning) adalah langkah pertama dalam keseluruhan proses inspeksi Fagan, bukan yang terakhir.
+~Static application security testing. #Salah. Ini adalah teknik pengujian kode keamanan aplikasi secara otomatis menggunakan perangkat lunak, bukan tahapan dalam proses peninjauan kode (peer review) manual seperti inspeksi Fagan.
+}
+
+::D6-Q97:: Manajemen menyewa konsultan eksternal untuk melakukan pengujian penetrasi pada sistem infrastruktur yang baru. Karena kendala waktu dan anggaran, manajemen memberikan konsultan tersebut sebagian informasi tentang arsitektur jaringan dan kredensial tingkat pengguna biasa untuk memulai serangannya. Pendekatan pengujian apa yang sedang diterapkan? {
+=Gray-box penetration test. #Benar! Gray-box testing (atau pengujian pengetahuan parsial) memberikan penyerang sebagian kecil informasi tentang sistem target untuk menyeimbangkan keuntungan antara pengujian white-box dan black-box serta menghemat waktu simulasi.
+~White-box penetration test. #Salah. White-box testing memberikan informasi yang sangat detail dan lengkap tentang konfigurasi sistem, arsitektur, dan kode sumber kepada penguji sebelum serangan dimulai.
+~Black-box penetration test. #Salah. Black-box testing menyimulasikan penyerang eksternal sejati dengan tidak memberikan informasi atau kredensial internal apa pun kepada penguji sebelum serangan dilakukan.
+~Breach and attack simulation. #Salah. Ini adalah alat atau platform otomatis yang terus-menerus menyimulasikan vektor serangan (BAS), bukan terminologi tingkat pengetahuan awal untuk seorang konsultan manusia.
+}
+
+::D6-Q98:: Saat mengevaluasi seberapa menyeluruh pengujian perangkat lunak (QA) telah dilakukan, Anda menggunakan rumus matematis dengan membagi jumlah kasus penggunaan (use cases) yang benar-benar telah diuji dengan total seluruh kasus penggunaan yang berhasil diidentifikasi dalam desain. Proses evaluasi apa yang sedang Anda lakukan? {
+=Test coverage analysis. #Benar! Analisis cakupan pengujian (Test coverage analysis) digunakan untuk mengestimasi tingkat pengujian perangkat lunak yang telah dilakukan dengan membagi jumlah use case yang diuji dengan total use case yang ada.
+~Misuse case testing. #Salah. Misuse case testing adalah proses memodelkan, mengidentifikasi, dan mencoba mengeksploitasi skenario penyalahgunaan perangkat lunak oleh aktor jahat, bukan perhitungan rasio matematis cakupan pengujian.
+~Synthetic monitoring. #Salah. Pemantauan buatan (sintetis) menggunakan bot untuk melakukan transaksi rutin secara berkala guna menilai kinerja situs web di lingkungan operasi, bukan menganalisis cakupan tes dalam pengembangan perangkat lunak.
+~Fuzz testing. #Salah. Fuzz testing adalah metode menyuntikkan input acak atau tidak valid untuk mencari kerentanan, dan pendekatan ini secara inheren justru tidak dapat menjamin maupun mengukur persentase cakupan pengujian secara akurat.
+}
+
+::D6-Q99:: Sebuah penyedia layanan cloud (CSP) diminta memberikan laporan audit kepada klien korporat mereka. Klien tersebut mensyaratkan bukti bahwa kontrol keamanan CSP tidak hanya dirancang dengan baik, tetapi juga benar-benar telah beroperasi secara efektif selama periode waktu enam bulan terakhir. Jenis laporan audit apa yang secara spesifik memenuhi persyaratan ini? {
+=SOC 2 Type II. #Benar! Laporan SOC 2 Type II memberikan opini mendalam dari auditor atas desain sekaligus efektivitas operasi dari kontrol keamanan organisasi selama periode waktu tertentu (biasanya minimal enam bulan).
+~SOC 2 Type I. #Salah. Laporan Type I hanya mengevaluasi kesesuaian desain kontrol pada satu titik waktu tertentu (point in time), dan tidak menguji efektivitas operasinya sepanjang kerangka waktu historis tertentu.
+~SOC 1 Type II. #Salah. Laporan SOC 1 berfokus secara eksklusif pada kontrol internal terhadap pelaporan keuangan (financial reporting), bukan kontrol kerahasiaan dan keamanan teknologi untuk klien layanan cloud.
+~SOC 3. #Salah. Laporan SOC 3 adalah versi ringkasan level tinggi dari SOC 2 yang ditujukan untuk rilis dan pemasaran publik, sehingga laporan ini mengaburkan detail teknis mendalam yang diminta klien korporat.
+}
+
+::D6-Q100:: Dalam pelaksanaan pengujian penetrasi (penetration testing), seorang analis keamanan telah selesai memetakan jaringan dan menemukan beberapa kerentanan port. Ia kini mulai menjalankan perangkat lunak Metasploit Framework untuk mencoba meretas masuk secara aktif dan menembus sistem keamanan target. Di fase manakah analis tersebut berada saat ini? {
+=Fase Attack. #Benar! Fase serangan (Attack phase) adalah langkah di mana penguji benar-benar mencoba menembus keamanan sistem dengan mengeksploitasi kerentanan yang teridentifikasi untuk mendapatkan akses tanpa izin menggunakan alat otomatis maupun manual.
+~Fase Discovery. #Salah. Fase penemuan (Discovery) difokuskan pada pengumpulan informasi dan pemindaian kerentanan. Pada titik skenario di atas, fase penemuan sudah selesai dan sudah bergeser ke eksploitasi.
+~Fase Planning. #Salah. Fase perencanaan difokuskan pada penentuan ruang lingkup persetujuan secara hukum dan aturan keterlibatan (Rules of Engagement) sebelum satu pun perangkat teknis dijalankan ke arah target.
+~Fase Reporting. #Salah. Fase pelaporan dilakukan di tahapan paling akhir untuk mendokumentasikan ringkasan hasil keberhasilan maupun kegagalan eksploitasi lalu menyajikannya ke manajemen dengan rekomendasi perbaikan.
+}

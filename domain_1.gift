@@ -1,0 +1,699 @@
+::D1-Q01 :: Manakah dari prinsip dasar keamanan informasi berikut yang memastikan bahwa data mempertahankan kebenaran dan keandalannya serta mencegah modifikasi yang tidak sah? {
+=Integritas #Benar! Integritas adalah konsep untuk melindungi keandalan dan kebenaran data serta mencegah perubahan yang tidak sah.
+~Kerahasiaan #Salah. Kerahasiaan berfokus pada pencegahan pengungkapan data kepada pihak yang tidak berwenang.
+~Ketersediaan #Salah. Ketersediaan memastikan subjek yang berwenang memiliki akses yang tepat waktu dan tidak terputus ke objek.
+~Nonrepudiasi #Salah. Nonrepudiasi memastikan bahwa seseorang tidak dapat menyangkal telah melakukan suatu tindakan.
+}
+
+::D1-Q02 :: Dalam model kontrol akses AAA langkah manakah yang berfokus pada verifikasi bahwa subjek benar benar merupakan identitas yang mereka klaim? {
+=Autentikasi #Benar! Autentikasi adalah proses untuk memverifikasi atau menguji bahwa identitas yang diklaim tersebut adalah valid.
+~Identifikasi #Salah. Identifikasi adalah proses awal di mana subjek mengklaim sebuah identitas dan belum memverifikasinya.
+~Otorisasi #Salah. Otorisasi menentukan hak dan izin yang diberikan kepada subjek setelah mereka diautentikasi.
+~Akuntansi #Salah. Akuntansi melacak dan merekam tindakan subjek untuk meminta pertanggungjawaban mereka.
+}
+
+::D1-Q03 :: Anda baru saja diangkat sebagai manajer keamanan. Untuk memastikan tata kelola keamanan yang paling efektif, fokus utama perencanaan keamanan Anda harus diarahkan pada tindakan apa? {
+=Penyelarasan fungsi keamanan dengan strategi dan tujuan bisnis organisasi #Benar! Tata kelola keamanan harus menyelaraskan fungsi keamanan dengan strategi dan tujuan organisasi secara keseluruhan serta didukung oleh manajemen senior.
+~Pembelian teknologi firewall terbaru #Salah. Membeli teknologi tanpa perencanaan yang berpusat pada bisnis tidak menjamin keamanan yang selaras dengan tujuan organisasi.
+~Membatasi akses secara ketat di seluruh jaringan #Salah. Pembatasan yang kaku dan tidak selaras dengan kebutuhan bisnis akan menghambat operasional organisasi.
+~Melakukan pemindaian kerentanan setiap hari #Salah. Pemindaian adalah alat teknis operasional dan bukan langkah utama dalam mendesain strategi tata kelola keamanan mendasar.
+}
+
+::D1-Q04 :: Saat menganalisis kerentanan aplikasi web menggunakan model ancaman STRIDE, Anda menemukan bahwa kata sandi pengguna dikirim dalam bentuk teks terang yang dapat disadap. Kategori ancaman manakah yang paling akurat menggambarkan hal ini? {
+=Information Disclosure #Benar! Pengungkapan informasi sensitif kepada entitas yang tidak berwenang masuk dalam kategori Information Disclosure pada model STRIDE.
+~Spoofing #Salah. Spoofing adalah upaya menyamar sebagai entitas yang sah untuk mendapatkan akses melalui identitas palsu.
+~Tampering #Salah. Tampering berfokus pada manipulasi atau perubahan data secara tidak sah baik saat transit maupun tersimpan.
+~Elevation of Privilege #Salah. Ini adalah serangan di mana pengguna terbatas mendapatkan hak istimewa yang lebih tinggi secara tidak sah.
+}
+
+::D1-Q05 :: Sebuah fasilitas senilai 500000 Dolar memiliki risiko kebakaran dengan Exposure Factor 50 persen. Annualized Rate of Occurrence diperkirakan 0 koma 1. Berapakah Annualized Loss Expectancy yang akan Anda evaluasi? {
+=25000 Dolar #Benar! ALE dihitung dengan mengalikan Asset Value dengan Exposure Factor lalu dikalikan ARO sehingga menghasilkan 25000 Dolar.
+~250000 Dolar #Salah. Angka ini adalah Single Loss Expectancy yaitu hasil dari AV dikali EF dan belum dikalikan dengan ARO.
+~50000 Dolar #Salah. Ini adalah hasil perkalian yang keliru karena rumus yang tepat akan menghasilkan angka 25000 Dolar.
+~5000 Dolar #Salah. Perhitungan tidak tepat karena rumus yang benar adalah ALE sama dengan AV dikali EF dikali ARO.
+}
+
+::D1-Q06 :: Dalam menyusun dokumen Business Impact Analysis dari awal, langkah pertama apa yang secara kritis harus Anda identifikasi terlebih dahulu agar analisis berjalan tepat sasaran? {
+=Identifikasi prioritas bisnis #Benar! Langkah pertama dari proses penilaian dampak bisnis adalah mengidentifikasi prioritas bisnis yang penting bagi kelangsungan organisasi.
+~Penilaian kemungkinan ancaman #Salah. Penilaian kemungkinan ancaman dilakukan setelah prioritas dan risiko telah diidentifikasi.
+~Identifikasi risiko #Salah. Identifikasi risiko merupakan langkah kedua dalam BIA setelah Anda berhasil mengidentifikasi prioritas bisnis.
+~Prioritas sumber daya #Salah. Prioritas sumber daya adalah langkah terakhir dalam BIA setelah semua dampak dihitung.
+}
+
+::D1-Q07 :: Sebuah perusahaan rumah sakit harus memastikan keamanan data pasiennya. Hukum mana di Amerika Serikat yang secara langsung mewajibkan perlindungan privasi atas Informasi Kesehatan yang Dilindungi? {
+=Health Insurance Portability and Accountability Act #Benar! Hukum ini mengamanatkan perlindungan privasi dan keamanan pada rekam medis atau informasi kesehatan pasien.
+~Gramm Leach Bliley Act #Salah. Hukum ini mengatur perlindungan informasi pribadi oleh institusi keuangan dan bukan fasilitas kesehatan.
+~Sarbanes Oxley Act #Salah. Hukum ini mengatur tentang pengendalian internal pelaporan keuangan di perusahaan publik.
+~Childrens Online Privacy Protection Act #Salah. Hukum ini mengatur pengumpulan data online dari anak anak dan bukan rekam medis.
+}
+
+::D1-Q08 :: Untuk memastikan bahwa tidak ada satu individu pun yang dapat menyetujui sekaligus mengeluarkan pembayaran, kontrol keamanan personel apa yang paling tepat untuk diaplikasikan? {
+=Pemisahan tugas #Benar! Pemisahan tugas memastikan tidak ada satu orang pun yang memiliki kendali total atas fungsi kritis sehingga mencegah penipuan.
+~Rotasi pekerjaan #Salah. Rotasi pekerjaan memindahkan karyawan ke peran berbeda secara berkala tetapi bukan membagi satu tugas kritis menjadi beberapa individu.
+~Liburan wajib #Salah. Liburan wajib memaksa karyawan cuti agar orang lain bisa mengungkap kecurangan tetapi tidak membagi otorisasi tugas harian.
+~Hak istimewa terkecil #Salah. Hal ini membatasi hak akses ke yang benar benar dibutuhkan tetapi tidak memecah satu proses persetujuan.
+}
+
+::D1-Q09 :: Sebuah server e commerce dapat menoleransi gangguan maksimal selama 2 jam sebelum kerugian menjadi tidak dapat diperbaiki. Apa metrik waktu yang paling tepat menganalisis batasan ini? {
+=Maximum Tolerable Downtime #Benar! MTD adalah waktu maksimum fungsi bisnis dapat mentolerir gangguan sebelum menderita kerugian yang tidak dapat diperbaiki.
+~Annualized Rate of Occurrence #Salah. ARO adalah frekuensi yang diharapkan dari sebuah ancaman terjadi dalam satu tahun.
+~Recovery Point Objective #Salah. RPO menentukan batas toleransi kehilangan data historis dan bukan batas toleransi durasi gangguan sistem.
+~Mean Time Between Failures #Salah. MTBF adalah estimasi waktu antara satu kegagalan perangkat dengan kegagalan berikutnya.
+}
+
+::D1-Q10 :: Jika perusahaan Anda memproses atau menyimpan data kartu kredit, kepatuhan terhadap standar keamanan spesifik apa yang wajib dilakukan? {
+=Payment Card Industry Data Security Standard #Benar! Standar ini dirancang khusus untuk memastikan perlindungan informasi kartu kredit dan debit yang sensitif.
+~General Data Protection Regulation #Salah. Aturan ini adalah regulasi perlindungan data pribadi dan privasi untuk warga Uni Eropa.
+~Federal Risk and Authorization Management Program #Salah. Ini adalah program penilaian dan otorisasi keamanan pemerintah AS untuk layanan cloud.
+~Control Objectives for Information and Related Technologies #Salah. Ini adalah kerangka kerja tata kelola TI dan bukan khusus untuk perlindungan kartu pembayaran.
+}
+
+::D1-Q11 :: Ketika organisasi memutuskan bahwa biaya mitigasi terlalu mahal lalu memilih membeli polis asuransi sebagai perlindungan kompensasi, teknik penanganan risiko apa yang digunakan? {
+=Pengalihan Risiko #Benar! Mengalihkan risiko adalah menempatkan tanggung jawab kerugian pada entitas lain dan contoh paling umum adalah dengan membeli asuransi.
+~Mitigasi Risiko #Salah. Mitigasi adalah pengaplikasian kontrol keamanan atau perlindungan untuk mengurangi kerentanan secara langsung.
+~Penghindaran Risiko #Salah. Menghindari risiko berarti mengubah rencana atau menjauhi operasi yang berisiko tersebut secara total.
+~Penerimaan Risiko #Salah. Penerimaan risiko berarti menyetujui untuk menanggung segala akibat kerugian dari risiko tersebut tanpa membeli asuransi.
+}
+
+::D1-Q12 :: Dalam mengevaluasi rantai pasokan perangkat keras, komponen apa yang terbaik dievaluasi untuk memastikan titik awal kepercayaan tahan rusak pada lapisan fisik guna menjamin integritas booting? {
+=Silicon Root of Trust #Benar! Komponen dasar tahan rusak di dalam perangkat keras yang memastikan integritas sistem dan boot aman disebut sebagai Silicon Root of Trust.
+~Software Bill of Materials #Salah. Komponen ini sangat baik untuk melihat bahan penyusun perangkat lunak tetapi tidak memberikan kontrol fisik perangkat keras.
+~Pengujian Fuzz #Salah. Pengujian ini adalah teknik analisis perangkat lunak dinamis untuk menemukan bug dengan input acak.
+~Data Loss Prevention #Salah. Sistem ini digunakan untuk mencegah transmisi data sensitif ke luar organisasi dan bukan memverifikasi integritas perangkat keras.
+}
+
+::D1-Q13 :: Saat tim Anda menggunakan kuesioner yang sangat bergantung pada intuisi serta pengalaman para ahli tanpa membuahkan nominal moneter pasti, proses apakah yang sedang dianalisis? {
+=Analisis Risiko Kualitatif #Benar! Analisis kualitatif berfokus pada persepsi ahli dan skenario dibandingkan nilai matematika moneter yang pasti.
+~Analisis Risiko Kuantitatif #Salah. Analisis kuantitatif secara tegas menggunakan perhitungan matematis yang menghasilkan indikasi numerik seperti ALE dan SLE.
+~Analisis Biaya dan Manfaat #Salah. Analisis ini dihitung secara matematis menggunakan variabel biaya pengamanan dan masuk ke ranah evaluasi kuantitatif.
+~Pemisahan Tugas #Salah. Pemisahan tugas adalah praktik pencegahan penipuan personel dan bukan metode penilaian risiko.
+}
+
+::D1-Q14 :: Anda menyusun dan menetapkan kerangka kerja kebijakan keamanan yang komprehensif bagi perusahaan. Tindakan awal menetapkan rencana ini mencerminkan implementasi prinsip apa? {
+=Due Diligence #Benar! Due diligence adalah tindakan menetapkan rencana dan kebijakan perlindungan untuk melindungi kepentingan organisasi.
+~Due Care #Salah. Due care lebih merujuk pada pelaksanaan aktual dan terus menerus dari kontrol yang telah direncanakan sebelumnya.
+~Siloing #Salah. Siloing merujuk pada pemisahan kelompok yang cenderung menghalangi komunikasi tata kelola yang terintegrasi.
+~Privilege Creep #Salah. Privilege creep adalah akumulasi hak akses dari waktu ke waktu secara tidak perlu yang membahayakan sistem.
+}
+
+::D1-Q15 :: Jika penyerang memalsukan nomor penelepon lalu menelepon staf untuk mengumpulkan informasi rahasia, bentuk serangan rekayasa sosial apakah ini? {
+=Vishing #Benar! Vishing adalah manipulasi rekayasa sosial yang dilakukan melalui jalur telepon atau sistem suara yang sering melibatkan pemalsuan ID penelepon.
+~Smishing #Salah. Smishing adalah varian penipuan yang dikirimkan menggunakan layanan SMS atau pesan teks dan bukan panggilan suara.
+~Spear Phishing #Salah. Spear phishing adalah upaya memancing target spesifik menggunakan pesan tertulis email yang disusun secara khusus.
+~Shoulder Surfing #Salah. Shoulder surfing adalah memata matai kata sandi di layar dengan melihat langsung secara fisik dari belakang pengguna.
+}
+
+::D1-Q16 :: Rencana keamanan Anda menggunakan kunci fisik, pembaca biometrik, firewall, dan pelatihan staf untuk melindungi aset yang sama. Strategi ini merepresentasikan desain arsitektur apa? {
+=Pertahanan Mendalam #Benar! Penggunaan beberapa kontrol dalam suatu rangkaian lapisan sehingga kegagalan satu kontrol tidak mengekspos sistem secara keseluruhan disebut pertahanan mendalam.
+~Keamanan melalui Ketidakjelasan #Salah. Ini merujuk pada upaya mengamankan dengan cara menyembunyikan rincian sistem dari penyerang.
+~Penyembunyian Data #Salah. Penyembunyian data memposisikan data di kompartemen logis yang tidak dapat diakses subjek secara sembarangan.
+~Abstraksi #Salah. Abstraksi mengelompokkan elemen serupa untuk mempermudah administrasi tetapi tidak secara langsung merujuk pada susunan lapisan kontrol.
+}
+
+::D1-Q17 :: Regulasi ketat manakah yang secara spesifik melindungi aliran data lintas batas dan hak privasi semua warga yang tinggal di kawasan Uni Eropa? {
+=General Data Protection Regulation #Benar! Regulasi privasi ini berasal dari Uni Eropa dan mendefinisikan perlindungan privasi data pribadi warga UE yang sangat ketat.
+~Payment Card Industry Data Security Standard #Salah. Standar ini adalah kewajiban industri untuk pemrosesan kartu kredit dan bukan perundang undangan privasi kawasan Eropa.
+~Personal Information Protection and Electronic Documents Act #Salah. Undang undang privasi komersial ini secara eksklusif milik negara Kanada.
+~California Consumer Privacy Act #Salah. Undang undang perlindungan konsumen ini secara eksklusif berlaku untuk penduduk negara bagian California.
+}
+
+::D1-Q18 :: Sebuah kerentanan memiliki kerugian tahunan diproyeksikan ALE sebesar 60000 Dolar. Kontrol seharga 20000 Dolar diusulkan yang akan menurunkan ALE menjadi 15000 Dolar. Berapakah Cost Benefit perlindungan ini? {
+=25000 Dolar #Benar! Rumusnya adalah ALE awal dikurangi ALE baru lalu dikurangi biaya kontrol sehingga menghasilkan penghematan positif sebesar 25000 Dolar.
+~45000 Dolar #Salah. Angka ini belum dikurangkan dengan biaya tahunan kontrol keamanan sebesar 20000 Dolar.
+~Minus 5000 Dolar #Salah. Perhitungan nilai keuntungan ini salah secara matematis karena hasilnya harus positif.
+~80000 Dolar #Salah. Perhitungan matematis perlindungan ini menghasilkan penghematan aktual sebesar 25000 Dolar.
+}
+
+::D1-Q19 :: Dalam hierarki dokumentasi keamanan, dokumen manakah yang bersifat wajib dan memberikan instruksi spesifikasi perangkat yang seragam di seluruh organisasi? {
+=Standar #Benar! Standar mendefinisikan persyaratan wajib untuk penggunaan perangkat keras dan perangkat lunak yang seragam di seluruh perusahaan.
+~Pedoman #Salah. Pedoman hanya memberikan rekomendasi yang fleksibel dan tidak bersifat wajib secara mutlak.
+~Prosedur #Salah. Prosedur memberikan panduan langkah demi langkah mendetail tentang cara menjalankan suatu tugas operasional.
+~Garis Dasar #Salah. Garis dasar memberikan titik awal level keamanan minimum yang harus dicapai setiap sistem.
+}
+
+::D1-Q20 :: Tim Anda menggunakan kerangka metodologi pemodelan ancaman yang berpusat pada risiko dan mencakup tujuh tahapan simulasi. Pemodelan apakah yang sedang diaplikasikan? {
+=PASTA #Benar! Metodologi ini adalah pemodelan ancaman tujuh tahap yang berpusat pada risiko untuk menyelaraskan kontrol terhadap nilai aset.
+~STRIDE #Salah. STRIDE adalah kategori model ancaman perangkat lunak buatan Microsoft yang terdiri dari enam elemen.
+~DREAD #Salah. DREAD digunakan untuk memberi peringkat keparahan atas ancaman berdasarkan lima pertanyaan evaluasi.
+~VAST #Salah. VAST adalah metodologi pemodelan ancaman yang mengintegrasikan manajemen risiko langsung ke dalam lingkungan pemrograman Agile.
+}
+
+::D1-Q21 :: Dalam perencanaan kelangsungan organisasi, apa perbedaan utama dalam fokus antara Business Continuity Planning (BCP) dan Disaster Recovery Planning (DRP)? {
+=BCP berfokus pada pemeliharaan operasi bisnis secara strategis, sedangkan DRP berfokus pada tindakan taktis untuk pemulihan fasilitas dan teknologi. #Benar! BCP bersifat strategis tingkat tinggi untuk menjaga operasi bisnis tetap berjalan (sedikitnya pada kapasitas minimum), sedangkan DRP bersifat taktis dengan fokus pada prosedur memulihkan sistem TI setelah gangguan.
+~BCP digunakan sebelum bencana terjadi, sedangkan DRP hanya berfokus pada pencegahan bencana. #Salah. DRP merupakan langkah pemulihan fungsi yang dijalankan *setelah* bencana terjadi, bukan pencegahan.
+~BCP berfokus pada pemulihan server dan jaringan, sedangkan DRP berfokus pada keselamatan personel. #Salah. Pemulihan server dan teknologi adalah ranah dari DRP, sementara keselamatan personel selalu menjadi prioritas utama di semua jenis perencanaan keamanan.
+~BCP dan DRP memiliki fokus yang identik dan selalu dilakukan oleh tim yang terpisah. #Salah. Keduanya memiliki perspektif berbeda (strategis vs taktis) dan di banyak organisasi dikelola oleh tim yang sama di bawah payung Business Continuity Management (BCM).
+}
+
+::D1-Q22 :: Saat organisasi Anda menggunakan penyedia layanan cloud (CSP), Anda ingin memastikan ada jaminan waktu aktif (uptime) dan penalti finansial jika layanan gagal memenuhi standar. Dokumen apa yang paling tepat untuk diaplikasikan dalam situasi ini? {
+=Service-Level Agreement (SLA) #Benar! SLA adalah perjanjian yang menetapkan ekspektasi kinerja seperti jaminan ketersediaan (uptime) dan sering kali mencakup penalti finansial jika penyedia gagal memenuhi layanan yang dijanjikan.
+~Nondisclosure Agreement (NDA) #Salah. NDA digunakan untuk melindungi kerahasiaan informasi agar tidak dibocorkan ke pihak ketiga, bukan mengukur kinerja.
+~Memorandum of Understanding (MOU) #Salah. MOU mendokumentasikan niat dua entitas untuk bekerja sama, namun kurang formal dan tidak mencakup penalti finansial atau ikatan sedetail SLA.
+~Interconnection Security Agreement (ISA) #Salah. ISA adalah deklarasi teknis tentang keamanan tautan antara dua infrastruktur TI, bukan perjanjian yang menjamin waktu aktif secara komersial.
+}
+
+::D1-Q23 :: Saat menganalisis log sistem, Anda menemukan bahwa penyerang berhasil melewati filter keamanan jaringan dengan memalsukan alamat IP mereka sehingga terlihat seperti lalu lintas dari dalam jaringan internal. Berdasarkan model ancaman STRIDE buatan Microsoft, kategori mana yang mendeskripsikan ancaman ini? {
+=Spoofing #Benar! Spoofing adalah serangan dengan tujuan menyamar atau memalsukan identitas (seperti IP address) sebagai entitas yang sah untuk mendapatkan akses atau melewati pemfilteran.
+~Tampering #Salah. Tampering berfokus pada tindakan mengubah atau memanipulasi data secara tidak sah (baik saat transit maupun istirahat).
+~Repudiation #Salah. Repudiasi adalah kemampuan pengguna untuk menyangkal tindakannya karena kurangnya pencatatan audit (auditing/accounting) yang memadai.
+~Elevation of Privilege #Salah. Elevation of privilege adalah ketika pengguna dengan hak akses terbatas secara ilegal menaikkan statusnya menjadi admin/root.
+}
+
+::D1-Q24 :: Sebuah perusahaan manufaktur menciptakan formula pelumas khusus yang mempercepat proses produksi. Mereka ingin menjaga formula ini agar tidak diketahui pesaing selama mungkin tanpa batas waktu kedaluwarsa perlindungan. Jenis perlindungan kekayaan intelektual manakah yang harus dievaluasi sebagai pilihan terbaik? {
+=Trade Secret (Rahasia Dagang) #Benar! Rahasia dagang melindungi informasi berharga dari publikasi dan bisa bertahan tanpa batas waktu asalkan perusahaan terus menjaganya agar tetap rahasia.
+~Patent (Paten) #Salah. Paten hanya memberikan perlindungan terbatas (biasanya 20 tahun di AS) dan mengharuskan penemu mempublikasikan/mengungkapkan mekanisme detail temuannya ke publik.
+~Copyright (Hak Cipta) #Salah. Hak cipta melindungi "ekspresi" dari sebuah ide (seperti kode perangkat lunak, buku, atau seni), bukan proses fungsional atau formula kimia.
+~Trademark (Merek Dagang) #Salah. Merek dagang difokuskan untuk melindungi nama, logo, atau elemen branding yang mengidentifikasi perusahaan di mata konsumen.
+}
+
+::D1-Q25 :: Manakah dari tindakan berikut yang harus diaplikasikan *pertama kali* dan paling kritis saat seorang karyawan yang bermasalah diberhentikan (terminated) secara tidak hormat? {
+=Menonaktifkan akun pengguna dan akses jaringannya tepat sebelum atau pada saat ia diberi tahu tentang pemberhentian. #Benar! Mematikan akses sebelum pemberitahuan sangat penting untuk mencegah mantan karyawan yang tidak puas melakukan sabotase, eksfiltrasi data, atau menggunakan *logic bomb* (insider threat).
+~Meminta karyawan untuk mengembalikan laptop perusahaan dalam waktu 3 hari kerja. #Salah. Semua aset, lencana, dan perangkat fisik harus dikumpulkan pada pertemuan terminasi, bukan dibiarkan dibawa pulang.
+~Mendistribusikan memo terkait ke seluruh perusahaan tentang pemecatan tersebut. #Salah. Menyebarkan alasan pemecatan secara tidak hormat kepada seluruh staf bisa melanggar privasi atau kode etik SDM.
+~Meminta karyawan tersebut untuk melatih penggantinya sesaat sebelum ia pergi. #Salah. Pada terminasi tidak hormat/bermasalah, karyawan harus langsung dikawal keluar, bukan diberi kesempatan melatih atau menyentuh sistem lagi.
+}
+
+::D1-Q26 :: Jika organisasi Anda ingin menunjukkan keandalan kontrol privasi dan keamanannya kepada masyarakat umum melalui publikasi di situs web resmi, laporan audit kepatuhan manakah yang paling sesuai untuk diunggah? {
+=Laporan SOC 3 #Benar! Laporan System and Organization Controls (SOC) 3 mengevaluasi keamanan, privasi, dan ketersediaan, namun dirancang agar isinya aman untuk didistribusikan kepada publik.
+~Laporan SOC 1 #Salah. SOC 1 berfokus murni pada kontrol internal pelaporan keuangan (financial reporting), bukan kontrol privasi atau keamanan TI tingkat lanjut.
+~Laporan SOC 2 Tipe I #Salah. Laporan SOC 2 berisi informasi mendetail mengenai infrastruktur keamanan perusahaan dan hasilnya rahasia, hanya dibagikan di bawah NDA.
+~Laporan SOC 2 Tipe II #Salah. Sama seperti Tipe I, SOC 2 Tipe II memverifikasi keamanan dari waktu ke waktu secara komprehensif, tetapi tidak pernah dirancang untuk didistribusikan ke masyarakat umum secara bebas.
+}
+
+::D1-Q27 :: Gudang distribusi perusahaan bernilai $4.000.000. Analis memperkirakan bahwa jika terjadi banjir bandang, fasilitas tersebut akan mengalami kerusakan parah hingga 20% dari total nilainya. Berapakah nilai Single Loss Expectancy (SLE) untuk skenario tersebut? {
+=$800.000 #Benar! SLE dihitung dengan Asset Value (AV) dikalikan dengan Exposure Factor (EF). Yakni $4.000.000 * 20% = $800.000. Ini adalah nilai moneter kerusakan jika banjir terjadi satu kali.
+=$4.000.000 #Salah. Angka ini adalah Asset Value (AV) secara utuh sebelum terkena paparan bencana.
+=$80.000 #Salah. Hasil perkaliannya tidak tepat. 20 persen dari 4 juta dolar adalah 800 ribu dolar.
+=$3.200.000 #Salah. Angka ini menunjukkan 80% sisa nilai fasilitas yang selamat dari kerusakan, bukan nilai kerugian (SLE).
+}
+
+::D1-Q28 :: Sebuah bank menetapkan kebijakan di mana staf pemrosesan kredit harus pindah meja dan bertukar peran operasional (job rotation) setiap enam bulan. Manfaat keamanan *paling strategis* apa yang dievaluasi melalui rotasi pekerjaan ini? {
+=Menyediakan peer review secara alami yang dapat mendeteksi penipuan serta mencegah manipulasi jangka panjang. #Benar! Rotasi pekerjaan memastikan bahwa jika seorang karyawan menyembunyikan penipuan, karyawan berikutnya yang diputar ke peran tersebut akan segera menemukannya, bertindak sebagai kontrol deteksi sekaligus pencegahan.
+~Meningkatkan semangat kerja karyawan dengan memvariasikan tugas rutin. #Salah. Meski bisa membantu psikologis pekerja, fokus utama keamanan rotasi pekerjaan adalah di area deteksi dan penangkalan penipuan.
+~Menggantikan prinsip Pemisahan Tugas (Segregation of Duties). #Salah. Rotasi pekerjaan mendukung, bukan menggantikan, prinsip Pemisahan Tugas.
+~Memaksa semua staf keamanan mempelajari protokol jaringan. #Salah. Rotasi staf operasional kredit tidak relevan dengan keahlian teknis terkait protokol jaringan.
+}
+
+::D1-Q29 :: Sebuah sistem IPS (Intrusion Prevention System) secara otomatis memperbarui tabel routing dan memblokir port saat mendeteksi adanya serangan aktif. Berdasarkan pengkategorian tipe kontrol akses, tindakan perbaikan sistem kembali ke keadaan aman ini masuk dalam kontrol... {
+=Korektif (Corrective Control) #Benar! Kontrol korektif memodifikasi lingkungan dan mengembalikan sistem ke operasi normal *setelah* terjadinya pelanggaran atau saat sistem merespons serangan aktif.
+~Detektif (Detective Control) #Salah. Kontrol detektif (seperti IDS murni atau kamera) hanya mengidentifikasi serangan *setelah* terjadi, tetapi tidak secara otomatis memperbaikinya atau mengubah lingkungan secara langsung.
+~Pencegahan (Preventive Control) #Salah. Meskipun IPS tujuannya mencegah berlanjutnya serangan, tindakan "mengembalikan/memperbaiki" sistem setelah serangan terdeteksi masuk spesifik dalam definisi kontrol korektif.
+~Direktif (Directive Control) #Salah. Kontrol direktif digunakan untuk memaksa staf mematuhi kebijakan, seperti papan peringatan atau SOP.
+}
+
+::D1-Q30 :: Regulasi internasional mana yang berfokus pada hak privasi dan pemrosesan data (termasuk mandat "hak untuk dilupakan" dan transparansi pelanggaran data), yang secara spesifik melindungi warga negara di kawasan Eropa? {
+=General Data Protection Regulation (GDPR) #Benar! GDPR adalah kerangka kerja perlindungan privasi yang mengikat secara hukum bagi data warga Uni Eropa, di mana pun data tersebut diproses di dunia.
+~Payment Card Industry Data Security Standard (PCI DSS) #Salah. PCI DSS adalah standar industri terkait pemrosesan informasi kartu kredit komersial, bukan privasi warga negara Eropa.
+~Health Insurance Portability and Accountability Act (HIPAA) #Salah. HIPAA adalah undang-undang federal Amerika Serikat terkait data privasi pasien di bidang kesehatan.
+~Personal Information Protection and Electronic Documents Act (PIPEDA) #Salah. PIPEDA adalah undang-undang privasi komersial tingkat nasional milik Kanada.
+}
+
+::D1-Q31 :: Seorang database administrator membutuhkan akses masuk ke server untuk memperbarui patch OS. Namun, kebijakan keamanan secara eksplisit menyatakan bahwa ia tidak berhak untuk melihat atau mengubah *isi* dari data nasabah di dalam database. Kebijakan ini secara langsung menganalisis penerapan prinsip... {
+=Need-to-know #Benar! Need-to-know secara spesifik mendikte bahwa seseorang hanya diberikan izin untuk melihat informasi (akses data) yang benar-benar wajib ia ketahui untuk melakukan tugasnya.
+~Separation of Duties #Salah. Pemisahan tugas membagi kewenangan kritis pada dua individu (seperti satu orang menyetujui invoice, orang lain mencairkan dana), bukan sekadar memblokir visibilitas data dari seorang admin server.
+~Defense in Depth #Salah. Ini merujuk pada pemakaian berbagai kontrol teknis/lapisan secara bersamaan, bukan prinsip pembatasan izin berdasarkan tugas kerja spesifik.
+~Job Rotation #Salah. Rotasi tugas berarti ia dipindahkan ke pekerjaan lain secara berkala, bukan pembatasan izin yang dibahas di sini.
+}
+
+::D1-Q32 :: Di dalam fase perencanaan pemulihan, batas waktu maksimal sebuah proses bisnis diizinkan mati (tidak beroperasi) sebelum kelangsungan hidup organisasi terancam secara permanen dikenal sebagai... {
+=Maximum Tolerable Downtime (MTD) #Benar! MTD adalah durasi maksimal absolut kerusakan bisnis dapat ditolerir sebelum organisasi runtuh. (RTO harus dikonfigurasi lebih cepat dari MTD).
+~Recovery Point Objective (RPO) #Salah. RPO mengukur jumlah maksimal "kehilangan data" (dalam dimensi waktu ke belakang) yang dapat diterima, bukan batas durasi waktu matinya sistem ke depan.
+~Mean Time Between Failures (MTBF) #Salah. MTBF adalah rasio ketahanan operasional, yakni perkiraan waktu sistem berjalan normal sebelum mengalami kegagalan mekanis.
+~Recovery Time Objective (RTO) #Salah. RTO adalah "target" atau waktu yang direncanakan untuk menghidupkan kembali sistem, yang harus selalu dijaga agar tidak melebihi MTD.
+}
+
+::D1-Q33 :: Manajemen memutuskan bahwa inisiatif membuka cabang kantor baru di zona patahan gempa tektonik aktif terlalu membahayakan aset. Mereka akhirnya membatalkan proyek tersebut. Apa strategi respons risiko (risk response) yang diaplikasikan? {
+=Penghindaran Risiko (Risk Avoidance) #Benar! Membatalkan proyek, mengubah rute, atau sama sekali tidak melibatkan diri dalam aktivitas yang memiliki rasio risiko terlalu tinggi adalah tindakan penghindaran risiko (avoidance).
+~Penerimaan Risiko (Risk Acceptance) #Salah. Penerimaan risiko berarti mereka tetap membuka cabang tersebut tanpa kontrol keamanan ekstra dan siap menanggung seluruh akibatnya jika terjadi gempa.
+~Mitigasi Risiko (Risk Mitigation) #Salah. Mitigasi berarti mereka tetap membuka cabang, namun merancang konstruksi bangunannya dengan sistem antiyun (tahan gempa) untuk mengurangi dampak.
+~Pengalihan Risiko (Risk Transfer) #Salah. Mengalihkan berarti mereka tetap membuka cabang, namun membebankan konsekuensi kerugian ke pihak lain, misalnya dengan membeli asuransi gempa bumi mahal.
+}
+
+::D1-Q34 :: Sebuah dokumen tingkat tinggi (sering dirilis oleh CEO atau Dewan Direksi) yang memberikan arahan strategis, menetapkan sasaran keamanan, dan mendelegasikan tanggung jawab kepada departemen, disebut sebagai... {
+=Security Policy (Kebijakan Keamanan) #Benar! Kebijakan keamanan adalah pilar/dokumentasi tingkat puncak yang bersifat wajib, tidak memuat rincian teknis, melainkan berisi mandat dan dukungan dari level eksekutif.
+~Security Procedure (Prosedur Keamanan) #Salah. Prosedur (SOP) berada di struktur terbawah, memberikan arahan langkah demi langkah yang sangat teknis.
+~Security Standard (Standar Keamanan) #Salah. Standar mewajibkan jenis/versi perangkat keras atau perangkat lunak yang seragam (misal ; "Semua laptop wajib pakai Windows 11"), bukan arahan strategis tingkat dewan direksi.
+~Security Guideline (Pedoman Keamanan) #Salah. Pedoman berisi saran atau praktik terbaik yang fleksibel, tidak bersifat wajib seperti kebijakan.
+}
+
+::D1-Q35 :: Seorang penyerang berhasil masuk ke area perkantoran yang diamankan dengan kartu akses dengan cara berjalan rapat di belakang seorang karyawan yang sah tepat saat pintu dibuka, tanpa sepengetahuan karyawan tersebut. Serangan ini dianalisis sebagai... {
+=Tailgating #Benar! Tailgating terjadi ketika penyusup tanpa izin menyelinap tepat di belakang subjek yang sah sebelum pintu tertutup, sepenuhnya tanpa disadari oleh subjek yang sah tersebut.
+~Piggybacking #Salah. Piggybacking sangat mirip dengan tailgating, *tetapi* bedanya karyawan yang sah setuju (tertipu) untuk membiarkan orang itu masuk (misalnya, penyusup membawa kardus berat dan meminta dibukakan pintu).
+~Dumpster Diving #Salah. Ini adalah metode pengumpulan informasi dengan mengais tempat sampah fisik.
+~Phishing #Salah. Phishing adalah bentuk rekayasa sosial berbasis teks/email digital, bukan metode peretasan akses pintu gedung fisik.
+}
+
+::D1-Q36 :: Sebuah organisasi menggunakan standar enkripsi simetris ganda, mempekerjakan satpam untuk lobi fisik, mewajibkan penggunaan kartu pintar (smartcard), dan secara aktif menggunakan firewall. Evaluasi rancangan keamanan ini mencerminkan arsitektur... {
+=Pertahanan Berlapis (Defense in Depth) #Benar! Menggunakan kontrol yang beragam secara berlapis (administratif, teknis/logis, dan fisik) sehingga kegagalan satu komponen tetap dihadang oleh komponen lain adalah definisi dari Defense in Depth.
+~Isolasi (Isolation) #Salah. Isolasi lebih berfokus pada pembatasan memori antar proses pada sistem operasi, bukan integrasi seluruh arsitektur organisasi.
+~Prinsip Hak Istimewa Terkecil (Least Privilege) #Salah. Least privilege difokuskan pada otorisasi identitas yang dikurangi seminimal mungkin, bukan tentang penyusunan lapis firewall atau satpam.
+~Keamanan melalui Ketidakjelasan (Security Through Obscurity) #Salah. Arsitektur ini menggunakan mekanisme keamanan yang diakui dan terstandar, bukan mengandalkan pada penyembunyian konfigurasi dari peretas.
+}
+
+::D1-Q37 :: Organisasi nirlaba independen asal AS manakah yang secara konsisten merilis standar *Special Publications* (SP) seri 800 yang sering dijadikan pedoman kerangka kerja manajemen risiko global, seperti SP 800-53 dan SP 800-37? {
+=National Institute of Standards and Technology (NIST) #Benar! NIST adalah agen federal AS yang memproduksi banyak standar kerangka keamanan yang sangat krusial dalam ujian CISSP (seperti Risk Management Framework).
+~International Organization for Standardization (ISO) #Salah. ISO berpusat di Swiss (bukan agen AS) dan merilis kerangka kerja keluarga ISO 27000.
+~Payment Card Industry Security Standards Council (PCI SSC) #Salah. Badan ini merilis PCI DSS yang difokuskan pada kartu pembayaran, bukan Special Publications seri 800 terkait RMF.
+~Institute of Electrical and Electronics Engineers (IEEE) #Salah. IEEE adalah organisasi global yang merilis standar infrastruktur jaringan dan Wi-Fi (seperti 802.11).
+}
+
+::D1-Q38 :: Setelah seorang *Data Owner* (Pemilik Data) menetapkan label dan klasifikasi pada sebuah dataset rahasia, siapakah aktor yang bertanggung jawab secara teknis untuk menerapkan enkripsi, mengatur backup, dan menjaga kontrol penyimpanan sehari-hari? {
+=Data Custodian #Benar! Custodian atau Kustodian Data bertugas mengimplementasikan arahan keamanan (seperti backup, enkripsi) yang ditetapkan dan didelegasikan oleh sang Pemilik Data.
+~Data Controller #Salah. Data Controller menentukan tujuan/kebutuhan bisnis mengapa data klien dikumpulkan (berasal dari terminologi privasi seperti GDPR), bukan yang memasang enkripsi harian.
+~Senior Management #Salah. Manajemen senior adalah Pemilik Data atau eksekutif yang menanggung risiko hukum tertinggi, bukan pelaksana tugas rutin TI.
+~System Auditor #Salah. Auditor hanya bertugas memverifikasi atau memeriksa apakah Kustodian telah melakukan pekerjaannya sesuai kebijakan, tanpa terlibat langsung mengubah atau mem-backup file.
+}
+
+::D1-Q39 :: Model ancaman yang sangat berpusat pada evaluasi risiko (risk-centric) ini terdiri dari 7 tahapan, dimulai dari menetapkan tujuan organisasi hingga menganalisis probabilitas simulasi serangan. Model ancaman manakah yang sedang dianalisis? {
+=PASTA (Process for Attack Simulation and Threat Analysis) #Benar! PASTA dikenal sebagai metodologi yang unik karena menyelaraskan simulasi ancaman teknis langsung dengan dampak bisnis dan manajemen risiko dalam 7 tahap yang terstruktur.
+~STRIDE #Salah. STRIDE adalah buatan Microsoft yang berfokus pada memilah ancaman perangkat lunak ke dalam 6 kategori awal (Spoofing, Tampering, dll), bukan metode 7-tahap risk-centric.
+~DREAD #Salah. DREAD digunakan untuk memberi peringkat numerik keparahan dari ancaman setelah ditemukan.
+~OCTAVE #Salah. OCTAVE adalah metodologi evaluasi operasional risiko makro dari Carnegie Mellon, namun dalam domain ancaman aplikasi, PASTA adalah metodologi 7-tahap yang menyimulasikan serangan.
+}
+
+::D1-Q40 :: Saat menyusun komponen *Business Impact Analysis (BIA)*, manakah urutan metodologis paling logis yang harus Anda susun? {
+=Identifikasi prioritas bisnis > Identifikasi risiko/ancaman > Penilaian kemungkinan > Analisis dampak. #Benar! Anda harus tahu dulu apa yang paling penting bagi bisnis (Prioritas), ancaman apa yang ada (Risiko), seberapa sering itu terjadi (Kemungkinan), baru menghitung kerugian (Dampak).
+~Identifikasi risiko/ancaman > Identifikasi prioritas bisnis > Analisis dampak > Penilaian kemungkinan. #Salah. Tanpa mengetahui apa yang penting bagi bisnis, mustahil menentukan ancaman mana yang relevan di awal.
+~Analisis dampak > Penilaian kemungkinan > Identifikasi risiko/ancaman > Identifikasi prioritas bisnis. #Salah. Ini adalah kebalikan dari metodologi standar penyusunan BIA.
+~Penilaian kemungkinan > Identifikasi risiko/ancaman > Analisis dampak > Identifikasi prioritas bisnis. #Salah. Likelihood (kemungkinan) tidak bisa diukur sebelum ancaman (risiko) berhasil diidentifikasi.
+}
+
+::D1-Q41 :: Undang undang manakah di Amerika Serikat yang mengatur dan mengamanatkan operasi keamanan informasi pada lembaga lembaga pemerintah federal? {
+=Federal Information Security Management Act #Benar! Undang undang ini mewajibkan lembaga pemerintah federal AS untuk mengimplementasikan program keamanan informasi secara menyeluruh.
+~Electronic Communications Privacy Act #Salah. Undang undang ini mengatur perlindungan privasi komunikasi elektronik dari penyadapan tanpa izin.
+~Computer Fraud and Abuse Act #Salah. Ini adalah undang undang pidana utama di AS yang menindak kejahatan komputer secara umum.
+~Family Educational Rights and Privacy Act #Salah. Hukum ini mengatur privasi catatan pendidikan siswa dan bukan operasi keamanan lembaga federal.
+}
+
+::D1-Q42 :: Jika seorang peneliti menulis algoritma inovatif untuk memecahkan masalah komputasi dan ingin mendapatkan perlindungan kekayaan intelektual sebelum publikasi, jenis perlindungan apa yang tepat? {
+=Paten #Benar! Paten melindungi penemuan termasuk algoritma atau proses fungsional dan memberikan hak eksklusif kepada penemunya.
+~Hak Cipta #Salah. Hak cipta melindungi ekspresi dari sebuah ide seperti baris kode tertulis namun tidak melindungi ide algoritma yang mendasarinya.
+~Merek Dagang #Salah. Merek dagang difokuskan pada perlindungan nama atau logo yang mengidentifikasi sumber produk di pasar.
+~Rahasia Dagang #Salah. Begitu algoritma dipublikasikan di jurnal maka status rahasia akan hilang sehingga ini tidak cocok.
+}
+
+::D1-Q43 :: Anda diminta menentukan batasan durasi maksimal absolut di mana sebuah fungsi bisnis dapat mati sebelum menyebabkan kerugian permanen bagi organisasi. Metrik apakah yang Anda cari? {
+=Maximum Tolerable Downtime #Benar! Metrik ini mewakili periode terlama suatu fungsi bisnis dapat tidak tersedia sebelum menyebabkan kerusakan yang tidak dapat diperbaiki.
+~Recovery Time Objective #Salah. RTO adalah target waktu ideal yang diestimasi untuk menyelesaikan pemulihan sistem dan harus lebih kecil dari MTD.
+~Recovery Point Objective #Salah. RPO mengukur batasan jumlah kehilangan data yang dapat diterima secara historis dan bukan durasi waktu henti.
+~Single Loss Expectancy #Salah. SLE adalah estimasi nilai kerugian moneter akibat satu insiden spesifik dan bukan pengukuran waktu.
+}
+
+::D1-Q44 :: Menggunakan model STRIDE, Anda menemukan potensi di mana seorang penyerang dapat memanipulasi data saat transit secara tidak sah. Kategori ancaman manakah yang mendeskripsikan kondisi ini? {
+=Tampering #Benar! Tampering dianalisis sebagai tindakan yang menghasilkan perubahan atau manipulasi data secara tidak sah baik saat transit maupun tersimpan.
+~Spoofing #Salah. Spoofing adalah upaya menyamar atau memalsukan identitas untuk mendapatkan akses jaringan.
+~Repudiation #Salah. Repudiasi adalah kemampuan entitas untuk menyangkal partisipasi dalam sebuah aktivitas karena kurangnya bukti audit.
+~Elevation of Privilege #Salah. Peningkatan hak istimewa adalah eksploitasi untuk menaikkan level akses secara tidak sah.
+}
+
+::D1-Q45 :: Jika hasil analisis Cost Benefit menyimpulkan bahwa biaya kontrol teknis jauh lebih besar daripada potensi kerugian tahunannya, langkah penanganan risiko apa yang paling tepat dievaluasi? {
+=Penerimaan Risiko #Benar! Menerima risiko adalah langkah logis ketika biaya perlindungan jauh melampaui biaya potensi kerugian sehingga manajemen setuju menanggungnya.
+~Pengalihan Risiko #Salah. Mengalihkan risiko biasanya dievaluasi jika dampak finansial risiko sangat tinggi dan merugikan.
+~Mitigasi Risiko #Salah. Mitigasi berarti tetap menerapkan perlindungan padahal biaya perlindungan tersebut telah terbukti melampaui manfaatnya.
+~Penghindaran Risiko #Salah. Menghindari risiko berarti membatalkan seluruh operasi bisnis tersebut yang tidak serta merta dilakukan jika risikonya kecil.
+}
+
+::D1-Q46 :: Anda ditugaskan menyusun panduan spesifik dan detail tentang cara mengonfigurasi pengaturan keamanan pada firewall versi terbaru. Dokumen apakah yang sedang Anda susun? {
+=Prosedur #Benar! Prosedur adalah dokumen yang menjelaskan langkah demi langkah secara rinci mengenai tindakan yang diperlukan untuk menerapkan suatu kontrol teknis.
+~Kebijakan #Salah. Kebijakan adalah ikhtisar menyeluruh dari level direksi yang sama sekali tidak berisi rincian langkah teknis.
+~Pedoman #Salah. Pedoman hanya berisi rekomendasi fleksibel sedangkan instruksi konfigurasi firewall membutuhkan ketelitian prosedural wajib.
+~Standar #Salah. Standar mendefinisikan persyaratan wajib terkait penyeragaman jenis perangkat yang digunakan dan bukan instruksi langkah operasional.
+}
+
+::D1-Q47 :: Risiko kerentanan yang muncul akibat variasi tujuan dan prioritas keamanan antara banyak vendor yang bekerja sama dalam satu proyek dikenal sebagai apa? {
+=Risiko Multipihak #Benar! Risiko multipihak hadir ketika beberapa entitas berkolaborasi di mana strategi satu pihak bisa memicu kerentanan pada pihak lainnya akibat ketidakselarasan.
+~Risiko Residual #Salah. Risiko residual adalah sisa ancaman yang masih ada setelah kontrol mitigasi diimplementasikan sepenuhnya.
+~Risiko Kontrol #Salah. Risiko kontrol adalah celah kerentanan baru yang tercipta oleh penerapan perangkat pengamanan itu sendiri.
+~Risiko Bawaan #Salah. Risiko bawaan adalah tingkat risiko sistem secara alami sebelum kontrol pengamanan apa pun diimplementasikan.
+}
+
+::D1-Q48 :: Seorang penyerang menambahkan frasa balasan palsu pada subjek email serangannya agar korban mengira email tersebut adalah kelanjutan percakapan sah. Apa nama taktik yang diaplikasikan? {
+=Prepending #Benar! Taktik menambahkan istilah tertentu di awal subjek email guna memperkuat kebohongan dan mengecoh korban dinamakan prepending.
+~Phishing #Salah. Phishing adalah kategori umum serangannya namun taktik memanipulasi awalan secara spesifik dinamakan prepending.
+~Shoulder Surfing #Salah. Ini adalah tindakan memata matai kata sandi secara fisik dari belakang punggung korban.
+~Dumpster Diving #Salah. Ini adalah tindakan mengais tempat sampah fisik untuk mencari kertas atau dokumen rahasia organisasi.
+}
+
+::D1-Q49 :: Fasilitas perusahaan bernilai 3000000 Dolar berisiko terkena bencana yang akan menyebabkan kerusakan nilai sebesar 90 persen. Berapakah Single Loss Expectancy untuk insiden ini? {
+=2700000 Dolar #Benar! Rumus penghitungan SLE adalah nilai aset dikalikan faktor paparan sehingga menghasilkan nilai kerugian sebesar 2700000 Dolar.
+~3000000 Dolar #Salah. Angka ini murni merupakan nilai aset secara keseluruhan tanpa dikurangi faktor paparan kerugian.
+~270000 Dolar #Salah. Ini adalah hasil dari perhitungan matematika yang salah terhadap persentase kerugian.
+~135000 Dolar #Salah. Angka ini merupakan hasil hitungan tahunan jika nilai ARO dimasukkan dalam skenario.
+}
+
+::D1-Q50 :: Jika seorang karyawan mengundurkan diri secara sukarela dengan rekam jejak baik, langkah keamanan apa yang dilakukan SDM untuk mengumpulkan intelijen internal demi perbaikan? {
+=Wawancara Keluar #Benar! Wawancara keluar dilakukan untuk memahami alasan pengunduran diri dan mendapat saran perbaikan dari perspektif karyawan demi meningkatkan keamanan budaya kerja.
+~Pengawalan Fisik #Salah. Pengawalan seketika oleh petugas keamanan biasanya hanya diterapkan untuk pemutusan hubungan kerja bermasalah.
+~Rotasi Tugas #Salah. Rotasi pekerjaan adalah praktik deteksi penipuan dan bukan proses akhir dari seseorang yang pensiun.
+~Mempertahankan Akses #Salah. Praktik keamanan yang baik mewajibkan pencabutan hak akses pada saat penghentian hubungan kerja.
+}
+
+::D1-Q51 :: Kerangka kerja apakah yang secara resmi didefinisikan oleh dokumen SP 800 37 dan terdiri dari tujuh fase untuk menangani risiko keamanan sistem pemerintah? {
+=Risk Management Framework #Benar! RMF adalah proses manajemen risiko komprehensif tujuh tahap dari NIST untuk sistem dan lembaga pemerintahan federal.
+~Cybersecurity Framework #Salah. Kerangka kerja sukarela ini berfokus pada lima fungsi inti untuk infrastruktur kritis dan bukan model tujuh fase SP 800 37.
+~Sherwood Applied Business Security Architecture #Salah. SABSA adalah kerangka kerja arsitektur yang berfokus pada perspektif bisnis organisasi secara komprehensif.
+~Control Objectives for Information and Related Technologies #Salah. COBIT adalah standar tata kelola TI dan bukan instrumen NIST untuk pemerintah federal.
+}
+
+::D1-Q52 :: Di dalam parameter perencanaan dan pemulihan, apakah yang secara tepat mendefinisikan Recovery Point Objective? {
+=Batas toleransi kehilangan data historis #Benar! RPO mengukur seberapa banyak data yang boleh hilang diukur dalam dimensi waktu ke masa lalu saat data terakhir dicadangkan.
+~Batas toleransi downtime operasional #Salah. Definisi ini merujuk secara tepat pada parameter Maximum Tolerable Downtime organisasi.
+~Estimasi target waktu pemulihan #Salah. Definisi target waktu untuk memulihkan fungsi sistem merujuk kepada Recovery Time Objective.
+~Rata rata waktu perbaikan #Salah. Ini adalah definisi teknis operasional dari parameter Mean Time to Repair perangkat keras.
+}
+
+::D1-Q53 :: Tim pengembang menerapkan teknik dekomposisi aplikasi dalam pemodelan ancaman. Komponen kritis apakah yang sedang dicari tahu dalam aktivitas dekomposisi ini? {
+=Batas kepercayaan dan titik input #Benar! Dekomposisi membedah aplikasi untuk memahami logika batas kepercayaan titik input serta jalur aliran data di dalam arsitekturnya.
+~Tingkat kerusakan dan keterulangan #Salah. Atribut ini digunakan pada langkah penilaian atau pemeringkatan ancaman model DREAD dan bukan tahap dekomposisi.
+~Laporan pemindaian kerentanan #Salah. Laporan pemindaian dihasilkan dari penilaian operasional perangkat lunak dan bukan pemodelan arsitektur secara manual.
+~Perjanjian tingkat layanan #Salah. Perjanjian kontrak adalah kontrol administratif untuk vendor dan tidak berhubungan dengan bedah arsitektur kode aplikasi.
+}
+
+::D1-Q54 :: Berdasarkan analisis fondasi kriptografi, mekanisme apa yang mencegah pengirim menyangkal bahwa mereka telah menulis atau mengirim sebuah pesan spesifik? {
+=Nonrepudiasi #Benar! Nonrepudiasi adalah pilar yang menjamin pembuktian asal usul pesan sehingga pelakunya tidak bisa menyangkal fakta tersebut.
+~Kerahasiaan #Salah. Kerahasiaan hanya melindungi data dari intersepsi pihak yang tidak sah namun tidak memberikan jaminan otentikasi pengirim.
+~Integritas #Salah. Integritas memastikan pesan tidak diubah saat transit tetapi pengirim masih bisa menyangkal pernah mengirimnya tanpa nonrepudiasi.
+~Ketersediaan #Salah. Ketersediaan memastikan sistem dapat diakses saat diperlukan oleh pengguna sah dan tidak membuktikan pengiriman pesan.
+}
+
+::D1-Q55 :: Jika sistem pemadam kebakaran gedung gagal berfungsi, namun Anda dapat segera merelokasi operasi bisnis berkat Disaster Recovery Plan, kontrol sekunder jenis apakah yang dievaluasi ini? {
+=Kontrol Kompensasi #Benar! Kontrol kompensasi diaplikasikan sebagai cadangan operasional ketika kontrol primer terbukti gagal memberikan perlindungan.
+~Kontrol Direktif #Salah. Kontrol direktif digunakan untuk memaksa atau mengarahkan subjek mematuhi kebijakan tertulis seperti papan peringatan keselamatan.
+~Kontrol Preventif #Salah. Rencana pemulihan merupakan tindakan setelah kerusakan terjadi dan bukan tindakan pencegahan preventif langsung atas api.
+~Kontrol Pencegah #Salah. Kontrol pencegah digunakan untuk membuat pelaku pelanggaran berkecil hati melakukan serangan yang tidak relevan dengan bencana alam.
+}
+
+::D1-Q56 :: Anda menyusun arsitektur sistem di mana persetujuan wajib disahkan oleh dua manajer yang memasukkan kata sandi masing masing secara bersamaan. Praktik ini mengimplementasikan konsep apa? {
+=Pengetahuan Terpisah #Benar! Konsep pengetahuan terpisah membagi hak istimewa kritis pada dua individu yang mewajibkan kolaborasi untuk mengeksekusi satu tindakan.
+~Rotasi Pekerjaan #Salah. Rotasi menukar staf secara periodik ke tugas berbeda dan bukan membagi satu tugas secara langsung pada dua individu bersaman.
+~Hak Istimewa Terkecil #Salah. Hak istimewa membatasi akses pada tingkat minimal tetapi tidak memaksa konsep dua individu untuk bertindak bersamaan.
+~Keamanan Fisik #Salah. Otorisasi sandi ganda pada sistem logis merupakan tata kelola administratif dan bukan kontrol batas wilayah bangunan fisik.
+}
+
+::D1-Q57 :: Undang undang apa yang ditetapkan untuk mengatur akses penegak hukum atas data elektronik yang dikelola oleh perusahaan teknologi lintas batas yurisdiksi internasional? {
+=Clarifying Lawful Overseas Use of Data Act #Benar! Undang undang ini memberikan kemampuan penegakan hukum dalam meminta bukti digital di server luar negeri.
+~USA FREEDOM Act #Salah. Aturan ini adalah pembaruan pengawasan anti terorisme dan intersepsi komunikasi dalam negeri.
+~General Data Protection Regulation #Salah. Aturan perlindungan privasi ini berlaku murni untuk warga Uni Eropa di seluruh dunia.
+~Payment Card Industry Data Security Standard #Salah. Standar ini adalah kewajiban untuk sistem transaksi kartu kredit dan bukan aturan bukti elektronik penegak hukum.
+}
+
+::D1-Q58 :: Sebuah perangkat lunak antimalware bekerja menghapus virus dan secara otomatis memperbaiki kunci registri sistem ke posisi semula yang aman. Berdasarkan fungsinya, kategori kontrol apakah ini? {
+=Kontrol Korektif #Benar! Kontrol korektif bertujuan untuk memperbaiki lingkungan guna mengembalikan sistem ke status normal setelah aktivitas merusak terjadi.
+~Kontrol Pemulihan #Salah. Pemulihan melibatkan pengembalian seluruh fungsi sistem kritis pasca insiden parah dari fasilitas pencadangan arsip luar.
+~Kontrol Pencegahan #Salah. Pencegahan berfokus menolak akses sebelum bahaya masuk dan bukan memperbaiki sistem yang sudah dirusak secara otomatis.
+~Kontrol Detektif #Salah. Kontrol detektif hanya memberi peringatan setelah pelanggaran terdeteksi tanpa kemampuan otomatis untuk memodifikasi sistem.
+}
+
+::D1-Q59 :: Seorang penyerang menyelinap ke area pembuangan sampah kantor untuk menemukan cetakan catatan rapat yang dibuang. Metode persiapan serangan apa yang sedang diaplikasikan? {
+=Dumpster Diving #Benar! Dumpster diving secara harfiah adalah kegiatan menyelam di tong sampah untuk memungut informasi yang dibuang guna menyusun profil target.
+~Vishing #Salah. Vishing menggunakan telepon dan manipulasi suara untuk mengekstrak intelijen dari korban hidup.
+~Piggybacking #Salah. Piggybacking adalah mengeksploitasi kelengahan staf agar pintu gedung dibukakan untuk penyusup fisik.
+~Typosquatting #Salah. Typosquatting adalah penipuan nama domain internet dengan membuat ejaan yang mirip situs asli perusahaan.
+}
+
+::D1-Q60 :: Jika Total Risk dikurangi dengan Controls Gap dari margin keselamatan kontrol yang diimplementasikan, maka hasil analisis sisa celah tersebut dinamakan sebagai apa? {
+=Risiko Sisa #Benar! Risiko sisa adalah sisa risiko yang secara sadar diputuskan oleh manajemen untuk diterima karena kontrol tambahan tidak efektif secara biaya.
+~Risiko Sekunder #Salah. Tidak ada definisi parameter metrik teknis standar bernama risiko sekunder dalam perhitungan rumus margin sisa kontrol.
+~Risiko Bawaan #Salah. Risiko bawaan identik dengan Total Risk yakni risiko alami tanpa adanya kontrol pencegahan sama sekali.
+~Risiko Kontrol #Salah. Risiko kontrol adalah anomali di mana instalasi suatu pengamanan justru melahirkan kerentanan baru pada fasilitas tersebut.
+}
+
+::D1-Q61 :: Manakah pernyataan yang paling tepat membedakan orientasi antara Business Continuity Planning dan Disaster Recovery Planning dalam manajemen kelangsungan organisasi? {
+=BCP berfokus strategis mempertahankan proses bisnis sedangkan DRP berfokus taktis pada pemulihan fasilitas TI #Benar! BCP sangat terpusat pada operasi bisnis yang strategis sementara DRP lebih taktis berfokus pada teknologi pemulihan server dan infrastruktur.
+~BCP digunakan setelah bencana sedangkan DRP adalah pencegahan sebelum bencana #Salah. DRP secara eksplisit fokus pada pemulihan setelah terjadi bencana sementara BCP disusun sebelum krisis.
+~BCP murni untuk tim teknis sedangkan DRP untuk dewan direksi #Salah. Fokus ini terbalik karena BCP mengikat manajemen bisnis sedangkan DRP ditangani spesialis teknis.
+~BCP dan DRP adalah istilah dengan fungsi identik #Salah. Meski terkait erat, keduanya memiliki perbedaan perspektif bisnis versus taktik pemulihan teknologi.
+}
+
+::D1-Q62 :: Berapa lama perlindungan hukum Hak Cipta umumnya bertahan bagi penulis atau pencipta sebuah karya literatur berdasarkan standar perlindungan umum? {
+=Tujuh puluh tahun setelah kematian penulis terakhir #Benar! Hak cipta memberikan perlindungan terhadap karya penulis selama tujuh puluh tahun setelah pencipta terakhir meninggal dunia.
+~Empat belas tahun dari tanggal dokumen disahkan #Salah. Durasi belasan tahun adalah periode umur perlindungan untuk paten desain atau utilitas dan bukan hak cipta.
+~Tujuh puluh tahun setelah draf dipublikasikan #Salah. Durasi perlindungan tidak dihitung dari waktu penyelesaian draf pertama melainkan umur penulis.
+~Selamanya selama tidak dibocorkan ke publik #Salah. Hal ini adalah karakteristik spesifik dari aturan perlindungan Rahasia Dagang dan bukan Hak Cipta karya ekspresi.
+}
+
+::D1-Q63 :: Organisasi menetapkan bahwa mereka bersedia menanggung total kerugian maksimal lima juta dolar secara agregat untuk seluruh aset tahun ini. Metrik ini diaplikasikan sebagai apa? {
+=Selera Risiko #Benar! Selera risiko adalah jumlah total agregat risiko yang bersedia ditanggung oleh sebuah organisasi di seluruh operasionalnya.
+~Toleransi Risiko #Salah. Toleransi risiko adalah batasan risiko yang dapat diterima per masing masing aset secara spesifik dan individual.
+~Annualized Loss Expectancy #Salah. ALE adalah proyeksi kerugian finansial tahunan untuk satu ancaman spesifik dan bukan batasan psikologis manajemen.
+~Risiko Sisa #Salah. Risiko sisa adalah sisa risiko setelah kontrol telah diimplementasikan sepenuhnya oleh tim keamanan operasi.
+}
+
+::D1-Q64 :: Jika Risiko Total sebuah perusahaan sebesar satu juta dolar dan setelah kontrol diterapkan terdapat Risiko Sisa sebesar dua ratus ribu dolar. Selisih margin tersebut dianalisis sebagai apa? {
+=Kesenjangan Kontrol #Benar! Kesenjangan kontrol adalah jumlah risiko yang berhasil dimitigasi berkat penerapan kontrol pelindung di mana Risiko Total dikurangi Kesenjangan Kontrol sama dengan Risiko Sisa.
+~Risiko Sekunder #Salah. Risiko sekunder bukan parameter teknis standar dari selisih struktur nilai pengurangan mitigasi.
+~Nilai Keuntungan #Salah. Nilai keuntungan didapat dengan mengurangkan biaya penerapan kontrol keamanan dari selisih potensi kerugian tahunan.
+~Selera Risiko #Salah. Selera risiko mengacu pada kemampuan emosional bisnis menanggung dampak agregat finansial.
+}
+
+::D1-Q65 :: Vendor meminta rincian pengujian efektivitas kontrol keamanan langsung pihak ketiga secara kontinu selama enam bulan namun kerahasiaannya mensyaratkan perjanjian NDA. Laporan audit apa yang dievaluasi? {
+=Laporan SOC Dua Tipe II #Benar! Laporan ini berfokus pada keamanan operasi dan kerahasiaan NDA secara terus menerus selama lebih dari enam bulan berturut turut.
+~Laporan SOC Dua Tipe I #Salah. Tipe I memang memiliki rahasia NDA namun hanya meninjau desain tepat pada satu titik waktu awal saja.
+~Laporan SOC Tiga #Salah. Laporan jenis ini dibuat murni untuk konsumsi masyarakat publik sehingga bisa dibagikan bebas tanpa memerlukan dokumen NDA.
+~Laporan SOC Satu Tipe II #Salah. Tipe Satu hanya berfokus pada audit kontrol laporan keuangan dan bukan kontrol operasional infrastruktur keamanan TI.
+}
+
+::D1-Q66 :: Dalam pemodelan ancaman metode STRIDE, ancaman manakah yang terjadi ketika sebuah sistem gagal mencatat log sehingga pengguna dapat menepis tanggung jawab atas tindakan mereka? {
+=Repudiasi #Benar! Repudiasi adalah kemampuan entitas untuk menyangkal partisipasinya dalam suatu insiden karena kurangnya pencatatan audit yang memadai.
+~Pemalsuan #Salah. Spoofing adalah taktik untuk menyamar memalsukan identitas guna mendapatkan hak akses pihak yang sah.
+~Pengungkapan Informasi #Salah. Ini adalah kebocoran kerahasiaan data kepada subjek yang tak memiliki wewenang akses.
+~Pengerusakan #Salah. Tampering adalah manipulasi data tanpa hak baik saat data itu disimpan maupun transit di jaringan.
+}
+
+::D1-Q67 :: Pendekatan kerangka kerja yang menuntut agar fitur privasi dibangun di dalam arsitektur sejak fase desain awal dan bukan hanya disisipkan pada akhir siklus disebut apa? {
+=Privacy by Design #Benar! Konsep ini memasukkan privasi secara proaktif ke dalam fondasi awal sistem pengembangan siklus operasi perangkat lunak.
+~Pertahanan Mendalam #Salah. Konsep ini menyusun perlindungan teknis dalam susunan berlapis sebagai cadangan mitigasi kegagalan sistem utama.
+~Keamanan melalui Ketidakjelasan #Salah. Ini adalah taktik pasif yang mencoba mengamankan sistem hanya dengan merahasikan komponen operasionalnya.
+~Rule Based Access Control #Salah. Ini adalah model untuk pembatasan izin entitas dalam firewall jaringan menggunakan peraturan logis global.
+}
+
+::D1-Q68 :: Jika perusahaan e commerce akan menyimpan dan mentransmisikan nomor kartu kredit konsumen, maka standar kepatuhan global apa yang dianalisis wajib untuk dipatuhi? {
+=Payment Card Industry Data Security Standard #Benar! Standar ini mengatur semua entitas yang terlibat langsung memproses data sistem transaksi kartu bayar perbankan komersial.
+~General Data Protection Regulation #Salah. Aturan ini adalah mandat hak privasi umum mengenai warga negara di seluruh zona teritorial Uni Eropa.
+~Federal Information Security Management Act #Salah. Aturan ini adalah kepatuhan yang mewajibkan mandat kepada operasi sistem informasi badan federal pemerintah AS.
+~Health Insurance Portability and Accountability Act #Salah. Aturan ini secara khusus mengatur kerahasiaan privasi rekam medis pasien layanan fasilitas kesehatan.
+}
+
+::D1-Q69 :: Saat Anda menyusun dokumentasi proses inti Business Continuity Planning dalam sebuah perusahaan, urutan paling metodologis manakah yang mewakili empat tahapan inti tersebut? {
+=Ruang lingkup proyek lalu Analisis dampak bisnis lalu Perencanaan kontinuitas lalu Persetujuan rencana #Benar! Keempat proses inti tersebut harus selalu berurutan dari penetapan lingkup, analisis biaya BIA, menyusun kelangsungan, dan diakhiri persetujuan implementasi.
+~Analisis dampak bisnis lalu Ruang lingkup proyek lalu Perencanaan kontinuitas lalu Persetujuan rencana #Salah. Pengembang tidak bisa menganalisis dampak apabila cakupan mandat proyeknya belum disahkan.
+~Perencanaan kontinuitas lalu Analisis dampak bisnis lalu Ruang lingkup proyek lalu Persetujuan rencana #Salah. Urutan ini tidak rasional karena mitigasi kesinambungan tidak dapat dirancang sebelum risiko kerugian ditemukan.
+~Persetujuan rencana lalu Ruang lingkup proyek lalu Perencanaan kontinuitas lalu Analisis dampak bisnis #Salah. Proses tidak dapat ditutup secara terbalik karena persetujuan mutlak menjadi langkah paripurna.
+}
+
+::D1-Q70 :: Manajer Anda memotong potong kewenangan administrator keuangan di mana satu individu meneliti invoice dan individu lain menerbitkan otorisasi pembayaran. Praktik ini diaplikasikan untuk mengatasi apa? {
+=Kolusi #Benar! Mencegah peluang kolusi adalah dorongan operasional dasar dari pemisahan tugas sehingga dua konspirator wajib bekerja sama jika ingin melakukan penipuan.
+~Dumpster Diving #Salah. Ini adalah praktik rekayasa sosial mengais kontainer sampah kertas untuk mencuri profil informasi rahasia organisasi.
+~Serangan Prepending #Salah. Prepending adalah teknik phising yang menyisipkan frasa rekayasa pada judul pesan komunikasi elektrik.
+~Denial of Service #Salah. Pemisahan tugas staf personalia bukanlah perangkat mitigasi untuk melawan banjir kelebihan kapasitas akses jaringan komunikasi.
+}
+
+::D1-Q71 :: Sebuah layanan logistik Anda mempunyai Maximum Tolerable Downtime durasi delapan jam. Tetapi sistem IT menyarankan Recovery Time Objective dirancang menjadi empat belas jam. Evaluasi manakah yang paling kritikal? {
+=RTO terlalu lambat dan harus dipercepat sehingga tidak melampaui MTD #Benar! Batas MTD adalah toleransi bisnis bisa bertahan sebelum hancur sehingga RTO wajib direnakan lebih cepat agar bisnis terselamatkan sebelum tenggat MTD.
+~Evaluasi keamanan berjalan baik karena RTO berhak lebih lama #Salah. Durasi RTO seharusnya lebih singkat dan tidak boleh melebihi target waktu kejatuhan operasional MTD.
+~Hanya Work Recovery Time yang wajib dikonfigurasi di bawah MTD #Salah. Target restorasi sistem RTO juga wajib berjalan lebih cepat dari MTD untuk menahan kerugian bisnis.
+~Sistem tidak valid karena MTD wajib diganti mengikuti batasan RTO #Salah. TI harus mendukung parameter bisnis dan bukan sebaliknya menyuruh bisnis meruntuhkan kemampuannya.
+}
+
+::D1-Q72 :: Dalam struktur peran tata kelola perusahaan, entitas manakah yang menerima tanggung jawab akhir atas seluruh keamanan aset yang mana mereka jugalah yang memikul beban risiko hukum mutlak? {
+=Manajemen Senior #Benar! Eksekutif manajemen senior memegang beban kewajiban mutlak paling akhir pada semua aset perusahaan dan memikul kegagalan hukum tata kelola organisasi.
+~Petugas Keamanan TI #Salah. Profesional keamanan informasi bertugas mendesain operasi harian namun tidak memikul tanggung jawab hukum tertinggi perusahaan.
+~Pengguna Akhir #Salah. Pengguna bertanggung jawab mentaati tata tertib namun bukan entitas yang dimintakan mandat hukum tata kelola secara utuh.
+~Auditor Kepatuhan #Salah. Auditor memeriksa verifikasi implementasi keamanan tanpa pernah mengambil posisi porsi mandat tanggung jawab puncak manajemen.
+}
+
+::D1-Q73 :: Anda menganalisis insiden yang menargetkan staf secara massal untuk mengklik tautan dokumen palsu di mana pesan rekayasa sosial tersebut dikirim menggunakan profil domain bank yang seolah olah sah. Ini dianalisis sebagai apa? {
+=Spear Phishing #Benar! Phishing yang ditargetkan spesifik menggunakan rekayasa buatan profil komunikasi entitas berwenang untuk menipu banyak staf pengguna dikenal sebagai spear phishing.
+~Shoulder Surfing #Salah. Teknik ini secara diam diam memantau gerak fisik jari dari atas bahu saat korban mengetikkan kata sandi langsung di layar.
+~Vishing #Salah. Vishing mengeksploitasi kepolosan korban secara interaktif murni melalui saluran obrolan panggilan suara sistem komunikasi telepon.
+~Tailgating #Salah. Taktik intrusi ini mengekor masuk menyusup langsung dari pintu tanpa diketahui subjek staf pembuka fasilitas di depannya.
+}
+
+::D1-Q74 :: Setelah server dipulihkan dari insiden keamanan, tahapan prosedur terakhir apa yang paling logis yang disebut Lessons Learned wajib dipenuhi? {
+=Untuk mendokumentasikan kegagalan dan perbaikan respons insiden di masa depan #Benar! Fase terakhir manajemen insiden bertujuan menganalisis prosedur yang telah berlalu guna mendeteksi celah perbaikan langkah respons di kejadian masa depan.
+~Untuk menyita dan memelihara status dokumen integritas forensik #Salah. Mengkarantina bukti merupakan tahapan mitigasi ancaman saat serangan aktif bukan dokumentasi koreksi post mortem.
+~Untuk merekonstruksi perangkat ke posisi optimal #Salah. Mengembalikan sistem berjalan kembali adalah fase pemulihan teknis dan remediasi akar bukan dokumentasi pembelajaran akhir.
+~Melacak mundur asal negara penyerang untuk serangan balasan #Salah. Menyerang balik merupakan pelanggaran hukum siber yang sangat diharamkan di dalam metodologi manajemen perbaikan insiden resmi.
+}
+
+::D1-Q75 :: Anda mewajibkan setiap perangkat meskipun berada di satu VLAN yang sama untuk selalu melakukan autentikasi verifikasi kontinu sebelum dapat bertukar paket di jaringan karena Anda tidak mempercayai zona mana pun. Arsitektur apa yang diaplikasikan? {
+=Zero Trust #Benar! Zero Trust membuang model asumsi perbatasan yang aman secara default di mana seluruh perangkat di zona mana saja wajib terus menerus divalidasi aksesnya.
+~Microsegmentation #Salah. Mikrosegmentasi adalah perangkat membagi subnet menggunakan proksi tetapi filosofi perombakan model kepercayaan logis tersebut adalah inisiatif kerangka zero trust.
+~Defense in Depth #Salah. Pertahanan bertumpuk ini memakai kontrol berlapis berurutan di mana model klasiknya masih membedakan perbatasan luar dan kawasan jaringan di dalam.
+~Trust but Verify #Salah. Ini adalah model tradisional lama yang masih mempercayai perangkat internal begitu log in awal terjadi yang jelas berkebalikan dari model modern zero trust.
+}
+
+::D1-Q76 :: Keberadaan papan rambu rute darurat keluar di dinding lorong data center untuk membimbing arah pergerakan staf agar taat selama gempa bumi adalah bentuk rancangan kontrol keamanan berjenis apa? {
+=Kontrol Direktif #Benar! Kontrol arahan atau direktif selalu digunakan murni untuk mengarahkan kepatuhan tindakan peringatan atau rute keselamatan staf personel di tempat kerja.
+~Kontrol Pencegahan #Salah. Kontrol pencegah memblokir akses intrusi sebelum masuk seperti penggunaan gembok pagar dan tidak berkaitan dengan papan tulisan keselamatan staf.
+~Kontrol Gentaran #Salah. Kontrol deterent digunakan mematahkan niat psikologis penyusup sementara rambu melarikan diri staf sama sekali bukan untuk menggertak peretas logis.
+~Kontrol Korektif #Salah. Kontrol ini ditugaskan memperbaiki kondisi otomatis mengembalikan rute jaringan setelah anomali perangkat yang bukan wewenang fungsional papan cetak.
+}
+
+::D1-Q77 :: Pencegahan penyalahgunaan wewenang ini mensyaratkan dua administrator berbeda memasukkan paruh kata sandi sistem masing masing secara simultan untuk membongkar akses brankas server secara kolaboratif. Ini dianalisis sebagai konsep apa? {
+=Pengetahuan Terpisah #Benar! Konsep pengetahuan terpisah memecah sebagian kunci sehingga operasi kritis menyebar mewajibkan kolaborasi absolut antardua entitas personel tanpa kompromi individu.
+~Hak Istimewa Minimal #Salah. Prinsip hak minimal berfokus pada penyederhanaan izin secukupnya namun tidak memaksa penggabungan paksa pada detik yang sama ke entitas orang kedua.
+~Rotasi Pekerjaan #Salah. Rotasi memindahkan posisi fungsi pekerja pada rentang siklus interval bulan tanpa ada operasi logikal terintegrasi sandi ganda seketika.
+~Liburan Wajib #Salah. Cuti mutlak mereduksi celah audit tanpa intervensi subjek masuk kedua saat proses tugas staf tersebut sedang dilimpahkan ke sistem pelaporan.
+}
+
+::D1-Q78 :: Jika tim deteksi memotong jalur siklus taktik intrusi mulai dari fase Reconnaissance hingga tahapan eksekusi Actions on Objectives, kerangka mitigasi ancaman tujuh tahap militer apakah ini? {
+=Cyber Kill Chain #Benar! Cyber Kill Chain adalah matriks pertahanan insiden tujuh langkah mendetail dari Lockheed Martin untuk menangkal alur intrusi musuh di setiap siklus mata rantai aksinya.
+~MITRE ATT and CK #Salah. Walau berorientasi memetakan taktik dan teknik ancaman sistem ini berupa ensiklopedia perilaku global tanpa struktur fase linier tujuh urutan siklus waktu penyerangan.
+~Advanced Persistent Threat #Salah. APT adalah terminologi penggolongan aktor peretas yang berkemampuan tinggi bukan sebuah prosedur taktis pertahanan parameter keamanan operasional.
+~STRIDE #Salah. Kerangka ini digunakan spesifik menganalisis celah kerentanan kode perangkat lunak selama proses siklus pengembangan program aplikasi arsitektural.
+}
+
+::D1-Q79 :: Di dalam langganan model operasi cloud Infrastruktur sebagai Layanan, manakah dari distribusi tanggung jawab pengelolaan ini yang secara konseptual paling sesuai dipahami? {
+=Vendor merawat komponen rak fisik data center sementara Pelanggan mengendalikan tingkat sistem operasi dan keamanan aplikasinya #Benar! Pada level dasar layanan IaaS pelanggan diwajibkan penuh mengamankan sebagian besar arsitektur mulai dari sistem operasi piranti lunak hingga databasenya sendiri.
+~Pelanggan mengamankan kontrol jaringan dan kabel kabel kelistrikan secara murni dari jarak jauh #Salah. Seluruh aset fisik utilitas fasilitas bangunan selalu dikontrol mutlak sepenuhnya oleh otoritas vendor komputasi di pusat data penyedia awan.
+~Vendor bertanggung jawab sepihak menjaga keutuhan logikal instalasi aplikasi manajemen database internal #Salah. Platform perbaikan perangkat lunak instalasi di IaaS selalu diserahkan penuh secara teknikal mutlak kepada inisiatif operasional klien perusahaan pelanggan.
+~Hak vendor dan pelanggan dibagi rata mengelola piranti lunak end to end karena arsitekturnya sepenuhnya berbasis browser web #Salah. Kondisi operasional via web portal ini lebih mewakili konsep spesifik perancangan pada manajemen siklus produk komputasi perangkat lunak SaaS murni.
+}
+
+::D1-Q80 :: Dalam pengembangan model IDEAL lima tahap untuk mengoptimalkan proses kualitas operasional keamanan, setelah tim menetapkan kerangka alasan bisnis awal maka tahapan aktivitas apa yang akan Anda tuju selanjutnya? {
+=Mendiagnosis #Benar! Analisis model IDEAL memiliki struktur inisiasi awal dilanjutkan secara bertahap menuju pendiagnosaan kondisi kelemahan saat ini untuk membuahkan rekomendasi sasaran yang ideal.
+~Memantapkan #Salah. Fase langkah menetapkan atau establishing baru dapat dieksekusi secara struktural di posisi nomor tiga usai pendiagnosaan masalah kelar dikaji tim operasional.
+~Tindakan #Salah. Fase tindakan atau acting sebagai aplikasi wujud uji operasional rancangan lapangan justru didudukkan di level akhir tahapan ke empat model evaluasi kualitas program ini.
+~Mempelajari #Salah. Proses analisis peninjauan kesuksesan operasional program perbaikan untuk umpan balik pembelajaran selanjutnya merupakan titik penutup terujung prosedur ini.
+}
+
+::D1-Q81 :: Dalam rumus analisis risiko kuantitatif, bagaimana cara menghitung nilai Annualized Loss Expectancy? {
+=Mengalikan Single Loss Expectancy dengan Annualized Rate of Occurrence. #Benar! Rumus ALE adalah hasil perkalian antara SLE dengan ARO.
+~Mengalikan Asset Value dengan Exposure Factor. #Salah. Ini adalah rumus untuk menghitung Single Loss Expectancy.
+~Membagi Total Risk dengan Controls Gap. #Salah. Risiko Total dikurangi Controls Gap menghasilkan Risiko Sisa.
+~Menjumlahkan Asset Value dengan Annualized Rate of Occurrence. #Salah. ALE tidak dihitung dengan penjumlahan melainkan perkalian faktor SLE dan ARO.
+}
+
+::D1-Q82 :: Berdasarkan model pemodelan ancaman STRIDE, ancaman manakah yang merujuk pada modifikasi data secara tidak sah baik saat dalam penyimpanan maupun saat transit? {
+=Tampering. #Benar! Tampering merujuk pada segala tindakan yang menghasilkan modifikasi atau perubahan data secara tidak sah.
+~Spoofing. #Salah. Spoofing adalah serangan dengan tujuan mendapatkan akses melalui penggunaan identitas palsu.
+~Repudiation. #Salah. Repudiation adalah kemampuan pengguna untuk menyangkal tindakannya karena kurangnya bukti log yang memadai.
+~Information Disclosure. #Salah. Information disclosure adalah pengungkapan informasi rahasia kepada pihak yang tidak berwenang.
+}
+
+::D1-Q83 :: Manakah dari fase berikut yang merupakan langkah pertama dalam kerangka kerja Risk Management Framework dari NIST? {
+=Prepare. #Benar! Fase pertama dari kerangka kerja RMF adalah Prepare atau persiapan.
+~Categorize. #Salah. Categorize adalah langkah kedua dalam RMF yang dilakukan setelah fase persiapan.
+~Select. #Salah. Select adalah fase ketiga dalam RMF di mana kontrol keamanan dipilih berdasarkan kategorisasi.
+~Assess. #Salah. Assess adalah fase kelima dalam RMF yang bertujuan untuk menilai efektivitas kontrol.
+}
+
+::D1-Q84 :: Perlindungan kekayaan intelektual manakah di Amerika Serikat yang memberikan perlindungan terhadap karya ekspresi asli yang direkam pada media berwujud dan umumnya berlaku selama tujuh puluh tahun setelah kematian penciptanya? {
+=Hak Cipta. #Benar! Hak cipta melindungi ekspresi perangkat lunak dan karya tertulis selama tujuh puluh tahun setelah penulis terakhir meninggal.
+~Paten. #Salah. Paten melindungi penemuan atau algoritma fungsional dan umumnya berlaku selama dua puluh tahun.
+~Merek Dagang. #Salah. Merek dagang melindungi nama, logo, atau simbol yang merepresentasikan produk di pasar.
+~Rahasia Dagang. #Salah. Rahasia dagang melindungi informasi penting dari publikasi tetapi tidak memiliki batas kedaluwarsa pasti selama tetap dirahasiakan.
+}
+
+::D1-Q85 :: Apa tujuan utama dari implementasi prinsip keamanan pemisahan tugas pada suatu organisasi? {
+=Mencegah satu individu memiliki kendali penuh atas sebuah fungsi kritis sehingga mengharuskan kolusi jika ingin melakukan penipuan. #Benar! Pemisahan tugas mencegah satu orang melakukan operasi kritis secara penuh sehingga mengurangi risiko penipuan internal.
+~Memberikan akses minimum yang diperlukan pengguna untuk melakukan pekerjaan mereka. #Salah. Ini adalah definisi dari prinsip hak istimewa terkecil.
+~Memaksa karyawan untuk mengambil cuti agar penyimpangan dapat terdeteksi. #Salah. Ini adalah definisi dari praktik liburan wajib.
+~Menugaskan beberapa peran berbeda secara bergiliran agar karyawan memahami seluruh operasi bisnis. #Salah. Ini adalah konsep rotasi pekerjaan.
+}
+
+::D1-Q86 :: Di Amerika Serikat, undang undang manakah yang mengharuskan lembaga pemerintah federal untuk menerapkan program keamanan informasi secara komprehensif? {
+=Federal Information Security Management Act. #Benar! FISMA mewajibkan lembaga pemerintah federal untuk mengimplementasikan program keamanan informasi secara menyeluruh.
+~Gramm Leach Bliley Act. #Salah. Aturan ini mengatur tentang perlindungan data pelanggan oleh institusi keuangan dan perbankan.
+~Health Insurance Portability and Accountability Act. #Salah. Aturan ini difokuskan pada kerahasiaan dan keamanan informasi medis.
+~Sarbanes Oxley Act. #Salah. Aturan ini mengatur transparansi pelaporan keuangan perusahaan publik.
+}
+
+::D1-Q87 :: Menurut kanon pertama Kode Etik Profesional ISC2, apa yang menjadi prioritas utama dari setiap profesional keamanan informasi? {
+=Melindungi masyarakat, persemakmuran, dan infrastruktur. #Benar! Kanon pertama ISC2 mewajibkan perlindungan masyarakat dan infrastruktur di atas segalanya.
+~Bertindak secara terhormat, jujur, adil, bertanggung jawab, dan sah menurut hukum. #Salah. Ini adalah kanon kedua yang posisinya berada di bawah perlindungan masyarakat.
+~Memberikan layanan yang rajin dan kompeten kepada atasan. #Salah. Ini adalah kanon ketiga yang posisinya di bawah perlindungan masyarakat dan tindakan terhormat.
+~Memajukan dan melindungi profesi keamanan informasi. #Salah. Ini adalah kanon keempat dan tidak memiliki prioritas di atas keselamatan masyarakat.
+}
+
+::D1-Q88 :: Sebuah organisasi mengalami pelanggaran akibat serangan di mana penjahat menggunakan pesan email yang ditargetkan secara spesifik kepada direktur utama untuk mencuri kredensial. Jenis serangan apakah ini? {
+=Whaling. #Benar! Whaling adalah jenis spear phishing yang dirancang khusus untuk menargetkan individu berprofil tinggi seperti eksekutif tingkat C.
+~Vishing. #Salah. Vishing adalah serangan rekayasa sosial yang menggunakan manipulasi pada panggilan suara atau telepon.
+~Typosquatting. #Salah. Typosquatting memanfaatkan kesalahan pengetikan nama domain oleh korban untuk mengarahkan mereka ke situs palsu.
+~Baiting. #Salah. Baiting memancing korban dengan iming iming sesuatu yang menarik seperti flash drive gratis yang ditinggalkan di tempat umum.
+}
+
+::D1-Q89 :: Dalam melakukan Business Impact Analysis, perusahaan menetapkan waktu maksimal suatu fungsi bisnis dapat dihentikan sebelum menimbulkan kerugian finansial yang tak dapat diperbaiki. Metrik apakah ini? {
+=Maximum Tolerable Downtime. #Benar! Metrik ini mewakili waktu maksimum suatu fungsi bisnis dapat tidak tersedia sebelum menyebabkan kerusakan yang tidak dapat diperbaiki.
+~Recovery Time Objective. #Salah. Target ini adalah batas waktu ideal yang diharapkan untuk menyelesaikan pemulihan sistem secara teknis.
+~Recovery Point Objective. #Salah. Target ini menentukan batasan toleransi kehilangan data historis dari titik cadangan terakhir.
+~Mean Time to Repair. #Salah. Metrik ini adalah perkiraan waktu rata rata yang dibutuhkan untuk memperbaiki perangkat keras yang rusak.
+}
+
+::D1-Q90 :: Jika sebuah perusahaan menolak untuk mengimplementasikan operasi tertentu karena risikonya terlalu besar dan biayanya terlalu tinggi, jenis penanganan risiko apa yang mereka pilih? {
+=Penghindaran Risiko. #Benar! Menghindari risiko berarti organisasi memutuskan untuk tidak melanjutkan aktivitas yang menghasilkan risiko tersebut karena terlalu berbahaya.
+~Pengalihan Risiko. #Salah. Pengalihan risiko berarti mentransfer dampak finansial risiko ke pihak ketiga seperti membeli asuransi keamanan.
+~Mitigasi Risiko. #Salah. Mitigasi berarti tetap melakukan aktivitas tetapi dengan menerapkan kontrol pelindung untuk mengurangi dampak bahayanya.
+~Penerimaan Risiko. #Salah. Menerima risiko berarti perusahaan siap menanggung dampak kerugian dari risiko tersebut secara mandiri jika terjadi.
+}
+
+::D1-Q91 :: Saat Anda menyerahkan bukti log server yang dicetak di atas kertas ke pengadilan selama persidangan kejahatan siber, kategori bukti apakah ini? {
+=Bukti dokumenter. #Benar! Dokumen tertulis atau catatan log yang dibawa ke ruang sidang untuk membuktikan fakta selalu diklasifikasikan sebagai bukti dokumenter.
+~Bukti kesaksian. #Salah. Bukti kesaksian adalah pernyataan lisan yang diberikan secara langsung oleh saksi di bawah sumpah.
+~Bukti lisan. #Salah. Aturan bukti lisan atau parol evidence adalah prinsip hukum yang mencegah modifikasi verbal pada perjanjian tertulis.
+~Bukti demonstratif. #Salah. Bukti demonstratif biasanya berupa model atau diagram untuk mengilustrasikan suatu kondisi rumit kepada juri.
+}
+
+::D1-Q92 :: Dalam keamanan informasi, kontrol yang mengubah lingkungan sistem untuk mengembalikannya ke kondisi normal setelah terjadinya insiden keamanan diklasifikasikan sebagai apa? {
+=Kontrol korektif. #Benar! Kontrol korektif digunakan untuk memodifikasi lingkungan agar kembali ke operasi normal setelah terjadi pelanggaran.
+~Kontrol preventif. #Salah. Kontrol preventif diimplementasikan untuk mencegah atau menghalangi terjadinya insiden sejak sebelum bahaya masuk.
+~Kontrol detektif. #Salah. Kontrol detektif berfungsi untuk menemukan dan mencatat kejadian yang tidak diinginkan namun tidak memperbaikinya.
+~Kontrol kompensasi. #Salah. Kontrol kompensasi bertindak sebagai alternatif jika kontrol utama gagal tetapi bukan untuk memperbaiki komponen yang rusak pasca insiden.
+}
+
+::D1-Q93 :: Nilai properti fasilitas komersial diperkirakan sebesar dua juta dolar. Risiko kebakaran memiliki Exposure Factor sebesar 25 persen. Berapakah nilai Single Loss Expectancy fasilitas tersebut? {
+=500.000 dolar. #Benar! SLE dihitung dengan mengalikan Asset Value sebesar dua juta dolar dengan Exposure Factor sebesar 25 persen sehingga menghasilkan 500.000 dolar.
+~2.000.000 dolar. #Salah. Angka ini murni mewakili nilai keseluruhan aset perusahaan secara total.
+~250.000 dolar. #Salah. Ini adalah hasil perkalian matematika yang keliru karena seperempat dari dua juta adalah 500 ribu.
+~5.000.000 dolar. #Salah. Nilai ekspektasi kerugian tunggal tidak mungkin melampaui nilai total aset itu sendiri.
+}
+
+::D1-Q94 :: Standar manakah yang secara khusus mengatur perlindungan data dan keamanan lingkungan teknologi informasi untuk setiap organisasi yang memproses informasi kartu kredit? {
+=Payment Card Industry Data Security Standard. #Benar! Standar ini dirancang secara khusus untuk melindungi data transaksi perbankan dan data pemegang kartu pembayaran.
+~Health Insurance Portability and Accountability Act. #Salah. Regulasi federal ini difokuskan khusus pada keamanan dan privasi data rekam medis kesehatan.
+~General Data Protection Regulation. #Salah. Aturan komprehensif ini menjaga hak privasi warga Uni Eropa secara umum dan tidak dikhususkan hanya untuk kartu kredit.
+~Control Objectives for Information and Related Technologies. #Salah. Ini adalah kerangka tata kelola teknologi informasi umum yang dibuat oleh ISACA dan bukan perlindungan spesifik kartu bayar.
+}
+
+::D1-Q95 :: Kebijakan yang mewajibkan seorang administrator untuk cuti selama beberapa minggu agar karyawan lain dapat mengambil alih dan mengaudit pekerjaannya dikenal sebagai apa? {
+=Liburan wajib. #Benar! Liburan wajib adalah kontrol administratif untuk mendeteksi penipuan dengan memaksa seseorang meninggalkan pekerjaannya sementara waktu sehingga tidak bisa menutupi jejak manipulasi.
+~Pemisahan tugas. #Salah. Pemisahan tugas membagi kewenangan sebuah tugas pada beberapa orang sehingga tidak ada satu entitas dengan kendali utuh.
+~Rotasi pekerjaan. #Salah. Rotasi pekerjaan memindahkan staf ke departemen lain secara berkala tetapi tidak mewajibkan absen total dari sistem kerja organisasi.
+~Prinsip hak istimewa terkecil. #Salah. Ini adalah prinsip teknis agar entitas hanya menerima tingkat akses minimum untuk bekerja.
+}
+
+::D1-Q96 :: Siapakah pihak di dalam organisasi komersial yang memikul beban tanggung jawab paling akhir dan mutlak secara hukum atas keseluruhan program keamanan informasi? {
+=Manajemen Senior. #Benar! Manajemen senior atau pemimpin eksekutif memiliki tanggung jawab akhir atas keamanan seluruh aset perusahaan dan wajib membuktikan pelaksanaan uji tuntas jika terjadi insiden.
+~Data Custodian. #Salah. Custodian hanya ditugaskan menjalankan aktivitas pemeliharaan harian sesuai dengan klasifikasi keamanan yang ditentukan pemilik data.
+~Chief Information Security Officer. #Salah. Walaupun pejabat ini merancang operasi keamanan tingkat eksekutif tertinggi, yang menanggung beban hukum mutlak adalah manajemen senior.
+~Auditor Keamanan. #Salah. Auditor memastikan dan memverifikasi kepatuhan sistem terhadap regulasi namun tidak pernah mengambil alih mandat risiko hukum organisasi.
+}
+
+::D1-Q97 :: Dalam hierarki dokumen manajemen keamanan, jenis dokumen manakah yang memberikan instruksi taktis spesifik dan mendetail mengenai implementasi langkah demi langkah sebuah sistem teknis? {
+=Prosedur. #Benar! Prosedur berisi pedoman teknis operasional yang merinci tindakan dari awal hingga akhir dalam mengkonfigurasi atau merawat suatu kontrol.
+~Kebijakan. #Salah. Kebijakan adalah dokumen tata kelola tingkat tinggi yang menyatakan tujuan strategis organisasi tanpa mencakup langkah teknis rinci.
+~Pedoman. #Salah. Pedoman hanya berisi rekomendasi praktik terbaik yang bersifat opsional dan fleksibel bukan instruksi eksekusi langkah demi langkah yang diwajibkan.
+~Standar. #Salah. Standar mewajibkan penggunaan perangkat keras lunak yang seragam dan konsisten tetapi tidak berisi langkah operasional cara menggunakannya.
+}
+
+::D1-Q98 :: Dalam konteks akuisisi dan penggabungan perusahaan, kerentanan apakah yang sering muncul ketika pihak manajemen gagal meninjau arsitektur keamanan perusahaan target sebelum kesepakatan ditutup? {
+=Risiko bawaan terkait penggabungan arsitektur teknologi yang tidak kompatibel atau yang memiliki banyak celah keamanan. #Benar! Akuisisi perusahaan membawa risiko keamanan sangat tinggi jika uji tuntas tidak dilakukan untuk menilai integritas infrastruktur pihak target penggabungan.
+~Terjadinya penurunan mendadak atas nilai tukar saham di bursa publik karena pemberitaan penggabungan. #Salah. Penurunan nilai tukar saham merupakan risiko finansial murni dan bukan secara spesifik tergolong risiko kerentanan operasional arsitektur teknologi.
+~Hilangnya hak kekayaan intelektual perusahaan target secara otomatis akibat berlakunya undang undang persaingan sehat. #Salah. Regulasi privasi atau pasar tidak secara otomatis membatalkan seluruh hak paten akibat kegagalan evaluasi arsitektur keamanan.
+~Pelanggaran kontrak perjanjian kerahasiaan sepihak yang secara mutlak ditandatangani oleh auditor keamanan internal. #Salah. Pelanggaran pembocoran rahasia NDA berkaitan dengan kejahatan staf bukan secara langsung mengenai arsitektur sistem operasi yang rentan dieksploitasi.
+}
+
+::D1-Q99 :: Kategori hukum manakah yang menangani sengketa terkait gugatan kerugian dan pemberian kompensasi finansial antar individu atau organisasi tanpa melibatkan sanksi pidana penjara secara langsung? {
+=Hukum Perdata. #Benar! Hukum perdata berfokus pada penyelesaian sengketa dengan memberikan kompensasi finansial untuk kerugian yang diderita tanpa menuntut kurungan sel.
+~Hukum Pidana. #Salah. Hukum pidana mengatur aturan tata tertib perlindungan masyarakat luas dan instrumen sanksi utamanya meliputi kurungan penjara.
+~Hukum Administratif. #Salah. Hukum administratif menetapkan kebijakan standar operasional dan denda tata tertib oleh lembaga eksekutif atau pengatur pemerintahan.
+~Hukum Internasional. #Salah. Hukum internasional murni mengatur hubungan diplomatik antar negara berdaulat dan bukan landasan utama sistem ganti rugi kerugian domestik.
+}
+
+::D1-Q100 :: Menurut pedoman klasifikasi fasilitas pemerintah Amerika Serikat, label data apa yang jika dibocorkan secara tidak sah dapat diperkirakan secara wajar akan menyebabkan kerusakan sangat parah pada keamanan nasional? {
+=Top Secret. #Benar! Tingkat klasifikasi ini secara eksplisit ditetapkan untuk informasi yang jika diungkapkan tanpa wewenang dapat menyebabkan kerusakan luar biasa parah bagi keamanan negara.
+~Secret. #Salah. Kebocoran informasi pada tingkat Secret hanya diindikasikan berpotensi menyebabkan kerusakan serius namun tingkatannya berada di bawah label tertinggi yang sangat parah.
+~Confidential. #Salah. Kebocoran data berlabel Confidential diprediksi dapat menyebabkan kerusakan biasa pada keamanan nasional dan merupakan level rahasia paling bawah.
+~Unclassified. #Salah. Unclassified merujuk murni pada data publik yang dapat diminta secara bebas dan tidak menyebabkan kerusakan sama sekali pada pemerintah jika dipublikasikan.
+}
